@@ -2,20 +2,26 @@ import React from 'react';
 
 class Login extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       username: '',
-      email: '',
       password: ''
-    }
+    };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
   }
 
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
     };
+  }
+
+  handleErrors() {
+    return (
+      this.props.errors.map(error => <ul>{error}</ul>)
+    )
   }
 
   handleSubmit(e) {
@@ -25,9 +31,11 @@ class Login extends React.Component {
   }
 
   render() {
+    
     return (
       <div className="session-form">
         <h2>Log In</h2>
+        { this.handleErrors() }
         <form>
           <label>Username:
             <input
@@ -35,12 +43,12 @@ class Login extends React.Component {
               value={this.state.username}
               onChange={this.handleInput('username')} />
           </label>
-          <label>Email:
+          {/* <label>Email:
             <input
               type="text"
               value={this.state.email}
               onChange={this.handleInput('email')} />
-          </label>
+          </label> */}
           <label>Password:
             <input
               type="password"

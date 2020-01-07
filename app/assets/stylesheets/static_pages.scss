@@ -3,9 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #DAE0E6;
 }
 
 .header {
+  background-color: #FFF;
   display: flex;
   align-items: center;
   width: 100%;
@@ -32,7 +34,7 @@ body {
  .logo {
    display: flex;
    padding: 5px;
-   padding-top: 3px;
+   padding-top: 4px;
    padding-left: 10px;
    align-items: center;
    margin-bottom: -1px;
@@ -83,11 +85,37 @@ body {
   border-radius: 4px;
 }
 
+.user-dropdown {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid var(--newCommunityTheme-line);
+  border-radius: 4px;
+  margin-right: 5px;
+  padding-right: 5px;
+}
+
+.user-dropdown img {
+  width: 25px;
+  height: 25px;
+}
+
+.temp {
+  display: block;
+  min-height: 39px;
+  width: 100%;
+  background-color: #FFF;
+}
+
+.errors {
+  color: red;
+}
+
 @media (min-width: 800px){
   .btn {
      padding: 3px 2.8em 3px;
   }
 }
+
 
 :root {
     --newCommunityTheme-actionIcon: #878A8C;
