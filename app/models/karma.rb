@@ -1,0 +1,2 @@
+class Karma < ApplicationRecord
+end
