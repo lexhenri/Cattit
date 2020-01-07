@@ -1,9 +1,71 @@
 // Place all the styles related to the staticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
 
-.nav {
-   background-color: lightgray;
- };
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+ }
+
+ .logo {
+   display: flex;
+   padding: 5px;
+   padding-left: 10px;
+   align-items: center;
+ }
+
+ .logo.top-logo {
+   height: 32px;
+ }
+
+ .logo.top-text {
+   padding-left: 2px;
+   height: 18px;
+ }
+
+ .header .top-buttons {
+   display: flex;
+ }
+
+ .btn.login {
+  color: #0079d3;
+  background-color: white;
+  border: 1px solid #0079d3;
+ }
+
+ .btn.signup {
+   color: white;
+   background-color: #0079d3;
+ }
+
+ .btn {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  padding: 3px 2.2em 3px;
+  font-size: 12px;
+  font-weight: 690;
+  margin: 0 5px;
+  border-radius: 4px;
+}
+
+@media (min-width: 800px){
+  .btn {
+     padding: 3px 2.8em 3px;
+  }
+}
+
+
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_013929) do
+ActiveRecord::Schema.define(version: 2020_01_07_014427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 2020_01_07_013929) do
     t.index ["subbed_cattits_id"], name: "index_feeds_on_subbed_cattits_id"
     t.index ["subbed_users_id"], name: "index_feeds_on_subbed_users_id"
     t.index ["user_id"], name: "index_feeds_on_user_id", unique: true
+  end
+
+  create_table "karmas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
