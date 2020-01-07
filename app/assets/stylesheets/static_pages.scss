@@ -11,13 +11,31 @@ body {
   width: 100%;
   justify-content: space-between;
   overflow: hidden;
+  height: 32px;
+  padding: 8px;
+  padding-left: 0;
+  line-height: 16px;
+  border-bottom: 1px solid var(--newCommunityTheme-line);
+
+ }
+
+ .header .top-buttons {
+   display: flex;
+   margin-bottom: -1px;
+   border-left: 1px solid var(--newCommunityTheme-line);
+   margin-left: 8px;
+   padding-left: 8px;
+   margin-right: 5px;
+   padding-right: 5px;
  }
 
  .logo {
    display: flex;
    padding: 5px;
+   padding-top: 3px;
    padding-left: 10px;
    align-items: center;
+   margin-bottom: -1px;
  }
 
  .logo.top-logo {
@@ -25,12 +43,8 @@ body {
  }
 
  .logo.top-text {
-   padding-left: 2px;
+   padding-left: 3px;
    height: 18px;
- }
-
- .header .top-buttons {
-   display: flex;
  }
 
  .btn.login {
@@ -44,6 +58,15 @@ body {
    background-color: #0079d3;
  }
 
+ .btn.login:hover {
+   color: rgba(0,121,211,0.5);
+   border: 1px solid rgba(0,121,211,0.7);
+ }
+
+ .btn.signup:hover{
+   background-color:rgba(0,121,211,0.5);
+ }
+
  .btn {
   display: block;
   box-sizing: border-box;
@@ -55,7 +78,7 @@ body {
   line-height: 24px;
   padding: 3px 2.2em 3px;
   font-size: 12px;
-  font-weight: 690;
+  font-weight: 700;
   margin: 0 5px;
   border-radius: 4px;
 }
@@ -66,6 +89,239 @@ body {
   }
 }
 
-
+:root {
+    --newCommunityTheme-actionIcon: #878A8C;
+    --newCommunityTheme-actionIconAlpha50: rgba(135,138,140,0.5);
+    --newCommunityTheme-actionIconShaded80: #6c6e70;
+    --newCommunityTheme-active: #0079D3;
+    --newCommunityTheme-activeAlpha10: rgba(0,121,211,0.1);
+    --newCommunityTheme-activeAlpha50: rgba(0,121,211,0.5);
+    --newCommunityTheme-activeLight60: #33a8ff;
+    --newCommunityTheme-activeTinted05: #f2f8fc;
+    --newCommunityTheme-backgroundImage: initial;
+    --newCommunityTheme-backgroundImagePosition: cover;
+    --newCommunityTheme-banner-backgroundColor: #33a8ff;
+    --newCommunityTheme-banner-backgroundImage: initial;
+    --newCommunityTheme-banner-backgroundImagePosition: cover;
+    --newCommunityTheme-banner-communityNameFormat: slashtag;
+    --newCommunityTheme-banner-height: 64;
+    --newCommunityTheme-banner-iconColor: #0079D3;
+    --newCommunityTheme-banner-iconDimensions-borderRadius: 24;
+    --newCommunityTheme-banner-iconDimensions-customSize: 32;
+    --newCommunityTheme-banner-iconDimensions-padding: 6;
+    --newCommunityTheme-banner-iconDimensions-size: 24;
+    --newCommunityTheme-banner-iconImage: initial;
+    --newCommunityTheme-banner-lineHeight: 38;
+    --newCommunityTheme-banner-positionedImage: initial;
+    --newCommunityTheme-banner-positionedImageAlignment: left;
+    --newCommunityTheme-banner-positionedImageHeight: 48;
+    --newCommunityTheme-banner-secondaryBannerPositionedImage: initial;
+    --newCommunityTheme-body: #FFFFFF;
+    --newCommunityTheme-bodyAlpha50: rgba(255,255,255,0.5);
+    --newCommunityTheme-bodyAlpha80: rgba(255,255,255,0.8);
+    --newCommunityTheme-bodyFade: #FFFFFF00;
+    --newCommunityTheme-bodyShaded80: #ccc;
+    --newCommunityTheme-bodyText: #1c1c1c;
+    --newCommunityTheme-bodyTextAlpha03: rgba(28,28,28,0.03);
+    --newCommunityTheme-bodyTextAlpha20: rgba(28,28,28,0.2);
+    --newCommunityTheme-bodyTextShaded20: #050505;
+    --newCommunityTheme-bodyTextTinted20: #d1d1d1;
+    --newCommunityTheme-bodyTinted50: #fff;
+    --newCommunityTheme-bodyTinted80: #fff;
+    --newCommunityTheme-button: #0079D3;
+    --newCommunityTheme-buttonAlpha05: rgba(0,121,211,0.05);
+    --newCommunityTheme-buttonAlpha10: rgba(0,121,211,0.1);
+    --newCommunityTheme-buttonAlpha20: rgba(0,121,211,0.2);
+    --newCommunityTheme-buttonAlpha40: rgba(0,121,211,0.4);
+    --newCommunityTheme-buttonAlpha50: rgba(0,121,211,0.5);
+    --newCommunityTheme-buttonAlpha80: rgba(0,121,211,0.8);
+    --newCommunityTheme-buttonShaded80: #0060a8;
+    --newCommunityTheme-buttonTinted20: #cce4f6;
+    --newCommunityTheme-buttonTinted50: #7fbce9;
+    --newCommunityTheme-buttonTinted80: #3293db;
+    --newCommunityTheme-canvas: #DAE0E6;
+    --newCommunityTheme-canvasImgPosition: cover;
+    --newCommunityTheme-canvasImgUrl: initial;
+    --newCommunityTheme-errorText: #FF0000;
+    --newCommunityTheme-field: #F6F7F8;
+    --newCommunityTheme-fieldFade: #F6F7F800;
+    --newCommunityTheme-flair: #EDEFF1;
+    --newCommunityTheme-highlight: #e5f1fa;
+    --newCommunityTheme-inactive: #EDEFF1;
+    --newCommunityTheme-lightText: #FFFFFF;
+    --newCommunityTheme-lightTextAlpha75: rgba(255,255,255,0.75);
+    --newCommunityTheme-line: #EDEFF1;
+    --newCommunityTheme-lineShadedNinety: #d5d7d8;
+    --newCommunityTheme-linkText: #0079D3;
+    --newCommunityTheme-linkTextAlpha80: rgba(0,121,211,0.5);
+    --newCommunityTheme-linkTextShaded80: #0060a8;
+    --newCommunityTheme-linkTextTinted80: #3293db;
+    --newCommunityTheme-linkTextWithBody: #3f9ade;
+    --newCommunityTheme-menu: #FFFFFF;
+    --newCommunityTheme-menuActiveText: #0079D3;
+    --newCommunityTheme-menuInactiveText: #0079D3;
+    --newCommunityTheme-metaText: #7c7c7c;
+    --newCommunityTheme-monospaceColor: #FF006D;
+    --newCommunityTheme-navBar-activeLink: #0079D3;
+    --newCommunityTheme-navBar-activeSubmenuCaret: #0079D3;
+    --newCommunityTheme-navBar-activeSubmenuLink: #0079D3;
+    --newCommunityTheme-navBar-backgroundColor: #dbf0ff;
+    --newCommunityTheme-navBar-backgroundImage: initial;
+    --newCommunityTheme-navBar-hoverLink: #0079D3;
+    --newCommunityTheme-navBar-inactiveLink: #0079D3;
+    --newCommunityTheme-navBar-inactiveSubmenuCaret: #33a8ff;
+    --newCommunityTheme-navBar-inactiveSubmenuLink: #33a8ff;
+    --newCommunityTheme-navBar-submenuBackgroundColor: #dbf0ff;
+    --newCommunityTheme-navIcon: #1A1A1B;
+    --newCommunityTheme-navIconFaded10: rgba(26,26,27,0.1);
+    --newCommunityTheme-pageHeader: #0079D3;
+    --newCommunityTheme-placeholder: #d6d6d6;
+    --newCommunityTheme-placeholderImage: initial;
+    --newCommunityTheme-placeholderImagePosition: cover;
+    --newCommunityTheme-post: #FFFFFF;
+    --newCommunityTheme-postError: #ffe5e5;
+    --newCommunityTheme-postFlairText: #1A1A1B;
+    --newCommunityTheme-postIcon: #898989;
+    --newCommunityTheme-postLine: #ccc;
+    --newCommunityTheme-postTinted20: #fff;
+    --newCommunityTheme-postTransparent20: rgba(255,255,255,0.8);
+    --newCommunityTheme-primaryButtonShadedEighty: #0060a8;
+    --newCommunityTheme-primaryButtonTintedEighty: #3293db;
+    --newCommunityTheme-primaryButtonTintedFifty: #7fbce9;
+    --newCommunityTheme-primaryButtonTintedSixty: #66aee4;
+    --newCommunityTheme-report: #fff7e5;
+    --newCommunityTheme-textTransparentizedEighty: rgba(26,26,27,0.2);
+    --newCommunityTheme-titleText: #222222;
+    --newCommunityTheme-voteIcons-downvoteActive: initial;
+    --newCommunityTheme-voteIcons-downvoteInactive: initial;
+    --newCommunityTheme-voteIcons-upvoteActive: initial;
+    --newCommunityTheme-voteIcons-upvoteInactive: initial;
+    --newCommunityTheme-voteText-base: #898989;
+    --newCommunityTheme-voteText-downvote: #7193FF;
+    --newCommunityTheme-voteText-downvoteShaded80: #5a75cc;
+    --newCommunityTheme-voteText-downvoteTinted80: #8da8ff;
+    --newCommunityTheme-voteText-upvote: #FF4500;
+    --newCommunityTheme-voteText-upvoteShaded80: #cc3700;
+    --newCommunityTheme-voteText-upvoteTinted80: #ff6a32;
+    --newCommunityTheme-widgetColors-lineColor: rgba(26,26,27,0.07);
+    --newCommunityTheme-widgetColors-sidebarWidgetBackgroundColor: #FFFFFF;
+    --newCommunityTheme-widgetColors-sidebarWidgetHeaderColor: #FFFFFF;
+    --newCommunityTheme-widgetColors-sidebarWidgetHeaderColorAlpha60: rgba(255,255,255,0.6);
+    --newCommunityTheme-widgetColors-sidebarWidgetTextColor: #1A1A1B;
+    --newCommunityTheme-widgetColors-sidebarWidgetTextColorShaded80: #141415;
+    --newCommunityTheme-widgetColors-sidebarWidgetTitleColor: #1A1A1B;
+    --newRedditTheme-actionIcon: #878A8C;
+    --newRedditTheme-actionIconAlpha50: rgba(135,138,140,0.5);
+    --newRedditTheme-actionIconShaded80: #6c6e70;
+    --newRedditTheme-active: #24A0ED;
+    --newRedditTheme-activeAlpha10: rgba(36,160,237,0.1);
+    --newRedditTheme-activeAlpha50: rgba(36,160,237,0.5);
+    --newRedditTheme-activeLight60: #42adf0;
+    --newRedditTheme-activeTinted05: #f4fafe;
+    --newRedditTheme-banner-backgroundColor: #24A0ED;
+    --newRedditTheme-banner-backgroundImage: initial;
+    --newRedditTheme-banner-backgroundImagePosition: cover;
+    --newRedditTheme-banner-communityNameFormat: slashtag;
+    --newRedditTheme-banner-height: 64;
+    --newRedditTheme-banner-iconColor: #24A0ED;
+    --newRedditTheme-banner-iconDimensions-borderRadius: 24;
+    --newRedditTheme-banner-iconDimensions-customSize: 32;
+    --newRedditTheme-banner-iconDimensions-padding: 6;
+    --newRedditTheme-banner-iconDimensions-size: 24;
+    --newRedditTheme-banner-iconImage: initial;
+    --newRedditTheme-banner-lineHeight: 38;
+    --newRedditTheme-banner-positionedImage: initial;
+    --newRedditTheme-banner-positionedImageAlignment: cover;
+    --newRedditTheme-banner-positionedImageHeight: 48;
+    --newRedditTheme-banner-secondaryBannerPositionedImage: initial;
+    --newRedditTheme-body: #FFFFFF;
+    --newRedditTheme-bodyAlpha50: rgba(255,255,255,0.5);
+    --newRedditTheme-bodyAlpha80: rgba(255,255,255,0.8);
+    --newRedditTheme-bodyFade: #FFFFFF00;
+    --newRedditTheme-bodyShaded80: #ccc;
+    --newRedditTheme-bodyText: #1c1c1c;
+    --newRedditTheme-bodyTextAlpha03: rgba(28,28,28,0.03);
+    --newRedditTheme-bodyTextAlpha20: rgba(28,28,28,0.2);
+    --newRedditTheme-bodyTextShaded20: #050505;
+    --newRedditTheme-bodyTextTinted20: #d1d1d1;
+    --newRedditTheme-bodyTinted50: #fff;
+    --newRedditTheme-bodyTinted80: #fff;
+    --newRedditTheme-button: #0079D3;
+    --newRedditTheme-buttonAlpha05: rgba(0,121,211,0.05);
+    --newRedditTheme-buttonAlpha10: rgba(0,121,211,0.1);
+    --newRedditTheme-buttonAlpha20: rgba(0,121,211,0.2);
+    --newRedditTheme-buttonAlpha40: rgba(0,121,211,0.4);
+    --newRedditTheme-buttonAlpha50: rgba(0,121,211,0.5);
+    --newRedditTheme-buttonAlpha80: rgba(0,121,211,0.8);
+    --newRedditTheme-buttonShaded80: #0060a8;
+    --newRedditTheme-buttonTinted20: #cce4f6;
+    --newRedditTheme-buttonTinted50: #7fbce9;
+    --newRedditTheme-buttonTinted80: #3293db;
+    --newRedditTheme-canvas: #DAE0E6;
+    --newRedditTheme-errorText: #FF0000;
+    --newRedditTheme-field: #F6F7F8;
+    --newRedditTheme-fieldFade: #F6F7F800;
+    --newRedditTheme-flair: #EDEFF1;
+    --newRedditTheme-highlight: #e9f5fd;
+    --newRedditTheme-inactive: #EDEFF1;
+    --newRedditTheme-lightText: #FFFFFF;
+    --newRedditTheme-lightTextAlpha75: rgba(255,255,255,0.75);
+    --newRedditTheme-line: #EDEFF1;
+    --newRedditTheme-linkText: #0079D3;
+    --newRedditTheme-linkTextAlpha80: rgba(0,121,211,0.5);
+    --newRedditTheme-linkTextShaded80: #0060a8;
+    --newRedditTheme-linkTextTinted80: #3293db;
+    --newRedditTheme-linkTextWithBody: #3f9ade;
+    --newRedditTheme-menu: #FFFFFF;
+    --newRedditTheme-menuActiveText: #0079D3;
+    --newRedditTheme-menuInactiveText: #0079D3;
+    --newRedditTheme-metaText: #7c7c7c;
+    --newRedditTheme-metaTextAlpha50: rgba(120,124,126,0.5);
+    --newRedditTheme-metaTextShaded80: #606364;
+    --newRedditTheme-monospaceColor: #FF006D;
+    --newRedditTheme-navBar-activeLink: #E9F5FD;
+    --newRedditTheme-navBar-activeSubmenuCaret: #24A0ED;
+    --newRedditTheme-navBar-activeSubmenuLink: #24A0ED;
+    --newRedditTheme-navBar-backgroundColor: #24A0ED;
+    --newRedditTheme-navBar-backgroundImage: initial;
+    --newRedditTheme-navBar-hoverLink: #E9F5FD;
+    --newRedditTheme-navBar-inactiveLink: #EDEFF1;
+    --newRedditTheme-navBar-inactiveSubmenuCaret: #42adf0;
+    --newRedditTheme-navBar-inactiveSubmenuLink: #42adf0;
+    --newRedditTheme-navBar-submenuBackgroundColor: #def1fc;
+    --newRedditTheme-navIcon: #1A1A1B;
+    --newRedditTheme-navIconFaded10: rgba(26,26,27,0.1);
+    --newRedditTheme-pageHeader: #0079D3;
+    --newRedditTheme-placeholder: #d6d6d6;
+    --newRedditTheme-post: #FFFFFF;
+    --newRedditTheme-postError: #ffe5e5;
+    --newRedditTheme-postFlairText: #1A1A1B;
+    --newRedditTheme-postIcon: #898989;
+    --newRedditTheme-postLine: #ccc;
+    --newRedditTheme-postTinted20: #fff;
+    --newRedditTheme-postTransparent20: rgba(255,255,255,0.8);
+    --newRedditTheme-report: #fff7e5;
+    --newRedditTheme-titleText: #1A1A1B;
+    --newRedditTheme-voteIcons-downvoteActive: initial;
+    --newRedditTheme-voteIcons-downvoteInactive: initial;
+    --newRedditTheme-voteIcons-upvoteActive: initial;
+    --newRedditTheme-voteIcons-upvoteInactive: initial;
+    --newRedditTheme-voteText-base: #898989;
+    --newRedditTheme-voteText-downvote: #7193FF;
+    --newRedditTheme-voteText-downvoteShaded80: #5a75cc;
+    --newRedditTheme-voteText-downvoteTinted80: #8da8ff;
+    --newRedditTheme-voteText-upvote: #FF4500;
+    --newRedditTheme-voteText-upvoteShaded80: #cc3700;
+    --newRedditTheme-voteText-upvoteTinted80: #ff6a32;
+    --newRedditTheme-widgetColors-lineColor: rgba(26,26,27,0.07);
+    --newRedditTheme-widgetColors-sidebarWidgetBackgroundColor: #FFFFFF;
+    --newRedditTheme-widgetColors-sidebarWidgetHeaderColor: #FFFFFF;
+    --newRedditTheme-widgetColors-sidebarWidgetHeaderColorAlpha60: rgba(255,255,255,0.6);
+    --newRedditTheme-widgetColors-sidebarWidgetTextColor: #1A1A1B;
+    --newRedditTheme-widgetColors-sidebarWidgetTextColorShaded80: #141415;
+    --newRedditTheme-widgetColors-sidebarWidgetTitleColor: #1A1A1B;
+    --subredditContext-isCommentsPage: initial;
+    --subredditContext-isOverlay: initial;
+}
 
 

@@ -4,6 +4,7 @@ import LoginContainer from '../components/session/login_container';
 import GreetingContainer from './top_nav/top_nav_container';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Favicon from 'react-favicon';
 
 const App = () => (
   <div>
