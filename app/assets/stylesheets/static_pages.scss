@@ -4,6 +4,7 @@
 body {
   font-family: 'IBM Plex Sans', sans-serif;
   background-color: #DAE0E6;
+  overflow-x: hidden;
 }
 
 .header {
@@ -12,7 +13,8 @@ body {
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   height: 32px;
   padding: 8px;
   padding-left: 0;
@@ -104,7 +106,6 @@ body {
   min-height: 39px;
   width: 100%;
   background-color: #FFF;
-  overflow: hidden;
 }
 
 .errors {
