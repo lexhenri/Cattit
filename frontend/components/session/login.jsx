@@ -20,9 +20,13 @@ class Login extends React.Component {
   }
 
   handleErrors() {
+    const errorCSS = `.text-input:focus { border-color: #ea0027; }`
     //some jquery shit here to remove and add stuff when cleared 
     return (
-      this.props.errors.map(error => <ul key={error}>{error}</ul>)
+      <ul>
+        {this.props.errors.map(error => <ul key={error}>{error}</ul> ) }
+        {this.props.errors.map(error => error ? <style>{errorCSS}</style> : null ) }
+      </ul>
     )
   }
 
@@ -37,7 +41,6 @@ class Login extends React.Component {
     return (
       
       <div>
-        
         <form className="session-form">
           <h2 className="title">Sign in</h2>
           <div className="float-container">
@@ -51,7 +54,7 @@ class Login extends React.Component {
               required />
           </div>
 
-          <div className="error">{this.handleErrors()}</div>
+          <div className="error"> {this.handleErrors()} </div>
           {/* <label>Email:
             <input
               type="text"
