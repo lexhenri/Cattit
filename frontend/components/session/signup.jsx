@@ -22,9 +22,13 @@ class Signup extends React.Component {
   }
 
   handleErrors() {
+    const errorCSS = `.text-input:focus { border-color: #ea0027; }`
     //some jquery shit here to remove and add stuff when cleared 
     return (
-      this.props.errors.map(error => <ul key={error}>{error}</ul>)
+      <ul>
+        {this.props.errors.map(error => <ul key={error}>{error}</ul>)}
+        {this.props.errors.map(error => error ? <style>{errorCSS}</style> : null)}
+      </ul>
     )
   }
 
@@ -57,7 +61,7 @@ class Signup extends React.Component {
               value={this.state.email}
               onChange={this.handleInput('email')} />
           </div>
-          <div className="error">{this.handleErrors()}</div>
+          
           <div className="float-container">
           <label className="float-text" htmlFor="createPassword">Password</label>
             <input
@@ -67,6 +71,7 @@ class Signup extends React.Component {
               value={this.state.password}
               onChange={this.handleInput('password')} />
          </div>
+          <div className="error">{this.handleErrors()}</div>
           <button className="submit-btn" onClick={this.handleSubmit}>Sign up</button>
         </form>
         <div className="bottom-text">
