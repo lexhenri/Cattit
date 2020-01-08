@@ -112,12 +112,24 @@ body {
   color: red;
 }
 
+.modal-btn {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  right: 5px;
+  left: 95%;
+  top: 5px;
+}
+
 .modal-background {
+  height: 500px;
+  width: 500px;
   position: fixed;
-  top: 0;
+  top: 50;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 50;
+  transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.7);
   z-index: 10;
 }
