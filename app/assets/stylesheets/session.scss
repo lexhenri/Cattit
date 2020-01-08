@@ -13,6 +13,16 @@ svg.modal-btn {
 }
 
 .modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  // background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-inner {
   display: flex;
   height: 500px;
   width: 500px;
@@ -24,7 +34,7 @@ svg.modal-btn {
   transform: translate(-50%, -50%);
   background: #FFF;
   border-radius: 4px;
-  z-index: 10;
+  z-index: 12;
   box-sizing: border-box;
   font-size: 14px;
   font-weight: 500;
@@ -53,34 +63,166 @@ svg.modal-btn {
   flex-direction: column;
   display: block;
   padding: 24px;
+  padding-left: 0px;
+  // margin-left: 0px;
   min-width: 260px;
   max-width: 440px;
   box-sizing: border-box;
   height: 445px;
-}
-
-.modal-col-2 {
-  display: flex;
-  flex-direction: column;
- 
-}
-
-.login-logo {
-   display: block;
-    width: 40px;
-    height: 40px;
-    content: url(https://www.redditstatic.com/accountmanager/18e257d….svg);
-    margin-bottom: 8px;
-}
-
-.session-container {
-  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin: 12px 12px 10px;
+}
+
+.submit-btn {
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 155px;
+  height: 35px;
+  background-color: #0079d3;
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .5px;
+  line-height: unset;
+  padding: 1px 7px 2px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  outline: 0;
+  min-width: 155px;
+  transition: color .01s ease-in,text-indent .25s ease-in,opacity .25s ease-in;
+  cursor: pointer;
+  // margin: 22px 12px 10px;
+}
+
+.submit-btn:hover {
+  background-color:rgba(0,121,211,0.5);
+}
+
+.modal-logo {
+  display: flex;
+  margin: 0;
+}
+
+.login-logo {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  // content: url(https://www.redditstatic.com/accountmanager/18e257d….svg);
+}
+
+.session-container {
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .session-form {
+  margin: 0;
+  padding: 0;
+}
+
+.session-form-container {
   display: flex;
+}
+
+.float-container {
+  position: relative;
+  margin: 12px;
+  margin-left: 0;
+}
+
+.float-container input {
+  border: none;
+  outline: 0;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 4px;
+  width: 392px;
+  margin-bottom: 10px;
+  padding-right: 36px;
+}
+
+.float-container input:after {
+  border: 1px solid rgb(36, 160, 237);
+  content: "\2022";
+  color: #24a0ed;
+}
+label {
+  position: absolute;
+  font-size: 10px;
+}
+
+.float-text {
+  transform: translate3d(0,-8px,0) scale(.83333333);
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: #a5a4a4;
+  text-transform: uppercase;
+  transform-origin: 0 50%;
+  transition: all .2s ease-in-out;
+  pointer-events: none;
+  z-index: 12px;
+  top: 14px;
+  left: 12px;
+}
+
+.text-input {
+  font-family: Noto Sans,sans-serif;
+  font-size: 14px;
+  background-color: rgb(232, 240, 254) !important;
+  background-image: none !important;
+  color: -internal-light-dark-color(black, white) !important;
+  padding-right: 36px;
+  border-color: #24a0ed;
+  outline: 0;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: all .2s ease-in-out;
+  padding: 22px 12px 10px;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 4px;
+  background-color: #fcfcfb;
+}
+
+
+
+
+.input-valid {
+  padding-right: 36px;
+  border-color: #24a0ed;
+}
+
+.hideable {
+    max-height: 1000px;
+    opacity: 1;
+    transition: opacity .25s ease-in;
+}
+
+.bottom-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.bottom-text a {
+  color: #0079d3;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.small-signup {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  font-weight: 700;
 }

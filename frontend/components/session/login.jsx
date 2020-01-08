@@ -19,6 +19,7 @@ class Login extends React.Component {
   }
 
   handleErrors() {
+    //some jquery shit here to remove and add stuff when cleared 
     return (
       this.props.errors.map(error => <ul>{error}</ul>)
     )
@@ -33,30 +34,40 @@ class Login extends React.Component {
   render() {
     
     return (
-      <div className="session-form">
-        <h2>Log In</h2>
+      <div>
         { this.handleErrors() }
-        <form>
-          <label>Username:
+        <form className="session-form">
+          <h2 className="title">Sign in</h2>
+          <div className="float-container">
+            <label className="float-text" htmlFor="loginUsername">Username</label>
             <input
+              id="loginUsername"
+              className="text-input"
               type="text"
               value={this.state.username}
               onChange={this.handleInput('username')} />
-          </label>
+          </div>
           {/* <label>Email:
             <input
               type="text"
               value={this.state.email}
               onChange={this.handleInput('email')} />
           </label> */}
-          <label>Password:
+          <div className="float-container">
+          <label className="float-text" htmlFor="loginPassword">Password</label>
             <input
+              className="text-input"
               type="password"
               value={this.state.password}
               onChange={this.handleInput('password')} />
-          </label>
-          <button className="btn signup" onClick={this.handleSubmit}>Sign In</button>
+      
+          </div>
+          <button className="submit-btn" onClick={this.handleSubmit}>Sign in</button>
         </form>
+        <div className="bottom-text">
+          <a href="https://github.com/minibells">Github</a>  ·  <a href="https://github.com/minibells">Temp</a>
+          <p>New to Cattit? <a href="#" className="small-signup" onClick={() => this.props.openModal('signup')}>Sign Up</a></p>
+        </div>
       </div>
     );
   }

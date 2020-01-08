@@ -5,7 +5,7 @@ import { login } from '../../actions/session';
 import { openModal, closeModal } from '../../actions/modal';
 
 const mapStateToProps = (state, ownProps) => ({
-  errors: state.errors.sessionErrors 
+  errors: state.errors.sessionErrors
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -15,7 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       Signup
       </button>
   ),
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

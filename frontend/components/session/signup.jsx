@@ -28,14 +28,18 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="session-form">
-        <h2>Sign Up</h2>
-        <form>
-          <label>Username:
+        <h2 className="title">By having a Cattit account, you can play, meow, and yowl opinions on all your favorite Cattit content.</h2>
+        <form className="session-form">
+          <div className="float-container">
+          <label className="float-text" htmlFor="createEmail">Email</label>
             <input
+              id="createEmail"
+              className="text-input"
               type="text"
               value={this.state.username}
               onChange={this.handleInput('username')} />
-          </label>
+          </div>
+{/*       
           <label>Email:
             <input
               type="text"
@@ -47,9 +51,12 @@ class Signup extends React.Component {
               type="password"
               value={this.state.password}
               onChange={this.handleInput('password')} />
-          </label>
-          <button className="btn signup" onClick={this.handleSubmit}>Sign up!</button>
+          </label> */}
+          <button className="submit-btn" onClick={this.handleSubmit}>Sign up</button>
         </form>
+        <div className="bottom-text">
+          <p>Already a Cattitor? <a href="#" className="small-signup" onClick={() => this.props.openModal('login')}>Log in</a></p>
+        </div>
       </div>
     );
   }

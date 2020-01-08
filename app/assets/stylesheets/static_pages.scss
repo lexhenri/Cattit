@@ -2,10 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: IBM Plex Sans, sans-serif;
+  font-style: normal;
   background-color: #DAE0E6;
   overflow-x: hidden;
 }
+
+@font-face {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Montserrat|Poppins&display=swap');
+}
+
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 20px 0;
+  color: #1a1a1b;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  // font-family: Noto Sans,sans-serif !important;
+}
+
+
 
 .header {
   background-color: #FFF;
@@ -73,6 +92,8 @@ body {
 
  .btn {
   display: block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
   box-sizing: border-box;
   border: 1px solid transparent;
   text-align: center;
@@ -81,7 +102,7 @@ body {
   letter-spacing: 0.5px;
   line-height: 24px;
   padding: 3px 2.2em 3px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   margin: 0 5px;
   border-radius: 4px;
