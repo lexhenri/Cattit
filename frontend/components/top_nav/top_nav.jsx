@@ -37,8 +37,8 @@ class TopNav extends React.Component {
         </div>
       ) : (     
         <div className='top-buttons'>
-                <NavLink to='/login' className="btn login">Log In</NavLink>
-                <NavLink to='/signup' className="btn signup">Sign Up</NavLink>
+                <button className="btn login" onClick={() => this.props.openModal('login')}>Login</button>
+                <button className="btn signup" onClick={() => this.props.openModal('signup')}>Sign Up</button>
         </div> 
         )
       }
