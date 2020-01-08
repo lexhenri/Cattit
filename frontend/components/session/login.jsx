@@ -54,7 +54,6 @@ class Login extends React.Component {
               required />
           </div>
 
-          <div className="error"> {this.handleErrors()} </div>
           {/* <label>Email:
             <input
               type="text"
@@ -70,6 +69,7 @@ class Login extends React.Component {
               onChange={this.handleInput('password')} />
       
           </div>
+          <div className="error"> {this.handleErrors()} </div>
           <button className="submit-btn" onClick={this.handleSubmit}>Sign in</button>
         </form>
         <div className="bottom-text">
