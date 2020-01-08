@@ -10,6 +10,7 @@ class Login extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
+    this.props.clearErrors()
   }
 
   handleInput(type) {
@@ -21,7 +22,7 @@ class Login extends React.Component {
   handleErrors() {
     //some jquery shit here to remove and add stuff when cleared 
     return (
-      this.props.errors.map(error => <ul>{error}</ul>)
+      this.props.errors.map(error => <ul key={error}>{error}</ul>)
     )
   }
 
@@ -34,8 +35,9 @@ class Login extends React.Component {
   render() {
     
     return (
+      
       <div>
-        { this.handleErrors() }
+        
         <form className="session-form">
           <h2 className="title">Sign in</h2>
           <div className="float-container">
@@ -45,8 +47,11 @@ class Login extends React.Component {
               className="text-input"
               type="text"
               value={this.state.username}
-              onChange={this.handleInput('username')} />
+              onChange={this.handleInput('username')}
+              required />
           </div>
+
+          <div className="error">{this.handleErrors()}</div>
           {/* <label>Email:
             <input
               type="text"

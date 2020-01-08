@@ -148,15 +148,16 @@ svg.modal-btn {
   padding-right: 36px;
 }
 
-.float-container input:after {
-  border: 1px solid rgb(36, 160, 237);
-  content: "\2022";
-  color: #24a0ed;
-}
-label {
+// .float-text input:focus ~label {
+//   font-size: 14px;
+// }
+
+
+.float-container label {
   position: absolute;
   font-size: 10px;
 }
+
 
 .float-text {
   transform: translate3d(0,-8px,0) scale(.83333333);
@@ -180,7 +181,6 @@ label {
   background-image: none !important;
   color: -internal-light-dark-color(black, white) !important;
   padding-right: 36px;
-  border-color: #24a0ed;
   outline: 0;
   width: 100%;
   -webkit-appearance: none;
@@ -192,13 +192,18 @@ label {
   background-color: #fcfcfb;
 }
 
-
-
-
-.input-valid {
-  padding-right: 36px;
+.text-input:focus {
   border-color: #24a0ed;
 }
+
+
+.error {
+  // padding-right: 36px;
+  color: #ea0027;
+  font-weight: 600;
+  font-size: 12px;
+}
+
 
 .hideable {
     max-height: 1000px;

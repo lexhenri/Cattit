@@ -11,12 +11,21 @@ class Signup extends React.Component {
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
+    this.props.clearErrors()
   }
 
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
     };
+  }
+
+  handleErrors() {
+    //some jquery shit here to remove and add stuff when cleared 
+    return (
+      this.props.errors.map(error => <ul key={error}>{error}</ul>)
+    )
   }
 
   handleSubmit(e) {
@@ -31,27 +40,33 @@ class Signup extends React.Component {
         <h2 className="title">By having a Cattit account, you can play, meow, and yowl opinions on all your favorite Cattit content.</h2>
         <form className="session-form">
           <div className="float-container">
-          <label className="float-text" htmlFor="createEmail">Email</label>
+          <label className="float-text" htmlFor="createUsername">Username</label>
             <input
-              id="createEmail"
+              id="creatUsername"
               className="text-input"
               type="text"
               value={this.state.username}
               onChange={this.handleInput('username')} />
           </div>
-{/*       
-          <label>Email:
+          <div className="float-container">
+          <label className="float-text" htmlFor="createEmail">Email</label>
             <input
+              id="createEmail"
+              className="text-input"
               type="text"
               value={this.state.email}
               onChange={this.handleInput('email')} />
-          </label>
-          <label>Password:
+          </div>
+          <div className="error">{this.handleErrors()}</div>
+          <div className="float-container">
+          <label className="float-text" htmlFor="createPassword">Password</label>
             <input
+              id="createPassword"
               type="password"
+              className="text-input"
               value={this.state.password}
               onChange={this.handleInput('password')} />
-          </label> */}
+         </div>
           <button className="submit-btn" onClick={this.handleSubmit}>Sign up</button>
         </form>
         <div className="bottom-text">
