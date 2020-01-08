@@ -22,7 +22,7 @@ class Signup extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createNewUser(this.state)
-      .then(() => this.props.history.push('/'))
+      .then(this.props.closeModal);
   }
 
   render() {
@@ -48,7 +48,7 @@ class Signup extends React.Component {
               value={this.state.password}
               onChange={this.handleInput('password')} />
           </label>
-          <button onClick={this.handleSubmit}>Sign up!</button>
+          <button className="btn signup" onClick={this.handleSubmit}>Sign up!</button>
         </form>
       </div>
     );

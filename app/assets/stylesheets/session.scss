@@ -1,0 +1,86 @@
+.modal-btn {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 16px;
+  left: 100;
+  top: 16px;
+  cursor: pointer;
+}
+
+svg.modal-btn {
+  fill: #DAE0E6;
+}
+
+.modal-background {
+  display: flex;
+  height: 500px;
+  width: 500px;
+  position: fixed;
+  top: 50%;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFF;
+  border-radius: 4px;
+  z-index: 10;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #1a1a1b;
+  box-shadow: 5px 5px 26px -2px #BFBFBF;
+  min-height: 50vh;
+  min-width: 50vh;
+  height: 550px;
+  width: 750px;
+}
+
+.modal-col-1 {
+  display: flex;
+  flex-direction: column;
+  background-image: asset-url('cat_types.jpg');
+  min-width: 135px;
+  height: inherit;
+  overflow: hidden;
+  min-height: 450px;
+  background-size: cover;
+  background-position: 75% 55%;
+}
+
+.modal-col-container {
+  flex-direction: column;
+  display: block;
+  padding: 24px;
+  min-width: 260px;
+  max-width: 440px;
+  box-sizing: border-box;
+  height: 445px;
+}
+
+.modal-col-2 {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.login-logo {
+   display: block;
+    width: 40px;
+    height: 40px;
+    content: url(https://www.redditstatic.com/accountmanager/18e257d….svg);
+    margin-bottom: 8px;
+}
+
+.session-container {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.session-form {
+  display: flex;
+}
