@@ -1,28 +1,28 @@
 export const createPost = (post) => (
   $.ajax({
-    url: `/api/posts`,
+    url: `/api/subcattits/${post.subcattit_id}/posts`,
     method: 'POST',
     data: { post }
   })
 )
 
-export const getPosts = (subcattit) => (
+export const getPosts = (postSubcattitId) => (
   $.ajax({
-    url: `/api/cat/${subcattit}/posts`,
+    url: `/api/subcattits/${postSubcattitId}/posts`,
     method: 'GET'
   })
 )
 
-export const getPost = (post, subcattit) => (
+export const getPost = (post) => (
   $.ajax({
-    url: `/api/cat/${subcattit}/${post.id}`,
+    url: `/api/posts/${post.id}`,
     method: 'GET'
   })
 )
 
-  export const removePost = (postId, subcattit) => (
+  export const removePost = (postId) => (
   $.ajax({
-    url: `/api/cat/${subcattit}/${postId}`,
+    url: `/api/posts/${postId}`,
     method: 'DELETE'
   })
 )

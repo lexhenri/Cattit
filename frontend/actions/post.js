@@ -17,10 +17,9 @@ const receivePosts = (posts, subcattit) => ({
   subcattit
 })
 
-const deletePost = (postId, subcattit) => ({
+const deletePost = (postId) => ({
   type: REMOVE_POST,
   postId,
-  subcattit
 })
 
 export const createNewPost = (post) => dispatch => {
@@ -28,17 +27,17 @@ export const createNewPost = (post) => dispatch => {
     .then((post) => dispatch(receivePost(post)), (errors) => dispatch(receiveErrors(errors.responseJSON)));
 }
 
-export const fetchPosts = (subcattit) => dispatch => {
-  return PostApiUtil.getPosts(subcattit)
+export const fetchPosts = (postSubcattitId) => dispatch => {
+  return PostApiUtil.getPosts(postSubcattitId)
     .then(posts => dispatch(receivePosts(posts)));
 }
 
-export const fetchPost = (post, subcattit) => dispatch => {
-  return PostApiUtil.getPost(subcattit, post)
-    .then((subcattit, post) => dispatch(receivePost(post, subcattit)))
+export const fetchPost = (post) => dispatch => {
+  return PostApiUtil.getPost(post)
+    .then((post) => dispatch(receivePost(post)))
 }
 
-export const removePost = (postId, subcattit) => dispatch => {
-  PostApiUtil.removePost(subcattit, postId)
+export const removePost = (postId) => dispatch => {
+  PostApiUtil.removePost(postId)
     .then(() => dispatch(deletePost(postId)))
 }

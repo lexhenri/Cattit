@@ -2,9 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
-import { createNewPost } from './actions/post';
-import { createPost } from './util/post_util';
-import { createSubcattit } from './actions/subcattit';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -18,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       session: { id: window.currentUser.id }
     };
   }
-  window.createPost = createPost;
-  window.createNewPost = createNewPost;
-  window.createSubcattit = createSubcattit;
+
   store = configureStore(preloadedState);
   window.dispatch = store.dispatch;
   window.getState = store.getState; // for testing

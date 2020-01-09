@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
-import { fetchPosts, createNewPost, fetchPost, removePost } from '../../actions/post';
+import { fetchPosts, createNewPost } from '../../actions/post';
 import PostIndex from './post_index';
 
 const mSTP = (state, ownProps) => ({
@@ -9,8 +9,8 @@ const mSTP = (state, ownProps) => ({
 });
 
 const mDTP = dispatch => ({
-  requestPosts: subcattit => dispatch(fetchPosts(subcattit)),
-  createNewPost: (post, subcattit) => dispatch(createNewPost(post, subcattit))
+  fetchPosts: (subcattit) => dispatch(fetchPosts(subcattit)),
+  createNewPost: (post) => dispatch(createNewPost(post))
 });
 
 export default connect(mSTP, mDTP)(PostIndex)

@@ -1,4 +1,5 @@
 import React from 'react';
+import PostIndexContainer from '../posts/post_index_container'
 
 class Subcattit extends React.Component{
 
@@ -12,7 +13,10 @@ class Subcattit extends React.Component{
 
   render(){
     return (
-      <h1>this is a subcattit</h1>
+      <div>
+        <h1>this is a subcattit,nya</h1>
+        <PostIndexContainer subcattit={this.props.subcattit} />
+      </div>
     )
   }
 }

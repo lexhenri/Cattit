@@ -15,7 +15,7 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestPosts();
+    this.props.fetchPosts(this.props.subcattit);
   }
 
   render(){

@@ -2,10 +2,11 @@ class Api::PostsController < ApplicationController
 
   def index 
     @posts = Post.all
+    render json: @posts
   end
 
   def show 
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(subcattit_id: params[:subcattit_id])
     render json: @post
   end
 

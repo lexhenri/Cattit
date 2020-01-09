@@ -6,7 +6,7 @@ const subcattitReducer = (state = {}, action) => {
 
   switch(action.type){
     case RECEIVE_SUBCATTIT:
-      nextState[action.subcattit.id] = action.subcattit;
+      nextState[action.subcattit.name] = action.subcattit;
       return nextState;
     default:
       return state;

@@ -1,0 +1,1 @@
+json.extract! @subcattit, :name, :id, :description
