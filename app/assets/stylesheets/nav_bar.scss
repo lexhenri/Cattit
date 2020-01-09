@@ -114,7 +114,7 @@
   padding-right: 5px;
   width: 180px;
   background-color: #FFF;
-  text-align: center;
+  // text-align: center;
   box-shadow: 5px 15px 31px -11px #EAEAEA;
   z-index: 1;
   border-radius: 4px;
@@ -126,7 +126,8 @@
   color: black;
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
+  display: inline-block;
+  align-items: center;
 }
 
 .dropdown-icon {
@@ -167,6 +168,31 @@
 
 svg.btn-fill {
   fill: var(--newCommunityTheme-actionIcon);
+}
+
+.logout {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--newCommunityTheme-line);
+  // border: 1px solid transparent;
+  justify-items: space-between;
+  align-items: center;
+}
+
+.logout-btn {
+  display: inline-block;
+  width: 25px;
+}
+
+.logout-text{
+  display: inline-block;
+
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  line-height: 16px;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
 // .dropdown:hover .dropdown-content {
