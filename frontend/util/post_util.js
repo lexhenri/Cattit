@@ -13,7 +13,7 @@ export const getPosts = (subcattit) => (
   })
 )
 
-export const getPost = (postId, subcattit) => (
+export const getPost = (post, subcattit) => (
   $.ajax({
     url: `api/${subcattit}/${postId}`,
     method: 'GET'
