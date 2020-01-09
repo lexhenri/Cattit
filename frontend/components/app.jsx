@@ -12,7 +12,7 @@ const App = () => (
     <header>
       <Route path='/' component={TopNavContainer} />
     </header>
-    <Route path="/:subcattit/posts" component={PostIndexContainer} />
+    <Route path="/cat/:subcattit" component={PostIndexContainer} />
   </div>
 );
 

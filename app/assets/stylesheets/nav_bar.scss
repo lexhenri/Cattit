@@ -175,11 +175,12 @@ svg.btn-fill {
   padding: 10px 16px 10px 16px;
   align-items: center;
   // width: inherit;
-  cursor: pointer;
+  
 }
 
 .logout {
   border-top: 1px solid var(--newCommunityTheme-line);
+  cursor: pointer;
 }
 .dropdown-item:hover {
   background-color: var(--newCommunityTheme-active);

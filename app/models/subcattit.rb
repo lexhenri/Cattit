@@ -13,4 +13,12 @@
 #
 
 class Subcattit < ApplicationRecord
+
+  validates :name, presence: true, uniqueness: true
+
+  has_many :posts,
+  foreign_key: :subcattit_id,
+  class_name: :Post
+
+  
 end

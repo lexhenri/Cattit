@@ -2,7 +2,7 @@ import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST } from '../actions/post';
 
 const PostReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = Object.assign({}, state);
+  let nextState = Object.assign({}, state);
 
   switch(action.type){
     case RECEIVE_POSTS:

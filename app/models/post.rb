@@ -17,5 +17,9 @@ class Post < ApplicationRecord
   belongs_to :user,
   foreign_key: :author_id,
   class_name: :User
+
+  belongs_to :subcattit,
+  foreign_key: :subcattit_id,
+  class_name: :Subcattit
   
 end
