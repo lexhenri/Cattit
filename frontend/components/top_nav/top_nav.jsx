@@ -32,7 +32,7 @@ class TopNav extends React.Component {
         </div>
           {
             this.props.currentUser ? (
-              <Dropdown />
+              <Dropdown currentUser={this.props.currentUser} logout={this.props.logout}/>
             ) : (
                 <div className='top-buttons'>
                   <button className="btn login" onClick={() => this.props.openModal('login')}>Log in</button>

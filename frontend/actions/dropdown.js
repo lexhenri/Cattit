@@ -1,15 +1,8 @@
-export const OPEN_DROPDOWN = 'OPEN_DROPDOWN';
-export const CLOSE_DROPDOWN = 'CLOSE_DROPDOWN';
+export const TOGGLE_DROPDOWN = 'TOGGLE_DROPDOWN';
 
-export const openDropdown = dropdown => {
+export const toggleDropdown = (status) => {
   return {
-    type: OPEN_DROPDOWN,
-    dropdown
-  };
-};
-
-export const closeDropdown = () => {
-  return {
-    type: CLOSE_DROPDOWN
+    type: TOGGLE_DROPDOWN,
+    status
   };
 };
