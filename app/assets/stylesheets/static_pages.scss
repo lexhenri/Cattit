@@ -1,26 +1,23 @@
 // Place all the styles related to the staticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+
 body {
-  font-family: IBM Plex Sans, sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-style: normal;
   background-color: #DAE0E6;
   overflow-x: hidden;
 }
 
-@font-face {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  src: url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Montserrat|Poppins&display=swap');
-}
-
 
 .title {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 22px;
   margin: 20px 0;
   color: #1a1a1b;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   // font-family: Noto Sans,sans-serif !important;
 }
 

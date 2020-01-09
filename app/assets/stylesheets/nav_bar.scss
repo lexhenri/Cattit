@@ -64,7 +64,7 @@
 
  .btn {
   display: block;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 700;
   box-sizing: border-box;
   border: 1px solid transparent;
@@ -111,23 +111,20 @@
   position: absolute;
   box-sizing: border-box;
   margin-top: -5px;
-  padding-right: 5px;
   width: 180px;
   background-color: #FFF;
+  // padding: 10px 16px 10px 48px;
   // text-align: center;
   box-shadow: 5px 15px 31px -11px #EAEAEA;
   z-index: 1;
   border-radius: 4px;
   border: 1px solid var(--newCommunityTheme-line);
   border-top: none;
+  display: block;
 }
 
-.dropdown-content ul {
-  color: black;
-  padding: 12px 16px;
+.dropdown-content div {
   text-decoration: none;
-  display: inline-block;
-  align-items: center;
 }
 
 .dropdown-icon {
@@ -156,8 +153,7 @@
   text-align: center;
   padding: 2px;
   font-size: 12px;
-  font-weight: 500;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
   line-height: 16px;
   color: var(--newCommunityTheme-bodyText);
   // display: block;
@@ -170,33 +166,38 @@ svg.btn-fill {
   fill: var(--newCommunityTheme-actionIcon);
 }
 
-.logout {
+
+.dropdown-item {
+  color: #1c1c1c;
   display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--newCommunityTheme-line);
-  // border: 1px solid transparent;
-  justify-items: space-between;
+  flex-direction: row;
+  fill: var(--newCommunityTheme-actionIcon);
+  padding: 10px 16px 10px 16px;
   align-items: center;
+  // width: inherit;
+  cursor: pointer;
+}
+
+.logout {
+  border-top: 1px solid var(--newCommunityTheme-line);
+}
+.dropdown-item:hover {
+  background-color: var(--newCommunityTheme-active);
+  color: #FFF;
+  fill: #FFF;
 }
 
 .logout-btn {
   display: inline-block;
-  width: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .logout-text{
   display: inline-block;
-
-  font-size: 12px;
-  font-weight: 500;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 16px;
   text-transform: capitalize;
-  cursor: pointer;
 }
-
-// .dropdown:hover .dropdown-content {
-//   display: block;
-// }
-
-// .dropdown-content a:hover {background-color: #f1f1f1;}

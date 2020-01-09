@@ -23,6 +23,10 @@ class User < ApplicationRecord
   validates :username, :email, :password_digest, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_many :posts,
+  foreign_key: :author_id,
+  class_name: :Post
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
