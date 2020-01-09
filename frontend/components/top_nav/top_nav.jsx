@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import Dropdown from './dropdown';
 
 class TopNav extends React.Component {
 
@@ -29,21 +30,18 @@ class TopNav extends React.Component {
           </svg>
             </Link>
         </div>
-      { 
-      this.props.currentUser ? (
-        <div className="user-dropdown">
-          <h2>Hi, {this.props.currentUser.username}</h2>
-          <button onClick={this.props.logout}>Log out</button>
+          {
+            this.props.currentUser ? (
+              <Dropdown />
+            ) : (
+                <div className='top-buttons'>
+                  <button className="btn login" onClick={() => this.props.openModal('login')}>Log in</button>
+                  <button className="btn signup" onClick={() => this.props.openModal('signup')}>Sign Up</button>
+                </div>
+              )
+          }
         </div>
-      ) : (     
-        <div className='top-buttons'>
-                <button className="btn login" onClick={() => this.props.openModal('login')}>Log in</button>
-                <button className="btn signup" onClick={() => this.props.openModal('signup')}>Sign Up</button>
-        </div> 
-        )
-      }
-        </div>
-      <div className="temp"></div>
+      {/* <div className="temp"></div> */}
       </div>
     )
   };
