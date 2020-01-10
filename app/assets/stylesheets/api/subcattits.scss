@@ -1,3 +1,10 @@
 // Place all the styles related to the api/subcattits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.subcattit-grid {
+  grid: 20% auto 20%;
+}
+
+.post-container {
+  padding: 25px 15px 25px 15px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import PostIndexContainer from '../posts/post_index_container'
+import CreatePostFormContainer from '../posts/create_post_form_container';
 
 class Subcattit extends React.Component {
 
@@ -12,15 +13,16 @@ class Subcattit extends React.Component {
     }
   }
 
-  
+
 
   render(){
     const { subcattits } = this.props
 
     return (
       <div>
-        <h1>this is a subcattit,nya</h1>
+        <h1>this is a subcattit, nya</h1>
         <PostIndexContainer subcattit={this.props.subcattit} />
+        {/* <CreatePostFormContainer subcattit={this.props.subcattit} /> */}
       </div>
     )
   }
