@@ -15,6 +15,8 @@ class Subcattit extends React.Component {
   
   componentDidMount(){
     this.props.fetchSubcattit(this.props.match.params.subcattit);
+    this.setState = {
+    }
   } 
   
   // componentDidUpdate(preProps, preState) {
@@ -25,9 +27,13 @@ class Subcattit extends React.Component {
   //     })
   //   }
   // }
+
+  // componentWillReceiveProps() {
+
+  // }
   
   render(){
-   
+    (console.log(this.props.subcattits))
     return (
       <div className="subcattit-grid">
         <div className="top-banner"></div>

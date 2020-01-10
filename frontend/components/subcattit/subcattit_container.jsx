@@ -6,7 +6,7 @@ import Subcattit from './subcattit';
 const mSTP = (state, ownProps) => ({
   subcattits: Object.values(state.entities.subcattits),
   subcattit: ownProps.match.params.subcattit,
-  // subcattit_info: state.entities.subcattits[ownProps.match.params.subcattit]
+  subcattit_info: state.entities.subcattits
 })
 
 const mDTP = dispatch => ({
