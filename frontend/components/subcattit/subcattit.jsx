@@ -3,26 +3,35 @@ import PostIndexContainer from '../posts/post_index_container'
 import CreatePostFormContainer from '../posts/create_post_form_container';
 
 class Subcattit extends React.Component {
-
   constructor(props){
     super(props);
     this.state = {
       name: '',
       posts: '',
-      id: this.props.subcattit.id
+      description: ''
     }
   }
 
+  componentDidMount(){
+    // this.props.fetchAllSubcattits();
+    this.props.fetchSubcattit(this.props.match.params.subcattit);
+   
+  }
 
 
   render(){
-    const { subcattits } = this.props
-
     return (
-      <div>
-        <h1>this is a subcattit, nya</h1>
+      <div className="subcattit-grid">
+        <div className="top-banner"></div>
+        <div className='desc-banner'></div>
+        <div className="col-spacer"></div>
+        <div className="post-container">
         <PostIndexContainer subcattit={this.props.subcattit} />
         {/* <CreatePostFormContainer subcattit={this.props.subcattit} /> */}
+       
+
+        <div className="col-spacer"></div>
+        </div>
       </div>
     )
   }

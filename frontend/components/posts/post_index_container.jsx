@@ -5,7 +5,7 @@ import { fetchPosts, createNewPost } from '../../actions/post';
 import PostIndex from './post_index';
 
 const mSTP = (state, ownProps) => ({
-  posts: Object.values(state.entities.posts)
+  posts: Object.values(state.entities.posts),
 });
 
 const mDTP = dispatch => ({

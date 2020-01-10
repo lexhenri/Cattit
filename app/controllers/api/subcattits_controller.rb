@@ -1,5 +1,10 @@
 class Api::SubcattitsController < ApplicationController
 
+  def index 
+    @subcattits = Subcattit.all
+    render json: @subcattits
+  end
+
   def show
     @subcattit = Subcattit.find_by(name: params[:id])
     render json: @subcattit

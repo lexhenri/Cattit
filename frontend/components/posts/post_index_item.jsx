@@ -3,14 +3,14 @@ import React from 'react';
 const PostIndexItem = props => {
 
   return (
-    <ul>
-      <li>
+    <div className="post">
+      <div className="post-title">
         {props.post.title}
-      </li>
-      <li>
+      </div>
+      <div className="post-body">
         {props.post.body}
-      </li>
-    </ul>
+        </div>
+    </div>
   )
 }
 

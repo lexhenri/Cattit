@@ -6,5 +6,41 @@
 }
 
 .post-container {
+  display: flex;
+  flex-direction: column;
   padding: 25px 15px 25px 15px;
+}
+
+.col-spacer {
+  min-width: 50%;
+  width: 20%;
+}
+
+.top-banner {
+  height: 164px;
+  width: 100%;
+  background-position: bottom;
+  background-size: cover;
+  background-image: asset-url('catnip.jpg');
+  background-color: #FFF;
+}
+
+.desc-banner {
+  width: 100%;
+  background-color: #FFF;
+  height: 100px;
+}
+
+.post {
+  display: block;
+  padding: 25px;
+}
+
+.post-title {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.post-body {
+  display: block;
 }
