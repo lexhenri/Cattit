@@ -8,7 +8,7 @@ const subcattitReducer = (state = {}, action) => {
     case RECEIVE_ALL_SUBCATTITS:
       return action.subcattits;
     case RECEIVE_SUBCATTIT:
-      nextState[action.subcattit] = action.subcattit;
+      nextState[action.subcattit.name] = action.subcattit;
       return nextState;
     default:
       return state;
