@@ -1,7 +1,7 @@
 
-export const getSubcattit = (subcattitId) => (
+export const getSubcattit = (subcattit) => (
   $.ajax({
-    url: `/api/subcattit/${subcattitId}/`,
+    url: `/api/subcattit/${subcattit}/`,
     method: 'GET'
   })
 )

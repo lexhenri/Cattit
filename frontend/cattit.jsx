@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
+import { createSubcattit } from './actions/subcattit';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       session: { id: window.currentUser.id }
     };
   }
-
+  window.createSubcattit = createSubcattit;
   store = configureStore(preloadedState);
   window.dispatch = store.dispatch;
   window.getState = store.getState; // for testing

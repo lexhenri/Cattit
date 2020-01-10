@@ -1,7 +1,7 @@
 class Api::SubcattitsController < ApplicationController
 
   def show
-    @subcattit = Subcattit.find_by(id: params[:id])
+    @subcattit = Subcattit.find_by(name: params[:id])
     render json: @subcattit
   end
 

@@ -1,17 +1,22 @@
 import React from 'react';
 import PostIndexContainer from '../posts/post_index_container'
 
-class Subcattit extends React.Component{
+class Subcattit extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      name:'',
-      posts: ''
+      name: '',
+      posts: '',
+      id: this.props.subcattit.id
     }
   }
 
+  
+
   render(){
+    const { subcattits } = this.props
+
     return (
       <div>
         <h1>this is a subcattit,nya</h1>

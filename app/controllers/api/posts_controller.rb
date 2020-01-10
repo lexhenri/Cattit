@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
 
   def index 
-    @posts = Post.all
+    @posts = Subcattit.find_by(name: params[:subcattit_id]).posts
     render json: @posts
   end
 

@@ -27,8 +27,8 @@ export const createNewPost = (post) => dispatch => {
     .then((post) => dispatch(receivePost(post)), (errors) => dispatch(receiveErrors(errors.responseJSON)));
 }
 
-export const fetchPosts = (postSubcattitId) => dispatch => {
-  return PostApiUtil.getPosts(postSubcattitId)
+export const fetchPosts = (subcattit) => dispatch => {
+  return PostApiUtil.getPosts(subcattit)
     .then(posts => dispatch(receivePosts(posts)));
 }
 
