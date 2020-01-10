@@ -12,18 +12,26 @@ class Subcattit extends React.Component {
     }
   }
 
+  
   componentDidMount(){
-    // this.props.fetchAllSubcattits();
     this.props.fetchSubcattit(this.props.match.params.subcattit);
-   
-  }
-
-
+  } 
+  
+  // componentDidUpdate(preProps, preState) {
+  //   // this.props.fetchSubcattit(this.props.match.params.subcattit);
+  //   if (this.props.subcattit !== preProps.subcattit) {
+  //     this.setState({
+  //       name: name
+  //     })
+  //   }
+  // }
+  
   render(){
+   
     return (
       <div className="subcattit-grid">
         <div className="top-banner"></div>
-        <div className='desc-banner'></div>
+        <div className='desc-banner'><h1></h1></div>
         <div className="col-spacer"></div>
         <div className="post-container">
         <PostIndexContainer subcattit={this.props.subcattit} />
