@@ -4,4 +4,4 @@ json.extract! @post, :title, :body, :subcattit_id, :author_id, :id, :user
       json.username @post.user.username
     end
 
-    #this is the one returning shit
+    #this is the one NOT returning shit atm

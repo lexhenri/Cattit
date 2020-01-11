@@ -14,7 +14,7 @@
   align-items: center;
   box-sizing: border-box;
   background-color: #FFF;
-  background-image: asset-url('confused.gif');
+  background-image: asset-url('typing.gif');
   background-size: cover;
   flex-wrap: nowrap;
   width: 500px;
@@ -43,7 +43,7 @@
 }
 
 .nav-btn {
-  width: 175px;
+  min-width: 175px;
   display: block;
   margin: 70px 25px 25px 15px;
   text-align: center;

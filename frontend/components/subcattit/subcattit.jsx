@@ -10,16 +10,25 @@ class Subcattit extends React.Component {
       posts: '',
       description: ''
     }
+    this.handleErrors = this.handleErrors.bind(this);
+    this.props.clearErrors()
   }
 
   componentDidMount(){
-    this.props.fetchSubcattit(this.props.subcattit);
+    this.props.fetchSubcattit(this.props.subcattit)
+      .then(this.handleErrors())
   } 
 
   componentDidUpdate(preProps) {
     if (this.props.subcattit !== preProps.subcattit) {
       this.props.fetchSubcattit(this.props.subcattit)
     }
+  }
+
+  handleErrors() {
+    // if (this.props.errors){
+      this.props.history.push('/404');
+    // }
   }
 
   

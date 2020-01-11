@@ -8,4 +8,3 @@ end
 
 #add email and follows later?
 
-#nvm this is making it render slowly i think

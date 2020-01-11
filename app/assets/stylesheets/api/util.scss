@@ -1,0 +1,25 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #FFF;
+  background-image: asset-url('confused.gif');
+  background-size: cover;
+  flex-wrap: nowrap;
+  width: 500px;
+  height: 300px;
+  margin-bottom: 250px;
+  box-shadow: 5px 5px 26px -2px #BFBFBF;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: fixed;
+  top: 50%;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // background-position: top;
+
+}
