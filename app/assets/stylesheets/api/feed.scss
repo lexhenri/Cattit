@@ -1,0 +1,43 @@
+.feed-container {
+  display: flex;
+  justify-content: center;
+  // box-sizing: content-box;
+  width: 100%;
+  height: 500px;
+  padding-top: 25%;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #FFF;
+  background-image: asset-url('confused.gif');
+  background-size: cover;
+  flex-wrap: nowrap;
+  width: 500px;
+  margin-bottom: 250px;
+  box-shadow: 5px 5px 26px -2px #BFBFBF;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  // background-position: top;
+
+}
+
+.message-box {
+  display: block;
+  text-align: center;  
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 5px 25px 5px 25px;
+  background-color: rgba($color: #FFFF, $alpha: 0.8);
+}
+
+.nav-btn {
+  width: 175px;
+  display: block;
+  margin: 70px 25px 25px 15px;
+  text-align: center;
+}

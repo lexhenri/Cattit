@@ -40,8 +40,9 @@ class TopNav extends React.Component {
                 </div>
               )
           }
-        </div>
       {/* <div className="temp"></div> */}
+        </div>
+     
       </div>
     )
   };
