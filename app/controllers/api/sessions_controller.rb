@@ -6,8 +6,8 @@ class Api::SessionsController < ApplicationController
       render :json => ['Invalid username or password.'], status: 418
     else
       login!(@user)
-      # redirect_to user_url(@user)
-      render :json => @user
+      # redirect_to user_url(@us
+      #make jbuilder for this
     end
   end
 

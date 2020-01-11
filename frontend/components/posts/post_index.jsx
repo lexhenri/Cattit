@@ -25,13 +25,14 @@ class PostIndex extends React.Component {
   }
 
   render(){
-    const { posts, fetchUser } = this.props;
+    const { posts } = this.props;
 
     return(
       <div className="post-container">
           {
-            posts.map(post => <PostIndexItem post={post} fetchUser={fetchUser} key={post.id} />)
+            posts.map(post => <PostIndexItem post={post} key={post.id}  />)
           }
+          {/* <PostItem /> */}
       </div>
     )
   }
