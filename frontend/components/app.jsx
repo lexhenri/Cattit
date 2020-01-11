@@ -4,7 +4,7 @@ import TopNavContainer from './top_nav/top_nav_container';
 import PostIndexContainer from './posts/post_index_container';
 import SubcattitContainer from './subcattit/subcattit_container';
 import CreatePostFormContainer from './posts/create_post_form_container';
-import TempSplash from './top_nav/temp';
+import TempSplash from './feed/temp';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
