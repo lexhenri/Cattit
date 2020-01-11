@@ -1,3 +1,79 @@
 // Place all the styles related to the api/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.subcattit-feed {
+  min-height: 1000px;
+  width: 100%;
+}
+
+.subcattit-feed p {
+  padding: 1px 1.2px 0px 3.5px;
+}
+
+.post-container {
+ display: block;
+ width: 565px;
+//  margin: 0 auto;
+ box-sizing: border-box;
+}
+
+.karma-bar {
+  width: 40px;
+  height: inherit;
+  border-left: 4px solid transparent;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 4px 8px 0px;
+  background-color: #3882dc;
+}
+
+// .content-container {
+//   background-color: lightblue;
+//   color: #1A1A1B;
+//   font-size: 14px;
+// }
+
+.title-container {
+  font-size: 18px;
+  color: #222222;
+  margin: 0px 8px;
+
+}
+
+.content {
+  padding-left: 40px;
+}
+
+.title-container a:active {
+  color: #9b9b9b;
+}
+
+.post {
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid var(--newCommunityTheme-postLine);
+  background-color: #FFF;
+  border-radius: 4px;
+  min-height: 250px;
+  width: 565px;
+  justify-items: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.post-title {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.post-title > h3 {
+  // font-family: IBMPlexSans, Arial, sans-serif;
+  color: #222222;
+  font-size: 18px;
+}
+
+.post-body {
+  display: block;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+}

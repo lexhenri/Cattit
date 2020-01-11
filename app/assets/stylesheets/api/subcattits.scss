@@ -1,19 +1,15 @@
 // Place all the styles related to the api/subcattits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.subcattit-grid {
-  grid: 20% auto 20%;
-}
+// .subcattit-grid {
+//   grid: 20% auto 20%;
+// }
 
-.post-container {
+.subcattit-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
   padding: 25px 15px 25px 15px;
-}
-
-.col-spacer {
-  min-width: 50%;
-  width: 20%;
 }
 
 .top-banner {
@@ -28,19 +24,90 @@
 .desc-banner {
   width: 100%;
   background-color: #FFF;
+  margin: -14px 0px 12px;
   height: 100px;
 }
 
-.post {
-  display: block;
-  padding: 25px;
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 16px;
+  margin: 0 140.5px;
 }
 
-.post-title {
+.header-title {
   display: block;
-  margin-bottom: 10px;
+  padding: 0px 24px 0px 0px;
 }
 
-.post-body {
-  display: block;
+.header-title h1{
+  padding-top: 15px;
+  color: #1c1c1c;
+  font-weight: 700;
+  size: 28px;
+  line-height: 32px;
+
 }
+
+.header-title h2{
+  color: #7C7C7C;
+  font-size: 14px;
+  margin: 4px 0px 0px;
+}
+
+.sidebar-container {
+  display: block;
+  width: 312px;
+  box-sizing: border-box;
+  margin-left: 24px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 312px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  height: 365px;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+}
+
+.box-banner {
+  display: block;
+  background-color: #3882dc;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid transparent;
+  height: 46px;
+}
+
+.box-banner > h1 {
+  padding: 10px 12px 12px 15px;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.box-content {
+  display: block;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  height: 100%;
+  background-color: #FFF;
+}
+
+.subcat-title {
+  color: #1c1c1c;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  line-height: 32px;
+  // display: inline-block;
+  // width: 100%;
+}
+
+

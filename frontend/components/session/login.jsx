@@ -10,7 +10,7 @@ class Login extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
-    this.props.clearErrors()
+    this.props.clearErrors();
   }
 
   handleInput(type) {

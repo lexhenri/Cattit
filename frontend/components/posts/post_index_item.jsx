@@ -4,12 +4,15 @@ const PostIndexItem = props => {
 
   return (
     <div className="post">
+      <div className="karma-bar"></div>
+      <div className="content">
       <div className="post-title">
-        {props.post.title}
+          <h3>{props.post.title}</h3>
       </div>
       <div className="post-body">
         {props.post.body}
         </div>
+      </div>
     </div>
   )
 }

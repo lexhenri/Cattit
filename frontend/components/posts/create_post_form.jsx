@@ -7,12 +7,11 @@ class CreateForm extends React.Component {
     this.state = {
       title: '',
       body: '',
-      author_id: this.props.current_user.id,
-      subcattit_id: this.props.subcattit
+      // author_id: this.props.currentUser.id,
     }
     
     this.handleInput = this.handleInput.bind(this);
-    this.handleErrors = this.handleErrors.bind(this);
+    // this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -27,16 +26,16 @@ class CreateForm extends React.Component {
     this.props.createNewPost(this.state)
   }
 
-  handleErrors() {
-    const errorCSS = `.text-input:focus { border-color: #ea0027; }`
-    //some jquery shit here to remove and add stuff when cleared 
-    return (
-      <ul>
-        {this.props.errors.map(error => <ul key={error}>{error}</ul>)}
-        {this.props.errors.map(error => error ? <style>{errorCSS}</style> : null)}
-      </ul>
-    )
-  }
+  // handleErrors() {
+  //   const errorCSS = `.text-input:focus { border-color: #ea0027; }`
+  //   //some jquery shit here to remove and add stuff when cleared 
+  //   return (
+  //     <ul>
+  //       {this.props.errors.map(error => <ul key={error}>{error}</ul>)}
+  //       {this.props.errors.map(error => error ? <style>{errorCSS}</style> : null)}
+  //     </ul>
+  //   )
+  // }
 
   render(){
 
@@ -67,7 +66,7 @@ class CreateForm extends React.Component {
               required />
           </div>
 
-          <div className="error"> {this.handleErrors()} </div>
+          {/* <div className="error"> {this.handleErrors()} </div> */}
           <button className="submit-btn" onClick={this.handleSubmit}>Post it!</button>
         </form>
 
