@@ -154,14 +154,36 @@ svg.modal-btn {
   font-size: 10px;
 }
 
+.form-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  line-height: 12px;
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  top: 14px;
+  left: 12px;
+  color: #a5a4a4;
+  text-transform: uppercase;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  transition: all .2s ease-in-out;
+  pointer-events: none;
+  line-height: 23px;
+}
+//experiment?? to be used on LABEL element 
+
 
 .float-text {
-  transform: translate3d(0,-8px,0) scale(.83333333);
   line-height: 14px;
   font-weight: 600;
   letter-spacing: .5px;
   color: #a5a4a4;
   text-transform: uppercase;
+  transform: translate3d(0,-8px,0) scale(.83333333);
   transform-origin: 0 50%;
   transition: all .2s ease-in-out;
   pointer-events: none;
@@ -170,8 +192,16 @@ svg.modal-btn {
   left: 12px;
 }
 
+
+.float-text input {
+    font-family: Noto Sans,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
 .text-input {
-  font-family: Noto Sans,sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   background-color: rgb(232, 240, 254) !important;
   background-image: none !important;
@@ -193,7 +223,6 @@ svg.modal-btn {
 }
 
 .error {
-  // padding-right: 36px;
   color: #ea0027;
   font-weight: 600;
   font-size: 12px;
@@ -208,7 +237,6 @@ svg.modal-btn {
 }
 
 .bottom-text {
-  // font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 12px;
   padding-top: 10px;

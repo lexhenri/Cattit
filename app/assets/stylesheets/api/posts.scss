@@ -67,7 +67,6 @@
 }
 
 .post-title > h3 {
-  // font-family: IBMPlexSans, Arial, sans-serif;
   color: #222222;
   font-size: 18px;
 }
@@ -76,4 +75,14 @@
   display: block;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
+}
+
+.top-info {
+  max-height: 16px;
+  color: #787C7E;
+}
+
+.top-info > span {
+  margin: 0px 3px 0px 0px;
+  font-size: 12px;
 }

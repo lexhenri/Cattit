@@ -24,6 +24,7 @@ class Subcattit extends React.Component {
 
   
   render(){
+    // console.log(this.props.subcattit);
     if (this.props.subcattitInfo === undefined) return null;
     return (
       <div>

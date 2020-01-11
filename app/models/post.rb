@@ -21,5 +21,7 @@ class Post < ApplicationRecord
   belongs_to :subcattit,
   foreign_key: :subcattit_id,
   class_name: :Subcattit
+
+
   
 end
