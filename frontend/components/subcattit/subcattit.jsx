@@ -1,39 +1,57 @@
 import React from 'react';
-import PostIndexContainer from '../posts/post_index_container'
+import PostIndexContainer from '../posts/post_index_container';
+// import { withRouter } from "react-router";
+import { Redirect } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 
 class Subcattit extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name: '',
-      posts: '',
-      description: ''
+      status: 200
     }
-    this.handleErrors = this.handleErrors.bind(this);
-    this.props.clearErrors()
   }
-
+  
   componentDidMount(){
     this.props.fetchSubcattit(this.props.subcattit)
-      .then(this.handleErrors())
-  } 
+    .then(() =>
+      this.setState({
+        status: this.props.error
+      })
+    )
+  }
+  
 
-  componentDidUpdate(preProps) {
-    if (this.props.subcattit !== preProps.subcattit) {
-      this.props.fetchSubcattit(this.props.subcattit)
-    }
+  componentDidUpdate(preProps, preState) {
+    // if (preProps.subcattit !== this.props.subcattit) {
+    if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
+      console.log("update!")
+        this.props.fetchSubcattit(this.props.subcattit)
+          .then(() =>
+            this.setState({
+              status: this.props.error
+            }))
+          // console.log(this.state)
+          // this.props.clearError();
+      }
   }
 
-  handleErrors() {
-    // if (this.props.errors){
-      this.props.history.push('/404');
-    // }
-  }
+
+  // componentWillUnmount(){
+  //   this.props.clearError();
+  // }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.errors) {
+  //     this.setState({
+  //       errors: nextProps.errors
+  //     });
+  //   }
+  // }
+
+  //if subcattit === null?
 
   
   render(){
-    // console.log(this.props.subcattit);
     if (this.props.subcattitInfo === undefined) return null;
     return (
       <div>
@@ -44,7 +62,6 @@ class Subcattit extends React.Component {
           <h1 className="subcat-title">{this.props.subcattitInfo.name}</h1>
           <h2>m/{this.props.subcattitInfo.name}</h2>
             </div>
-
           </div>
           </div>
 
@@ -60,8 +77,6 @@ class Subcattit extends React.Component {
           </div>
         </div>
         </div>
-       
-
       </div>
       
     )

@@ -1,8 +1,10 @@
 import * as SubcattitUtil from '../util/subcattit_util';
+import { push } from 'react-router-redux'
 
 export const RECEIVE_SUBCATTIT = 'RECEIVE_SUBCATTIT';
 export const RECEIVE_ALL_SUBCATTITS = 'RECEIVE_ALL_SUBCATTITS'
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_ERROR = 'RECEIVE_ERROR';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 const receiveSubcattit = subcattit => ({
   type: RECEIVE_SUBCATTIT,
@@ -14,19 +16,21 @@ const receiveAllSubcattits = subcattits => ({
   subcattits
 })
 
-const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
-  errors
+const receiveError = error => ({
+  type: RECEIVE_ERROR,
+  error
 })
 
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
+export const clearError = () => ({
+  type: CLEAR_ERROR,
 })
 
 export const fetchSubcattit = subcattit => dispatch => {
   return SubcattitUtil.getSubcattit(subcattit)
-  .then(subcattit => dispatch(receiveSubcattit(subcattit)), errors => dispatch(receiveErrors(errors.responseJSON)))
+  .then(subcattit => dispatch(receiveSubcattit(subcattit)), (error) => dispatch(receiveError(error.status)))
+  // (error) => dispatch(receiveError(error.status)))
 }
+
 
 export const fetchAllSubcattits = () => dispatch => {
   return SubcattitUtil.getAllSubcattits()

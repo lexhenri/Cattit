@@ -8,7 +8,7 @@ class Api::SubcattitsController < ApplicationController
   def show
     @subcattit = Subcattit.find_by(name: params[:id])
     if !@subcattit
-      render json: ['Subcattit doesn`t exist!'], status: 418
+      render json: ['Subcattit doesn`t exist!'], status: 404
     else
       render json: @subcattit
     end

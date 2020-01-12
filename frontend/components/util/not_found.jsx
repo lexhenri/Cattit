@@ -5,7 +5,7 @@ import { Link, NavLink} from 'react-router-dom';
 const ErrorNotFound = (props) => {
 
   const handleClick = () => {
-    history.goBack();
+    props.history.goBack();
   }  
   
   return (

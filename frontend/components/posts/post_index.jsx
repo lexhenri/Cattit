@@ -19,20 +19,29 @@ class PostIndex extends React.Component {
   }
 
   componentDidUpdate(preProps){
-    if (this.props.subcattit !== preProps.subcattit) {
+    if (preProps.subcattit !==  this.props.subcattit) {
       this.props.fetchPosts(this.props.subcattit)
     }
-  }
+  //   if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
+  //     console.log("update!")
+  //     this.props.fetchPosts(this.props.subcattit)
+  // }
+}
 
   render(){
     const { posts } = this.props;
 
     return(
       <div className="post-container">
-          {
-            posts.map(post => <PostIndexItem post={post} key={post.id}  />)
-          }
-          {/* <PostItem /> */}
+        {
+        posts ? ( posts.map(post => <PostIndexItem post={post} key={post.id} />)
+        ) : (
+          <div className="post-container">
+            <div className="post">
+            <h2 className="title">No posts yet!</h2>
+            </div>
+            </div>)
+        }
       </div>
     )
   }
