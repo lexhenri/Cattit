@@ -7,12 +7,19 @@ class CreateForm extends React.Component {
     this.state = {
       title: '',
       body: '',
-      // author_id: this.props.currentUser.id,
+      subcattit_id: (this.props.subcattit) ? this.props.subcattit.id : '',
+      author_id: this.props.currentUser.id,
+      subcattit: this.props.subcattit
     }
     
-    this.handleInput = this.handleInput.bind(this);
     // this.handleErrors = this.handleErrors.bind(this);
+    this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.fetchSubcattit(this.props.subcattitName)
+
   }
 
   handleInput(type) {
@@ -24,6 +31,16 @@ class CreateForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createNewPost(this.state)
+  }
+
+  componentDidUpdate(preProps, preState) {
+    if (preProps.location.pathname !== this.props.location.pathname){
+      this.props.fetchSubcattit(this.props.subcattitName)
+      this.setState({
+        subcattit_id: subcattit.id
+      })
+      console.log("update!")
+    }
   }
 
   // handleErrors() {
@@ -38,6 +55,8 @@ class CreateForm extends React.Component {
   // }
 
   render(){
+    if (this.props.subcattit === undefined) return null;
+
 
     return(
       <div className="create-form">

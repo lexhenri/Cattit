@@ -8,6 +8,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import ErrorBoundary from './util/error_boundary'
 import RedirectWithStatus from './util/redirect_to';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import CreatePostFormContainer from './posts/create_post_form_container';
+
 
 
 const App = () => (
@@ -18,9 +20,9 @@ const App = () => (
       <TopNavContainer /> 
     </header>
     <Switch>
-    {/* <Route path="/mew/:subcattit/submit" component={CreatePostFormContainer} /> */}
   
     <Route exact path="/" component={TempSplash} />
+    <AuthRoute exact path="/mew/:subcattit/submit" component={CreatePostFormContainer} />
     <Route exact path="/mew/:subcattit" key={location.pathname} component={SubcattitContainer} />
     <Route path="/mew/*" component={ErrorNotFound} />
     {/* <Route exact path="/404" component={ErrorNotFound} /> */}

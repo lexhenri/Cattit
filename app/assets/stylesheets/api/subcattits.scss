@@ -90,15 +90,16 @@
   border-radius: 4px 4px 0 0;
   border: 1px solid transparent;
   height: 46px;
-  font-weight: 700 !important;
+  font-weight: 700;
 }
 
 .box-banner > h1 {
   padding: 10px 12px 12px 15px;
   color: #FFF;
-  fill: #FFF;
   font-size: 14px;
   font-weight: 700;
+  font-family: IBMPlexSans, Arial, sans-serif;
+
 }
 
 .box-content {
@@ -249,6 +250,11 @@ span.created-at {
   line-height: 32px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.create-btn > a {
+  color: #FFF;
+  text-decoration: none;
 }
 
 .create-btn:hover {

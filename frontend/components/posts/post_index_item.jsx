@@ -7,7 +7,11 @@ const PostIndexItem = props => {
 
   return (
     <div className="post">
-      <div className="karma-bar"></div>
+      <div className="karma-bar">
+        <i className="fas fa-angle-double-up"></i>
+        <span className="karma-bar">101</span>
+        <i className="fas fa-angle-double-down"></i>
+      </div>
       <div className="content">
         <div className="post-head">
         <div className="top-info">
@@ -22,7 +26,7 @@ const PostIndexItem = props => {
         <p>{props.post.body}</p>
         </div>
         <div className="post-bottom">
-            <i class="fas fa-comment-alt comment-btn"></i>
+            <i className="fas fa-comment-alt comment-btn"></i>
           <span className="comments">
             92 Comments
           </span>

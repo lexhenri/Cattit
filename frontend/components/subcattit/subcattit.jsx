@@ -1,10 +1,10 @@
 import React from 'react';
 import PostIndexContainer from '../posts/post_index_container';
 import Moment from 'moment';
-// import { withRouter } from "react-router";
 import { Redirect } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
-// import icon from '1vlmbsmvdt941.jpg';
+import { Link, NavLink } from 'react-router-dom';
+import { RouteWithProps } from '../util/prop_routing';
 
 
 class Subcattit extends React.Component {
@@ -79,7 +79,10 @@ class Subcattit extends React.Component {
 
                 <div className="create-box">
                   <span className="created-at">Created { Moment(this.props.subcattitInfo.created_at).format('MMM DD, YYYY') } </span>
-                  <button className="create-btn">Create Post</button>
+                  <button className="create-btn">
+                    {/* <RouteWithProps path="/mew/:subcattit/submit" component={CreatePostFormContainer} props={this.props.subcattitInfo} /> */}
+                    <Link to={{pathname: `/mew/${this.props.subcattit}/submit`, state: {subcattit: this.props.subcattitInfo}}}>Create Post</Link>
+                    </button>
                 </div>
             </div>
           </div>
