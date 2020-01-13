@@ -5,23 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Subcattit.destroy_all
+Subcattit.destroy_all
 Post.destroy_all
-# User.destroy_all
+User.destroy_all
 
-# User.create!({username: 'tenderloin420', password: 'kittens', email: 'shitlord69@meow.io'});
-# User.create!({username: 'Freddy', password: 'kittens', email: 'freddy@meow.io'});
-# User.create!({username: 'littleShasta', password: 'kittens', email: 'tinykitty@meow.io'});
-# User.create!({username: 'porchMaster', password: 'kittens', email: 'blackie@meow.io'});
-# User.create!({username: 'Punkin', password: 'kittens', email: 'pumpkin@meow.io'});
-# User.create!({username: 'Cinderblock', password: 'kittens', email: 'cindy@meow.io'});
-# User.create!({username: 'Breakfast', password: 'kittens', email: 'mew@meow.io'});
+User.create!({username: 'tenderloin420', password: 'kittens', email: 'shitlord69@meow.io'});
+User.create!({username: 'Freddy', password: 'kittens', email: 'freddy@meow.io'});
+User.create!({username: 'littleShasta', password: 'kittens', email: 'tinykitty@meow.io'});
+User.create!({username: 'porchMaster', password: 'kittens', email: 'blackie@meow.io'});
+User.create!({username: 'Punkin', password: 'kittens', email: 'pumpkin@meow.io'});
+User.create!({username: 'Cinderblock', password: 'kittens', email: 'cindy@meow.io'});
+User.create!({username: 'Breakfast', password: 'kittens', email: 'mew@meow.io'});
 
-# Subcattit.create!({name: 'esoteric memes', description: "wazaaaahhhhh"});
-# Subcattit.create!({name: "owls", description: "like us but fly"});
-# Subcattit.create!({name: "herbs", description: "for discussion of ACTUAL HERBS"});
-# Subcattit.create!({name: "mice", description: "Mice are friends! Not food! Seriously though. Stop memeing."});
-# Subcattit.create!({name: "yarn", description: "This is about actual yarn. Cat's can't program!"});
+Subcattit.create!({name: 'esoteric memes', description: "wazaaaahhhhh"});
+Subcattit.create!({name: "owls", description: "like us but fly"});
+Subcattit.create!({name: "herbs", description: "for discussion of ACTUAL HERBS"});
+Subcattit.create!({name: "mice", description: "Mice are friends! Not food! Seriously though. Stop memeing."});
+Subcattit.create!({name: "yarn", description: "This is about actual yarn. Cat's can't program!"});
 
 Post.create!({author_id: '7', subcattit_id: '1', title: 'Seriously?', body: 'Cat`s can totally program! Cattist scum!'});
 Post.create!({author_id: '4', subcattit_id: '2', title: 'I`M SERIOUS, STOP ASKING ABOUT CATNIP', body: 'There is literally an entire other discussion board. I`ve cleared this subcattit now. Next nipper gets the ban hammer!'});
