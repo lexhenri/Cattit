@@ -18,7 +18,8 @@
 }
 
 .karma-bar {
-  width: 40px;
+  display: block;
+  min-width: 40px;
   height: inherit;
   border-left: 4px solid transparent;
   align-items: center;
@@ -41,7 +42,7 @@
 }
 
 .content {
-  padding-left: 40px;
+  padding: 10px 20px;
 }
 
 .title-container a:active {
@@ -64,6 +65,8 @@
 .post-title {
   display: block;
   margin-bottom: 10px;
+  padding: 5px;
+  height: 50px;
 }
 
 .post-title > h3 {
@@ -75,6 +78,7 @@
   display: block;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
+  padding: 5px;
 }
 
 .top-info {

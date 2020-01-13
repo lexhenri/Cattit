@@ -12,7 +12,7 @@ const PostIndexItem = props => {
           <h3>{props.post.title}</h3>
       </div>
       <div className="post-body">
-        {props.post.body}
+        <p>{props.post.body}</p>
         </div>
       </div>
     </div>
