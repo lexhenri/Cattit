@@ -1,7 +1,7 @@
 # json.extract! @posts, :id, :title, :body
 
 json.array! @posts do |post|
-  json.extract! post, :title, :body, :subcattit_id, :author_id, :id
+  json.extract! post, :title, :body, :subcattit_id, :author_id, :id, :created_at, :updated_at
   json.extract! post.user, :id, :username
 
 end

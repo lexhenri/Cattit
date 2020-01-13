@@ -1,5 +1,6 @@
 import React from 'react';
 import PostIndexContainer from '../posts/post_index_container';
+import Moment from 'moment';
 // import { withRouter } from "react-router";
 import { Redirect } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
@@ -36,7 +37,7 @@ class Subcattit extends React.Component {
 
   
   render(){
-  
+    Moment.locale('en');
     // <Redirect to={{ pathname: '/404', state: { response_error: true } }} />
     if (this.props.subcattitInfo === undefined) return null;
   
@@ -60,7 +61,26 @@ class Subcattit extends React.Component {
           <div className="box">
               <div className="box-banner"><h1>About Community</h1></div>
             <div className="box-content">
-                <h3>{this.props.subcattitInfo.description}</h3>
+              <div className="description">
+                <span className="description">{this.props.subcattitInfo.description}</span>
+              </div>
+
+               <div className="stats-container">
+                <div className="subscriber-info">
+                <span className="stats"> 1.4k </span>
+                 <span className="subtitle">making fwend</span>
+                  </div>
+                <div className="subscriber-info">
+                  <span className="stats">682</span>
+                  <span className="subtitle">playing right now</span>
+                </div>
+                <div className="spacer"></div>
+                </div> 
+
+                <div className="create-box">
+                  <span className="created-at">Created { Moment(this.props.subcattitInfo.created_at).format('MMM DD, YYYY') } </span>
+                  <button className="create-btn">Create Post</button>
+                </div>
             </div>
           </div>
         </div>

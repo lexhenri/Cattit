@@ -20,12 +20,14 @@
 .karma-bar {
   display: block;
   min-width: 40px;
+  max-width: 40px;
   height: inherit;
   border-left: 4px solid transparent;
   align-items: center;
   box-sizing: border-box;
   padding: 8px 4px 8px 0px;
-  background-color: #3882dc;
+  background-color: #F8F9FA;
+  color: rgb(135, 138, 140);
 }
 
 // .content-container {
@@ -42,7 +44,12 @@
 }
 
 .content {
-  padding: 10px 20px;
+  padding: 12px;
+  width: inherit;
+  box-sizing: content-box;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .title-container a:active {
@@ -62,31 +69,93 @@
   overflow: hidden;
 }
 
+.post:hover {
+  border: 1px solid rgb(135, 138, 140);
+}
+
 .post-title {
   display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  height: 50px;
+  // margin-bottom: 10px;
+  padding: 5px 0px;
+  height: 25px;
 }
 
 .post-title > h3 {
   color: #222222;
   font-size: 18px;
+  margin-top: 3px;
 }
 
 .post-body {
-  display: block;
+  display: flex;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
-  padding: 5px;
+  padding: 8px 5px 5px 0px;
+  text-align: left;
+  align-self: flex-start;
+  flex-grow: 3;
+  flex-basis: 100%;
+}
+
+.post-body p {
+  margin: 5px 5px 5px 0px;
 }
 
 .top-info {
-  max-height: 16px;
+  max-height: 15px;
   color: #787C7E;
+  margin: 0px 3px 0px 0px;
+  display: block;
+  line-height: 16px;
 }
 
 .top-info > span {
-  margin: 0px 3px 0px 0px;
+  font-size: 12px;
+  padding: 0px 10px 0px 0px;
+  margin: 0px;
+  line-height: 16px;
+}
+
+.time-ago > span {
+  padding: 0px 0px 0px 14px;
+  display: inline-block;
+}
+
+.post-bottom {
+  max-height: 32px;
+  min-height: 32px;
+  padding: 0px 8px 0px 4px;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.comments {
+  display: flex;
+  align-items: center;
+}
+
+span.comments {
+  display: inline-block;
+  line-height: 1.5;
+  text-transform: capitalize;
+  vertical-align: middle;
+  color: #878A8C;
+  font-size: 12px;
+  font-family: IBMPlexSans, Arial, sans-serif;
+  font-weight: 700;
+  padding: 0px 3px;
+}
+
+.post-head {
+  display: block;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+i.comment-btn {
+  color: #878A8C;
+  height: 16px;
+  width: 16px;
   font-size: 12px;
 }
