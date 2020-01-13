@@ -13,8 +13,9 @@ const routingErrorReducer = (state = {}, action) => {
   let nextState = Object.assign([], state);
 
   switch (action.type) {
-    case RECEIVE_ERROR:
-      return action.error
+    case RECEIVE_ERROR: {
+      return state, { responseError: true }
+    }
     // case HTTP_404_ERROR:
     //   return execute404(state, action);
     case CLEAR_ERROR:

@@ -6,9 +6,9 @@ export const RECEIVE_ALL_SUBCATTITS = 'RECEIVE_ALL_SUBCATTITS'
 export const RECEIVE_ERROR = 'RECEIVE_ERROR';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 
-const receiveSubcattit = subcattit => ({
+const receiveSubcattit = (subcattit) => ({
   type: RECEIVE_SUBCATTIT,
-  subcattit
+  subcattit,
 })
 
 const receiveAllSubcattits = subcattits => ({
@@ -27,8 +27,7 @@ export const clearError = () => ({
 
 export const fetchSubcattit = subcattit => dispatch => {
   return SubcattitUtil.getSubcattit(subcattit)
-  .then(subcattit => dispatch(receiveSubcattit(subcattit)), (error) => dispatch(receiveError(error.status)))
-  // (error) => dispatch(receiveError(error.status)))
+    .then(subcattit => dispatch(receiveSubcattit(subcattit)), (error) => dispatch(receiveError(error.responseJSON)))
 }
 
 

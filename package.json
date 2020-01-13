@@ -44,5 +44,9 @@
   "bugs": {
     "url": "https://github.com/minibells/Cattit/issues"
   },
-  "homepage": "https://github.com/minibells/Cattit#readme"
+  "homepage": "https://github.com/minibells/Cattit#readme",
+  "devDependencies": {
+    "file-loader": "^5.0.2",
+    "url-loader": "^3.0.0"
+  }
 }

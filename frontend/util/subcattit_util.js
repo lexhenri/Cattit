@@ -2,7 +2,8 @@
 export const getSubcattit = (subcattit) => (
   $.ajax({
     url: `/api/subcattits/${subcattit}/`,
-    method: 'GET'
+    method: 'GET',
+    dataType: 'json',
   })
 )
 
@@ -20,3 +21,9 @@ export const getAllSubcattits = () => (
     method: 'GET'
   })
 )
+
+// export const getErrors = () => {
+//   $.ajax({
+//     type: "post", 
+//     url: "/api/subcattits/",
+//   })}

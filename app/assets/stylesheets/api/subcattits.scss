@@ -6,6 +6,7 @@
 // }
 
 .subcattit-container {
+  font-family: inherit;
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -25,35 +26,49 @@
 .desc-banner {
   width: 100%;
   background-color: #FFF;
-  margin: -14px 0px 12px;
+  padding: 0px 16px;
   height: 100px;
+  display: flex;
+  justify-content: center;
 }
 
 .header-content {
+  font-family: 'IBM Plex Sans', sans-serif;
   display: flex;
-  justify-content: space-between;
-  padding: 0px 16px;
-  margin: 0 140.5px;
+  align-items: flex-start;
+  align-content: space-around;
+  justify-content: center;
+  height: 80px;
+  width: 840px;
+  margin-bottom: 12px;
 }
+
 
 .header-title {
-  display: block;
-  padding: 0px 24px 0px 0px;
-}
-
-.header-title h1{
-  padding-top: 15px;
   color: #1c1c1c;
   font-weight: 700;
-  size: 28px;
+  font-size: 28px;
   line-height: 32px;
-
+  text-transform: capitalize;
+  display: block;
 }
 
-.header-title h2{
+.text-container {
+  display: inline-block;
+  min-width: 375px;
+  height: 56px;
+  padding: 12px 24px 12px 24px;
+}
+
+.subcat-title {
   color: #7C7C7C;
   font-size: 14px;
   margin: 4px 0px 0px;
+  text-transform: none;
+}
+
+.description {
+  display: block;
 }
 
 .sidebar-container {
@@ -101,8 +116,9 @@
   background-color: #FFF;
 }
 
-.subcat-title {
+.subcat-title h1{
   color: #1c1c1c;
+  display: block;
   font-size: 28px;
   font-weight: 700;
   text-transform: capitalize;
@@ -111,5 +127,48 @@
   // display: inline-block;
   // width: 100%;
 }
+
+.follow-btn {
+  fill: #0079d3;
+  color: #0079d3;
+  width: 96px;
+  height: 32px;
+  margin-top: 12px;
+  background-color: #FFF;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #0079d3;
+  border-radius: 4px;
+  outline: 0;
+  transition: color .01s ease-in,text-indent .25s ease-in,opacity .25s ease-in;
+  cursor: pointer;
+  // margin: 22px 12px 10px;
+}
+
+.follow-btn:hover {
+  background-color: #0079d3;
+  color: #FFF;
+}
+
+.follow-btn span {
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .5px;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 15px 4px 9px 2px;
+}
+
+.header-pic {
+  border-radius: 100%;
+  border: 4px solid #fff;
+  display: inline-block;
+  height: 72px;
+  width: 72px;
+  margin-top: -14px !important;
+}
+
 
 

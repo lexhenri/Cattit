@@ -7,12 +7,12 @@ import { clearError } from '../../actions/subcattit'
 
 const mSTP = (state, ownProps) => {
   const info = ownProps.match.params.subcattit
-  const error = state.errors.routingErrors
   return {
     subcattits: Object.values(state.entities.subcattits),
     subcattit: ownProps.match.params.subcattit,
     subcattitInfo: state.entities.subcattits[info],
-    error: error,
+    error: state.errors.routingErrors,
+    // reponseError: state.errors.routingErrors.reponseError,
   }
 }
 

@@ -3,71 +3,59 @@ import PostIndexContainer from '../posts/post_index_container';
 // import { withRouter } from "react-router";
 import { Redirect } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
+// import icon from '1vlmbsmvdt941.jpg';
+
 
 class Subcattit extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      status: 200
-    }
+      errors: false
   }
+}
   
   componentDidMount(){
     this.props.fetchSubcattit(this.props.subcattit)
-    .then(() =>
+   
       this.setState({
-        status: this.props.error
+        errors: this.props.error
       })
-    )
-  }
+    }
   
 
-  componentDidUpdate(preProps, preState) {
+  componentDidUpdate(preProps, preState) { 
     // if (preProps.subcattit !== this.props.subcattit) {
     if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
+      this.props.fetchSubcattit(this.props.subcattit)
       console.log("update!")
-        this.props.fetchSubcattit(this.props.subcattit)
-          .then(() =>
-            this.setState({
-              status: this.props.error
-            }))
-          // console.log(this.state)
-          // this.props.clearError();
       }
   }
 
 
-  // componentWillUnmount(){
-  //   this.props.clearError();
-  // }
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.errors) {
-  //     this.setState({
-  //       errors: nextProps.errors
-  //     });
-  //   }
-  // }
-
-  //if subcattit === null?
+  //if subcattit === undefined?
 
   
   render(){
+  
+    // <Redirect to={{ pathname: '/404', state: { response_error: true } }} />
     if (this.props.subcattitInfo === undefined) return null;
+  
     return (
       <div>
       <div className="top-banner"></div>
         <div className='desc-banner'>
           <div className="header-content">
-            <div className="header-title">
-          <h1 className="subcat-title">{this.props.subcattitInfo.name}</h1>
-          <h2>m/{this.props.subcattitInfo.name}</h2>
+              <img src={window.icon} className="header-pic" />
+            <div className="text-container">
+          <h1 className="header-title">{this.props.subcattitInfo.name}</h1>
+          <h2 className='subcat-title'>m/{this.props.subcattitInfo.name}</h2>
             </div>
+          <button className="follow-btn"><span>Join</span></button>
           </div>
           </div>
 
         <div className="subcattit-container">
         <PostIndexContainer subcattit={this.props.subcattit} />
-        {/* <CreatePostFormContainer subcattit={this.props.subcattit} /> */}
         <div className="sidebar-container">
           <div className="box">
               <div className="box-banner"><h1>About Community</h1></div>
@@ -76,9 +64,8 @@ class Subcattit extends React.Component {
             </div>
           </div>
         </div>
-        </div>
-      </div>
-      
+          </div> 
+          </div>
     )
   }
 }
