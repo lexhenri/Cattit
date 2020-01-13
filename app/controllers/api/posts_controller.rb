@@ -1,12 +1,12 @@
 class Api::PostsController < ApplicationController
 
   def index 
-    @posts = Subcattit.find_by(name: params[:subcattit_id]).posts
+    @posts = Subcattit.find_by(name: params[:subcattit_name]).posts
     render :index
   end
 
   def show 
-    @post = Post.find_by(subcattit_id: params[:subcattit_id])
+    @post = Post.find_by(subcattit_name: params[:subcattit_name])
     render json: @post
   end
 
@@ -26,6 +26,6 @@ class Api::PostsController < ApplicationController
 
   private 
   def post_params 
-    params.require(:post).permit(:author_id, :title, :body, :subcattit_id)
+    params.require(:post).permit(:author_id, :title, :body, :subcattit_name)
   end
 end

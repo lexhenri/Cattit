@@ -2,13 +2,13 @@
 #
 # Table name: posts
 #
-#  id           :bigint           not null, primary key
-#  author_id    :integer          not null
-#  subcattit_id :integer          not null
-#  title        :string           not null
-#  body         :text
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id             :bigint           not null, primary key
+#  author_id      :integer          not null
+#  subcattit_name :string           not null
+#  title          :string           not null
+#  body           :text
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 class Post < ApplicationRecord
@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   class_name: :User
 
   belongs_to :subcattit,
-  foreign_key: :subcattit_id,
+  foreign_key: :subcattit_name,
   class_name: :Subcattit
 
 

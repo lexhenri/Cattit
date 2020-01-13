@@ -10,7 +10,7 @@ class PostIndex extends React.Component {
       title: '',
       body: '',
       author_id: '',
-      subcattit_id: ''
+      subcattit_name: ''
     }
   }
 

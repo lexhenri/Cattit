@@ -7,11 +7,9 @@ import CreateForm from './create_post_form';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const subcattit = ownProps.history.location.state.subcattit
   return {
     currentUser: currentUser(state),
-    subcattit: subcattit,
-    subcattitName: ownProps.match.params.subcattit
+  
 }};
 
 const mapDispatchToProps = dispatch => ({

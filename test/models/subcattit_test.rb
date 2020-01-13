@@ -2,8 +2,8 @@
 #
 # Table name: subcattits
 #
-#  id              :bigint           not null, primary key
-#  name            :string           not null
+#  id              :bigint           not null
+#  name            :string           not null, primary key
 #  description     :text
 #  moderator_ids   :integer          default([]), is an Array
 #  subscriber_ids  :integer          default([]), is an Array

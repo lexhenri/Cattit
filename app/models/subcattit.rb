@@ -2,8 +2,8 @@
 #
 # Table name: subcattits
 #
-#  id              :bigint           not null, primary key
-#  name            :string           not null
+#  id              :bigint           not null
+#  name            :string           not null, primary key
 #  description     :text
 #  moderator_ids   :integer          default([]), is an Array
 #  subscriber_ids  :integer          default([]), is an Array
@@ -13,11 +13,11 @@
 #
 
 class Subcattit < ApplicationRecord
-
   validates :name, presence: true, uniqueness: true
+  self.primary_key = "name"
 
   has_many :posts,
-  foreign_key: :subcattit_id,
+  foreign_key: :subcattit_name,
   class_name: :Post
 
   

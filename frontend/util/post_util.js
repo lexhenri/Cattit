@@ -1,14 +1,14 @@
 export const createPost = (post) => (
   $.ajax({
-    url: `/api/subcattits/${post.subcattit_id}/posts`,
+    url: `/api/subcattits/${post.subcattit_name}/posts`,
     method: 'POST',
     data: { post }
   })
 )
 
-export const getPosts = (postSubcattitId) => (
+export const getPosts = (postSubcattitName) => (
   $.ajax({
-    url: `/api/subcattits/${postSubcattitId}/posts`,
+    url: `/api/subcattits/${postSubcattitName}/posts`,
     method: 'GET'
   })
 )

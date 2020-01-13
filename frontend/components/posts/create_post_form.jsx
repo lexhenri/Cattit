@@ -7,18 +7,20 @@ class CreateForm extends React.Component {
     this.state = {
       title: '',
       body: '',
-      subcattit_id: (this.props.subcattit) ? this.props.subcattit.id : '',
       author_id: this.props.currentUser.id,
-      subcattit: this.props.subcattit
     }
     
     // this.handleErrors = this.handleErrors.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  
   componentDidMount(){
-    this.props.fetchSubcattit(this.props.subcattitName)
+    // const subcattit = this.props.location.state.subcattit
+    // this.props.fetchSubcattit(this.props.subcattit)
+    //   .then(() => this.setState({
+    //   subcattit_id: this.props.subName.id
+    // }))
 
   }
 
@@ -35,11 +37,17 @@ class CreateForm extends React.Component {
 
   componentDidUpdate(preProps, preState) {
     if (preProps.location.pathname !== this.props.location.pathname){
-      this.props.fetchSubcattit(this.props.subcattitName)
-      this.setState({
-        subcattit_id: subcattit.id
-      })
+      // this.props.fetchSubcattit(this.props.subcattit)
+      //   .then(() => this.setState({
+      //     subcattit_id: this.props.subName.id
+      //   }))
       console.log("update!")
+    }
+    if (this.props.subcattit === undefined) {
+      // this.props.fetchSubcattit(this.props.subcattit)
+      //   .then(() => this.setState({
+      //     subcattit_id: this.props.subName.id
+      // }))
     }
   }
 
@@ -55,7 +63,6 @@ class CreateForm extends React.Component {
   // }
 
   render(){
-    if (this.props.subcattit === undefined) return null;
 
 
     return(
