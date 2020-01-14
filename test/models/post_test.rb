@@ -10,6 +10,7 @@
 #  updated_at     :datetime         not null
 #  subcattit_name :string
 #  subcattit_id   :integer
+#  num_comments   :integer
 #
 
 require 'test_helper'

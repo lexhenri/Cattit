@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react';
 
 
 const PostIndexItem = props => {
-
+  // let num_comments = props.post.comment_ids.length
   return (
     <div className="post">
       <div className="karma-bar">
@@ -27,9 +27,11 @@ const PostIndexItem = props => {
         </div>
         <div className="post-bottom">
             <i className="fas fa-comment-alt comment-btn"></i>
-          <span className="comments">
-            92 Comments
-          </span>
+         
+            {
+              (props.post.num_comments) ? (<span className="comments">{props.post.num_comments} Comments</span>) : (<span className="comments">0 Comments</span>)
+            } 
+  
         </div>
       </div>
     </div>

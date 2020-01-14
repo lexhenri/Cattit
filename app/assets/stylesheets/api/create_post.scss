@@ -1,0 +1,303 @@
+.post-create-container {
+  padding: 20px 24px;
+  margin: 0 97.5px;
+  justify-content: space-between;
+  height: 450px;
+}
+
+.post-form-container {
+  margin: 0px 0px 15px;
+  display: flex;
+  box-sizing: content-box;
+  flex-direction: column;
+  justify-content: flex-start;  
+  background-color: #FFF;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.tab-button {
+  height: 53px;
+  padding: 10px 25px;
+  // background-color: #FFF;
+  display: block;
+  width: 33.3%;
+  flex-grow: 1;
+  text-align: center;
+  border-color: solid var(--newRedditTheme-line);
+  border-width: 0 1px 1px 0;
+  // border-radius: 0;
+  align-items: center;
+}
+
+svg.tab-button {
+  margin: 0 auto;
+}
+
+.tab-container {
+  display: flex;
+  width: inherit;
+  margin: 0;
+  padding: 0;
+  justify-content: space-evenly;
+  border: 1px solid #FFF;
+}
+
+.title-bar {
+  height: 39px;
+  background-color: #FFF;
+  padding: 8px 68px 8px 16px;
+  margin-bottom: 20px;
+}
+
+textarea {
+ font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  font-family: inherit;
+  outline: none;
+}
+
+textarea:focus {
+  border: 1px solid var(--newRedditTheme-actionIcon);
+}
+
+textarea.title-bar {
+  display: flex;
+  resize: none;
+  overflow-x: hidden; 
+  overflow-wrap: break-word; 
+  height: 39px;
+  padding: 8px 68px 8px 16px;
+  resize: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--newCommunityTheme-line);
+  border-radius: 4px;
+}
+
+textarea.title-bar:focus {
+  border: 1px solid var(--newRedditTheme-actionIcon);
+}
+
+.post-body-container {
+  border: 1px solid #FFF;
+  display: flex;
+  // flex-direction: column;
+  // flex-flow: column nowrap;
+  // margin: 0 25px;
+  width: inherit;
+  justify-content: center;
+  box-sizing: content-box;
+  // padding: 10px 16px;
+}
+
+.create-post-body {
+  border: 1px dashed var(--newCommunityTheme-line);
+  min-height: 280px;
+  border-radius: 4px;
+  text-align: center;
+  resize: none;
+  flex-flow: row;
+  display: flex;
+  // font-family: 'Noto Sans', sans-serif;
+  // font-size: 14px;
+  text-align: left;
+  align-self: flex-start;
+  flex-grow: 3;
+  flex-basis: 100%;
+  padding: 8px 16px;
+
+}
+
+.create-post-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 16px;
+}
+
+.create-form-bottom {
+  justify-content: flex-end;
+  padding: 5px 16px 16px;
+}
+
+.post-btn {
+  color: #FFF;
+  width: 82px;
+  height: 32px;
+  background-color: var(--newCommunityTheme-buttonTinted80);
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid var(--newCommunityTheme-buttonTinted80);
+  border-radius: 4px;
+  outline: 0;
+  transition: color .01s ease-in,text-indent .25s ease-in,opacity .25s ease-in;
+  cursor: pointer;
+}
+
+.tab-icons {
+  margin-right: 8px;
+  height: 16px;
+  fill: currentColor;
+}
+// .create-form-container {
+//   display: block;
+// }
+
+// .create-form {
+//   margin: 0 8px;
+//   padding: 10;
+//   display: flex;
+//   flex-direction: column;
+//   background-color: #FFF;
+//   width: 864px;
+// }
+
+
+// .create-float {
+//   position: relative;
+//   margin: 12px;
+//   margin-left: 0;
+// }
+
+// .create-float input {
+//   border: none;
+//   outline: 0;
+//   border: 1px solid rgba(0,0,0,.1);
+//   border-radius: 4px;
+//   width: 392px;
+//   margin-bottom: 10px;
+//   padding-right: 36px;
+// }
+
+
+// .create-float label {
+//   position: absolute;
+//   font-size: 10px;
+// }
+
+// .create-label {
+//   font-size: 10px;
+//   font-weight: 600;
+//   letter-spacing: .5px;
+//   line-height: 12px;
+//   position: absolute;
+//   display: inline-block;
+//   vertical-align: middle;
+//   top: 14px;
+//   left: 12px;
+//   color: #a5a4a4;
+//   text-transform: uppercase;
+//   -webkit-transform: translateZ(0);
+//   transform: translateZ(0);
+//   -webkit-transform-origin: 0 50%;
+//   transform-origin: 0 50%;
+//   transition: all .2s ease-in-out;
+//   pointer-events: none;
+//   line-height: 23px;
+// }
+// //experiment?? to be used on LABEL element 
+
+// h2.create-title {
+//   font-size: 18px;
+//   font-weight: 700;
+//   line-height: 22px;
+//   color: var(--newCommunityTheme-bodyText);
+//   -ms-flex: 1;
+//   flex: 1;
+//   font-family: 'IBM Plex Sans', sans-serif;
+
+// }
+// .create-float-text {
+//   line-height: 14px;
+//   font-weight: 600;
+//   letter-spacing: .5px;
+//   color: #a5a4a4;
+//   text-transform: uppercase;
+//   transform: translate3d(0,-8px,0) scale(.83333333);
+//   transform-origin: 0 50%;
+//   transition: all .2s ease-in-out;
+//   pointer-events: none;
+//   z-index: 12px;
+//   top: 14px;
+//   left: 12px;
+// }
+
+
+// .create-float-text input {
+//     font-family: Noto Sans,sans-serif;
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 21px;
+// }
+
+// .create-text-input {
+//   font-family: 'Noto Sans', sans-serif;
+//   font-size: 14px;
+//   background-color: rgb(232, 240, 254) !important;
+//   background-image: none !important;
+//   color: -internal-light-dark-color(black, white) !important;
+//   padding-right: 36px;
+//   outline: 0;
+//   width: 100%;
+//   -webkit-appearance: none;
+//   appearance: none;
+//   transition: all .2s ease-in-out;
+//   padding: 22px 12px 10px;
+//   border: 1px solid rgba(0,0,0,.1);
+//   border-radius: 4px;
+//   background-color: #fcfcfb;
+// }
+
+// .text-input:focus {
+//   border-color: #24a0ed;
+// }
+
+// .error {
+//   color: #ea0027;
+//   font-weight: 600;
+//   font-size: 12px;
+//   padding-bottom: 10px;
+// }
+
+// .input-title {
+//   padding: 4px;
+//   margin: 16px 0;
+//   border-bottom: solid 1px var(--newCommunityTheme-line);
+//   display: -ms-flexbox;
+//   display: flex;
+// }
+
+// .input-fields {
+//   box-sizing: border-box;
+//   margin: 0 0 15px;
+//   padding: 12px;
+//   display: flex;
+//   width:inherit;
+//   flex-direction: column;
+// }
+
+// #createBody.body-input {
+//   height: 138px;
+//   padding: 8px;
+//   width: 838px;
+// }
+
+// #createTitle.title-input input{
+//   height: 39px;
+// }
+
+// #createTitle.title-input {
+//   width: 838px;
+//   padding: 8px 68px 8px 16px;
+// }
+
+
+
+// .post-btn:hover {
+
+// }

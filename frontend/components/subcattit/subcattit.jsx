@@ -86,7 +86,7 @@ class Subcattit extends React.Component {
                   <span className="created-at">Created { Moment(this.props.subcattitInfo.created_at).format('MMM DD, YYYY') } </span>
                   <button className="create-btn">
                     <Route exact path="/mew/:subcattit/submit" component={CreatePostFormContainer}/>
-                    <Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: {subcattit: this.props.subcattitInfo}}}>Create Post</Link>
+                    <Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: {subcattit_info: this.props.subcattitInfo}}}>Create Post</Link>
                     </button>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import * as PostApiUtil from '../util/post_util';
+import { receiveErrors } from '../actions/session';
 // import { receiveErrors, clearErrors } from './session';
 
 export const RECEIVE_POST = 'RECEIVE_POST'

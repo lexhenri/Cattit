@@ -10,6 +10,7 @@
 #  updated_at     :datetime         not null
 #  subcattit_name :string
 #  subcattit_id   :integer
+#  num_comments   :integer
 #
 
 class Post < ApplicationRecord
@@ -22,6 +23,10 @@ class Post < ApplicationRecord
   belongs_to :subcattit,
   foreign_key: :subcattit_id,
   class_name: :Subcattit
+
+  has_many :comments,
+  foreign_key: :post_id,
+  class_name: :Comments
 
 
   
