@@ -1,7 +1,7 @@
 import React from 'react';
 import PostIndexContainer from '../posts/post_index_container';
 import Moment from 'moment';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import { Link, NavLink } from 'react-router-dom';
 import { RouteWithProps } from '../util/prop_routing';
@@ -10,17 +10,19 @@ import { RouteWithProps } from '../util/prop_routing';
 class Subcattit extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      errors: false
-  }
+  //   this.state = {
+  //     errors: false
+  // }
+  this.props.clearError();
 }
   
   componentDidMount(){
+    this.props.clearError();
     this.props.fetchSubcattit(this.props.subcattit)
-   
-      this.setState({
-        errors: this.props.error
-      })
+
+      // this.setState({
+      //   errors: this.props.error
+      // })
     }
   
 
@@ -29,6 +31,8 @@ class Subcattit extends React.Component {
     if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
       this.props.fetchSubcattit(this.props.subcattit)
       console.log("update!")
+      this.props.clearError();
+
       }
   }
 
@@ -40,7 +44,8 @@ class Subcattit extends React.Component {
     Moment.locale('en');
     // <Redirect to={{ pathname: '/404', state: { response_error: true } }} />
     if (this.props.subcattitInfo === undefined) return null;
-  
+  //check if errors exist here???
+
     return (
       <div>
       <div className="top-banner"></div>
@@ -80,8 +85,8 @@ class Subcattit extends React.Component {
                 <div className="create-box">
                   <span className="created-at">Created { Moment(this.props.subcattitInfo.created_at).format('MMM DD, YYYY') } </span>
                   <button className="create-btn">
-                    {/* <RouteWithProps path="/mew/:subcattit/submit" component={CreatePostFormContainer} props={this.props.subcattitInfo} /> */}
-                    <Link to={{pathname: `/mew/${this.props.subcattit}/submit`, state: {subcattit: this.props.subcattitInfo}}}>Create Post</Link>
+                    <Route exact path="/mew/:subcattit/submit" component={CreatePostFormContainer}/>
+                    <Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: {subcattit: this.props.subcattitInfo}}}>Create Post</Link>
                     </button>
                 </div>
             </div>

@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def login!(user)
-    @current_user = user
     session[:session_token] = user.reset_session_token!
+    current_user = user
   end
 
   def logout!
@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !current_user.nil?
+  end
+
+  def require_logged_in
+    unless current_user
+      render json: { base: ['Forbidden'] }, status: 418
+    end
   end
 
 end

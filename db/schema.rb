@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_225250) do
+ActiveRecord::Schema.define(version: 2020_01_14_010312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 2020_01_13_225250) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "author_id", null: false
-    t.string "subcattit_name", null: false
     t.string "title", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "subcattit_name"
+    t.integer "subcattit_id"
     t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["subcattit_name"], name: "index_posts_on_subcattit_name"
   end
 
   create_table "subcattits", force: :cascade do |t|
@@ -73,13 +73,6 @@ ActiveRecord::Schema.define(version: 2020_01_13_225250) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-  end
-
-  create_table "votings", force: :cascade do |t|
-    t.bigint "updoots_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["updoots_id"], name: "index_votings_on_updoots_id"
   end
 
 end

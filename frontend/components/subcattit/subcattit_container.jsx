@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSubcattit, createSubcattit, fetchAllSubcattits } from '../../actions/subcattit';
 import Subcattit from './subcattit';
-import { clearError } from '../../actions/subcattit'
+import { clearError } from '../../actions/subcattit';
+import { findSubcat } from '../../reducers/selectors';
+
 
 
 const mSTP = (state, ownProps) => {
@@ -11,7 +13,9 @@ const mSTP = (state, ownProps) => {
     subcattits: Object.values(state.entities.subcattits),
     subcattit: ownProps.match.params.subcattit,
     subcattitInfo: state.entities.subcattits[info],
-    error: state.errors.routingErrors,
+    subcattit_obj: findSubcat(state, info),
+
+    // error: state.errors.routingErrors,
     // reponseError: state.errors.routingErrors.reponseError,
   }
 }

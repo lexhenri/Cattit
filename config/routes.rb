@@ -11,5 +11,5 @@ Rails.application.routes.draw do
        resources :posts, only: [:create, :index]
     end
   end
-  get '*path', to: 'static_pages#root'
+  # get '*path', to: 'static_pages#root'
 end

@@ -7,7 +7,7 @@ class CreateForm extends React.Component {
     this.state = {
       title: '',
       body: '',
-      author_id: this.props.currentUser.id,
+      // author_id: this.props.currentUser.id,
     }
     
     // this.handleErrors = this.handleErrors.bind(this);
@@ -16,13 +16,13 @@ class CreateForm extends React.Component {
   }
   
   componentDidMount(){
-    // const subcattit = this.props.location.state.subcattit
-    // this.props.fetchSubcattit(this.props.subcattit)
-    //   .then(() => this.setState({
-    //   subcattit_id: this.props.subName.id
-    // }))
-
+      this.props.fetchSubcattit(this.props.subcattit)
+      //   .then(() => this.setState({
+      //   subcattit_id: this.props.subName.id
+      // }))
   }
+  
+  
 
   handleInput(type) {
     return (e) => {
@@ -32,22 +32,15 @@ class CreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createNewPost(this.state)
+    let post = this.state;
+    post.subcattit_id = this.props.subcattit.id;
+    this.props.createNewPost(post);
   }
 
   componentDidUpdate(preProps, preState) {
     if (preProps.location.pathname !== this.props.location.pathname){
-      // this.props.fetchSubcattit(this.props.subcattit)
-      //   .then(() => this.setState({
-      //     subcattit_id: this.props.subName.id
-      //   }))
+      this.props.fetchSubcattit(this.props.subcattit)
       console.log("update!")
-    }
-    if (this.props.subcattit === undefined) {
-      // this.props.fetchSubcattit(this.props.subcattit)
-      //   .then(() => this.setState({
-      //     subcattit_id: this.props.subName.id
-      // }))
     }
   }
 
@@ -63,6 +56,7 @@ class CreateForm extends React.Component {
   // }
 
   render(){
+    // if (this.props.subcattit === undefined) return null;
 
 
     return(

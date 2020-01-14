@@ -16,13 +16,13 @@ const App = () => (
   <div>
     <Modal />
     <header>
-      {/* <Route path='/' component={TopNavContainer} /> */}
-      <TopNavContainer /> 
+      {/* <TopNavContainer />  */}
+      <Route path='/' component={TopNavContainer} />
     </header>
     <Switch>
   
     <Route exact path="/" component={TempSplash} />
-    <AuthRoute exact path="/mew/:subcattit/submit" component={CreatePostFormContainer} />
+    <Route path="/mew/:subcattit/submit" key={location.pathname} component={CreatePostFormContainer} />
     <Route exact path="/mew/:subcattit" key={location.pathname} component={SubcattitContainer} />
     <Route path="/mew/*" component={ErrorNotFound} />
     {/* <Route exact path="/404" component={ErrorNotFound} /> */}

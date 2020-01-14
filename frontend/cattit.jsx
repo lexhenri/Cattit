@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
+import { postSession } from './util/session_api';
 // import { createSubcattit } from './actions/subcattit';
 // import { fetchPost } from './actions/post';
 // import { fetchUser } from './actions/user';
@@ -28,5 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.fetchUser = fetchUser;
   // window.fetchPost = fetchPost;
   // window.getPost = getPost;
+  window.postSession = postSession;
   ReactDOM.render(<Root store={store}/>, root)
 })

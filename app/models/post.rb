@@ -4,11 +4,12 @@
 #
 #  id             :bigint           not null, primary key
 #  author_id      :integer          not null
-#  subcattit_name :string           not null
 #  title          :string           not null
 #  body           :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  subcattit_name :string
+#  subcattit_id   :integer
 #
 
 class Post < ApplicationRecord
@@ -19,7 +20,7 @@ class Post < ApplicationRecord
   class_name: :User
 
   belongs_to :subcattit,
-  foreign_key: :subcattit_name,
+  foreign_key: :subcattit_id,
   class_name: :Subcattit
 
 

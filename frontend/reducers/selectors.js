@@ -1,3 +1,10 @@
 export const currentUser = state => {
   return state.entities.users[state.session.id]
 };
+
+export const findSubcat = (state, match) => {
+  let cat = {};
+  Object.values(state.entities.subcattits).forEach(subcat => subcat.name === match ? cat = subcat : null );
+  // debugger;
+  return cat;
+}
