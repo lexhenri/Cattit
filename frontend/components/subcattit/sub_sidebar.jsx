@@ -34,7 +34,7 @@ const SubSidebar = props => {
         <div className="create-box">
           <span className="created-at">Created {Moment(props.subcattitInfo.created_at).format('MMM DD, YYYY')} </span>
           <button className="create-btn">
-            <Route exact path="/mew/:subcattit/submit" component={CreatePostFormContainer} />
+            {/* <Route exact path="/mew/:subcattit/submit" component={CreatePostFormContainer} /> */}
             <Link to={{ pathname: `/mew/${props.subcattit}/submit`, state: { subcattit_info: props.subcattitInfo } }}>Create Post</Link>
           </button>
         </div>

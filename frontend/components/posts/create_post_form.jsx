@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactQuill from 'react-quill';
 import SubSidebar from '../subcattit/sub_sidebar';
 
 
@@ -45,7 +46,6 @@ class CreateForm extends React.Component {
     if (preProps.location.pathname !== this.props.location.pathname){
       this.props.clearErrors();
       this.props.fetchSubcattit(this.props.subcattit)
-      console.log("update!")
     }
   }
 
@@ -61,10 +61,13 @@ class CreateForm extends React.Component {
   }
 
   render(){
+    // var quill = new Quill('#editor', {
+    //   theme: 'snow'
+    // });
 
-
-
+    // debugger
     return(
+      <div className="create-page-container">
       <div className="post-create-container">
         <div className="form-title">
           <h2 className="create-title">Create a post</h2>   
@@ -126,7 +129,10 @@ class CreateForm extends React.Component {
 
       </form>
        </div>
+       </div>
+       <div className="create-sidebar-container">
        <SubSidebar subcattitInfo={this.props.subcattitObj} subcattit={this.props.subcattit} />
+       </div>
        </div>
 
 

@@ -1,9 +1,36 @@
+.create-page-container {
+  display: flex;
+  align-content: center;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 35px;
+  margin: 20px 10px;
+
+
+}
+
+.create-sidebar-container {
+  display: flex;
+  flex-direction: column;
+  padding: 55px 35px 0px 20px;
+  margin: 0 30px 0 10px;
+}
+
+@media all and (max-width: 1100px) and (min-width: 300px){
+  .create-sidebar-container {
+    display: none;
+  }
+}
+
 .post-create-container {
-  padding: 20px 24px;
-  margin: 0 20px;
+  padding: 10px 15px 20px 34px;
+  margin: 0 20px 0 100px;
   justify-content: space-between;
   height: 450px;
+  min-width: 780px;
   max-width: 780px;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-form-container {
@@ -12,6 +39,7 @@
   box-sizing: content-box;
   flex-direction: column;
   justify-content: flex-start;  
+  width: 100%;
   background-color: #FFF;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -329,8 +357,8 @@ h2.create-title {
 // }
 
 .form-title {
-  padding: 4px;
-  margin: 16px 0;
+  padding: 0px 4px 4px 4px;
+  margin-bottom: 16px;
   border-bottom: solid 1px var(--newCommunityTheme-line);
   display: -ms-flexbox;
   display: flex;
