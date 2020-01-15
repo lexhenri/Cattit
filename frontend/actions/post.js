@@ -8,10 +8,10 @@ export const REMOVE_POST = 'REMOVE_POST'
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 
-const receivePost = (post, subcattit) => ({
+const receivePost = (post) => ({
   type: RECEIVE_POST,
   post,
-  subcattit
+  // subcattit
 });
 
 const receivePosts = (posts, subcattit) => ({
@@ -30,7 +30,7 @@ const receiveErrors = (errors) => ({
   errors: errors
 })
 
-export const createNewPost = (post) => dispatch => {
+export const createPost = (post) => dispatch => {
   return PostApiUtil.createPost(post)
     .then((post) => dispatch(receivePost(post)), (errors) => dispatch(receiveErrors(errors.responseJSON)));
 }

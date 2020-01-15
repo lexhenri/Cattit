@@ -14,7 +14,7 @@ class Subcattit extends React.Component {
   //   this.state = {
   //     errors: false
   // }
-  this.props.clearError();
+  // this.props.clearError();
 }
   
   componentDidMount(){

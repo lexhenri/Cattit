@@ -16,7 +16,7 @@ class Api::PostsController < ApplicationController
     if @post.save 
       render json: @post
     else
-      render json: @post.errors.full_messages, status: :unprocessable_entity
+      render json: ['Title cannot be empty.'], status: 418
     end
   end
 

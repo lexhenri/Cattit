@@ -2,19 +2,18 @@
 #
 # Table name: posts
 #
-#  id             :bigint           not null, primary key
-#  author_id      :integer          not null
-#  title          :string           not null
-#  body           :text
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  subcattit_name :string
-#  subcattit_id   :integer
-#  num_comments   :integer
+#  id           :bigint           not null, primary key
+#  author_id    :integer          not null
+#  title        :string           not null
+#  body         :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  subcattit_id :integer
+#  num_comments :integer
 #
 
 class Post < ApplicationRecord
-  validates :title, :body, presence: true;
+  validates :title, :subcattit_id, :author_id, presence: true;
 
   belongs_to :user,
   foreign_key: :author_id,

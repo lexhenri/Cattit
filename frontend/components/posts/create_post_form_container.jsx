@@ -1,10 +1,11 @@
 import React from 'react';
 import { currentUser } from '../../reducers/selectors';
 import { connect } from 'react-redux';
-import { createNewPost } from '../../actions/post';
+import { createPost } from '../../actions/post';
 import { fetchSubcattit } from '../../actions/subcattit';
 import CreateForm from './create_post_form';
 import { findSubcat } from '../../reducers/selectors';
+import { clearErrors } from '../../actions/session';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,13 +15,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: currentUser(state),
     subcattit: ownProps.match.params.subcattit,
-    subcattit_obj: findSubcat(state, subcattitName),
+    subcattitObj: findSubcat(state, subcattitName),
+    errors: state.errors.sessionErrors
     // subcattitName: ownProps.match.params.subcattit
 }};
 
 const mapDispatchToProps = dispatch => ({
-  createPost: post => dispatch(createNewPost(post)),
+  createPost: post => dispatch(createPost(post)),
   fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateForm)
