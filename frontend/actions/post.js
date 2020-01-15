@@ -1,10 +1,12 @@
 import * as PostApiUtil from '../util/post_util';
-import { receiveErrors } from '../actions/session';
+// import { receiveErrors } from '../actions/session';
 // import { receiveErrors, clearErrors } from './session';
 
 export const RECEIVE_POST = 'RECEIVE_POST'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const REMOVE_POST = 'REMOVE_POST'
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+
 
 const receivePost = (post, subcattit) => ({
   type: RECEIVE_POST,
@@ -21,6 +23,11 @@ const receivePosts = (posts, subcattit) => ({
 const deletePost = (postId) => ({
   type: REMOVE_POST,
   postId,
+})
+
+const receiveErrors = (errors) => ({
+  type: RECEIVE_ERRORS,
+  errors: errors
 })
 
 export const createNewPost = (post) => dispatch => {

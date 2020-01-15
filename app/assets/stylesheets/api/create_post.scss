@@ -1,6 +1,6 @@
 .post-create-container {
   padding: 20px 24px;
-  margin: 0 97.5px;
+  margin: 0 20px;
   justify-content: space-between;
   height: 450px;
 }
@@ -28,10 +28,12 @@
   border-width: 0 1px 1px 0;
   // border-radius: 0;
   align-items: center;
+  justify-content: center;
 }
 
-svg.tab-button {
+svg.tab-icons {
   margin: 0 auto;
+  margin-top: 15px;
 }
 
 .tab-container {
@@ -41,6 +43,14 @@ svg.tab-button {
   padding: 0;
   justify-content: space-evenly;
   border: 1px solid #FFF;
+}
+
+.tab-icons {
+  display: flex;
+  margin-right: 8px;
+  height: 16px;
+  fill: currentColor;
+  align-items: center;
 }
 
 .title-bar {
@@ -63,7 +73,6 @@ textarea:focus {
 }
 
 textarea.title-bar {
-  display: flex;
   resize: none;
   overflow-x: hidden; 
   overflow-wrap: break-word; 
@@ -110,8 +119,17 @@ textarea.title-bar:focus {
   flex-grow: 3;
   flex-basis: 100%;
   padding: 8px 16px;
-
 }
+
+// .text-overlay {
+//   bottom: 0;
+//   color: var(--newCommunityTheme-actionIcon);
+//   content: 'Text';
+//   cursor: text;
+//   left: 0;
+//   position: absolute;
+//   top: 0;
+// }
 
 .create-post-form {
   display: flex;
@@ -122,7 +140,8 @@ textarea.title-bar:focus {
 
 .create-form-bottom {
   justify-content: flex-end;
-  padding: 5px 16px 16px;
+  display: flex;
+  padding: 10px 16px 16px;
 }
 
 .post-btn {
@@ -139,11 +158,18 @@ textarea.title-bar:focus {
   cursor: pointer;
 }
 
-.tab-icons {
-  margin-right: 8px;
-  height: 16px;
-  fill: currentColor;
+
+
+h2.create-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--newCommunityTheme-bodyText);
+  -ms-flex: 1;
+  flex: 1;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
+
 // .create-form-container {
 //   display: block;
 // }
@@ -202,16 +228,7 @@ textarea.title-bar:focus {
 // }
 // //experiment?? to be used on LABEL element 
 
-// h2.create-title {
-//   font-size: 18px;
-//   font-weight: 700;
-//   line-height: 22px;
-//   color: var(--newCommunityTheme-bodyText);
-//   -ms-flex: 1;
-//   flex: 1;
-//   font-family: 'IBM Plex Sans', sans-serif;
 
-// }
 // .create-float-text {
 //   line-height: 14px;
 //   font-weight: 600;
@@ -264,13 +281,13 @@ textarea.title-bar:focus {
 //   padding-bottom: 10px;
 // }
 
-// .input-title {
-//   padding: 4px;
-//   margin: 16px 0;
-//   border-bottom: solid 1px var(--newCommunityTheme-line);
-//   display: -ms-flexbox;
-//   display: flex;
-// }
+.form-title {
+  padding: 4px;
+  margin: 16px 0;
+  border-bottom: solid 1px var(--newCommunityTheme-line);
+  display: -ms-flexbox;
+  display: flex;
+}
 
 // .input-fields {
 //   box-sizing: border-box;

@@ -5,6 +5,7 @@ import { Redirect, Route } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import { Link, NavLink } from 'react-router-dom';
 import { RouteWithProps } from '../util/prop_routing';
+import SubSidebar from './sub_sidebar';
 
 
 class Subcattit extends React.Component {
@@ -62,7 +63,8 @@ class Subcattit extends React.Component {
 
         <div className="subcattit-container">
         <PostIndexContainer subcattit={this.props.subcattit} />
-        <div className="sidebar-container">
+        <SubSidebar subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo} />
+        {/* <div className="sidebar-container">
           <div className="box">
               <div className="box-banner"><h1>About Community</h1></div>
             <div className="box-content">
@@ -91,7 +93,7 @@ class Subcattit extends React.Component {
                 </div>
             </div>
           </div>
-        </div>
+        </div> */}
           </div> 
           </div>
     )
