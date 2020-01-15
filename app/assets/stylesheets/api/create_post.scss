@@ -172,23 +172,36 @@ textarea.title-bar:focus {
 .post-body-container {
   border: 1px solid #FFF;
   display: flex;
-  // flex-direction: column;
-  // flex-flow: column nowrap;
-  // margin: 0 25px;
   width: inherit;
   justify-content: center;
   box-sizing: content-box;
-  // padding: 10px 16px;
+  flex-direction: column;
 }
 
+.quill-styling {
+  border-radius: 4px 4px 0 0;
+  background-color: var(--newCommunityTheme-field);
+  fill: var(--newCommunityTheme-actionIcon);
+  color: var(--newCommunityTheme-actionIcon);
+  border: 1px dashed var(--newCommunityTheme-line);
+  
+}
+
+// svg.quill-styling {
+//   fill: var(--newCommunityTheme-actionIcon);
+//   color: var(--newCommunityTheme-actionIcon);
+// }
+
 .create-post-body {
+  background-color: #FFF;
   border: 1px dashed var(--newCommunityTheme-line);
   min-height: 280px;
-  border-radius: 4px;
+  border-radius: 0 0 4px 4px;
   text-align: center;
   resize: none;
   flex-flow: row;
   display: flex;
+  outline: none;
   // font-family: 'Noto Sans', sans-serif;
   // font-size: 14px;
   text-align: left;

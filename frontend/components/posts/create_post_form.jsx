@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactQuill from 'react-quill';
+import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 import SubSidebar from '../subcattit/sub_sidebar';
 
 
@@ -16,6 +16,8 @@ class CreateForm extends React.Component {
     this.handleErrors = this.handleErrors.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+
   }
   
   componentDidMount(){
@@ -28,10 +30,16 @@ class CreateForm extends React.Component {
   
 
   handleInput(type) {
+    console.log(type);
     return (e) => {
       this.setState({ [type]: e.target.value });
     };
   }
+
+  handleChange(value) {
+    this.setState({ body: value })
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -60,10 +68,20 @@ class CreateForm extends React.Component {
     )
   }
 
+  // focusTextArea() {
+  //   this.textArea.current.focus();
+  //   // use to highlight red error fields?
+  // }
+
+// rteChange = (content, delta, source, editor) => {
+//     console.log(editor.getHTML()); // HTML/rich text
+//     console.log(editor.getText()); // plain text
+//     console.log(editor.getLength()); // number of characters
+//   }
+
+
+
   render(){
-    // var quill = new Quill('#editor', {
-    //   theme: 'snow'
-    // });
 
     // debugger
     return(
@@ -95,31 +113,21 @@ class CreateForm extends React.Component {
         </div>
       <form className='create-post-form'>
 
-        {/* <div className="title-bar"> */}
-                {/* <label htmlFor="createTitle">Title</label> */}
           <textarea
-              id="createTitle"
-              placeholder="Title"
-              maxLength="300"
-              rows="1"
               className="title-bar"
-              type="text"
+              placeholder="Title"
               value={this.state.title}
-              onChange={this.handleInput('title')}
-              required />
-        {/* </div> */}
+              onChange={this.handleInput('title')} />
        
-        <div className="post-body-container">
-              {/* <label htmlFor="createBody">Body</label> */}
-        <textarea
-              placeholder="Text"
-              id="createBody"
-              className="create-post-body"
-              type="text"
-              value={this.state.body}
-              onChange={this.handleInput('body')}
-              required />
+        <div className="post-body-container">      
 
+            <ReactQuill className="quill-styling" >
+                  {/* // value={this.state.body}
+                  // onChange={this.handleInput('body')}  */}
+                  
+            <div className="create-post-body" contentEditable="true">
+                </div>
+                </ReactQuill>
     
         </div>
         <div className="create-form-bottom">
