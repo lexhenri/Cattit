@@ -193,6 +193,8 @@ span.description {
   height: 32px;
   display: flex;
   flex-direction: column;
+  word-break: break-word;
+  width: 50%;
 }
 
 span.subtitle {
@@ -202,6 +204,7 @@ span.subtitle {
   line-height: 16px;
   word-break: break-word;
   color: var(--newCommunityTheme-widgetColors-sidebarWidgetTextColor);
+  margin-bottom: 10px;
 }
 
 .stats-container {
@@ -210,6 +213,7 @@ span.subtitle {
   border-bottom: 1px solid var(--newCommunityTheme-line);
   padding: 15px 5px 22px;
 }
+
 
 span.stats {
   font-size: 16px;

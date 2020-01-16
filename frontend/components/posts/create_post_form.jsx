@@ -57,6 +57,9 @@ class CreateForm extends React.Component {
       this.props.clearErrors();
       this.props.fetchSubcattit(this.props.subcattit)
     }
+    if (this.props.currentUser === undefined) {
+      this.props.history.push(`/mew/${this.props.subcattit}`)
+    }
   }
 
   handleErrors() {
