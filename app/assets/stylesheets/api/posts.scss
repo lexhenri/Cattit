@@ -27,7 +27,7 @@
   align-items: center;
   justify-items: flex-start;
   box-sizing: border-box;
-  padding: 8px 4px 8px 0px;
+  padding: 12px 4px 8px 0px;
   background-color: #F8F9FA;
   color: rgb(135, 138, 140);
 }
@@ -114,6 +114,7 @@ span.karma-bar {
   align-self: flex-start;
   flex-grow: 3;
   flex-basis: 100%;
+  margin-bottom: -1px;
 }
 
 .post-body p {
@@ -177,4 +178,12 @@ i.comment-btn {
   height: 16px;
   width: 16px;
   font-size: 12px;
+}
+
+.bottom-fade {
+  -webkit-mask-image: linear-gradient(180deg,#000 60%,transparent);
+  mask-image: linear-gradient(180deg,#000 60%,transparent);
+  overflow: hidden;
+  padding: 5px 8px 10px 0px;
+  max-height: 250px;
 }

@@ -63,44 +63,22 @@ class Subcattit extends React.Component {
 
         <div className="subcattit-container">
           <div className="subcat-feed-container">
-          <div className="mini-submit">
-               <Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: { subcattit_info: this.props.subcattitInfo } }}>
-            <input className="mini-input" type="text" placeholder="Create Post" />
-            </Link>
+            <div className="mini-submit">
+              {/* <input className="mini-input" placeholder="Create Post" > */}
+            {
+              (this.props.currentUser !== undefined) ?
+                (<Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: { subcattit_info: this.props.subcattitInfo } }}>
+                      <input className="mini-input" placeholder="Create Post" />
+                  </Link> 
+                  ) : (<a onClick={() => this.props.openModal('login')} >
+                      <input className="mini-input" placeholder="Create Post" />
+                    </a>)
+            }
           </div>
-        <PostIndexContainer subcattit={this.props.subcattit} />
+        <PostIndexContainer subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo}/>
           </div>
         <SubSidebar subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo} page={"subcattit"} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
-        {/* <div className="sidebar-container">
-          <div className="box">
-              <div className="box-banner"><h1>About Community</h1></div>
-            <div className="box-content">
-              <div className="description">
-                <span className="description">{this.props.subcattitInfo.description}</span>
-              </div>
-
-               <div className="stats-container">
-                <div className="subscriber-info">
-                <span className="stats"> 1.4k </span>
-                 <span className="subtitle">making fwend</span>
-                  </div>
-                <div className="subscriber-info">
-                  <span className="stats">682</span>
-                  <span className="subtitle">playing right now</span>
-                </div>
-                <div className="spacer"></div>
-                </div> 
-
-                <div className="create-box">
-                  <span className="created-at">Created { Moment(this.props.subcattitInfo.created_at).format('MMM DD, YYYY') } </span>
-                  <button className="create-btn">
-                    <Route exact path="/mew/:subcattit/submit" component={CreatePostFormContainer}/>
-                    <Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: {subcattit_info: this.props.subcattitInfo}}}>Create Post</Link>
-                    </button>
-                </div>
-            </div>
-          </div>
-        </div> */}
+      
           </div> 
           </div>
     )

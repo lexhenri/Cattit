@@ -9,12 +9,14 @@ import ErrorBoundary from './util/error_boundary'
 import RedirectWithStatus from './util/redirect_to';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import CreatePostFormContainer from './posts/create_post_form_container';
+import PostShowModal from './posts/post_show_modal';
 
 
 
 const App = () => (
   <div>
     <Modal />
+    <PostShowModal />
     <header>
       {/* <TopNavContainer />  */}
       <Route path='/' component={TopNavContainer} />
@@ -22,6 +24,7 @@ const App = () => (
     <Switch>
   
     <AuthRoute exact path="/mew/:subcattit/submit" key={location.pathname} component={CreatePostFormContainer} />
+    <Route exact path="/mew/:subcattit/comments/:postId" component={PostShowModal} />
     <Route exact path="/mew/:subcattit" key={location.pathname} component={SubcattitContainer} />
     <Route path="/mew/*" component={ErrorNotFound} />
     <Route exact path="/" component={TempSplash} />

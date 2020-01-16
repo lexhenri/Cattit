@@ -10,7 +10,7 @@ class PostIndex extends React.Component {
       title: '',
       body: '',
       author_id: '',
-      subcattit_name: ''
+      subcattit_id: ''
     }
   }
 
@@ -27,14 +27,17 @@ class PostIndex extends React.Component {
   //     this.props.fetchPosts(this.props.subcattit)
   // }
 }
+          // <Link to={`/mew/${this.props.subcattit}/comments/${post.id}`} onClick={() => this.props.openShow('show')}>
 
   render(){
     const { posts } = this.props;
-
     return(
       <div className="post-container">
         {
-        posts ? ( posts.map(post => <PostIndexItem post={post} key={post.id} />)
+        posts ? ( posts.map(post => 
+          <a onClick={() => this.props.openShow({post: post, subcattit: this.props.subcattitInfo})} >
+            <PostIndexItem post={post} key={post.id} subcattit={this.props.subcattit} />
+          </a>)
         ) : (
           <div className="post-container">
             <div className="post">

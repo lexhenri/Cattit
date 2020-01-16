@@ -3,7 +3,7 @@ import Moment from 'moment';
 import { Redirect, Route } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import { Link, NavLink } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 
 //WORK IN PROGRESS
 
@@ -40,7 +40,7 @@ const SubSidebar = props => {
                   {
                     (props.currentUser !== undefined) ?
                       (<Link to={{ pathname: `/mew/${props.subcattit}/submit`, state: { subcattit_info: props.subcattitInfo } }}>Create Post</Link>)
-                      : (<Link onClick={() => props.openModal('login')}>Create Post</Link>)
+                      : (<a onClick={() => props.openModal('login')}>Create Post</a>)
                   }
                 </button>
             ) : (null)
@@ -51,4 +51,21 @@ const SubSidebar = props => {
   </div>)
 }
 
-export default SubSidebar;
+
+const mapStateToProps = (state, ownProps) => {
+  // const info = state.ui.postShow.name
+  return {
+    // subcattit_obj: findSubcat(state, info),
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    closeShow: () => dispatch(closeShow()),
+    fetchPost: postId => dispatch(fetchPost(postId)),
+    fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubSidebar);
+
