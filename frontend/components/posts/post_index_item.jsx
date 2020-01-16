@@ -5,6 +5,7 @@ import TimeAgo from 'timeago-react';
 
 const PostIndexItem = props => {
   // let num_comments = props.post.comment_ids.length
+  
   return (
     <div className="post">
       <div className="karma-bar">

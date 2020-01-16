@@ -29,13 +29,15 @@ class PostIndex extends React.Component {
 }
           // <Link to={`/mew/${this.props.subcattit}/comments/${post.id}`} onClick={() => this.props.openShow('show')}>
 
+ 
+
   render(){
     const { posts } = this.props;
     return(
       <div className="post-container">
         {
         posts ? ( posts.map(post => 
-          <a onClick={() => this.props.openShow({post: post, subcattit: this.props.subcattitInfo})} >
+          <a onClick={() => this.props.openShow(post)} >
             <PostIndexItem post={post} key={post.id} subcattit={this.props.subcattit} />
           </a>)
         ) : (
@@ -49,5 +51,6 @@ class PostIndex extends React.Component {
     )
   }
 }
+// { post: post, subcattit: this.props.subcattitInfo }
 
 export default PostIndex;

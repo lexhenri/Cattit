@@ -1,16 +1,15 @@
 export const OPEN_SHOW = 'OPEN_SHOW';
 export const CLOSE_SHOW = 'CLOSE_SHOW';
 
-export const openShow = (payload) => {
+export const openShow = (post) => {
   return {
     type: OPEN_SHOW,
-    payload
+    post
   };
 };
 
-export const closeShow = (subcattit) => {
+export const closeShow = () => {
   return {
     type: CLOSE_SHOW,
-    subcattit
   };
 };

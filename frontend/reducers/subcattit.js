@@ -16,10 +16,10 @@ const subcattitReducer = (state = {}, action) => {
     case CLEAR_ERROR:
       action.error = {};
       return action.error;
-    case OPEN_SHOW:
-      return action.payload.subcattit;
-    case CLOSE_SHOW:
-      return {[action.subcattit.name]: action.subcattit}
+    // case OPEN_SHOW:
+    //   return action.payload.subcattit;
+    // case CLOSE_SHOW:
+    //   return {[action.subcattit.name]: action.subcattit}
     default:
       return state;
   }
