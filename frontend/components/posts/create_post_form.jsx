@@ -16,8 +16,7 @@ class CreateForm extends React.Component {
     this.handleErrors = this.handleErrors.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this)
-
+    this.handleChange = this.handleChange.bind(this);
   }
   
   componentDidMount(){
@@ -29,17 +28,18 @@ class CreateForm extends React.Component {
   }
   
 
-  handleInput(type) {
-    console.log(type);
-    return (e) => {
-      this.setState({ [type]: e.target.value });
-    };
+  handleInput(e) {
+    console.log(e);
+    this.setState({ title: e.currentTarget.value });
   }
-
-  handleChange(value) {
-    this.setState({ body: value })
+  
+  handleChange(value){
+    // debugger
+    console.log(value);
+    this.setState({
+      body: value
+    })
   }
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -73,13 +73,7 @@ class CreateForm extends React.Component {
   //   // use to highlight red error fields?
   // }
 
-// rteChange = (content, delta, source, editor) => {
-//     console.log(editor.getHTML()); // HTML/rich text
-//     console.log(editor.getText()); // plain text
-//     console.log(editor.getLength()); // number of characters
-//   }
-
-
+  
 
   render(){
 
@@ -91,6 +85,7 @@ class CreateForm extends React.Component {
           <h2 className="create-title">Create a post</h2>   
        </div>
        <div className="post-form-container">
+         {/* <Tabs> */}
         <div className="tab-container">
             <div className="tab-button">
               <div className="tab-content">
@@ -111,22 +106,25 @@ class CreateForm extends React.Component {
                 </div>          
           </div>
         </div>
-      <form className='create-post-form'>
+            {/* </Tabs> */}
 
+
+      <form className='create-post-form'>
           <textarea
               className="title-bar"
               placeholder="Title"
               value={this.state.title}
-              onChange={this.handleInput('title')} />
+              onChange={this.handleInput} />
        
         <div className="post-body-container">      
 
-            <ReactQuill className="quill-styling" >
-                  {/* // value={this.state.body}
-                  // onChange={this.handleInput('body')}  */}
-                  
-            <div className="create-post-body" contentEditable="true">
-                </div>
+             <ReactQuill 
+                className="quill-styling"
+                  defaultValue={this.state.body}
+                  onChange={this.handleChange} >
+            <div className="create-post-body" 
+                contentEditable="true" />
+       
                 </ReactQuill>
     
         </div>

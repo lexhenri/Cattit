@@ -1,61 +1,37 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import Tab from './Tab';
 
-class Tabs extends Component {
-  static propTypes = {
-    children: PropTypes.instanceOf(Array).isRequired,
-  }
-
+export default class Tabs extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      activeTab: this.props.children[0].props.label,
+      selectedPane: 0
     };
+    this.selectTab = this.selectTab.bind(this);
   }
 
-  onClickTabItem = (tab) => {
-    this.setState({ activeTab: tab });
+  selectTab(num) {
+    this.setState({ selectedPane: num });
   }
 
   render() {
-    const {
-      onClickTabItem,
-      props: {
-        children,
-      },
-      state: {
-        activeTab,
-      }
-    } = this;
+    const pane = this.props.panes[this.state.selectedPane];
 
     return (
-      <div className="tab-container">
-        <ol className="tab-button">
-          {children.map((child) => {
-            const { label } = child.props;
-
-            return (
-              <Tab
-                activeTab={activeTab}
-                key={label}
-                label={label}
-                onClick={onClickTabItem}
-              />
-            );
-          })}
-        </ol>
-        <div className="tab-content">
-          {children.map((child) => {
-            if (child.props.label !== activeTab) return undefined;
-            return child.props.children;
-          })}
+      <div>
+        <h1>Tabs</h1>
+        <div className='tabs'>
+          <Headers
+            selectedPane={this.state.selectedPane}
+            onTabChosen={this.selectTab}
+            panes={this.props.panes}>
+          </Headers>
+          <div className='tab-content'>
+            <article>
+              {pane.content}
+            </article>
+          </div>
         </div>
       </div>
     );
   }
 }
-
-export default Tabs;

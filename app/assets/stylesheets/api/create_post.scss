@@ -183,7 +183,7 @@ textarea.title-bar:focus {
   background-color: var(--newCommunityTheme-field);
   fill: var(--newCommunityTheme-actionIcon);
   color: var(--newCommunityTheme-actionIcon);
-  border: 1px dashed var(--newCommunityTheme-line);
+  border: 1px dashed var(--newCommunityTheme-line) !important;
   
 }
 
@@ -191,6 +191,7 @@ textarea.title-bar:focus {
 //   fill: var(--newCommunityTheme-actionIcon);
 //   color: var(--newCommunityTheme-actionIcon);
 // }
+
 
 .create-post-body {
   background-color: #FFF;
