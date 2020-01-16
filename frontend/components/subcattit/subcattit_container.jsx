@@ -4,7 +4,8 @@ import { fetchSubcattit, createSubcattit, fetchAllSubcattits } from '../../actio
 import Subcattit from './subcattit';
 import { clearError } from '../../actions/subcattit';
 import { findSubcat } from '../../reducers/selectors';
-
+import { currentUser } from '../../reducers/selectors';
+import { openModal, closeModal } from '../../actions/modal';
 
 
 const mSTP = (state, ownProps) => {
@@ -14,6 +15,7 @@ const mSTP = (state, ownProps) => {
     subcattit: ownProps.match.params.subcattit,
     subcattitInfo: state.entities.subcattits[info],
     subcattit_obj: findSubcat(state, info),
+    currentUser: currentUser(state),
 
     // error: state.errors.routingErrors,
     // reponseError: state.errors.routingErrors.reponseError,
@@ -29,7 +31,9 @@ const mDTP = (dispatch, ownProps) => {
   fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit)),
   fetchAllSubcattits: () => dispatch(fetchAllSubcattits()),
   createSubcattit: subcattit => dispatch(createSubcattit(subcattit)),
-  clearError: () => dispatch(clearError())
+  clearError: () => dispatch(clearError()),
+  closeModal: () => dispatch(closeModal()),
+  openModal: modal => dispatch(openModal(modal)),
   }
 }
 

@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
 
   def index 
     # debugger
-    @posts = Subcattit.find_by(name: params[:subcattit_id]).posts
+    @posts = Subcattit.find_by(name: params[:subcattit_id]).posts.order(created_at: :desc)
     render :index
   end
 
@@ -27,6 +27,6 @@ class Api::PostsController < ApplicationController
 
   private 
   def post_params 
-    params.require(:post).permit(:author_id, :title, :body, :subcattit_name, :subcattit_id)
+    params.require(:post).permit(:author_id, :title, :body, :subcattit_name, :subcattit_id, :created_at)
   end
 end

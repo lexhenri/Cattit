@@ -74,7 +74,7 @@ class Login extends React.Component {
         </form>
         <div className="bottom-text">
           <a href="https://github.com/minibells">Github</a>  ·  <a href="https://github.com/minibells">Temp</a>
-          <p>New to Cattit? <a href="#" className="small-signup" onClick={() => this.props.openModal('signup')}>Sign Up</a></p>
+          <p>New to Cattit? <a className="small-signup" onClick={() => this.props.openModal('signup')}>Sign Up</a></p>
         </div>
       </div>
     );

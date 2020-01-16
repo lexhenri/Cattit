@@ -10,6 +10,10 @@
 #  num_subscribers :integer          default(0)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  num_members     :integer          default(0)
+#  num_online      :integer          default(0)
+#  member_desc     :string           default("members")
+#  online_desc     :string           default("online")
 #
 
 require 'test_helper'

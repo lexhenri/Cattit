@@ -62,8 +62,15 @@ class Subcattit extends React.Component {
           </div>
 
         <div className="subcattit-container">
+          <div className="subcat-feed-container">
+          <div className="mini-submit">
+               <Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: { subcattit_info: this.props.subcattitInfo } }}>
+            <input className="mini-input" type="text" placeholder="Create Post" />
+            </Link>
+          </div>
         <PostIndexContainer subcattit={this.props.subcattit} />
-        <SubSidebar subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo} />
+          </div>
+        <SubSidebar subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo} page={"subcattit"} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
         {/* <div className="sidebar-container">
           <div className="box">
               <div className="box-banner"><h1>About Community</h1></div>

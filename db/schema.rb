@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_002839) do
+ActiveRecord::Schema.define(version: 2020_01_16_050623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_01_15_002839) do
     t.datetime "updated_at", null: false
     t.integer "subcattit_id"
     t.integer "num_comments"
+    t.integer "upvotes", default: 0
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
@@ -60,6 +61,10 @@ ActiveRecord::Schema.define(version: 2020_01_15_002839) do
     t.integer "num_subscribers", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "num_members", default: "0"
+    t.string "num_online", default: "0"
+    t.string "member_desc", default: "members"
+    t.string "online_desc", default: "online"
     t.index ["name"], name: "index_subcattits_on_name", unique: true
   end
 

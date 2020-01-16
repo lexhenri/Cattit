@@ -10,7 +10,7 @@ const Auth = ({ loggedIn, path, component: Component }) => (
   <Route
     path={path}
     render={props => (
-      loggedIn ? <Component {...props} /> : <Redirect to="/" />
+      loggedIn ? <Redirect to="/" /> : <Component {...props} /> 
     )}
   />
 );

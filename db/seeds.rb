@@ -17,17 +17,17 @@ punkin = User.create!({username: 'Punkin', password: 'kittens', email: 'pumpkin@
 cinderblock = User.create!({username: 'Cinderblock', password: 'kittens', email: 'cindy@meow.io'});
 breakfast = User.create!({username: 'Breakfast', password: 'kittens', email: 'mew@meow.io'});
 
-owls = Subcattit.create!({name: "owls", description: "like us but fly"});
-herbs = Subcattit.create!({name: "herbs", description: "for discussion of ACTUAL HERBS"});
-mice = Subcattit.create!({name: "mice", description: "Mice are friends! Not food! Seriously though. Stop memeing."});
-yarn = Subcattit.create!({name: "yarn", description: "This is about actual yarn. Cat's can't program!"});
-memes = Subcattit.create!({name: 'esoteric memes', description: "wazaaaahhhhh"});
+owls = Subcattit.create!({name: "owls", description: "like us but fly", num_members: '201k', num_online: '600', member_desc: 'human watchers', online_desc: 'hooting'});
+herbs = Subcattit.create!({name: "herbs", description: "for discussion of ACTUAL HERBS. NOT. CATNIP.", num_members: '341k', num_online: '1.2k', member_desc: 'botanists', online_desc: 'nibbling leaves'});
+mice = Subcattit.create!({name: "mice", description: "Mice are friends! Not food! Seriously though. Stop memeing.", num_members: '23k', num_online: '471', member_desc: 'interspecies activists', online_desc: 'making fwends'});
+yarn = Subcattit.create!({name: "yarn", description: "This is about actual yarn. Cat's can't program!", num_members: '19k', num_online: '41', member_desc: 'yarn enthusiasts', online_desc: 'chewing on fibers'});
+memes = Subcattit.create!({name: 'esoteric-memes', description: "wazaaaahhhhh. if you found this by yourself you are very special!", num_members: '42', num_online: '∞', member_desc: 'dedicated researchers', online_desc: 'being watched'});
 
-Post.create!({author_id: breakfast.id, subcattit_id: yarn.id, title: 'Seriously?', body: 'Cat`s can totally program! Cattist scum!', num_comments: 9});
-Post.create!({author_id: shasta.id, subcattit_id: herbs.id, title: 'I`M SERIOUS, STOP ASKING ABOUT CATNIP', body: 'There is literally an entire other discussion board. I`ve cleared this subcattit now. Next nipper gets the ban hammer!', num_comments: 19});
-Post.create!({author_id: punkin.id, subcattit_id: owls.id, title: 'Made friends with an owl today', body: 'Lowkey afraid she`s gonna peck my eyes myout. Am I being ridiculous?', num_comments: 2});
-Post.create!({author_id: loiny.id, subcattit_id: mice.id, title: 'Mice as hats?', body: 'I wwears themm on mi head?', num_comments: 3});
-Post.create!({author_id: punkin.id, subcattit_id: mice.id, title: 'Friendly reminder', body: 'TO STOP SHITPOSTING', num_comments: 7});
-Post.create!({author_id: cinderblock.id, subcattit_id: mice.id, title: 'Mice friend meeems', body: 'Can we get some?', num_comments: 23});
-Post.create!({author_id: shasta.id, subcattit_id: mice.id, title: 'Need advice', body: 'I made a friends with many mice but my owners hate it! They say I`m a bad cat. What do I do?', num_comments: 2});
-Post.create!({author_id: freddy.id, subcattit_id: mice.id, title: 'What does this mean?', body: 'The enormous room on the ground floor faced towards the north. Cold for all the summer beyond the panes, for all the tropical heat of the room itself, a harsh thin light glared through the windows, hungrily seeking some draped lay figure, some pallid shape of academic goose-flesh, but finding only the glass and nickel and bleakly shining porcelain of a laboratory. Wintriness responded to wintriness. The overalls of the workers were white, their hands gloved with a pale corpse-coloured rubber. The light was frozen, dead, a ghost. Only from the yellow barrels of the microscopes did it borrow a certain rich and living substance, lying along the polished tubes like butter, streak after luscious streak in long recession down the work tables.', num_comments: 32});
+Post.create!({author_id: breakfast.id, subcattit_id: yarn.id, title: 'Seriously?', body: "Cats can totally program! Cattist scum!", num_comments: 9, upvotes: 12});
+Post.create!({author_id: shasta.id, subcattit_id: herbs.id, title: "I'M SERIOUS, STOP ASKING ABOUT CATNIP", body: "There is literally an entire other discussion board. I've cleared this subcattit now. Next tipsy bastard gets the ban hammer!", num_comments: 19, upvotes: 420});
+Post.create!({author_id: punkin.id, subcattit_id: owls.id, title: 'Made friends with an owl today', body: "Lowkey afraid she's gonna peck my eyes myout. Am I being ridiculous?", num_comments: 2, upvotes: 3});
+Post.create!({author_id: loiny.id, subcattit_id: mice.id, title: 'Mice as hats?', body: 'I wwears themm on mi head?', num_comments: 3, upvotes: 9});
+Post.create!({author_id: punkin.id, subcattit_id: mice.id, title: 'Friendly reminder', body: 'TO STOP SHITPOSTING', num_comments: 7, upvotes: 42});
+Post.create!({author_id: cinderblock.id, subcattit_id: mice.id, title: 'Mice friend meeems', body: 'Can we get some?', num_comments: 23, upvotes: 999});
+Post.create!({author_id: shasta.id, subcattit_id: mice.id, title: 'Need advice', body: "I made a friends with many mice but my owners hate it! They say I'm a bad cat. What do I do?", num_comments: 2, upvotes: 23});
+Post.create!({author_id: freddy.id, subcattit_id: mice.id, title: 'What does this mean?', body: 'The enormous room on the ground floor faced towards the north. Cold for all the summer beyond the panes, for all the tropical heat of the room itself, a harsh thin light glared through the windows, hungrily seeking some draped lay figure, some pallid shape of academic goose-flesh, but finding only the glass and nickel and bleakly shining porcelain of a laboratory. Wintriness responded to wintriness. The overalls of the workers were white, their hands gloved with a pale corpse-coloured rubber. The light was frozen, dead, a ghost. Only from the yellow barrels of the microscopes did it borrow a certain rich and living substance, lying along the polished tubes like butter, streak after luscious streak in long recession down the work tables.', num_comments: 32, upvotes: 10});

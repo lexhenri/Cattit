@@ -75,7 +75,7 @@ class Signup extends React.Component {
           <button className="submit-btn" onClick={this.handleSubmit}>Sign up</button>
         </form>
         <div className="bottom-text">
-          <p>Already a Cattitor? <a href="#" className="small-signup" onClick={() => this.props.openModal('login')}>Log in</a></p>
+          <p>Already a Cattitor? <a className="small-signup" onClick={() => this.props.openModal('login')}>Log in</a></p>
         </div>
       </div>
     );

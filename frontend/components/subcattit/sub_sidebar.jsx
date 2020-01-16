@@ -11,7 +11,8 @@ const SubSidebar = props => {
   Moment.locale('en');
 
 
-  return (<div className="sidebar-container">
+  return (
+  <div className="sidebar-container">
     <div className="box">
       <div className="box-banner"><h1>About Community</h1></div>
       <div className="box-content">
@@ -21,22 +22,29 @@ const SubSidebar = props => {
 
         <div className="stats-container">
           <div className="subscriber-info">
-            <span className="stats"> 1.4k </span>
-            <span className="subtitle">making fwend</span>
+              <span className="stats"> {props.subcattitInfo.num_members} </span>
+              <span className="subtitle">{props.subcattitInfo.member_desc}</span>
           </div>
           <div className="subscriber-info">
-            <span className="stats">682</span>
-            <span className="subtitle">playing right now</span>
+              <span className="stats">{props.subcattitInfo.num_online}</span>
+              <span className="subtitle">{props.subcattitInfo.online_desc}</span>
           </div>
           <div className="spacer"></div>
         </div>
 
         <div className="create-box">
           <span className="created-at">Created {Moment(props.subcattitInfo.created_at).format('MMM DD, YYYY')} </span>
-          <button className="create-btn">
-            {/* <Route exact path="/mew/:subcattit/submit" component={CreatePostFormContainer} /> */}
-            <Link to={{ pathname: `/mew/${props.subcattit}/submit`, state: { subcattit_info: props.subcattitInfo } }}>Create Post</Link>
-          </button>
+          {
+            (props.page === "subcattit") ? (
+                <button className="create-btn">
+                  {
+                    (props.currentUser !== undefined) ?
+                      (<Link to={{ pathname: `/mew/${props.subcattit}/submit`, state: { subcattit_info: props.subcattitInfo } }}>Create Post</Link>)
+                      : (<Link onClick={() => props.openModal('login')}>Create Post</Link>)
+                  }
+                </button>
+            ) : (null)
+          }
         </div>
       </div>
     </div>

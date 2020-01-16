@@ -5,8 +5,6 @@
   justify-content: space-around;
   padding: 35px;
   margin: 20px 10px;
-
-
 }
 
 .create-sidebar-container {
@@ -24,7 +22,7 @@
 
 .post-create-container {
   padding: 10px 15px 20px 34px;
-  margin: 0 20px 0 100px;
+  margin: 0 0px 0 100px;
   justify-content: space-between;
   height: 450px;
   min-width: 780px;
@@ -68,6 +66,14 @@ svg.tab-icons {
   margin-right: 10px;
 }
 
+svg.tab-icons-highlight {
+  fill: var(--newRedditTheme-button);
+  max-width: 25px;
+  height: 16px;
+  margin-right: 10px;
+
+}
+
 .tab-container {
   border-radius: 0;
   box-sizing: border-box;
@@ -82,7 +88,7 @@ svg.tab-icons {
   border-width: 0 0px 1px 0;
   border-color: var(--newRedditTheme-line);
   border-bottom: 1px solid var(--newRedditTheme-line);
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .tab-mid {
@@ -91,34 +97,26 @@ svg.tab-icons {
   border-top: none;
   border-bottom: none;
   padding: 10px 25px;
-  // background-color: #FFF;
   display: block;
   width: 33.3%;
   flex-grow: 1;
   text-align: center;
-  // border-width: 0 1px 1px 0;
-  // border-radius: 0;
   align-items: center;
   justify-content: center;
 }
 
 .tab-content {
   display: flex;
-  // margin-right: 8px;
   fill: currentColor;
   align-items: center;
   justify-content: center;
-  // padding: 10px 0px;
-  // z-index: 1;
-  // position: relative;
-  // -ms-flex: 1;
-  // flex: 1;
- 
 }
 
 .tab-highlight {
   color: var(--newRedditTheme-button);
-  border-color: var(--newRedditTheme-button);
+  border: 1px solid var(--newRedditTheme-button);
+  border-width: 0 4px 3px 0;
+  border-radius: 0 0 4px 0;
 }
 
 span.tab-text {
@@ -128,6 +126,16 @@ span.tab-text {
   cursor: pointer;
   outline: none;
   color: var(--newRedditTheme-actionIcon);
+  font-family: IBM Plex Sans, Arial, sans-serif;
+}
+
+span.tab-text-highlight {
+  color: var(--newRedditTheme-button);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  cursor: pointer;
+  outline: none;
   font-family: IBM Plex Sans, Arial, sans-serif;
 }
 
@@ -259,6 +267,17 @@ h2.create-title {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.form-title {
+  padding: 0px 4px 4px 4px;
+  margin-bottom: 16px;
+  border-bottom: solid 1px var(--newCommunityTheme-line);
+  display: -ms-flexbox;
+  display: flex;
+}
+
+
+
+
 // .create-form-container {
 //   display: block;
 // }
@@ -370,13 +389,6 @@ h2.create-title {
 //   padding-bottom: 10px;
 // }
 
-.form-title {
-  padding: 0px 4px 4px 4px;
-  margin-bottom: 16px;
-  border-bottom: solid 1px var(--newCommunityTheme-line);
-  display: -ms-flexbox;
-  display: flex;
-}
 
 // .input-fields {
 //   box-sizing: border-box;

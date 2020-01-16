@@ -21,10 +21,10 @@ const App = () => (
     </header>
     <Switch>
   
-    <Route exact path="/" component={TempSplash} />
-    <Route path="/mew/:subcattit/submit" key={location.pathname} component={CreatePostFormContainer} />
+    <AuthRoute exact path="/mew/:subcattit/submit" key={location.pathname} component={CreatePostFormContainer} />
     <Route exact path="/mew/:subcattit" key={location.pathname} component={SubcattitContainer} />
     <Route path="/mew/*" component={ErrorNotFound} />
+    <Route exact path="/" component={TempSplash} />
     <Route component={ErrorNotFound} />
     </Switch>
     {/* <RedirectWithStatus status={404} from="/mew/*" to="/404" /> */}

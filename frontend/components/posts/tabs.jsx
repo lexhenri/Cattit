@@ -1,37 +1,55 @@
+import React from 'react';
+import { TextTab } from './tab';
 
+class Tabs extends React.Component {
 
-export default class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
-      selectedPane: 0
+      activeTabIndex: this.props.defaultActiveTabIndex
     };
-    this.selectTab = this.selectTab.bind(this);
+    this.handleTabClick = this.handleTabClick.bind(this);
   }
 
-  selectTab(num) {
-    this.setState({ selectedPane: num });
+  // Toggle currently active tab
+  handleTabClick(tabIndex) {
+    this.setState({
+      activeTabIndex: tabIndex === this.state.activeTabIndex ? this.props.defaultActiveTabIndex : tabIndex
+    });
+  }
+
+  // Encapsulate <Tabs/> component API as props for <Tab/> children
+  renderChildrenWithTabsApiAsProps() {
+    return React.Children.map(this.props.children, (child, index) => {
+      return React.cloneElement(child, {
+        onClick: this.handleTabClick,
+        tabIndex: index,
+        isActive: index === this.state.activeTabIndex
+      });
+    });
+  }
+
+  // Render current active tab content
+  renderActiveTabContent() {
+    const { children } = this.props;
+    const { activeTabIndex } = this.state;
+    if (children[activeTabIndex]) {
+      return children[activeTabIndex].props.children;
+    }
   }
 
   render() {
-    const pane = this.props.panes[this.state.selectedPane];
-
     return (
-      <div>
-        <h1>Tabs</h1>
-        <div className='tabs'>
-          <Headers
-            selectedPane={this.state.selectedPane}
-            onTabChosen={this.selectTab}
-            panes={this.props.panes}>
-          </Headers>
-          <div className='tab-content'>
-            <article>
-              {pane.content}
-            </article>
-          </div>
+      <div className="tab-container">
+      
+          {/* {this.renderChildrenWithTabsApiAsProps()} */}
+    
+        <div className="tab-button">
+          {this.renderActiveTabContent()}
         </div>
       </div>
     );
   }
-}
+};
+
+export default Tabs;
