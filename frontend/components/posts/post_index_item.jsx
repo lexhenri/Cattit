@@ -22,8 +22,9 @@ const PostIndexItem = props => {
           <h3>{props.post.title}</h3>
       </div>
         </div>
-      <div className="post-body">
-        <p>{props.post.body}</p>
+      <div className="post-body" dangerouslySetInnerHTML={{__html: props.post.body}}>
+
+        {/* <p>{props.post.body}</p> */}
         </div>
         <div className="post-bottom">
             <i className="fas fa-comment-alt comment-btn"></i>
