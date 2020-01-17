@@ -2,9 +2,7 @@ import React from 'react';
 import PostIndexContainer from '../posts/post_index_container';
 import Moment from 'moment';
 import { Redirect, Route } from 'react-router-dom';
-import CreatePostFormContainer from '../posts/create_post_form_container';
 import { Link, NavLink } from 'react-router-dom';
-import { RouteWithProps } from '../util/prop_routing';
 import SubSidebar from './sub_sidebar';
 
 
