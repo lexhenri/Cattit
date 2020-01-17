@@ -11,7 +11,7 @@ class Api::SubcattitsController < ApplicationController
       render json:  ["Subcattit doesn`t exist!"], status: 404
       # redirect('/404')
     else
-      render json: @subcattit
+      render :show
     end
   end
 
@@ -26,7 +26,7 @@ class Api::SubcattitsController < ApplicationController
   
   private
   def subcattit_params
-    params.require(:subcattit).permit(:name, :description)
+    params.require(:subcattit).permit(:name, :description, :icon, :banner)
   end
 
 end

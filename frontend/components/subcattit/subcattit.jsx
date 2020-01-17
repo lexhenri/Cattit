@@ -49,13 +49,15 @@ class Subcattit extends React.Component {
 
     return (
       <div>
-      <div className="top-banner"></div>
+      <div className="top-banner">
+        <img src={this.props.subcattitInfo.bannerUrl} />
+      </div>
         <div className='desc-banner'>
           <div className="header-content">
-              <img src={window.icon} className="header-pic" />
+              <img src={this.props.subcattitInfo.iconUrl} className="header-pic" />
             <div className="text-container">
           <h1 className="header-title">{this.props.subcattitInfo.name}</h1>
-          <h2 className='subcat-title'>m/{this.props.subcattitInfo.name}</h2>
+          <h2 className='subcat-title'>mew/{this.props.subcattitInfo.name}</h2>
             </div>
           <button className="follow-btn"><span>Join</span></button>
           </div>

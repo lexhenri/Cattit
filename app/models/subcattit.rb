@@ -24,5 +24,9 @@ class Subcattit < ApplicationRecord
   foreign_key: :subcattit_id,
   class_name: :Post
 
+  has_one_attached :icon
+
+  has_one_attached :banner
+
   
 end

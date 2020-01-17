@@ -20,12 +20,19 @@
 }
 
 .top-banner {
-  height: 164px;
+  max-height: 164px;
   width: 100%;
   background-position: bottom;
   background-size: cover;
-  background-image: asset-url('catnip.jpg');
+  // background-image: asset-url('catnip.jpg');
   background-color: #FFF;
+  overflow: hidden;
+}
+
+.top-banner img {
+  // max-height: 164px;
+  width: inherit;
+  margin-top: -185px;
 }
 
 .desc-banner {
@@ -76,7 +83,7 @@
   display: block;
   width: 312px;
   box-sizing: border-box;
-  margin-left: 24px;
+  margin-left: 54px;
 }
 
 .box {
@@ -186,6 +193,11 @@ span.description {
   height: 72px;
   width: 72px;
   margin-top: -24px !important;
+}
+
+.header-pic img {
+  height: 20%;
+  width: auto;
 }
 
 .subscriber-info {
