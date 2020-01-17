@@ -22,10 +22,6 @@ class PostIndex extends React.Component {
     if (preProps.subcattit !==  this.props.subcattit) {
       this.props.fetchPosts(this.props.subcattit)
     }
-  //   if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
-  //     console.log("update!")
-  //     this.props.fetchPosts(this.props.subcattit)
-  // }
 }
           // <Link to={`/mew/${this.props.subcattit}/comments/${post.id}`} onClick={() => this.props.openShow('show')}>
 

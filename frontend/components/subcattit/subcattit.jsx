@@ -11,24 +11,17 @@ import SubSidebar from './sub_sidebar';
 class Subcattit extends React.Component {
   constructor(props){
     super(props);
-  //   this.state = {
-  //     errors: false
-  // }
-  // this.props.clearError();
+ 
 }
   
   componentDidMount(){
     this.props.clearError();
     this.props.fetchSubcattit(this.props.subcattit)
 
-      // this.setState({
-      //   errors: this.props.error
-      // })
     }
   
 
   componentDidUpdate(preProps, preState) { 
-    // if (preProps.subcattit !== this.props.subcattit) {
     if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
       this.props.fetchSubcattit(this.props.subcattit)
       console.log("update!")
@@ -36,16 +29,10 @@ class Subcattit extends React.Component {
 
       }
   }
-
-
-  //if subcattit === undefined?
-
   
   render(){
     Moment.locale('en');
-    // <Redirect to={{ pathname: '/404', state: { response_error: true } }} />
     if (this.props.subcattitInfo === undefined) return null;
-  //check if errors exist here???
 
     return (
       <div>
@@ -66,10 +53,9 @@ class Subcattit extends React.Component {
         <div className="subcattit-container">
           <div className="subcat-feed-container">
             <div className="mini-submit">
-              {/* <input className="mini-input" placeholder="Create Post" > */}
             {
               (this.props.currentUser !== undefined) ?
-                (<Link to={{ pathname: `/mew/${this.props.subcattit}/submit`, state: { subcattit_info: this.props.subcattitInfo } }}>
+                (<Link to={{ pathname: `/mew/${this.props.subcattit}/submit` }}>
                       <input className="mini-input" placeholder="Create Post" />
                   </Link> 
                   ) : (<a onClick={() => this.props.openModal('login')} >
