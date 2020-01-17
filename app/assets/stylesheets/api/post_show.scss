@@ -19,11 +19,12 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin: 58px auto 0;
+  margin: 38px auto 0;
   max-width: 1280px;
   padding-bottom: 32px;
   position: relative;
-  width: calc(100% - 80px * 2);
+  // width: calc(100% - 80px * 2);
+  width: 1050px;
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: #DAE0E6;
@@ -52,9 +53,15 @@
   padding-right: 20px;
 }
 
-@media all and (max-width: 900px) and (min-width: 300px){
+@media all and (max-width: 1050px) and (min-width: 300px){
   .show-post-sidebar {
     display: none;
+  }
+  .show-container {
+    align-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 800px;
   }
 }
 

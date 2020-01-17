@@ -10,6 +10,7 @@ class Login extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.props.clearErrors();
   }
 
@@ -35,6 +36,31 @@ class Login extends React.Component {
     this.props.login(this.state)
       .then(this.props.closeModal);
   }
+
+  demoLogin() {
+    const demoUser = {
+      username: 'Breakfast',
+      password: 'kittens'
+    };
+    this.state = demoUser;
+    const intervalLength = 75;
+    const timer = demoUser.username.length * intervalLength;
+    this.totalTimer = timer + (demoUser.password.length * intervalLength) + 1000;
+    this.typeInputInfo("username", demoUser.username, intervalLength);
+    setTimeout(() => this.typeInputInfo("password", demoUser.password, intervalLength), timer)
+  }
+  typeInputInfo(field, value, intervalLength) {
+    let incrementedValue = "";
+    setInterval(() => {
+      if (value.length > 0) {
+        incrementedValue += value.slice(0, 1);
+        value = value.slice(1);
+        this.setState({ [field]: incrementedValue });
+      } else {
+        clearInterval();
+      }
+    }, intervalLength);
+  } 
 
   render() {
     
@@ -73,7 +99,7 @@ class Login extends React.Component {
           <button className="submit-btn" onClick={this.handleSubmit}>Sign in</button>
         </form>
         <div className="bottom-text">
-          <a href="https://github.com/minibells">Github</a>  ·  <a href="https://github.com/minibells">Temp</a>
+          <a href="https://github.com/minibells">Github</a>  ·  <a onClick={this.demoLogin} className="demo-login">Demo Login</a>
           <p>New to Cattit? <a className="small-signup" onClick={() => this.props.openModal('signup')}>Sign Up</a></p>
         </div>
       </div>
