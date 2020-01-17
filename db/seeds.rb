@@ -35,29 +35,29 @@ Post.create!({author_id: cinderblock.id, subcattit_id: mice.id, title: 'Mice fri
 Post.create!({author_id: shasta.id, subcattit_id: mice.id, title: 'Need advice', body: "I made a friends with many mice but my owners hate it! They say I'm a bad cat. What do I do?", num_comments: 2, upvotes: 23});
 Post.create!({author_id: freddy.id, subcattit_id: litcats.id, title: 'What does this mean?', body: 'The enormous room on the ground floor faced towards the north. Cold for all the summer beyond the panes, for all the tropical heat of the room itself, a harsh thin light glared through the windows, hungrily seeking some draped lay figure, some pallid shape of academic goose-flesh, but finding only the glass and nickel and bleakly shining porcelain of a laboratory. Wintriness responded to wintriness. The overalls of the workers were white, their hands gloved with a pale corpse-coloured rubber. The light was frozen, dead, a ghost. Only from the yellow barrels of the microscopes did it borrow a certain rich and living substance, lying along the polished tubes like butter, streak after luscious streak in long recession down the work tables.', num_comments: 32, upvotes: 10});
 
-mice_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/mice_icon.jpg')
-mice_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/mice_banner.jpg')
+mice_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/mice_icon.png')
+mice_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/mice-banner.png')
 
-catnip_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/catnip_icon.jpg')
-catnip_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/catnip_banner.jpg')
+catnip_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/catnip_icon.png')
+catnip_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/catnip-banner.png')
 
-herbs_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/herbs_icon.jpg')
-herbs_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/herbs_banner.jpg')
+herbs_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/herbs_icon.png')
+herbs_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/herbs_banner.png')
 
-litcats_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/litcats_icon.jpg')
-litcats_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/litcats_banner.jpg')
+litcats_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/litcats_icon.png')
+litcats_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/litcats_banner.png')
 
-owls_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/owls_icon.jpg')
-owls_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/owls_banner.jpeg')
+owls_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/owls_icon.png')
+owls_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/new+seeds/owls_banner.png')
 
 owls.banner.attach(io: owls_banner, filename: 'owls_banner.jpg')
-litcats.banner.attach(io: litcats_banner, filename: 'litcats_banner.jpg')
-herbs.banner.attach(io: herbs_banner, filename: 'herbs_banner.jpg')
-catnip.banner.attach(io: catnip_banner, filename: 'catnip_banner.jpg')
-mice.banner.attach(io: mice_banner, filename: 'mice_banner.jpg')
+litcats.banner.attach(io: litcats_banner, filename: 'litcats_banner.png')
+herbs.banner.attach(io: herbs_banner, filename: 'herbs_banner.png')
+catnip.banner.attach(io: catnip_banner, filename: 'catnip_banner.png')
+mice.banner.attach(io: mice_banner, filename: 'mice_banner.png')
 
-mice.icon.attach(io: mice_icon, filename: 'mice_icon.jpg')
-catnip.icon.attach(io: catnip_icon, filename: 'catnip_icon.jpg')
-herbs.icon.attach(io: herbs_icon, filename: 'herbs_icon.jpg')
-owls.icon.attach(io: owls_icon, filename: 'owls_icon.jpg')
-litcats.icon.attach(io: litcats_icon, filename: 'litcats_icon.jpg')
+mice.icon.attach(io: mice_icon, filename: 'mice_icon.png')
+catnip.icon.attach(io: catnip_icon, filename: 'catnip_icon.png')
+herbs.icon.attach(io: herbs_icon, filename: 'herbs_icon.png')
+owls.icon.attach(io: owls_icon, filename: 'owls_icon.png')
+litcats.icon.attach(io: litcats_icon, filename: 'litcats_icon.png')
