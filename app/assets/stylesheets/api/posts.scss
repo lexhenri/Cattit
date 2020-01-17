@@ -115,6 +115,19 @@ span.karma-bar {
   flex-grow: 3;
   flex-basis: 100%;
   margin-bottom: -1px;
+  max-height: 500px;
+}
+
+.post-body-show {
+  display: flex;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  padding: 8px 5px 5px 0px;
+  text-align: left;
+  align-self: flex-start;
+  flex-grow: 3;
+  flex-basis: 100%;
+  margin-bottom: -1px;
 }
 
 .post-body p {

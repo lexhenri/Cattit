@@ -42,7 +42,7 @@ catnip_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/catnip_icon.
 catnip_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/catnip_banner.jpg')
 
 herbs_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/herbs_icon.jpg')
-herbs_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/herbs_banner.jpeg')
+herbs_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/herbs_banner.jpg')
 
 litcats_icon = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/litcats_icon.jpg')
 litcats_banner = open('https://cattit-seeds.s3-us-west-1.amazonaws.com/litcats_banner.jpg')

@@ -26,11 +26,11 @@ const PostIndexItem = props => {
         {
         (props.view !== "show") ? 
           (
-          <div className="bottom-fade">
+            <div className="bottom-fade">
         <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
             </div>
           ) : (
-          <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
+          <div className="post-body-show" dangerouslySetInnerHTML={{ __html: props.post.body }} />
           )
         }
         <div className="post-bottom">

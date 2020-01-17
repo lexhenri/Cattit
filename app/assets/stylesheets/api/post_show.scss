@@ -8,6 +8,7 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
   z-index: 10;
+  padding: 20px;
 }
 
 .show-container {
@@ -18,11 +19,11 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin: 48px auto 0;
+  margin: 58px auto 0;
   max-width: 1280px;
   padding-bottom: 32px;
   position: relative;
-  width: calc(100% - 150px * 2);
+  width: calc(100% - 80px * 2);
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: #DAE0E6;
@@ -47,10 +48,11 @@
 .show-post-sidebar {
   display: flex;
   margin: 32px 12px 0px 12px;
+  align-content: center;
   padding-right: 20px;
 }
 
-@media all and (max-width: 1100px) and (min-width: 300px){
+@media all and (max-width: 900px) and (min-width: 300px){
   .show-post-sidebar {
     display: none;
   }
