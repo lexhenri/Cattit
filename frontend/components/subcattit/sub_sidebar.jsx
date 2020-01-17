@@ -48,6 +48,17 @@ const SubSidebar = props => {
         </div>
       </div>
     </div>
+
+      <div className="box">
+        <div className="box-banner"><h1>Your Subcattits</h1></div>
+        <div className="box-content">
+          <Link to="/mew/owls">Owls</Link>
+          <Link to="/mew/herbs">Herbs</Link>
+          <Link to="/mew/catnip">Catnip</Link>
+          <Link to="/mew/lit-cats">Lit-Cats</Link>
+          <Link to="/mew/mice">Mice</Link>
+        </div>
+      </div>
   </div>)
 }
 
