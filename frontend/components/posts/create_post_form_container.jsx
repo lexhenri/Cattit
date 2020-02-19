@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
     subcattit: ownProps.match.params.subcattit,
     subcattitObj: findSubcat(state, subcattitName),
     errors: state.errors.sessionErrors
-    // subcattitName: ownProps.match.params.subcattit
 }};
 
 const mapDispatchToProps = dispatch => ({
