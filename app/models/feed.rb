@@ -11,4 +11,6 @@
 #
 
 class Feed < ApplicationRecord
+
+ 
 end
