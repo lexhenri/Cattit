@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => ({
 const mDTP = dispatch => ({
   fetchAllPosts: () => dispatch(fetchAllPosts()),
   closePreview: () => dispatch(closePreview()),
-  openPreview: post => dispatch(openPreview(post)),
+  openPreview: show => dispatch(openPreview(show)),
 });
 
 export default connect(mSTP, mDTP)(AllPostIndex)

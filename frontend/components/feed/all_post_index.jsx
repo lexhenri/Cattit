@@ -22,17 +22,10 @@ class AllPostIndex extends React.Component {
     const { posts } = this.props;
     return (
       <div className="post-container">
-        {
-          posts ? (posts.map(post =>
+        { posts.map(post =>
             <a onClick={() => this.props.openPreview(post)} >
               <AllPostIndexItem post={post} key={post.id} subcattit={post.name}/>
             </a>)
-          ) : (
-              <div className="post-container">
-                <div className="post">
-                  <h2 className="title">No posts yet!</h2>
-                </div>
-              </div>)
         }
       </div>
     )

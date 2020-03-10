@@ -1,5 +1,5 @@
 import React from 'react';
-import AllPostContainer from '../posts/all_posts_container';
+import AllPostContainer from './all_posts_container';
 import { Link, NavLink } from 'react-router-dom';
 
 

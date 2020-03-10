@@ -11,6 +11,7 @@ import RedirectWithStatus from './util/redirect_to';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import CreatePostFormContainer from './posts/create_post_form_container';
 import PostShowModal from './posts/post_show_modal';
+import PreviewModal from './feed/preview_modal';
 
 
 
@@ -18,6 +19,7 @@ const App = () => (
   <div>
     <Modal />
     <PostShowModal />
+    <PreviewModal />
     <header>
       {/* <TopNavContainer />  */}
       <Route path='/' component={TopNavContainer} />
