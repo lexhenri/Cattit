@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :subcattits, only: [:show, :create, :index] do
        resources :posts, only: [:create, :index]
     end
-    resources :feeds, only: [:show]
+    resources :feeds, only: [:index, :show]
   end
   # get '*path', to: 'static_pages#root'
 end

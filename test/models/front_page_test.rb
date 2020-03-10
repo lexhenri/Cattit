@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::FeedsControllerTest < ActionDispatch::IntegrationTest
+class FrontPageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
