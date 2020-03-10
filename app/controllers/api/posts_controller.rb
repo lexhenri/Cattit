@@ -1,5 +1,10 @@
 class Api::PostsController < ApplicationController
 
+  def all
+    @allposts = Post.all
+    render json: @allposts
+  end
+
   def index 
     # debugger
     @posts = Subcattit.find_by(name: params[:subcattit_id]).posts.order(created_at: :desc)

@@ -2,7 +2,8 @@ import React from 'react';
 import Modal from './modal/modal'
 import TopNavContainer from './top_nav/top_nav_container';
 import SubcattitContainer from './subcattit/subcattit_container';
-import TempSplash from './feed/temp';
+import Frontpage from './feed/frontpage_container';
+import AllPostsContainer from './posts/all_posts_container';
 import ErrorNotFound from './util/not_found'
 import { Route, Switch, Redirect } from 'react-router-dom';
 import ErrorBoundary from './util/error_boundary'
@@ -27,7 +28,7 @@ const App = () => (
     {/* <Route exact path="/mew/:subcattit/comments/:postId" component={PostShowModal} /> */}
     <Route exact path="/mew/:subcattit" key={location.pathname} component={SubcattitContainer} />
     <Route path="/mew/*" component={ErrorNotFound} />
-    <Route exact path="/" component={TempSplash} />
+    <Route exact path="/" component={AllPostsContainer} />
     <Route component={ErrorNotFound} />
     </Switch>
     {/* <RedirectWithStatus status={404} from="/mew/*" to="/404" /> */}
