@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
-import { fetchAllPosts, fetchPost } from '../../actions/all_posts';
-import { openShow, closeShow } from '../../actions/post_show';
+import { fetchAllPosts, fetchPost } from '../../actions/post';
+import { openPreview, closePreview } from '../../actions/preview';
 import AllPostIndex from './all_post_index';
 
 const mSTP = (state, ownProps) => ({
@@ -11,9 +11,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
   fetchAllPosts: () => dispatch(fetchAllPosts()),
-  fetchPost: (post) => dispatch(fetchPost(post)),
-  closeShow: () => dispatch(closeShow()),
-  openShow: show => dispatch(openShow(show)),
+  closePreview: () => dispatch(closePreview()),
+  openPreview: post => dispatch(openPreview(post)),
 });
 
 export default connect(mSTP, mDTP)(AllPostIndex)

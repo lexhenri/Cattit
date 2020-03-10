@@ -17,9 +17,22 @@ class Frontpage extends React.Component {
 
   render(){
     return (
-    <div className="feed-container">
-      < AllPostContainer />
-    </div>
+      <div className="subcattit-container">
+        <div className="subcat-feed-container">
+          <div className="mini-submit">
+            {
+              (this.props.currentUser !== undefined) ?
+                (<Link to={{ pathname: `/mew/${this.props.subcattit}/submit` }}>
+                  <input className="mini-input" placeholder="Create Post" />
+                </Link>
+                ) : (<a onClick={() => this.props.openModal('login')} >
+                  <input className="mini-input" placeholder="Create Post" />
+                </a>)
+            }
+          </div>
+            <AllPostContainer />
+          </div>
+          </div>
   )
   }
 

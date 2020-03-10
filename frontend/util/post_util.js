@@ -13,6 +13,13 @@ export const getPosts = (postSubcattitId) => (
   })
 )
 
+export const getAllPosts = () => (
+  $.ajax({
+    url: `/api/posts/all`,
+    method: 'GET'
+  })
+)
+
 export const getPost = (post) => (
   $.ajax({
     url: `/api/posts/${post.id}`,

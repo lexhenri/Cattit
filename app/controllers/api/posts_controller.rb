@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
 
   def all
     @allposts = Post.all
-    render json: @allposts
+    render :all
   end
 
   def index 

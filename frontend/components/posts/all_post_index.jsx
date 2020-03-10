@@ -1,16 +1,16 @@
 import React from 'react';
-import PostIndexItem from './post_index_item';
+import AllPostIndexItem from './all_post_index_item';
 
 class AllPostIndex extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      title: '',
-      body: '',
-      author_id: '',
-      subcattit_id: ''
-    }
+    // this.state = {
+    //   title: '',
+    //   body: '',
+    //   author_id: '',
+    //   subcattit_id: ''
+    // }
   }
 
   componentDidMount() {
@@ -24,8 +24,8 @@ class AllPostIndex extends React.Component {
       <div className="post-container">
         {
           posts ? (posts.map(post =>
-            <a onClick={() => this.props.openShow(post)} >
-              <PostIndexItem post={post} key={post.id} />
+            <a onClick={() => this.props.openPreview(post)} >
+              <AllPostIndexItem post={post} key={post.id} subcattit={post.name}/>
             </a>)
           ) : (
               <div className="post-container">

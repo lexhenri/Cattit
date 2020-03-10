@@ -1,4 +1,4 @@
-import { RECEIVE_FRONTPAGE } from '../actions/frontpage';
+import { RECEIVE_FRONTPAGE } from '../actions/front_page';
 
 const FrontpageReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,7 +7,6 @@ const FrontpageReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_FRONTPAGE:
       return action.frontpage;
-    case RECEIVE_POST:
     default:
       return state;
   }

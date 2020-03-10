@@ -6,6 +6,8 @@ export const RECEIVE_POST = 'RECEIVE_POST'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const REMOVE_POST = 'REMOVE_POST'
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
+
 
 
 const receivePost = (post) => ({
@@ -13,6 +15,11 @@ const receivePost = (post) => ({
   post,
   // subcattit
 });
+
+const receiveAllPosts = (all_posts) => ({
+  type: RECEIVE_ALL_POSTS,
+  all_posts,
+})
 
 const receivePosts = (posts, subcattit) => ({
   type: RECEIVE_POSTS,
@@ -38,6 +45,11 @@ export const createPost = (post) => dispatch => {
 export const fetchPosts = (subcattit) => dispatch => {
   return PostApiUtil.getPosts(subcattit)
     .then(posts => dispatch(receivePosts(posts)));
+}
+
+export const fetchAllPosts = () => dispatch => {
+  return PostApiUtil.getAllPosts()
+    .then(all_posts => dispatch(receiveAllPosts(all_posts)));
 }
 
 export const fetchPost = (post) => dispatch => {
