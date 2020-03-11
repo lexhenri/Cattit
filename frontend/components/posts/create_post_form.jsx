@@ -38,13 +38,11 @@ class CreateForm extends React.Component {
   
 
   handleInput(e) {
-    console.log(e.currentTarget.value);
     // debugger;
     // e.preventDefault();
     this.setState({ 
       title: e.currentTarget.value 
     });
-    console.log(this.state);
   }
   
   handleChange(value){

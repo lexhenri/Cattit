@@ -64,11 +64,12 @@ span.karma-bar {
 
 .content {
   padding: 12px;
+  padding-left: 18px;
   width: inherit;
   box-sizing: content-box;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  position: relative;
 }
 
 .title-container a:active {
@@ -111,7 +112,7 @@ span.karma-bar {
   font-size: 14px;
   padding: 8px 5px 5px 0px;
   text-align: left;
-  align-self: flex-start;
+  vertical-align: top;
   flex-grow: 3;
   flex-basis: 100%;
   margin-bottom: -1px;
@@ -161,6 +162,8 @@ span.karma-bar {
   bottom: 0;
   display: flex;
   align-items: flex-end;
+  position: absolute;
+  bottom: 10px;
 }
 
 .comments {
