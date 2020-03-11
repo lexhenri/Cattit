@@ -93,6 +93,22 @@ svg.tab-icons-highlight {
   cursor: pointer;
 }
 
+.tab-highlight {
+  max-height: 53px;
+  padding: 10px 25px;
+  display: block;
+  width: 33.3%;
+  flex-grow: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: var(--newRedditTheme-button);
+  border-bottom: 3px solid var(--newRedditTheme-button);
+  // border-width: 0 4px 3px 0;
+  // border-radius: 0 0 4px 0;
+  cursor: pointer;
+}
+
 .tab-content {
   display: flex;
   fill: currentColor;
@@ -113,22 +129,6 @@ svg.tab-icons-highlight {
  
 }
 
-.tab-highlight {
-  max-height: 53px;
-  padding: 10px 25px;
-  display: block;
-  width: 33.3%;
-  flex-grow: 1;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--newRedditTheme-button);
-  border: 1px solid var(--newRedditTheme-button);
-  border-width: 0 4px 3px 0;
-  border-radius: 0 0 4px 0;
-  cursor: pointer;
-}
 
 span.tab-text {
   font-size: 14px;
@@ -140,7 +140,7 @@ span.tab-text {
   font-family: IBM Plex Sans, Arial, sans-serif;
 }
 
-span.tab-text-highlight {
+span.active {
   color: var(--newRedditTheme-button);
   font-size: 14px;
   font-weight: 700;
@@ -270,7 +270,7 @@ textarea.title-bar:focus {
 
 h2.create-title {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 22px;
   color: var(--newCommunityTheme-bodyText);
   -ms-flex: 1;
@@ -288,145 +288,3 @@ h2.create-title {
 
 
 
-
-// .create-form-container {
-//   display: block;
-// }
-
-// .create-form {
-//   margin: 0 8px;
-//   padding: 10;
-//   display: flex;
-//   flex-direction: column;
-//   background-color: #FFF;
-//   width: 864px;
-// }
-
-
-// .create-float {
-//   position: relative;
-//   margin: 12px;
-//   margin-left: 0;
-// }
-
-// .create-float input {
-//   border: none;
-//   outline: 0;
-//   border: 1px solid rgba(0,0,0,.1);
-//   border-radius: 4px;
-//   width: 392px;
-//   margin-bottom: 10px;
-//   padding-right: 36px;
-// }
-
-
-// .create-float label {
-//   position: absolute;
-//   font-size: 10px;
-// }
-
-// .create-label {
-//   font-size: 10px;
-//   font-weight: 600;
-//   letter-spacing: .5px;
-//   line-height: 12px;
-//   position: absolute;
-//   display: inline-block;
-//   vertical-align: middle;
-//   top: 14px;
-//   left: 12px;
-//   color: #a5a4a4;
-//   text-transform: uppercase;
-//   -webkit-transform: translateZ(0);
-//   transform: translateZ(0);
-//   -webkit-transform-origin: 0 50%;
-//   transform-origin: 0 50%;
-//   transition: all .2s ease-in-out;
-//   pointer-events: none;
-//   line-height: 23px;
-// }
-// //experiment?? to be used on LABEL element 
-
-
-// .create-float-text {
-//   line-height: 14px;
-//   font-weight: 600;
-//   letter-spacing: .5px;
-//   color: #a5a4a4;
-//   text-transform: uppercase;
-//   transform: translate3d(0,-8px,0) scale(.83333333);
-//   transform-origin: 0 50%;
-//   transition: all .2s ease-in-out;
-//   pointer-events: none;
-//   z-index: 12px;
-//   top: 14px;
-//   left: 12px;
-// }
-
-
-// .create-float-text input {
-//     font-family: Noto Sans,sans-serif;
-//     font-size: 14px;
-//     font-weight: 400;
-//     line-height: 21px;
-// }
-
-// .create-text-input {
-//   font-family: 'Noto Sans', sans-serif;
-//   font-size: 14px;
-//   background-color: rgb(232, 240, 254) !important;
-//   background-image: none !important;
-//   color: -internal-light-dark-color(black, white) !important;
-//   padding-right: 36px;
-//   outline: 0;
-//   width: 100%;
-//   -webkit-appearance: none;
-//   appearance: none;
-//   transition: all .2s ease-in-out;
-//   padding: 22px 12px 10px;
-//   border: 1px solid rgba(0,0,0,.1);
-//   border-radius: 4px;
-//   background-color: #fcfcfb;
-// }
-
-// .text-input:focus {
-//   border-color: #24a0ed;
-// }
-
-// .error {
-//   color: #ea0027;
-//   font-weight: 600;
-//   font-size: 12px;
-//   padding-bottom: 10px;
-// }
-
-
-// .input-fields {
-//   box-sizing: border-box;
-//   margin: 0 0 15px;
-//   padding: 12px;
-//   display: flex;
-//   width:inherit;
-//   flex-direction: column;
-// }
-
-// #createBody.body-input {
-//   height: 138px;
-//   padding: 8px;
-//   width: 838px;
-// }
-
-// #createTitle.title-input input{
-//   height: 39px;
-// }
-
-// #createTitle.title-input {
-//   width: 838px;
-//   padding: 8px 68px 8px 16px;
-// }
-
-
-
-// .post-btn:hover {
-
-// }
