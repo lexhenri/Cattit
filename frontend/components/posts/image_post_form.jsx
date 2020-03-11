@@ -8,7 +8,10 @@ const ImagePostForm = props => {
 
       <div className="post-body-container">
 
+        <div className="upload-image">
        <h1>hiya</h1>
+
+          </div>
 
       </div>
 

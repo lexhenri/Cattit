@@ -52,7 +52,7 @@
   line-height: 32px;
   outline: none;
   color: var(--newRedditTheme-actionIcon);
-  font-family: IBM Plex Sans, Arial, sans-serif;
+  // font-family: IBM Plex Sans, Arial, sans-serif;
   cursor: pointer;
 }
 
@@ -84,7 +84,6 @@
   font-weight: 700;
   line-height: 32px;
   outline: none;
-  font-family: IBM Plex Sans, Arial, sans-serif;
   cursor: pointer;
 }
 
@@ -145,7 +144,7 @@
   align-items: center;
   justify-content: center;
   color: var(--newRedditTheme-button);
-  border-bottom: 3px solid var(--newRedditTheme-button);
+  border-bottom: 2px solid var(--newRedditTheme-button);
   // border-width: 0 4px 3px 0;
   // border-radius: 0 0 4px 0;
   cursor: pointer;
@@ -165,26 +164,6 @@
   cursor: pointer;
 }
 
-
-// .tab-text {
-//   font-size: 14px;
-//   font-weight: 700;
-//   line-height: 32px;
-//   cursor: pointer;
-//   outline: none;
-//   color: var(--newRedditTheme-actionIcon);
-//   font-family: IBM Plex Sans, Arial, sans-serif;
-// }
-
-// .active {
-//   color: var(--newRedditTheme-button);
-//   font-size: 14px;
-//   font-weight: 700;
-//   line-height: 32px;
-//   cursor: pointer;
-//   outline: none;
-//   font-family: IBM Plex Sans, Arial, sans-serif;
-// }
 
 .title-bar {
   height: 39px;
@@ -267,6 +246,22 @@ textarea.title-bar:focus {
   padding: 8px 16px;
 }
 
+.upload-image {
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  min-height: 280px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px dashed var(--newCommunityTheme-line);
+}
+
+
 .create-post-form {
   display: flex;
   justify-content: center;
@@ -277,7 +272,7 @@ textarea.title-bar:focus {
 .create-form-bottom {
   justify-content: flex-end;
   display: flex;
-  padding: 10px 16px 16px;
+  padding: 10px 0px 16px 16px;
   align-content: center;
 }
 
