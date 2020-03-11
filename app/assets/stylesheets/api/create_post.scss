@@ -43,20 +43,7 @@
   border-radius: 4px;
 }
 
-.tab-button {
-  max-height: 53px;
-  padding: 10px 25px;
-  // background-color: #FFF;
-  display: block;
-  width: 33.3%;
-  flex-grow: 1;
-  text-align: center;
-  // border-width: 0 1px 1px 0;
-  // border-radius: 0;
-  align-items: center;
-  justify-content: center;
- 
-}
+
 
 svg.tab-icons {
   // margin: 0 auto;
@@ -103,6 +90,7 @@ svg.tab-icons-highlight {
   text-align: center;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .tab-content {
@@ -112,11 +100,34 @@ svg.tab-icons-highlight {
   justify-content: center;
 }
 
+.tab-button {
+  max-height: 53px;
+  padding: 10px 25px;
+  display: block;
+  width: 33.3%;
+  flex-grow: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+ 
+}
+
 .tab-highlight {
+  max-height: 53px;
+  padding: 10px 25px;
+  display: block;
+  width: 33.3%;
+  flex-grow: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   color: var(--newRedditTheme-button);
   border: 1px solid var(--newRedditTheme-button);
   border-width: 0 4px 3px 0;
   border-radius: 0 0 4px 0;
+  cursor: pointer;
 }
 
 span.tab-text {

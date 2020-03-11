@@ -6,15 +6,14 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
-    resources :posts, only: [:show, :destroy, :all] do
+    resources :posts, only: [:show, :destroy, :all, :create] do
         get 'all', on: :collection
     end
     resources :subcattits, only: [:show, :create, :index] do
        resources :posts, only: [:create, :index]
     end
-    resources :frontpage, only: [:index] do
+    resources :frontpage, only: [:index]
       # resources :posts, only: [:index]
-    end
   end
   # get '*path', to: 'static_pages#root'
 end
