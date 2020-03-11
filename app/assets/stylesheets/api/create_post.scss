@@ -71,6 +71,10 @@
   margin-right: 10px;
 }
 
+.tab-button:hover, .tab-mid:hover, .tab-highlight:hover {
+  background-color: #f3f8fd;
+}
+
 .content-highlight {
   display: flex;
   align-items: center;
@@ -159,7 +163,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
- 
 }
 
 
