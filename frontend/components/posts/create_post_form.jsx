@@ -33,7 +33,7 @@ class CreateForm extends React.Component {
   
   componentDidMount(){
     this.props.clearErrors();
-    this.props.fetchSubcattit(this.props.subcattit)
+    this.props.fetchSubcattit(this.props.subcattit);
   }
   
 
@@ -41,7 +41,9 @@ class CreateForm extends React.Component {
     console.log(e.currentTarget.value);
     debugger;
     e.preventDefault();
-    this.setState({ title: e.currentTarget.value });
+    this.setState({ 
+      title: e.currentTarget.value 
+    });
   }
   
   handleChange(value){
