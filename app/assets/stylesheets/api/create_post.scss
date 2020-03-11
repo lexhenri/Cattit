@@ -43,22 +43,60 @@
   border-radius: 4px;
 }
 
+.tab-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  outline: none;
+  color: var(--newRedditTheme-actionIcon);
+  font-family: IBM Plex Sans, Arial, sans-serif;
+  cursor: pointer;
+}
 
+.tab-content path {
+  fill: var(--newRedditTheme-actionIcon);
+  max-width: 25px;
+  height: 16px;
+  margin-right: 10px;
 
-svg.tab-icons {
-  // margin: 0 auto;
+}
+
+.tab-content svg {
   fill: var(--newRedditTheme-actionIcon);
   max-width: 25px;
   height: 16px;
   margin-right: 10px;
 }
 
-svg.tab-icons-highlight {
+.content-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--newRedditTheme-button);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  outline: none;
+  font-family: IBM Plex Sans, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.content-highlight svg {
   fill: var(--newRedditTheme-button);
   max-width: 25px;
   height: 16px;
   margin-right: 10px;
+}
 
+.content-highlight path {
+  // margin: 0 auto;
+  fill: var(--newRedditTheme-button);
+  max-width: 25px;
+  height: 16px;
+  margin-right: 10px;
 }
 
 .tab-container {
@@ -109,12 +147,7 @@ svg.tab-icons-highlight {
   cursor: pointer;
 }
 
-.tab-content {
-  display: flex;
-  fill: currentColor;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .tab-button {
   max-height: 53px;
@@ -130,25 +163,25 @@ svg.tab-icons-highlight {
 }
 
 
-span.tab-text {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 32px;
-  // cursor: pointer;
-  outline: none;
-  color: var(--newRedditTheme-actionIcon);
-  font-family: IBM Plex Sans, Arial, sans-serif;
-}
+// .tab-text {
+//   font-size: 14px;
+//   font-weight: 700;
+//   line-height: 32px;
+//   cursor: pointer;
+//   outline: none;
+//   color: var(--newRedditTheme-actionIcon);
+//   font-family: IBM Plex Sans, Arial, sans-serif;
+// }
 
-span.active {
-  color: var(--newRedditTheme-button);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 32px;
-  cursor: pointer;
-  outline: none;
-  font-family: IBM Plex Sans, Arial, sans-serif;
-}
+// .active {
+//   color: var(--newRedditTheme-button);
+//   font-size: 14px;
+//   font-weight: 700;
+//   line-height: 32px;
+//   cursor: pointer;
+//   outline: none;
+//   font-family: IBM Plex Sans, Arial, sans-serif;
+// }
 
 .title-bar {
   height: 39px;
