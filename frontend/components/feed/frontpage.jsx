@@ -20,7 +20,7 @@ class Frontpage extends React.Component {
     return (
       <div className="subcattit-container">
         <div className="subcat-feed-container">
-          <div className="mini-submit">
+          {/* <div className="mini-submit">
             {
               (this.props.currentUser !== undefined) ?
                 (<Link to={{ pathname: `/mew/${this.props.subcattit}/submit` }}>
@@ -30,7 +30,7 @@ class Frontpage extends React.Component {
                   <input className="mini-input" placeholder="Create Post" />
                 </a>)
             }
-          </div>
+          </div> */}
             <AllPostContainer />
           </div>
           <div className="sidebar-container">

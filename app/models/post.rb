@@ -24,9 +24,9 @@ class Post < ApplicationRecord
   foreign_key: :subcattit_id,
   class_name: :Subcattit
 
-  belongs_to :front_page,
-  foreign_key: :post_id,
-  class_name: :FrontPage
+  # belongs_to :front_page,
+  # foreign_key: :post_id,
+  # class_name: :FrontPage
 
   has_many :comments,
   foreign_key: :post_id,

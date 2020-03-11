@@ -39,16 +39,17 @@ class CreateForm extends React.Component {
 
   handleInput(e) {
     console.log(e.currentTarget.value);
-    debugger;
-    e.preventDefault();
+    // debugger;
+    // e.preventDefault();
     this.setState({ 
       title: e.currentTarget.value 
     });
+    console.log(this.state);
   }
   
   handleChange(value){
     // debugger
-    console.log(value);
+    // console.log(value);
     this.setState({
       body: value
     })
@@ -82,8 +83,9 @@ class CreateForm extends React.Component {
     //some jquery shit here to remove and add stuff when cleared 
     return (
       <ul>
-        {this.props.errors.map(error => <ul key={error}>{error}</ul>)}
-        {this.props.errors.map(error => error ? <style>{errorCSS}</style> : null)}
+        {this.props.errors.map((error, i) => <ul key={i}>{error}</ul>)}
+        {this.props.errors.map((error) => error ? <style>{errorCSS}</style> : null)
+  }
       </ul>
     )
   }
@@ -93,7 +95,6 @@ class CreateForm extends React.Component {
      this.setState({
       clicked: e.currentTarget.id
     })
-    // console.log(this.state.clicked);
   }
 
   
@@ -101,11 +102,9 @@ class CreateForm extends React.Component {
     return (
       <div className={this.state.clicked === 'first' ? 'tab-highlight' : 'tab-button'} id="first" onClick={e => this.toggleTab(e)}>
           <div className={this.state.post_type === 'text' ? 'content-highlight' : 'tab-content'} onClick={() => this.updateType('text')}>
-      {/* <div className="tab-content"> */}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M15.6498441,5.62718315 L4.38195636,5.62718315 C4.0364078,5.62718315 3.75596259,5.34673795 3.75596259,5.00118939 C3.75596259,4.65564083 4.0364078,4.37519562 4.38195636,4.37519562 L15.6498441,4.37519562 C15.9953927,4.37519562 16.2758379,4.65564083 16.2758379,5.00118939 C16.2758379,5.34673795 15.9953927,5.62718315 15.6498441,5.62718315 M15.6498441,9.38314574 L4.38195636,9.38314574 C4.0364078,9.38314574 3.75596259,9.10270054 3.75596259,8.75715198 C3.75596259,8.41160342 4.0364078,8.13115821 4.38195636,8.13115821 L15.6498441,8.13115821 C15.9953927,8.13115821 16.2758379,8.41160342 16.2758379,8.75715198 C16.2758379,9.10270054 15.9953927,9.38314574 15.6498441,9.38314574 M13.1458691,13.1391083 L4.38195636,13.1391083 C4.0364078,13.1391083 3.75596259,12.8586631 3.75596259,12.5131146 C3.75596259,12.167566 4.0364078,11.8871208 4.38195636,11.8871208 L13.1458691,11.8871208 C13.4914176,11.8871208 13.7718628,12.167566 13.7718628,12.5131146 C13.7718628,12.8586631 13.4914176,13.1391083 13.1458691,13.1391083 M17.6104566,0.000751192518 L2.42134388,0.000751192518 C1.08547319,0.000751192518 0,1.08622438 0,2.42084309 L0,17.5811601 C0,18.4174878 0.423171785,19.1837041 1.13054474,19.6306637 C1.52116485,19.8748012 1.96061247,20 2.410076,20 C2.77440437,20 3.14624466,19.9173688 3.49805316,19.7470985 L7.81490616,17.5210647 L17.5278254,17.5210647 C18.8611921,17.5210647 20.0318005,16.3504563 20.0318005,15.0170896 L20.0318005,2.42084309 C20.0318005,1.08622438 18.9463273,0.000751192518 17.6104566,0.000751192518"></path></svg>
         <span>Post</span>
       </div>
-        {/* </div> */}
         </div>
     )
     }

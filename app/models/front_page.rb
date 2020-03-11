@@ -11,8 +11,8 @@
 
 class FrontPage < ApplicationRecord
 
-  has_many :posts,
-  foreign_key: :post_id,
-  class_name: :Post
+  # has_many :posts,
+  # foreign_key: :post_id,
+  # class_name: :Post
   
 end

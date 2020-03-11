@@ -32,9 +32,9 @@ class PostIndex extends React.Component {
     return(
       <div className="post-container">
         {
-        posts ? ( posts.map(post => 
-          <a onClick={() => this.props.openShow(post)} >
-            <PostIndexItem post={post} key={post.id} subcattit={this.props.subcattit} />
+        posts ? ( posts.map((post, i) => 
+          <a onClick={() => this.props.openShow(post)} key={i} >
+            <PostIndexItem post={post} key={i} subcattit={this.props.subcattit} />
           </a>)
         ) : (
           <div className="post-container">
