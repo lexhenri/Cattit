@@ -1,6 +1,7 @@
 import React from 'react';
 import AllPostContainer from './all_posts_container';
 import { Link, NavLink } from 'react-router-dom';
+import Suggested from './suggested';
 
 
 class Frontpage extends React.Component {
@@ -31,6 +32,9 @@ class Frontpage extends React.Component {
             }
           </div>
             <AllPostContainer />
+          </div>
+          <div className="sidebar-container">
+            <Suggested />
           </div>
           </div>
   )
