@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
 
   def all
-    @allposts = Post.all
+    @allposts = Post.all.order(created_at: :desc)
     render :all
   end
 
