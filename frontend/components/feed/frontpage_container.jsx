@@ -18,7 +18,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch, ownProps) => {
   return {
-    fetchFrontpage: frontpage => dispatch(fetchFrontpage(frontpage)),
+    // fetchFrontpage: frontpage => dispatch(fetchFrontpage(frontpage)),
     clearError: () => dispatch(clearError()),
     closeModal: () => dispatch(closeModal()),
     openModal: modal => dispatch(openModal(modal)),

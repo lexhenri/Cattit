@@ -11,7 +11,7 @@ class Frontpage extends React.Component {
 
   componentDidMount() {
     this.props.clearError();
-    this.props.fetchFrontpage(this.props.frontpage)
+    // this.props.fetchFrontpage(this.props.frontpage)
 
   }
 

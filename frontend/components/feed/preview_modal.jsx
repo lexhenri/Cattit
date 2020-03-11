@@ -39,7 +39,7 @@ function PreviewModal({ post, closePreview, fetchSubcattit, subcattitInfo }) {
           </div>
           <div className="show-post-sidebar">
 
-            {/* <PreviewSidebar page={"create"} subcattitInfo={subcattitInfo} subcattit={post.subcattit} /> */}
+            {/* <PreviewSidebar page={"create"} subcattitInfo={post.name} subcattit={post.subcattit} /> */}
 
           </div>
 
@@ -59,7 +59,7 @@ const mapStateToProps = (state, ownProps) => {
   // debugger
   return {
     post: state.ui.preview,
-    subcattitInfo: state.entities.subcattits[info],
+    // subcattitInfo: state.entities.subcattits[info],
   };
 };
 

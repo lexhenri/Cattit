@@ -1,14 +1,14 @@
-import * as FrontpageUtil from '../util/frontpage_util';
+// import * as FrontpageUtil from '../util/frontpage_util';
 
-export const RECEIVE_FRONTPAGE = "RECEIVE_FRONTPAGE"
+// export const RECEIVE_FRONTPAGE = "RECEIVE_FRONTPAGE"
 
-const receiveFrontpage = (frontpage) => ({
-  type: RECEIVE_FRONTPAGE,
-  frontpage,
-})
+// const receiveFrontpage = (frontpage) => ({
+//   type: RECEIVE_FRONTPAGE,
+//   frontpage,
+// })
 
 
-export const fetchFrontpage = frontpage => dispatch => {
-  return FrontpageUtil.getFrontpage(frontpage)
-    .then(frontpage => dispatch(receiveFrontpage(frontpage)))
-}
+// export const fetchFrontpage = frontpage => dispatch => {
+//   return FrontpageUtil.getFrontpage(frontpage)
+//     .then(frontpage => dispatch(receiveFrontpage(frontpage)))
+// }

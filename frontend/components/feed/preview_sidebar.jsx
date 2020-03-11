@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { findSubcat } from '../../reducers/selectors';
 
 //WORK IN PROGRESS
 
@@ -55,7 +56,7 @@ const PreviewSidebar = props => {
 const mapStateToProps = (state, ownProps) => {
   const info = state.ui.preview.name
   return {
-    subcattit: findSubcat(ownProps.subcattit, info),
+    subcattit: state.entities.subcattits[info],
   };
 };
 
