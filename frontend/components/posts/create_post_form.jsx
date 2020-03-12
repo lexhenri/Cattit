@@ -93,7 +93,7 @@ class CreateForm extends React.Component {
       formData.append('post[photo]', this.state.imageFile);
     }
     $.ajax({
-      url: `/api/subcattits/${this.props.subcattitObj.id}/posts`,
+      url: `/api/subcattits/${this.props.subcattit}/posts`,
       method: 'POST',
       data: formData,
       contentType: false,
