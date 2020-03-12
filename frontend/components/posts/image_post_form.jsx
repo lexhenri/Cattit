@@ -8,7 +8,11 @@ export const ImagePostForm = props => {
         <input
           type="file"
           onChange={props.handleFile}
+          className="inputfile"
+          name="file" 
+          id="file"
         />
+        <label for="file">Upload</label>
       </div>
     </div>
   )

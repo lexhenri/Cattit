@@ -260,14 +260,42 @@ textarea.title-bar:focus {
   border-radius: 4px;
   text-align: center;
   border: 1px dashed var(--newCommunityTheme-line);
+  align-items: center;
 }
 
 
-.fileContainer input {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
+.inputfile {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
+
+.inputfile + label {
+  display: inline-block;
+  border: 1px solid var(--newCommunityTheme-button);
+  color: var(--newCommunityTheme-button);
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
 
 .uploadPicturesWrapper {
   display: -ms-flexbox;
