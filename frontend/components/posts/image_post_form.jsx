@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import ImageUploader from 'react-images-upload';
+import { HideUntilLoaded } from 'react-animation'
+import TempSpin from '../../../app/assets/images/temp_spin.png';
+
 
 export const ImagePostForm = props => {
 
@@ -8,11 +10,19 @@ export const ImagePostForm = props => {
     imgPreview = <img src={props.file} alt='' />;
   }
 
+  let speed = 10;
+
   return (
     <div className="post-body-container">
       <div className="upload-image">
         <div>
+          <HideUntilLoaded 
+            imageToLoad={props.file} 
+            Spinner={() => 
+            <img style={{ animation: `spin ${speed}s linear infinite` }} src={TempSpin} alt="img" />}
+            >
           {imgPreview}
+          </HideUntilLoaded>
         </div>
         <input
           type="file"
@@ -23,7 +33,7 @@ export const ImagePostForm = props => {
         />
         
           {
-          (imgPreview) ? (<label htmlFor="file">change photo</label>) 
+          (props.file) ? (<label htmlFor="file">change photo</label>) 
           : (<label htmlFor="file">upload</label>)
           }
          

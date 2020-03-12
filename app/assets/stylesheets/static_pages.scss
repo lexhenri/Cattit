@@ -4,6 +4,17 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
 
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+.temp-spin {
+  width: 50px;
+  height: 50px;
+  background-image: asset-url('temp_spin.jpg');
+}
+
 body {
   font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-style: normal;
