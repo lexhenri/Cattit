@@ -22,10 +22,15 @@ const receiveAllPosts = (all_posts) => ({
   all_posts,
 })
 
-const receivePosts = (posts, subcattit) => ({
+// const receivePosts = (posts, subcattit) => ({
+//   type: RECEIVE_POSTS,
+//   posts,
+//   subcattit
+// })
+
+const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
   posts,
-  subcattit
 })
 
 const deletePost = (postId) => ({

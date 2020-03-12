@@ -5,8 +5,8 @@ export const RenderLink = props => {
   return (
     <div>
     {
-        props.view === "show" ? (<div className="post-body-show"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
-          : (<div className="post-link"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
+        props.view === "show" ? (<div className="post-body-show"><a href={props.post.linkUrl}><p>{props.post.linkUrl}</p></a></div>)
+          : (<div className="post-link"><a href={props.post.linkUrl}><p>{props.post.linkUrl}</p></a></div>)
       }
    </div>
   )
