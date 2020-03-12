@@ -38,10 +38,10 @@ const receiveErrors = (errors) => ({
   errors: errors
 })
 
-const receivePostImage = (subcattit) => ({
-  type: POST_IMAGE,
-  subcattit: subcattit,
-})
+// const receivePostImage = (subcattit) => ({
+//   type: POST_IMAGE,
+//   subcattit: subcattit,
+// })
 
 export const createPost = (post) => dispatch => {
   return PostApiUtil.createPost(post)
@@ -63,10 +63,13 @@ export const fetchPost = (post) => dispatch => {
     .then((post) => dispatch(receivePost(post)))
 }
 
-export const fetchImage = (subcattit) => dispatch => {
-  return PostApiUtil.postImage(subcattit)
-    .then((subcattit) => dispatch(receivePostImage(subcattit)))
-}
+export const createPhoto = (photo) => dispatch => (
+  PostApiUtil.createPhoto(photo).then(photo => {
+    dispatch(receivePost(photo))
+  }, errors => (
+    dispatch(receiveErrors(errors.responseJSON))
+  ))
+);
 
 export const removePost = (postId) => dispatch => {
   PostApiUtil.removePost(postId)

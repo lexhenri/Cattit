@@ -29,7 +29,7 @@ class CreateForm extends React.Component {
     this.renderTextButton = this.renderTextButton.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
     this.previewImage = this.previewImage.bind(this);
-    this.handleFile = this.handleFile.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
 
     // this.handleFile = this.handleFile.bind(this);
   }
@@ -65,6 +65,13 @@ class CreateForm extends React.Component {
     let post = this.state;
     post.author_id = this.props.currentUser.id;
     post.subcattit_id = this.props.subcattitObj.id;
+    const newPhoto = new FormData();
+    newPhoto.append('photo[title]', this.state.title)
+    newPhoto.append('photo[image]', this.state.imageFile)
+    newPhoto.append('photo[subcattit]', this.props.subcattit)
+    this.props.processForm(newPhoto).then(photo => {
+    })
+    
     this.props.createPost(post)
       .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
@@ -83,21 +90,40 @@ class CreateForm extends React.Component {
     }
   }
 
-  handleFile(e) {
-    e.preventDefault(e);
-    const formData = new FormData();
+  // handleFile(e) {
+  //   e.preventDefault(e);
+  //   const formData = new FormData();
  
-    formData.append('post[title]', this.state.title);
-    if (this.state.imageUrl) {
-      formData.append('post[photo]', this.state.imageUrl);
+  //   formData.append('post[title]', this.state.title);
+  //   if (this.state.imageUrl) {
+  //     formData.append('post[photo]', this.state.imageFile);
+  //   }
+  //   $.ajax({
+  //     url: `/api/subcattits/${this.props.subcattit}/posts`,
+  //     method: 'POST',
+  //     data: formData,
+  //     contentType: false,
+  //     processData: false
+  //   });
+  // }
+
+  handleUpload(e) {
+    e.preventDefault();
+    const file = e.currentTarget.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      this.setState({ imageUrl: reader.result, imageFile: file })
     }
-    $.ajax({
-      url: `/api/subcattits/${this.props.subcattit}/posts`,
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    });
+
+    if (file) {
+      reader.readAsDataURL(file)
+    } else {
+    }
+
+    if (file) {
+    }
+    this.forceUpdate();
+
   }
 
   componentDidUpdate(preProps, preState) {
@@ -194,7 +220,7 @@ class CreateForm extends React.Component {
                   case 'text':
                     return <TextPostForm body={this.state.body} handleChange={this.handleChange} />;
                   case 'image':
-                    return <ImagePostForm handleFile={this.handleFile.bind(this)} />;
+                    return <ImagePostForm handleFile={this.handleUpload.bind(this)} />;
                   case 'link':
                     return <LinkPostForm />;
                   default:
