@@ -43,13 +43,13 @@ class CreateForm extends React.Component {
 
   handleInput(e) {
     this.setState({ 
-      title: e.currentTarget.value ,
+      title: e.currentTarget.value,
     });
   }
 
   handleUrl(e) {
     this.setState({
-      linkUrl: e.currentTarget.value
+      linkUrl: e.currentTarget.value,
     });
   }
   

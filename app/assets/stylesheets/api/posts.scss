@@ -82,7 +82,7 @@ span.karma-bar {
   border: 1px solid var(--newCommunityTheme-postLine);
   background-color: #FFF;
   border-radius: 4px;
-  min-height: 250px;
+  min-height: 200px;
   width: 565px;
   justify-items: center;
   margin-bottom: 10px;
@@ -122,6 +122,20 @@ span.karma-bar {
 .post-image {
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
+  padding: 10px 0px 5px;
+  max-height: fit-content;
+  margin: 0 auto;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: left;
+}
+
+.post-link {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  max-height: 200px;
   padding: 10px 0px 5px;
   max-height: fit-content;
   margin: 0 auto;

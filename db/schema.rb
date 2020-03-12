@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_201658) do
+ActiveRecord::Schema.define(version: 2020_03_12_205303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_201658) do
     t.integer "num_comments"
     t.integer "upvotes", default: 0
     t.string "post_type"
+    t.string "linkUrl"
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 

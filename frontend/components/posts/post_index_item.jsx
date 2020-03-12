@@ -5,8 +5,8 @@ export const RenderLink = props => {
   return (
     <div>
     {
-      props.view === "show" ? (<div className="post-body=show"><a href={props.post.linkUrl} /></div>)
-      : (<div className="post-body"> <a href={props.post.linkUrl} /></div>)
+        props.view === "show" ? (<div className="post-body-show"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
+          : (<div className="post-link"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
       }
    </div>
   )
@@ -72,9 +72,9 @@ const PostIndexItem = props => {
   let type;
   if (props.post.imageUrl) {
     type = 0;
-  } else if (props.post.body) {
+  } else if (props.post.linkUrl) {
     type = 1;
-  } else {
+  } else if (props.post.body) {
     type = 2;
   }
   
@@ -106,10 +106,10 @@ const PostIndexItem = props => {
               return <RenderImage post={props.post} />;
               break;
             case 1:
-              return <RenderText post={props.post} />;
+              return <RenderLink post={props.post} />;
               break;
             case 2:
-              return <RenderLink post={props.post} />;
+              return <RenderText post={props.post} />;
               break;
             default:
               return null;

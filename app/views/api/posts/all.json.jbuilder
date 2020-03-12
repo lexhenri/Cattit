@@ -1,9 +1,13 @@
 
 json.array! @allposts do |post|
-  json.extract! post, :title, :body, :author_id, :id, :created_at, :updated_at, :num_comments, :upvotes, :subcattit_id, :post_type
+  json.extract! post, :title, :body, :author_id, :id, :created_at, :updated_at, :num_comments, :upvotes, :subcattit_id, :post_type, :photo, :linkUrl
   json.name post.subcattit.name
   json.username post.user.username
-
+  if post.photo.attached?
+      json.imageUrl url_for(post.photo)
+  else 
+      json.imageUrl ""
+    end
 end
 
 #  id              :bigint           not null, primary key
