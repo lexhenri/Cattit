@@ -30,7 +30,7 @@ class CreateForm extends React.Component {
     this.renderLinkButton = this.renderLinkButton.bind(this);
     this.renderTextButton = this.renderTextButton.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
-    // this.handleFile = this.handleFile.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
   
   componentDidMount(){
@@ -188,11 +188,9 @@ class CreateForm extends React.Component {
 
               <div className="create-form-bottom">
                 <div className="create-error">{this.handleErrors()}</div>
-                { this.state.post_type === 'image' ?
-                  <button className="post-btn" type="submit" onClick={this.handleFile}>Post</button>
-                  :
+               
                   <button className="post-btn" type="submit" onClick={this.handleSubmit}>Post</button>
-              }
+              
               </div>
             </form>
        </div>
