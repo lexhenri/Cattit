@@ -128,9 +128,8 @@ class CreateForm extends React.Component {
     const errorCSS = `textarea:focus { border-color: #ea0027 !important; }`
     return (
       <ul>
-        {this.props.errors.map((error, i) => <ul key={i}>{error}</ul>)}
-        {this.props.errors.map((error) => error ? <style>{errorCSS}</style> : null)
-  }
+        {Object.keys(this.props.errors).map((error, i) => <ul key={i}>{this.props.errors[error]}</ul>)}
+        {Object.keys(this.props.errors).map((error) => this.props.errors[error] ? <style>{errorCSS}</style> : null)}
       </ul>
     )
   }
