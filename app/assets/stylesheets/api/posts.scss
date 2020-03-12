@@ -158,12 +158,11 @@ span.karma-bar {
 .post-bottom {
   max-height: 32px;
   min-height: 32px;
-  padding: 0px 8px 0px 4px;
-  bottom: 0;
+  padding: 5px 8px 0px 4px;
   display: flex;
   align-items: baseline;
   position: absolute;
-  bottom: 2px;
+  bottom: 0;
 }
 
 .comments {

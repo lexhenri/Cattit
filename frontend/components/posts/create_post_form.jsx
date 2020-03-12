@@ -63,6 +63,20 @@ class CreateForm extends React.Component {
     let post = this.state;
     post.author_id = this.props.currentUser.id;
     post.subcattit_id = this.props.subcattitObj.id;
+    let formData = new FormData();
+    formData.append('photo', this.state.file);
+
+    fetch(`api/subcattits/${this.props.subcattitObj.id}/posts`, { // Your POST endpoint
+      method: 'POST',
+      body: formData
+    }).then(
+      response => response.json() // if the response is a JSON object
+    ).then(
+      //TODO:save also in customer object
+      success => console.log(success) // Handle the success response object
+    ).catch(
+      error => console.log(error) // Handle the error response object
+    );
     this.props.createPost(post)
       .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
