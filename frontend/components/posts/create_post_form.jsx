@@ -17,6 +17,7 @@ class CreateForm extends React.Component {
       post_type: 'text',
       clicked: 'first',
       imageUrl: '',
+      file: '',
     }
     
     this.handleErrors = this.handleErrors.bind(this);
@@ -30,8 +31,6 @@ class CreateForm extends React.Component {
     this.toggleTab = this.toggleTab.bind(this);
     this.previewImage = this.previewImage.bind(this);
     this.handleFile = this.handleFile.bind(this);
-
-    // this.handleFile = this.handleFile.bind(this);
   }
   
   componentDidMount(){
@@ -93,11 +92,20 @@ class CreateForm extends React.Component {
       this.setState({ imageUrl: reader.result, imageFile: file });
 
     if (file) {
+      this.setState({
+        file: URL.createObjectURL(e.target.files[0])
+      })
       reader.readAsDataURL(file);
     } else {
       this.setState({ imageUrl: "", imageFile: null });
     }
   }
+
+  // uploadSingleFile(e) {
+  //   this.setState({
+  //     file: URL.createObjectURL(e.target.files[0])
+  //   })
+  // }
 
   handleFile(e) {
     e.preventDefault();
@@ -213,7 +221,7 @@ class CreateForm extends React.Component {
   
 
   render(){
-
+   
     return(
       <div className="create-page-container">
       <div className="post-create-container">
@@ -242,7 +250,7 @@ class CreateForm extends React.Component {
                   case 'text':
                     return <TextPostForm body={this.state.body} handleChange={this.handleChange} />;
                   case 'image':
-                    return <ImagePostForm handleFile={this.previewImage} />;
+                    return <ImagePostForm handleFile={this.previewImage} file={this.state.file}/>;
                   case 'link':
                     return <LinkPostForm />;
                   default:

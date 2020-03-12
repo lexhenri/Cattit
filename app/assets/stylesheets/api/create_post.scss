@@ -278,8 +278,6 @@ textarea.title-bar:focus {
   border: 1px solid var(--newCommunityTheme-button);
   color: var(--newCommunityTheme-button);
   border-radius: 4px;
-  box-sizing: border-box;
-  width: 100px;
   text-align: center;
   letter-spacing: 1px;
   text-decoration: none;
@@ -288,11 +286,11 @@ textarea.title-bar:focus {
   letter-spacing: .5px;
   line-height: 24px;
   text-transform: uppercase;
-  padding: 3px 16px;
   outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
-  margin: 0 auto;
+  padding: 7px 15px;
+  margin-top: 5px;
   cursor: pointer;
 }
 

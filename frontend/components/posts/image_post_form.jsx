@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import ImageUploader from 'react-images-upload';
 
 export const ImagePostForm = props => {
+
+  let imgPreview;
+  if (props.file) {
+    imgPreview = <img src={props.file} alt='' />;
+  }
+
   return (
     <div className="post-body-container">
       <div className="upload-image">
+        <div>
+          {imgPreview}
+        </div>
         <input
           type="file"
           onChange={props.handleFile}
@@ -12,7 +21,12 @@ export const ImagePostForm = props => {
           name="file" 
           id="file"
         />
-        <label for="file">Upload</label>
+        
+          {
+          (imgPreview) ? (<label htmlFor="file">change photo</label>) 
+          : (<label htmlFor="file">upload</label>)
+          }
+         
       </div>
     </div>
   )
