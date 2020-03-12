@@ -199,7 +199,7 @@ class CreateForm extends React.Component {
                   case 'text':
                     return <TextPostForm body={this.state.body} handleChange={this.handleChange} />;
                   case 'image':
-                    return <ImagePostForm handleFile={this.handleFile} />;
+                    return <ImagePostForm handleFile={this.handleFile.bind(this)} />;
                   case 'link':
                     return <LinkPostForm />;
                   default:
