@@ -1,6 +1,14 @@
+// export const createPost = (post) => (
+//   $.ajax({
+//     url: `/api/subcattits/${post.subcattit_name}/posts`,
+//     method: 'POST',
+//     data: { post }
+//   })
+// )
+
 export const createPost = (post) => (
   $.ajax({
-    url: `/api/subcattits/${post.subcattit_name}/posts`,
+    url: `/api/posts`,
     method: 'POST',
     data: { post }
   })
@@ -34,9 +42,19 @@ export const getPost = (post) => (
   })
 )
 
-export const createPostWithPhoto = (formData, subcattit) => (
+// export const createPostWithPhoto = (formData, subcattit) => (
+//   $.ajax({
+//     url: `/api/subcattits/${subcattit}/posts`,
+//     method: 'POST',
+//     data: formData,
+//     contentType: false,
+//     processData: false
+//   })
+// )
+
+export const createPostWithPhoto = (formData) => (
   $.ajax({
-    url: `/api/subcattits/${subcattit}/posts`,
+    url: `/api/posts`,
     method: 'POST',
     data: formData,
     contentType: false,

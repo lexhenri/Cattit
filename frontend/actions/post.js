@@ -63,8 +63,8 @@ export const fetchPost = (post) => dispatch => {
     .then((post) => dispatch(receivePost(post)))
 }
 
-export const createPostWithPhoto = (post, subcattit) => dispatch => {
-  return PostApiUtil.createPostWithPhoto(post, subcattit)
+export const createPostWithPhoto = (post) => dispatch => {
+  return PostApiUtil.createPostWithPhoto(post)
     .then((post) => dispatch(receivePost(post)), (errors) => dispatch(receiveErrors(errors.responseJSON)));
 }
 

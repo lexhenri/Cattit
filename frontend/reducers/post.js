@@ -11,7 +11,7 @@ const PostReducer = (state = {}, action) => {
       nextState[action.post.id] = action.post;
       return nextState;
     case POST_IMAGE:
-      return action.subcattit;
+      return action.post;
     case RECEIVE_ALL_POSTS:
       return action.all_posts;
     case REMOVE_POST:

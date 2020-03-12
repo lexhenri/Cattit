@@ -18,7 +18,8 @@ class CreateForm extends React.Component {
       clicked: 'first',
       imageUrl: '',
       file: '',
-      linkUrl: ''
+      linkUrl: '',
+      // subcattit: this.props.subcattit
     }
     
     this.handleErrors = this.handleErrors.bind(this);
@@ -70,9 +71,9 @@ class CreateForm extends React.Component {
       this.handleFile(e);
     } else {
       let post = this.state;
+      // debugger;
       post.author_id = this.props.currentUser.id;
       post.subcattit_id = this.props.subcattitObj.id;
-      post.post_type = this.updateType(this.state.post_type);
       this.props.createPost(post)
         .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
     }
@@ -110,7 +111,8 @@ class CreateForm extends React.Component {
     if (this.state.imageFile) {
       formData.append('post[photo]', this.state.imageFile);
     }
-    this.props.createPostWithPhoto(formData, this.props.subcattit)
+    // debugger;
+    this.props.createPostWithPhoto(formData)
       .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
 
