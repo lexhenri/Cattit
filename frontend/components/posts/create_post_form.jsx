@@ -71,7 +71,7 @@ class CreateForm extends React.Component {
   }
 
 
-  previewImage() {
+  previewImage(e) {
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () =>
@@ -85,13 +85,17 @@ class CreateForm extends React.Component {
   }
 
   handleFile(e) {
-    e.preventDefault();
+    e.preventDefault(e);
+    // this.previewImage();
     const formData = new FormData();
+ 
     formData.append('post[title]', this.state.title);
-    if (this.state.photoFile) {
+    if (this.state.imageFile) {
 
-      formData.append('post[photo]', this.state.imageFile);
+      formData.append('post[photo]', this.state.imageUrl);
+      // imageFile?
     }
+    // this.props.fetchImage(this.props.subcattit);
     $.ajax({
       url: `/api/subcattits/${this.props.subcattit}/posts`,
       method: 'POST',

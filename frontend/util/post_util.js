@@ -33,3 +33,13 @@ export const getPost = (post) => (
     method: 'DELETE'
   })
 )
+
+export const postImage = (subcattit) => (
+  $.ajax({
+    url: `/api/subcattits/${subcattit}/posts`,
+    method: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false
+  })
+)

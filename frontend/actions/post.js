@@ -7,6 +7,7 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const REMOVE_POST = 'REMOVE_POST'
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
+export const POST_IMAGE = 'POST_IMAGE'
 
 
 
@@ -37,6 +38,11 @@ const receiveErrors = (errors) => ({
   errors: errors
 })
 
+const receivePostImage = (subcattit) => ({
+  type: POST_IMAGE,
+  subcattit: subcattit,
+})
+
 export const createPost = (post) => dispatch => {
   return PostApiUtil.createPost(post)
     .then((post) => dispatch(receivePost(post)), (errors) => dispatch(receiveErrors(errors.responseJSON)));
@@ -55,6 +61,11 @@ export const fetchAllPosts = () => dispatch => {
 export const fetchPost = (post) => dispatch => {
   return PostApiUtil.getPost(post)
     .then((post) => dispatch(receivePost(post)))
+}
+
+export const fetchImage = (subcattit) => dispatch => {
+  return PostApiUtil.postImage(subcattit)
+    .then((subcattit) => dispatch(receivePostImage(subcattit)))
 }
 
 export const removePost = (postId) => dispatch => {
