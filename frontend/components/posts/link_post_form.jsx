@@ -8,7 +8,7 @@ const LinkPostForm = props => {
 
     <div className="post-body-container">
 
-      <h1>hiya</h1>
+      <h1>cheese</h1>
 
     </div>
 

@@ -15,7 +15,8 @@ class CreateForm extends React.Component {
       title: '',
       body: '',
       post_type: 'text',
-      clicked: 'first'
+      clicked: 'first',
+      photoFile: ''
 
       // author_id: this.props.currentUser.id,
     }
@@ -29,6 +30,7 @@ class CreateForm extends React.Component {
     this.renderLinkButton = this.renderLinkButton.bind(this);
     this.renderTextButton = this.renderTextButton.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
   
   componentDidMount(){
@@ -66,6 +68,22 @@ class CreateForm extends React.Component {
       .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
 
+  // handleFile(e) {
+  //   const file = e.currentTarget.file;
+  //   const fileReader = new FileReader();
+  //   fileReader.onloadend = () => {
+  //     let newPhotos = this.state.photos.concat([file]);
+  //     let newPhotosURLs = this.state.photosURLs.concat([fileReader.result]);
+  //     this.setState({
+  //       photos: newPhotos,
+  //       photosURLs: newPhotosURLs
+  //     })
+  //   }
+  //   if (file) {
+  //     fileReader.readAsDataURL(file)
+  //   }
+  // }
+
   componentDidUpdate(preProps, preState) {
     if (preProps.location.pathname !== this.props.location.pathname){
       this.props.clearErrors();
@@ -78,7 +96,6 @@ class CreateForm extends React.Component {
 
   handleErrors() {
     const errorCSS = `textarea:focus { border-color: #ea0027 !important; }`
-    //some jquery shit here to remove and add stuff when cleared 
     return (
       <ul>
         {this.props.errors.map((error, i) => <ul key={i}>{error}</ul>)}
@@ -171,9 +188,12 @@ class CreateForm extends React.Component {
 
               <div className="create-form-bottom">
                 <div className="create-error">{this.handleErrors()}</div>
-                <button className="post-btn" onClick={this.handleSubmit}>Post</button>
+                { this.state.post_type === 'image' ?
+                  <button className="post-btn" type="submit" onClick={this.handleFile}>Post</button>
+                  :
+                  <button className="post-btn" type="submit" onClick={this.handleSubmit}>Post</button>
+              }
               </div>
-
             </form>
        </div>
        </div>
