@@ -30,7 +30,7 @@ class CreateForm extends React.Component {
     this.renderLinkButton = this.renderLinkButton.bind(this);
     this.renderTextButton = this.renderTextButton.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
-    this.handleFile = this.handleFile.bind(this);
+    // this.handleFile = this.handleFile.bind(this);
   }
   
   componentDidMount(){
