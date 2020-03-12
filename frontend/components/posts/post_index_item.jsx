@@ -1,6 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import TimeAgo from 'timeago-react';
 
+export const RenderIndexView = props => {
+  return (
+    <div>
+        {
+        props.post.body ? (
+          <div className="bottom-fade" >
+        <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
+          </div> ) :
+          (<div className="post-body">
+            <img src={props.post.imageUrl} />
+          </div> )
+        }
+    </div>
+  )
+}
+
+export const RenderShowView = props => {
+  return (
+    <div>
+      {
+        props.post.body ? (<div className="post-body-show" dangerouslySetInnerHTML={{ __html: props.post.body }} />)
+          : (<div className="post-body-show">
+            <img src={props.post.imageUrl} />
+          </div>)
+      }
+    </div>
+  )
+}
+
 
 
 const PostIndexItem = props => {
@@ -23,16 +52,11 @@ const PostIndexItem = props => {
           <h3>{props.post.title}</h3>
       </div>
         </div>
-        {
-        (props.view !== "show") ? 
-          (
-            <div className="bottom-fade">
-        <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
-            </div>
-          ) : (
-          <div className="post-body-show" dangerouslySetInnerHTML={{ __html: props.post.body }} />
-          )
-        }
+
+       {
+         (props.view === "show") ? (<RenderShowView post={props.post} />)
+         : (<RenderIndexView post={props.post} />)
+       }
         <div className="post-bottom">
             <i className="fas fa-comment-alt comment-btn"></i>
          
