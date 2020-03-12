@@ -8,22 +8,22 @@ import { push } from 'react-router-redux'
 //   return { ...state };
 // }
 
-const routingErrorReducer = (state = {}, action) => {
-  Object.freeze(state);
-  let nextState = Object.assign([], state);
+// const routingErrorReducer = (state = {}, action) => {
+//   Object.freeze(state);
+//   let nextState = Object.assign([], state);
 
-  switch (action.type) {
-  //   case RECEIVE_ERROR: {
-  //     return state, { responseError: true }
-  //   }
-    // case HTTP_404_ERROR:
-    //   return execute404(state, action);
-    case CLEAR_ERROR:
-      action.error = [];
-      return action.error; //look into this
-    default:
-      return state;
-  }
-}
+//   switch (action.type) {
+//   //   case RECEIVE_ERROR: {
+//   //     return state, { responseError: true }
+//   //   }
+//     // case HTTP_404_ERROR:
+//     //   return execute404(state, action);
+//     case CLEAR_ERROR:
+//       action.error = [];
+//       return action.error; //look into this
+//     default:
+//       return state;
+//   }
+// }
 
-export default routingErrorReducer;
+// export default routingErrorReducer;
