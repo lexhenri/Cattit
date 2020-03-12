@@ -4,14 +4,15 @@ const LinkPostForm = props => {
 
 
   return (
-
-
     <div className="post-body-container">
-      <div className="upload-image">
-
-      <h1>cheese</h1>
+      <textarea 
+        className="link-desc"
+        placeholder="Url"
+        value={props.linkUrl}
+        onChange={e => props.handleUrl(e)}
+        >
+      </textarea>
       </div>
-    </div>
 
 
   )

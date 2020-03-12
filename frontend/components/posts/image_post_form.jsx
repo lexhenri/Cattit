@@ -18,6 +18,7 @@ export const ImagePostForm = props => {
         <div>
           <HideUntilLoaded 
             imageToLoad={props.file} 
+            animationIn="bounceIn"
             Spinner={() => 
             <img style={{ animation: `spin ${speed}s linear infinite` }} src={TempSpin} alt="img" />}
             >

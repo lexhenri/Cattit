@@ -203,6 +203,25 @@ textarea.title-bar:focus {
   border: 1px solid var(--newRedditTheme-actionIcon);
 }
 
+textarea.link-desc {
+  resize: none;
+  overflow-x: hidden; 
+  overflow-wrap: break-word; 
+  height: 150px;
+  padding: 8px 68px 8px 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--newCommunityTheme-line);
+  border-radius: 4px;
+}
+
+textarea.link-desc:focus {
+  border: 1px solid var(--newRedditTheme-actionIcon);
+}
+
 .post-body-container {
   border: 1px solid #FFF;
   display: flex;

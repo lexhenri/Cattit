@@ -18,6 +18,7 @@ class CreateForm extends React.Component {
       clicked: 'first',
       imageUrl: '',
       file: '',
+      linkUrl: ''
     }
     
     this.handleErrors = this.handleErrors.bind(this);
@@ -31,6 +32,7 @@ class CreateForm extends React.Component {
     this.toggleTab = this.toggleTab.bind(this);
     this.previewImage = this.previewImage.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.handleUrl = this.handleUrl.bind(this);
   }
   
   componentDidMount(){
@@ -41,13 +43,19 @@ class CreateForm extends React.Component {
 
   handleInput(e) {
     this.setState({ 
-      title: e.currentTarget.value 
+      title: e.currentTarget.value ,
+    });
+  }
+
+  handleUrl(e) {
+    this.setState({
+      linkUrl: e.currentTarget.value
     });
   }
   
   handleChange(value){
     this.setState({
-      body: value
+      body: value,
     })
   }
 
@@ -55,21 +63,6 @@ class CreateForm extends React.Component {
     this.setState({ post_type });
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   let post = this.state;
-  //   post.author_id = this.props.currentUser.id;
-  //   post.subcattit_id = this.props.subcattitObj.id;
-  //   const newPhoto = new FormData();
-  //   newPhoto.append('photo[title]', this.state.title)
-  //   newPhoto.append('photo[image]', this.state.imageFile)
-  //   newPhoto.append('photo[subcattit]', this.props.subcattit)
-  //   this.props.processForm(newPhoto).then(photo => {
-  //   })
-    
-  //   this.props.createPost(post)
-  //     .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -79,6 +72,7 @@ class CreateForm extends React.Component {
       let post = this.state;
       post.author_id = this.props.currentUser.id;
       post.subcattit_id = this.props.subcattitObj.id;
+      post.post_type = this.updateType(this.state.post_type);
       this.props.createPost(post)
         .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
     }
@@ -119,42 +113,6 @@ class CreateForm extends React.Component {
     this.props.createPostWithPhoto(formData, this.props.subcattit)
       .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
-
-  // handleFile(e) {
-  //   e.preventDefault(e);
-  //   const formData = new FormData();
- 
-  //   formData.append('post[title]', this.state.title);
-  //   if (this.state.imageUrl) {
-  //     formData.append('post[photo]', this.state.imageFile);
-  //   }
-  //   $.ajax({
-  //     url: `/api/subcattits/${this.props.subcattit}/posts`,
-  //     method: 'POST',
-  //     data: formData,
-  //     contentType: false,
-  //     processData: false
-  //   });
-  // }
-
-  // handleUpload(e) {
-  //   e.preventDefault();
-  //   const file = e.currentTarget.files[0];
-  //   const reader = new FileReader();
-  //   reader.onloadend = () => {
-  //     this.setState({ imageUrl: reader.result, imageFile: file })
-  //   }
-
-  //   if (file) {
-  //     reader.readAsDataURL(file)
-  //   } else {
-  //   }
-
-  //   if (file) {
-  //   }
-  //   this.forceUpdate();
-
-  // }
 
   componentDidUpdate(preProps, preState) {
     if (preProps.location.pathname !== this.props.location.pathname){
@@ -222,6 +180,7 @@ class CreateForm extends React.Component {
 
   render(){
    
+   
     return(
       <div className="create-page-container">
       <div className="post-create-container">
@@ -252,7 +211,7 @@ class CreateForm extends React.Component {
                   case 'image':
                     return <ImagePostForm handleFile={this.previewImage} file={this.state.file}/>;
                   case 'link':
-                    return <LinkPostForm />;
+                    return <LinkPostForm linkUrl={this.state.linkUrl} handleUrl={this.handleUrl} />;
                   default:
                     return null;
                 }
