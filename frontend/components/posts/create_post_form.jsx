@@ -16,9 +16,7 @@ class CreateForm extends React.Component {
       body: '',
       post_type: 'text',
       clicked: 'first',
-      photoFile: ''
-
-      // author_id: this.props.currentUser.id,
+      pictures: []
     }
     
     this.handleErrors = this.handleErrors.bind(this);
@@ -30,6 +28,7 @@ class CreateForm extends React.Component {
     this.renderLinkButton = this.renderLinkButton.bind(this);
     this.renderTextButton = this.renderTextButton.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
+
     // this.handleFile = this.handleFile.bind(this);
   }
   
@@ -67,6 +66,7 @@ class CreateForm extends React.Component {
     this.props.createPost(post)
       .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
+
 
   // handleFile(e) {
   //   const file = e.currentTarget.file;
@@ -149,6 +149,7 @@ class CreateForm extends React.Component {
   
 
   render(){
+    console.log(this.state.pictures);
 
     return(
       <div className="create-page-container">

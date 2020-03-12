@@ -9,6 +9,8 @@ const ImagePostForm = props => {
     setPictures([...pictures, picture]);
   };
 
+  console.log(pictures);
+
   return(
     <div className="post-body-container">
       <div className="upload-image">
