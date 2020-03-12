@@ -17,7 +17,6 @@ class CreateForm extends React.Component {
       post_type: 'text',
       clicked: 'first',
       imageUrl: '',
-      imageFile: ''
     }
     
     this.handleErrors = this.handleErrors.bind(this);
@@ -86,16 +85,12 @@ class CreateForm extends React.Component {
 
   handleFile(e) {
     e.preventDefault(e);
-    // this.previewImage();
     const formData = new FormData();
  
     formData.append('post[title]', this.state.title);
-    if (this.state.imageFile) {
-
+    if (this.state.imageUrl) {
       formData.append('post[photo]', this.state.imageUrl);
-      // imageFile?
     }
-    // this.props.fetchImage(this.props.subcattit);
     $.ajax({
       url: `/api/subcattits/${this.props.subcattit}/posts`,
       method: 'POST',

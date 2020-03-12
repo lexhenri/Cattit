@@ -23,7 +23,6 @@ const mapDispatchToProps = dispatch => ({
   createPost: post => dispatch(createPost(post)),
   fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit)),
   clearErrors: () => dispatch(clearErrors()),
-  fetchImage: subcattit => dispatch(fetchImage(subcattit)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateForm)
