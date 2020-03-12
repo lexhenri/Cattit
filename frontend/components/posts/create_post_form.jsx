@@ -29,7 +29,7 @@ class CreateForm extends React.Component {
     this.renderTextButton = this.renderTextButton.bind(this);
     this.toggleTab = this.toggleTab.bind(this);
     this.previewImage = this.previewImage.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
+    this.handleFile = this.handleFile.bind(this);
 
     // this.handleFile = this.handleFile.bind(this);
   }
@@ -60,20 +60,33 @@ class CreateForm extends React.Component {
     this.setState({ post_type });
   }
 
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   let post = this.state;
+  //   post.author_id = this.props.currentUser.id;
+  //   post.subcattit_id = this.props.subcattitObj.id;
+  //   const newPhoto = new FormData();
+  //   newPhoto.append('photo[title]', this.state.title)
+  //   newPhoto.append('photo[image]', this.state.imageFile)
+  //   newPhoto.append('photo[subcattit]', this.props.subcattit)
+  //   this.props.processForm(newPhoto).then(photo => {
+  //   })
+    
+  //   this.props.createPost(post)
+  //     .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
+  // }
+
   handleSubmit(e) {
     e.preventDefault();
-    let post = this.state;
-    post.author_id = this.props.currentUser.id;
-    post.subcattit_id = this.props.subcattitObj.id;
-    const newPhoto = new FormData();
-    newPhoto.append('photo[title]', this.state.title)
-    newPhoto.append('photo[image]', this.state.imageFile)
-    newPhoto.append('photo[subcattit]', this.props.subcattit)
-    this.props.processForm(newPhoto).then(photo => {
-    })
-    
-    this.props.createPost(post)
-      .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
+    if (this.state.imageFile) {
+      this.handleFile(e);
+    } else {
+      let post = this.state;
+      post.author_id = this.props.currentUser.id;
+      post.subcattit_id = this.props.subcattitObj.id;
+      this.props.createPost(post)
+        .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
+    }
   }
 
 
@@ -88,6 +101,19 @@ class CreateForm extends React.Component {
     } else {
       this.setState({ imageUrl: "", imageFile: null });
     }
+  }
+
+  handleFile(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('post[title]', this.state.title);
+    formData.append('post[author_id]', this.props.currentUser.id);
+    formData.append('post[subcattit_id]', this.props.subcattitObj.id);
+    if (this.state.imageFile) {
+      formData.append('post[photo]', this.state.imageFile);
+    }
+    this.props.createPostWithPhoto(formData, this.props.subcattit)
+      .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
 
   // handleFile(e) {
@@ -107,24 +133,24 @@ class CreateForm extends React.Component {
   //   });
   // }
 
-  handleUpload(e) {
-    e.preventDefault();
-    const file = e.currentTarget.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      this.setState({ imageUrl: reader.result, imageFile: file })
-    }
+  // handleUpload(e) {
+  //   e.preventDefault();
+  //   const file = e.currentTarget.files[0];
+  //   const reader = new FileReader();
+  //   reader.onloadend = () => {
+  //     this.setState({ imageUrl: reader.result, imageFile: file })
+  //   }
 
-    if (file) {
-      reader.readAsDataURL(file)
-    } else {
-    }
+  //   if (file) {
+  //     reader.readAsDataURL(file)
+  //   } else {
+  //   }
 
-    if (file) {
-    }
-    this.forceUpdate();
+  //   if (file) {
+  //   }
+  //   this.forceUpdate();
 
-  }
+  // }
 
   componentDidUpdate(preProps, preState) {
     if (preProps.location.pathname !== this.props.location.pathname){
@@ -220,7 +246,7 @@ class CreateForm extends React.Component {
                   case 'text':
                     return <TextPostForm body={this.state.body} handleChange={this.handleChange} />;
                   case 'image':
-                    return <ImagePostForm handleFile={this.handleUpload.bind(this)} />;
+                    return <ImagePostForm handleFile={this.previewImage} />;
                   case 'link':
                     return <LinkPostForm />;
                   default:

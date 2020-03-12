@@ -19,7 +19,7 @@ class Api::PostsController < ApplicationController
   def create 
     @post = Post.new(post_params)
     if @post.save 
-      render json: @post
+      render :create
     else
       # render json: ['Title cannot be empty.'], status: 418
      render :json => @post.errors.full_messages, status: 418 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { currentUser } from '../../reducers/selectors';
 import { connect } from 'react-redux';
-import { createPost, createPhoto } from '../../actions/post';
+import { createPost, createPostWithPhoto } from '../../actions/post';
 import { fetchSubcattit } from '../../actions/subcattit';
 import CreateForm from './create_post_form';
 import { findSubcat } from '../../reducers/selectors';
@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
   createPost: post => dispatch(createPost(post)),
   fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit)),
   clearErrors: () => dispatch(clearErrors()),
-  processForm: photo => dispatch(createPhoto(photo))
+  createPostWithPhoto: (photo, subcattit) => dispatch(createPostWithPhoto(photo, subcattit))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateForm)

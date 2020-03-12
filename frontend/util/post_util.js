@@ -34,12 +34,12 @@ export const getPost = (post) => (
   })
 )
 
-export const createPhoto = (photo) => (
+export const createPostWithPhoto = (formData, subcattit) => (
   $.ajax({
+    url: `/api/subcattits/${subcattit}/posts`,
     method: 'POST',
-    url: `/api/subcattits/${photo.subcattit}/posts`,
-    data: photo,
+    data: formData,
     contentType: false,
     processData: false
   })
-);
+)

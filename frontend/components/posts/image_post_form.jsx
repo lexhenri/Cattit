@@ -2,22 +2,17 @@ import React, { useState } from "react";
 import ImageUploader from 'react-images-upload';
 
 export const ImagePostForm = props => {
-
- 
-
-  
-    return (
-       <div className="post-body-container">
+  return (
+    <div className="post-body-container">
       <div className="upload-image">
-      <input
-        type="file"
-        onChange={e => props.handleFile(e)}
-      />
+        <input
+          type="file"
+          onChange={props.handleFile}
+        />
       </div>
-      </div>
-    )
-    
-  }
+    </div>
+  )
+}
 
 
 

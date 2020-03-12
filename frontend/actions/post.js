@@ -63,13 +63,10 @@ export const fetchPost = (post) => dispatch => {
     .then((post) => dispatch(receivePost(post)))
 }
 
-export const createPhoto = (photo) => dispatch => (
-  PostApiUtil.createPhoto(photo).then(photo => {
-    dispatch(receivePost(photo))
-  }, errors => (
-    dispatch(receiveErrors(errors.responseJSON))
-  ))
-);
+export const createPostWithPhoto = (post, subcattit) => dispatch => {
+  return PostApiUtil.createPostWithPhoto(post, subcattit)
+    .then((post) => dispatch(receivePost(post)), (errors) => dispatch(receiveErrors(errors.responseJSON)));
+}
 
 export const removePost = (postId) => dispatch => {
   PostApiUtil.removePost(postId)
