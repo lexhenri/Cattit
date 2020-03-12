@@ -32,7 +32,7 @@ class Post < ApplicationRecord
   foreign_key: :post_id,
   class_name: :Comments
 
-  has_one_attached :pictures
+  has_one_attached :photo
 
 
 
