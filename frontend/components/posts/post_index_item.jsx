@@ -6,10 +6,10 @@ export const RenderIndexView = props => {
     <div>
         {
         props.post.body ? (
-          <div className="bottom-fade" >
+            <div className="bottom-fade" >
         <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
           </div> ) :
-          (<div className="post-body">
+          (<div className="post-image">
             <img src={props.post.imageUrl} />
           </div> )
         }
@@ -58,12 +58,10 @@ const PostIndexItem = props => {
          : (<RenderIndexView post={props.post} />)
        }
         <div className="post-bottom">
-            <i className="fas fa-comment-alt comment-btn"></i>
-         
+          
             {
-              (props.post.num_comments) ? (<span className="comments">{props.post.num_comments} Comments</span>) : (<span className="comments">0 Comments</span>)
+            (props.post.num_comments) ? (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>{props.post.num_comments} Comments</div>) : (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>0 Comments</div>)
             } 
-  
         </div>
       </div>
     </div>
