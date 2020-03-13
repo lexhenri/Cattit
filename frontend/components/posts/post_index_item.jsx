@@ -72,7 +72,6 @@ const PostIndexItem = props => {
       <div className="post-title">
           <h3>{props.post.title}</h3>
       </div>
-      { deleteButton }
         </div>
 
         {(() => {
@@ -95,6 +94,7 @@ const PostIndexItem = props => {
             {
             (props.post.num_comments) ? (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>{props.post.num_comments} Comments</div>) : (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>0 Comments</div>)
             } 
+          {deleteButton}
         </div>
       </div>
     </div>
