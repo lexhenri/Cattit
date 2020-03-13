@@ -75,5 +75,5 @@ export const createPostWithPhoto = (post) => dispatch => {
 
 export const removePost = (postId) => dispatch => {
   PostApiUtil.removePost(postId)
-    .then(() => dispatch(deletePost(postId)))
+    .then(() => dispatch(deletePost(postId)), errors => dispatch(receiveErrors(errors.responseJSON)));
 }

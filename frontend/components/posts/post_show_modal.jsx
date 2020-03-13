@@ -3,13 +3,15 @@ import { closeShow } from '../../actions/post_show';
 import { connect } from 'react-redux';
 import SubSidebar from '../subcattit/sub_sidebar';
 import PostIndexItem from './post_index_item';
-import { fetchPost } from '../../actions/post';
+import { fetchPost, removePost } from '../../actions/post';
 import { findSubcat } from '../../reducers/selectors';
 import { fetchSubcattit } from '../../actions/subcattit';
+import { currentUser } from '../../reducers/selectors';
 
 
 
-function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo }) {
+
+function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removePost }) {
 
   if (!post){
     return null;
@@ -35,7 +37,7 @@ function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo }) {
 
         <div className="show-post-column">
           
-          <PostIndexItem post={post} view={"show"}/>
+          <PostIndexItem post={post} view={"show"} removePost={removePost}/>
         </div>
         <div className="show-post-sidebar">
 
@@ -60,6 +62,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     post: state.ui.postShow,
     subcattitInfo: state.entities.subcattits[info],
+    currentUser: currentUser(state),
   };
 };
 
@@ -67,7 +70,8 @@ const mapDispatchToProps = dispatch => {
   return {
     closeShow: () => dispatch(closeShow()),
     fetchPost: postId => dispatch(fetchPost(postId)),
-    fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit))
+    fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit)),
+    removePost: postId => dispatch(removePost(postId))
   };
 };
 

@@ -24,6 +24,9 @@ class PostIndex extends React.Component {
     if (preProps.subcattit !==  this.props.subcattit) {
       this.props.fetchPosts(this.props.subcattit)
     }
+    if (this.props.posts.length !== preProps.posts.length) {
+      this.props.fetchPosts(this.props.subcattit)
+    }
 }
 
   removeHandler(postId){

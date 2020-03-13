@@ -45,8 +45,7 @@ const PostIndexItem = props => {
     (
       <div className="remove-post" onClick={() => props.removeHandler(props.post.id)}>
         <p>Delete Post</p>
-      </div>
-    ) : null;
+      </div> ) : ( null );
   
   let type;
   if (props.post.imageUrl) {
