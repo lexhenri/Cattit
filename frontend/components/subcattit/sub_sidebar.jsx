@@ -36,13 +36,14 @@ const SubSidebar = props => {
           <span className="created-at">Created {Moment(props.subcattitInfo.created_at).format('MMM DD, YYYY')} </span>
           {
             (props.page === "subcattit") ? (
-                <button className="create-btn">
+                // <button className="create-btn">
+                <div>
                   {
                     (props.currentUser !== undefined) ?
-                      (<Link to={{ pathname: `/mew/${props.subcattit}/submit`, state: { subcattit_info: props.subcattitInfo } }}>Create Post</Link>)
-                      : (<a onClick={() => props.openModal('login')}>Create Post</a>)
+                      (<Link to={{ pathname: `/mew/${props.subcattit}/submit`, state: { subcattit_info: props.subcattitInfo } }}><button className="create-btn">Create Post</button></Link>)
+                      : (<a onClick={() => props.openModal('login')}><button className="create-btn">Create Post</button></a>)
                   }
-                </button>
+                </div>
             ) : (null)
           }
         </div>
