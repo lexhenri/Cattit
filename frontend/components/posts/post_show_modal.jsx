@@ -11,7 +11,7 @@ import { currentUser } from '../../reducers/selectors';
 
 
 
-function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removePost }) {
+function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removePost, removeHandler }) {
 
   if (!post){
     return null;
@@ -37,7 +37,7 @@ function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removeP
 
         <div className="show-post-column">
           
-          <PostIndexItem post={post} view={"show"} removePost={removePost}/>
+          <PostIndexItem post={post} view={"show"} />
         </div>
         <div className="show-post-sidebar">
 
