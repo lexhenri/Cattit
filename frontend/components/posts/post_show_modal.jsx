@@ -3,6 +3,7 @@ import { closeShow } from '../../actions/post_show';
 import { connect } from 'react-redux';
 import SubSidebar from '../subcattit/sub_sidebar';
 import PostIndexItem from './post_index_item';
+import PostShowItem from './post_show_item';
 import { fetchPost, removePost } from '../../actions/post';
 import { findSubcat } from '../../reducers/selectors';
 import { fetchSubcattit } from '../../actions/subcattit';
@@ -16,7 +17,7 @@ function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removeP
   if (!post){
     return null;
   }
-
+  console.log(post)
   // const subcattitInfo = fetchSubcattit(post.name);
   // console.log(subcattitInfo);
 // debugger
@@ -37,7 +38,8 @@ function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removeP
 
         <div className="show-post-column">
           
-          <PostIndexItem post={post} view={"show"} />
+          <PostShowItem post={post} view={"show"} />
+
         </div>
         <div className="show-post-sidebar">
 
@@ -55,6 +57,7 @@ function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removeP
 
 const mapStateToProps = (state, ownProps) => {
   let info;
+  console.log(ownProps);
   if (state.ui.postShow) {
     info = state.ui.postShow.name
   }

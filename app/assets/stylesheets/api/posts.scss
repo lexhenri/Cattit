@@ -11,9 +11,10 @@
 }
 
 .post-container {
- display: block;
+ display: flex;
  width: 565px;
 //  margin: 0 auto;
+ flex-direction: column-reverse;
  box-sizing: border-box;
 }
 
@@ -270,6 +271,7 @@ i.comment-btn {
   width: 96px;
   height: 32px;
   background-color: #FFF;
+  max-height: 20px;
   display: inline-block;
   box-sizing: border-box;
   border: 1px solid #0079d3;

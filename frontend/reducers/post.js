@@ -16,6 +16,7 @@ const PostReducer = (state = {}, action) => {
     case RECEIVE_ALL_POSTS:
       return action.all_posts;
     case REMOVE_POST:
+      nextState = Object.assign({}, state);
       delete nextState[action.postId];
       return nextState;
     default:
