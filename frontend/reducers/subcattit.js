@@ -12,6 +12,7 @@ const subcattitReducer = (state = {}, action) => {
       nextState[action.subcattit.name] = action.subcattit;
       return nextState;
     case RECEIVE_ERROR:
+      if (!action.error) return state;
       return action.error;
     case CLEAR_ERROR:
       action.error = {};

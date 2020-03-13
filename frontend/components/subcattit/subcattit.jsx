@@ -1,5 +1,6 @@
 import React from 'react';
 import PostIndexContainer from '../posts/post_index_container';
+import PostIndex from '../posts/post_index';
 import Moment from 'moment';
 import { Redirect, Route } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
@@ -9,19 +10,26 @@ import SubSidebar from './sub_sidebar';
 class Subcattit extends React.Component {
   constructor(props){
     super(props);
- 
+    this.state = {
+      subcattit: this.props.subcattit,
+      posts: this.props.posts
+    }
 }
   
   componentDidMount(){
     this.props.clearError();
-    this.props.fetchSubcattit(this.props.subcattit)
-
+    this.props.fetchSubcattit(this.props.subcattit);
+    this.props.fetchPosts(this.props.subcattit);
     }
   
 
   componentDidUpdate(preProps, preState) { 
     if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
       this.props.fetchSubcattit(this.props.subcattit)
+      this.setState({
+        subcattit: this.props.subcattit,
+        posts: this.props.posts
+      })
       console.log("update!")
       this.props.clearError();
 
@@ -29,9 +37,10 @@ class Subcattit extends React.Component {
   }
   
   render(){
+    // debugger;
     Moment.locale('en');
     if (this.props.subcattitInfo === undefined) return null;
-
+    // debugger;
     return (
       <div>
       <div className="top-banner">
@@ -61,7 +70,7 @@ class Subcattit extends React.Component {
                     </a>)
             }
           </div>
-        <PostIndexContainer subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo}/>
+          <PostIndexContainer subcattit={this.state.subcattit} posts={this.state.posts}/> 
           </div>
         <SubSidebar subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo} page={"subcattit"} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
       

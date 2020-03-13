@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import { fetchSubcattit, createSubcattit, fetchAllSubcattits } from '../../actions/subcattit';
 import Subcattit from './subcattit';
 import { clearError } from '../../actions/subcattit';
-import { findSubcat } from '../../reducers/selectors';
+import { findSubcat, findPosts } from '../../reducers/selectors';
 import { currentUser } from '../../reducers/selectors';
 import { openModal, closeModal } from '../../actions/modal';
+import { fetchPosts, fetchPost } from '../../actions/post';
+
 
 
 const mSTP = (state, ownProps) => {
   const info = ownProps.match.params.subcattit
+  // debugger;
   return {
     subcattits: Object.values(state.entities.subcattits),
     subcattit: ownProps.match.params.subcattit,
+    posts: state.entities.posts,
     subcattitInfo: state.entities.subcattits[info],
     subcattit_obj: findSubcat(state, info),
     currentUser: currentUser(state),
@@ -34,6 +38,7 @@ const mDTP = (dispatch, ownProps) => {
   clearError: () => dispatch(clearError()),
   closeModal: () => dispatch(closeModal()),
   openModal: modal => dispatch(openModal(modal)),
+  fetchPosts: (posts) => dispatch(fetchPosts(posts))
   }
 }
 

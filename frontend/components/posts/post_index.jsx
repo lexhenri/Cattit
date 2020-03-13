@@ -10,15 +10,19 @@ class PostIndex extends React.Component {
       title: '',
       body: '',
       author_id: '',
-      subcattit_id: ''
+      subcattit_id: '',
+      subcattit: ''
     }
     this.removeHandler = this.removeHandler.bind(this);
     this.openModal = this.openModal.bind(this);
   }
 
   componentDidMount(){
-    debugger;
-    this.props.fetchPosts(this.props.subcattit);
+    // debugger;
+    this.setState({
+      subcattit: this.props.subcattit
+    })
+    this.props.fetchPosts(this.state.subcattit);
     // console.log("mounted!")
   }
 
@@ -47,22 +51,25 @@ class PostIndex extends React.Component {
  }
 
   render(){
+
+    // debugger;
+    if (this.props.posts === undefined) return null;
     const { posts } = this.props;
-    if (!posts) return null;
+
     return(
       <div className="post-container">
         { Object.values(posts).map((post, i) => (
-          <Link to={{
-            pathname: `/mew/${this.props.subcattit}/posts/${post.id}`,
-            state: { background: this.props.location }}}
-            key={i}>
+          // <Link to={{
+          //   pathname: `/mew/${this.props.subcattit}/posts/${post.id}`,
+          //   state: { background: this.props.location }}}
+          //   key={i}>
             <PostIndexItem 
               post={post} 
               key={i} 
-              subcattit={this.props.subcattit} 
+              subcattit={this.state.subcattit} 
               removeHandler={this.removeHandler.bind(this)} 
               currentUser={this.props.currentUser} />
-            </Link>
+            // </Link>
             ))
         }
       </div>
@@ -86,6 +93,5 @@ class PostIndex extends React.Component {
   //   )
   }
 }
-// { post: post, subcattit: this.props.subcattitInfo }
 
 export default PostIndex;

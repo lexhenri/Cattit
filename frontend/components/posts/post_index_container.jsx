@@ -9,11 +9,13 @@ import { useLocation, useHistory, useParams } from "react-router-dom";
 
 
 const mSTP = (state, ownProps) => {
-  debugger;
-  console.log(ownProps);
+
+  // debugger;
+  // console.log(ownProps);
   return {
-  subcattit: ownProps.match.params.subcattit,
-  posts: Object.values(state.entities.posts),
+  // subcattit: subcattitName,
+  // subcattit: ownProps.match.params.subcattit,
+  posts: state.entities.posts,
   currentUser: currentUser(state),
   }
 };

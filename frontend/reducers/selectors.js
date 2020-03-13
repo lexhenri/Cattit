@@ -8,3 +8,10 @@ export const findSubcat = (state, match) => {
   // debugger;
   return cat;
 }
+
+export const findPosts = (state, match) => {
+  let posts = {};
+  Object.values(state.entities.posts).forEach(post => post.name === match ? post = post : null );
+  // debugger;
+  return posts;
+}

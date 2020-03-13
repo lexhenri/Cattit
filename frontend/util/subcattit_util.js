@@ -3,7 +3,7 @@ export const getSubcattit = (subcattit) => (
   $.ajax({
     url: `/api/subcattits/${subcattit}/`,
     method: 'GET',
-    dataType: 'json',
+    // dataType: 'json',
   })
 )
 
