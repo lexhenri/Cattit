@@ -25,8 +25,8 @@ class Login extends React.Component {
     //some jquery shit here to remove and add stuff when cleared 
     return (
       <ul>
-        {this.props.errors.map(error => <ul key={error}>{error}</ul> ) }
-        {this.props.errors.map(error => error ? <style>{errorCSS}</style> : null ) }
+        {Object.keys(this.props.errors).map((error, i) => <ul key={i}>{this.props.errors[error]}</ul>)}
+        {Object.keys(this.props.errors).map((error) => this.props.errors[error] ? <style>{errorCSS}</style> : null)}
       </ul>
     )
   }

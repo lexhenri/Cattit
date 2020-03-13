@@ -30,6 +30,7 @@ class PostIndex extends React.Component {
 }
 
   removeHandler(postId){
+    e.preventDefault();
     this.props.removePost(postId)
       .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
   }
