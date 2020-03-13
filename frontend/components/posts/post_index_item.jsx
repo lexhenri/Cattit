@@ -74,13 +74,13 @@ const PostIndexItem = props => {
         {(() => {
           switch (type) {
             case 0:
-              return <RenderImage post={props.post} />;
+              return <RenderImage post={props.post} view={props.view}/>;
               break;
             case 1:
-              return <RenderLink post={props.post} />;
+              return <RenderLink post={props.post} view={props.view}/>;
               break;
             case 2:
-              return <RenderText post={props.post} />;
+              return <RenderText post={props.post} view={props.view}/>;
               break;
             default:
               return null;
@@ -95,7 +95,6 @@ const PostIndexItem = props => {
               <div className="remove-post" id={props.post.id} onClick={props.removeHandler}>
                 Delete
               </div>) : (null) : null }
-          {/* { deleteButton } */}
         </div>
       </div>
     </div>

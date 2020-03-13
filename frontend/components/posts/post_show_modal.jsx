@@ -3,7 +3,6 @@ import { closeShow } from '../../actions/post_show';
 import { connect } from 'react-redux';
 import SubSidebar from '../subcattit/sub_sidebar';
 import PostIndexItem from './post_index_item';
-import PostShowItem from './post_show_item';
 import { fetchPost, removePost } from '../../actions/post';
 import { findSubcat } from '../../reducers/selectors';
 import { fetchSubcattit } from '../../actions/subcattit';
@@ -12,10 +11,15 @@ import { currentUser } from '../../reducers/selectors';
 
 
 
-function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitInfo, removePost, removeHandler }) {
+function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitInfo, removePost, removeHandler, currentUser }) {
 
   if (modalView === 'closed') {
     return null;
+  }
+
+  function deleteClose(e){
+    removeHandler(e);
+    closeModal(e);
   }
   // console.log(post)
   // const subcattitInfo = fetchSubcattit(post.name);
@@ -39,7 +43,7 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
 
           <div className="show-post-column">
 
-            <PostShowItem post={post} view={"show"} />
+            <PostIndexItem post={post} view={"show"} currentUser={currentUser} removeHandler={deleteClose}/>
 
           </div>
           <div className="show-post-sidebar">

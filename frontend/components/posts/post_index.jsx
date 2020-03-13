@@ -79,7 +79,12 @@ class PostIndex extends React.Component {
 
 
       <div className="post-container">
-        <PostShowModal post={this.state.post} modalView={this.state.modal} closeModal={this.closeModal}/>
+        <PostShowModal post={this.state.post} 
+          modalView={this.state.modal} 
+          closeModal={this.closeModal}
+          currentUser={this.props.currentUser}
+          removeHandler={this.removeHandler.bind(this)}
+          />
         { Object.values(posts).map((post, i) => (
           // <Link to={{
             //   pathname: `/mew/${this.state.subcattit}/posts/${post.id}`,
