@@ -266,17 +266,27 @@ i.comment-btn {
 }
 
 .remove-post {
-  fill: #0079d3;
-  color: #0079d3;
-  width: 96px;
-  height: 32px;
-  background-color: #FFF;
-  max-height: 20px;
-  display: inline-block;
-  box-sizing: border-box;
-  border: 1px solid #0079d3;
-  border-radius: 4px;
-  outline: 0;
-  transition: color .01s ease-in,text-indent .25s ease-in,opacity .25s ease-in;
+  text-transform: capitalize;
+  // vertical-align: middle;
+  color: #878A8C;
+  // font-size: 12px;
+  // font-family: IBMPlexSans, Arial, sans-serif;
+  // font-weight: 700;
+  // padding: 0px 3px;
+  font-size: 12px;
+  font-weight: 700;
+  // line-height: 12px;
+  -ms-flex-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 16px;
+  overflow: hidden;
+  padding: 0 8px 0 0px;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  align-items: baseline;
+  justify-content: flex-end;
   cursor: pointer;
 }

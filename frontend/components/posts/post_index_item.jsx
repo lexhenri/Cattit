@@ -93,7 +93,7 @@ const PostIndexItem = props => {
           {props.currentUser !== undefined ? (props.currentUser.id === props.post.author_id) ?
             (
               <div className="remove-post" id={props.post.id} onClick={props.removeHandler}>
-                <p>Delete Post</p>
+                Delete
               </div>) : (null) : null }
           {/* { deleteButton } */}
         </div>
