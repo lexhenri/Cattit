@@ -432,6 +432,7 @@ textarea.link-desc:focus {
 .create-form-bottom {
   justify-content: flex-end;
   display: flex;
+  z-index: 2;
   padding: 10px 0px 16px 16px;
   align-content: center;
 }
