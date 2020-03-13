@@ -13,7 +13,7 @@ class Api::PostsController < ApplicationController
 
   def show 
     @post = Post.find_by(subcattit_id: params[:subcattit_id])
-    render json: @post
+    render :show
   end
 
   def create 

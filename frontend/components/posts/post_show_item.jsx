@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TimeAgo from 'timeago-react';
+import { useParams } from 'react-router-dom';
+
 
 export const RenderLink = props => {
   return (
@@ -57,6 +59,10 @@ const PostShowItem = props => {
   } else if (props.post.body) {
     type = 2;
   }
+
+  let { id } = useParams();
+
+  if (!props.post) return null;
 
 
   return (

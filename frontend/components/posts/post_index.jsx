@@ -17,6 +17,7 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
+    debugger;
     this.props.fetchPosts(this.props.subcattit);
     // console.log("mounted!")
   }
@@ -39,29 +40,50 @@ class PostIndex extends React.Component {
           // <Link to={`/mew/${this.props.subcattit}/comments/${post.id}`} onClick={() => this.props.openShow('show')}>
 
  openModal(e, post){
-   e.preventDefault();
-   e.stopPropagation();
+  //  e.preventDefault();
+  //  e.stopPropagation();
   //  console.log(e.currentTarget);
    this.props.openShow(post)
  }
 
   render(){
     const { posts } = this.props;
+    if (!posts) return null;
     return(
       <div className="post-container">
-        { Object.values(posts).map((post, i) => 
-          <div onClick={(e) => this.openModal(e, post)} key={i}>
+        { Object.values(posts).map((post, i) => (
+          <Link to={{
+            pathname: `/mew/${this.props.subcattit}/posts/${post.id}`,
+            state: { background: this.props.location }}}
+            key={i}>
             <PostIndexItem 
               post={post} 
               key={i} 
               subcattit={this.props.subcattit} 
               removeHandler={this.removeHandler.bind(this)} 
-              currentUser={this.props.currentUser} 
-              openModal={this.openModal.bind(this)}/>
-              </div>)
+              currentUser={this.props.currentUser} />
+            </Link>
+            ))
         }
       </div>
     )
+    
+  // render(){
+  //   const { posts } = this.props;
+  //   return(
+  //     <div className="post-container">
+  //       { Object.values(posts).map((post, i) => 
+  //         <div onClick={(e) => this.openModal(e, post)} key={i}>
+  //           <PostIndexItem 
+  //             post={post} 
+  //             key={i} 
+  //             subcattit={this.props.subcattit} 
+  //             removeHandler={this.removeHandler.bind(this)} 
+  //             currentUser={this.props.currentUser} />
+  //             </div>)
+  //       }
+  //     </div>
+  //   )
   }
 }
 // { post: post, subcattit: this.props.subcattitInfo }

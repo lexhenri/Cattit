@@ -12,14 +12,15 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import CreatePostFormContainer from './posts/create_post_form_container';
 import PostShowModal from './posts/post_show_modal';
 import PreviewModal from './feed/preview_modal';
+import ShowSwitch from './posts/show_switch';
 
 
 
 const App = () => (
   <div>
     <Modal />
-    <PostShowModal />
     <PreviewModal />
+    <ShowSwitch />
     <header>
       {/* <TopNavContainer />  */}
       <Route path='/' component={TopNavContainer} />

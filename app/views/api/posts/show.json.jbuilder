@@ -1,12 +1,11 @@
-json.extract! @post, :title, :body, :subcattit_name, :author_id, :id, :user, :created_at, :updated_at, :linkUrl
-    @post.user do
-      json.id @post.user.id
-      json.username @post.user.username
-      if @post.photo.attached?
+ json.set! @post.id do
+    json.extract! @post, :title, :body, :author_id, :id, :created_at, :updated_at, :num_comments, :upvotes, :subcattit_id, :linkUrl, :photo
+    json.name @post.subcattit.name
+    json.username @post.user.username
+    if @post.photo.attached?
         json.imageUrl url_for(@post.photo)
-      else 
+    else 
         json.imageUrl ""
       end
     end
-
     #this is the one NOT returning shit atm
