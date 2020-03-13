@@ -41,12 +41,6 @@ export const RenderText = props => {
 
 const PostIndexItem = props => {
 
-  // const deleteButton = (props.currentUser.id === props.post.author_id) ?
-  //   (
-  //     <div className="remove-post" id={props.post.id} onClick={props.removeHandler}>
-  //       <p>Delete Post</p>
-  //     </div>) : (null);
- 
 
   let type;
   if (props.post.imageUrl) {
@@ -57,7 +51,7 @@ const PostIndexItem = props => {
     type = 2;
   }
 
-  
+  // debugger;
   return (
     <div className="post">
       <div className="karma-bar">
@@ -96,13 +90,11 @@ const PostIndexItem = props => {
             {
             (props.post.num_comments) ? (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>{props.post.num_comments} Comments</div>) : (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>0 Comments</div>)
             } 
-            {
-            (props.currentUser.id === props.post.author_id) ?
-              (
-                <div className="remove-post" id={props.post.id} onClick={props.removeHandler}>
-                  <p>Delete Post</p>
-                </div>) : (null)
-                }
+          {props.currentUser !== undefined ? (props.currentUser.id === props.post.author_id) ?
+            (
+              <div className="remove-post" id={props.post.id} onClick={props.removeHandler}>
+                <p>Delete Post</p>
+              </div>) : (null) : null }
           {/* { deleteButton } */}
         </div>
       </div>
