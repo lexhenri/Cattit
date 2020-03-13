@@ -14,7 +14,7 @@
        json.iconUrl url_for(@subcattit.icon)
        json.bannerUrl url_for(@subcattit.banner)
     else
-        json.bannerUrl ""
-        json.iconUrl ""
+      json.bannerUrl ""
+      json.iconUrl ""
     end
    

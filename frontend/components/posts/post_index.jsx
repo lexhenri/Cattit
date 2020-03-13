@@ -22,7 +22,7 @@ class PostIndex extends React.Component {
     this.setState({
       subcattit: this.props.subcattit
     })
-    this.props.fetchPosts(this.state.subcattit);
+    this.props.fetchPosts(this.props.subcattit);
     // console.log("mounted!")
   }
 

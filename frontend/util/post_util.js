@@ -8,7 +8,7 @@
 
 export const createPost = (post) => (
   $.ajax({
-    url: `/api/posts`,
+    url: `/api/posts/`,
     method: 'POST',
     data: { post }
   })
@@ -16,28 +16,28 @@ export const createPost = (post) => (
 
 export const getPosts = (postSubcattitId) => (
   $.ajax({
-    url: `/api/subcattits/${postSubcattitId}/posts`,
+    url: `/api/subcattits/${postSubcattitId}/posts/`,
     method: 'GET'
   })
 )
 
 export const getAllPosts = () => (
   $.ajax({
-    url: `/api/posts/all`,
+    url: `/api/posts/all/`,
     method: 'GET'
   })
 )
 
 export const getPost = (post) => (
   $.ajax({
-    url: `/api/posts/${post.id}`,
+    url: `/api/posts/${post.id}/`,
     method: 'GET'
   })
 )
 
   export const removePost = (postId) => (
   $.ajax({
-    url: `/api/posts/${postId}`,
+    url: `/api/posts/${postId}/`,
     method: 'DELETE'
   })
 )
