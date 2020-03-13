@@ -13,8 +13,10 @@ const SubSidebar = props => {
 
   return (
   <div className="sidebar-container">
-    <div className="box">
+      <div className="box">
+       
       <div className="box-banner"><h1>About Community</h1></div>
+    
       <div className="box-content">
         <div className="description">
           <span className="description">{props.subcattitInfo.description}</span>
