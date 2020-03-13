@@ -57,7 +57,6 @@ function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removeP
 
 const mapStateToProps = (state, ownProps) => {
   let info;
-  console.log(ownProps);
   if (state.ui.postShow) {
     info = state.ui.postShow.name
   }
