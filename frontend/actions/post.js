@@ -63,8 +63,8 @@ export const fetchAllPosts = () => dispatch => {
     .then(all_posts => dispatch(receiveAllPosts(all_posts)));
 }
 
-export const fetchPost = (post) => dispatch => {
-  return PostApiUtil.getPost(post)
+export const fetchPost = (postId) => dispatch => {
+  return PostApiUtil.getPost(postId)
     .then((post) => dispatch(receivePost(post)))
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
-import { fetchPosts, createPost, removePost } from '../../actions/post';
+import { fetchPosts, createPost, removePost, fetchPost } from '../../actions/post';
 import { openShow, closeShow } from '../../actions/post_show';
 import PostIndex from './post_index';
 import { currentUser } from '../../reducers/selectors';
@@ -24,8 +24,9 @@ const mDTP = dispatch => ({
   location: () => dispatch(useLocation()),
   fetchPosts: (subcattit) => dispatch(fetchPosts(subcattit)),
   createPost: (post) => dispatch(createPost(post)),
+  fetchPost: (postId) => dispatch(fetchPost(postId)),
   closeShow: () => dispatch(closeShow()),
-  openShow: show => dispatch(openShow(show)),
+  openShow: (post) => dispatch(openShow(post)),
   removePost: postId => dispatch(removePost(postId))
 });
 

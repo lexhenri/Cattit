@@ -20,20 +20,22 @@ const App = () => (
   <div>
     <Modal />
     <PreviewModal />
+    {/* <PostShowModal /> */}
     <header>
       {/* <TopNavContainer />  */}
       <Route path='/' component={TopNavContainer} />
-      {/* <ShowSwitch /> */}
     </header>
     <Switch>
   
     <Route exact path="/" component={FrontpageContainer} />
     <Route exact path="/mew/:subcattit" key={location.pathname} component={SubcattitContainer} />
     <AuthRoute exact path="/mew/:subcattit/submit" key={location.pathname} component={CreatePostFormContainer} />
+    <Route path="/mew/:subcattit/posts/:postId" children={<PostShowModal />} />
     {/* <Route exact path="/mew/:subcattit/comments/:postId" component={PostShowModal} /> */}
     {/* <Route path="/mew/*" component={ErrorNotFound} /> */}
     {/* <Route component={ErrorNotFound} /> */}
     </Switch>
+      {/* <ShowSwitch /> */}
     {/* <RedirectWithStatus status={404} from="/mew/*" to="/404" /> */}
   </div>
 );

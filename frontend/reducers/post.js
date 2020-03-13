@@ -8,7 +8,7 @@ const PostReducer = (state = {}, action) => {
     case RECEIVE_POSTS:
       return action.posts;
     case RECEIVE_POST:
-      nextState[action.post.id] = action.post;
+      nextState[action.postId] = action.post;
       return nextState;
     case POST_IMAGE:
       nextState[action.post.id] = action.post;

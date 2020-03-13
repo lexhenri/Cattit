@@ -28,9 +28,9 @@ export const getAllPosts = () => (
   })
 )
 
-export const getPost = (post) => (
+export const getPost = (postId) => (
   $.ajax({
-    url: `/api/posts/${post.id}/`,
+    url: `/api/posts/${postId}/`,
     method: 'GET'
   })
 )

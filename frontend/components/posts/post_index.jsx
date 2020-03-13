@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, NavLink } from 'react-router-dom';
 import PostIndexItem from './post_index_item';
+import PostShowModal from './post_show_modal';
 
 class PostIndex extends React.Component {
 
@@ -11,10 +12,13 @@ class PostIndex extends React.Component {
       body: '',
       author_id: '',
       subcattit_id: '',
-      subcattit: ''
+      subcattit: '',
+      modal: 'closed'
+
     }
     this.removeHandler = this.removeHandler.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount(){
@@ -44,10 +48,25 @@ class PostIndex extends React.Component {
           // <Link to={`/mew/${this.props.subcattit}/comments/${post.id}`} onClick={() => this.props.openShow('show')}>
 
  openModal(e, post){
-  //  e.preventDefault();
-  //  e.stopPropagation();
-  //  console.log(e.currentTarget);
-   this.props.openShow(post)
+   e.preventDefault();
+   e.stopPropagation();
+   let postId = e.currentTarget.id;
+   this.setState({
+     post: this.props.posts[postId],
+     modal: 'open'
+   });
+  //  this.props.fetchPost(this.state.post.id);
+  //  console.log(this.state.post);
+  //  this.props.openShow(post)
+ }
+
+ closeModal(e){
+   e.preventDefault();
+   e.stopPropagation();
+   this.props.closeShow();
+   this.setState({
+     modal: 'closed'
+   })
  }
 
   render(){
@@ -57,18 +76,26 @@ class PostIndex extends React.Component {
     const { posts } = this.props;
 
     return(
+
+
       <div className="post-container">
+        <PostShowModal post={this.state.post} modalView={this.state.modal} closeModal={this.closeModal}/>
         { Object.values(posts).map((post, i) => (
           // <Link to={{
-          //   pathname: `/mew/${this.props.subcattit}/posts/${post.id}`,
-          //   state: { background: this.props.location }}}
-          //   key={i}>
+            //   pathname: `/mew/${this.state.subcattit}/posts/${post.id}`,
+            //   state: { modal: true },
+            //   }}
+            //   onClick={() => this.props.openShow(post)}
+            //   key={i}>
+            <div onClick={(e) => this.openModal(e, post)} key={i} id={post.id}>
             <PostIndexItem 
               post={post} 
               key={i} 
               subcattit={this.state.subcattit} 
               removeHandler={this.removeHandler.bind(this)} 
-              currentUser={this.props.currentUser} />
+              currentUser={this.props.currentUser} 
+              />
+         </div>
             // </Link>
             ))
         }

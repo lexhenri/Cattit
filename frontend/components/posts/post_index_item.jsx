@@ -96,13 +96,13 @@ const PostIndexItem = props => {
             {
             (props.post.num_comments) ? (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>{props.post.num_comments} Comments</div>) : (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>0 Comments</div>)
             } 
-            {/* {
+            {
             (props.currentUser.id === props.post.author_id) ?
               (
                 <div className="remove-post" id={props.post.id} onClick={props.removeHandler}>
                   <p>Delete Post</p>
                 </div>) : (null)
-                } */}
+                }
           {/* { deleteButton } */}
         </div>
       </div>
