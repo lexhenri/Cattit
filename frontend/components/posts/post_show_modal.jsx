@@ -17,7 +17,7 @@ function PostShowModal({ post, closeShow, fetchSubcattit, subcattitInfo, removeP
   if (!post){
     return null;
   }
-  console.log(post)
+  // console.log(post)
   // const subcattitInfo = fetchSubcattit(post.name);
   // console.log(subcattitInfo);
 // debugger
