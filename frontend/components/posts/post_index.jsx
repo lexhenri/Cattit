@@ -24,10 +24,11 @@ class PostIndex extends React.Component {
   componentDidUpdate(preProps){
     if (preProps.subcattit !==  this.props.subcattit) {
       this.props.fetchPosts(this.props.subcattit);
-    } else if (preProps.posts.length !== Object.values(this.props.posts).length) {
-      this.props.fetchPosts(this.props.subcattit)
-    }
+    // } else if (preProps.posts.length !== Object.values(this.props.posts).length) {
+    //   this.props.fetchPosts(this.props.subcattit)
+    // }
   }
+}
 
   removeHandler(e){
     e.preventDefault();
@@ -48,8 +49,7 @@ class PostIndex extends React.Component {
     const { posts } = this.props;
     return(
       <div className="post-container">
-        {
-        posts ? ( Object.values(posts).map((post, i) => 
+        { Object.values(posts).map((post, i) => 
           <div onClick={(e) => this.openModal(e, post)} key={i}>
             <PostIndexItem 
               post={post} 
@@ -58,14 +58,7 @@ class PostIndex extends React.Component {
               removeHandler={this.removeHandler.bind(this)} 
               currentUser={this.props.currentUser} 
               openModal={this.openModal.bind(this)}/>
-              </div>
-          )
-        ) : (
-          <div className="post-container">
-            <div className="post">
-            <h2 className="title">No posts yet!</h2>
-            </div>
-            </div>)
+              </div>)
         }
       </div>
     )
