@@ -13,4 +13,4 @@
       json.imageUrl url_for(@post.photo)
   else 
       json.imageUrl ""
-    end
+  end

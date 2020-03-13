@@ -12,10 +12,12 @@ class PostIndex extends React.Component {
       author_id: '',
       subcattit_id: ''
     }
+    this.removeHandler = this.removeHandler.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchPosts(this.props.subcattit);
+    // console.log("mounted!")
   }
 
   componentDidUpdate(preProps){
@@ -23,6 +25,11 @@ class PostIndex extends React.Component {
       this.props.fetchPosts(this.props.subcattit)
     }
 }
+
+  removeHandler(postId){
+    this.props.removePost(postId)
+      .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
+  }
           // <Link to={`/mew/${this.props.subcattit}/comments/${post.id}`} onClick={() => this.props.openShow('show')}>
 
  
@@ -34,7 +41,12 @@ class PostIndex extends React.Component {
         {
         posts ? ( posts.map((post, i) => 
           <a onClick={() => this.props.openShow(post)} key={i} >
-            <PostIndexItem post={post} key={i} subcattit={this.props.subcattit} />
+            <PostIndexItem 
+              post={post} 
+              key={i} 
+              subcattit={this.props.subcattit} 
+              removeHandler={this.removeHandler.bind(this)} 
+              currentUser={this.props.currentUser} />
           </a>)
         ) : (
           <div className="post-container">

@@ -5,8 +5,8 @@ export const RenderLink = props => {
   return (
     <div>
     {
-        props.view === "show" ? (<div className="post-body-show"><a href={props.post.linkUrl}><p>{props.post.linkUrl}</p></a></div>)
-          : (<div className="post-link"><a href={props.post.linkUrl}><p>{props.post.linkUrl}</p></a></div>)
+        props.view === "show" ? (<div className="post-body-show"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
+          : (<div className="post-link"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
       }
    </div>
   )
@@ -36,39 +36,18 @@ export const RenderText = props => {
   )
 }
 
-// export const RenderIndexView = props => {
-//   return (
-//     <div>
-//         {
-//         props.post.body ? (
-//             <div className="bottom-fade" >
-//         <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
-//           </div> ) :
-//           (<div className="post-image">
-//             <img src={props.post.imageUrl} />
-//           </div> )
-//         }
-//     </div>
-//   )
-// }
 
-// export const RenderShowView = props => {
-//   return (
-//     <div>
-//       {
-//         props.post.body ? (<div className="post-body-show" dangerouslySetInnerHTML={{ __html: props.post.body }} />)
-//           : (<div className="post-body-show">
-//             <img src={props.post.imageUrl} />
-//           </div>)
-//       }
-//     </div>
-//   )
-// }
-
-
+        
 
 const PostIndexItem = props => {
-  // let num_comments = props.post.comment_ids.length
+
+  const deleteButton = (props.currentUser.id === props.post.author_id) ?
+    (
+      <div className="remove-post" onClick={() => props.removeHandler(props.post.id)}>
+        <p>Delete Post</p>
+      </div>
+    ) : null;
+  
   let type;
   if (props.post.imageUrl) {
     type = 0;
@@ -94,12 +73,9 @@ const PostIndexItem = props => {
       <div className="post-title">
           <h3>{props.post.title}</h3>
       </div>
+      { deleteButton }
         </div>
 
-       {/* {
-         (props.view === "show") ? (<RenderShowView post={props.post} />)
-         : (<RenderIndexView post={props.post} />)
-       } */}
         {(() => {
           switch (type) {
             case 0:
