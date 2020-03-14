@@ -2,12 +2,11 @@
 #
 # Table name: updoots
 #
-#  id              :bigint           not null, primary key
-#  user_id         :integer
-#  updootable_type :string
-#  updootable_id   :bigint
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id         :bigint           not null, primary key
+#  post_id    :bigint
+#  user_id    :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 require 'test_helper'

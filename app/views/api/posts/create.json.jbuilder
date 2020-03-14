@@ -6,7 +6,7 @@
 # else
 #     json.photoUrl ""
 # end
-  json.extract! @post, :title, :body, :author_id, :id, :created_at, :updated_at, :num_comments, :upvotes, :subcattit_id, :linkUrl, :photo
+  json.extract! @post, :title, :body, :author_id, :id, :created_at, :updated_at, :num_comments, :upvotes, :subcattit_id, :linkUrl, :photo, :updoots, :downdoots
   json.name @post.subcattit.name
   json.username @post.user.username
   if @post.photo.attached?

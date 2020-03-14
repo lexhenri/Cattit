@@ -8,6 +8,7 @@ import { postSession } from './util/session_api';
 // import { fetchUser } from './actions/user';
 // import { getUser } from './util/user_util';
 // import { getPost } from './util/post_util';
+import { createUpdoot, destroyUpdoot, createDowndoot, destroyDowndoot } from './util/updoots_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
   store = configureStore(preloadedState);
   window.dispatch = store.dispatch;
   window.getState = store.getState; // for testing
+  window.createUpdoot = createUpdoot;
+  window.destroyUpdoot = destroyUpdoot;
+  window.createDowndoot = createDowndoot;
+  window.destroyDowndoot = destroyDowndoot;
   // window.getUser = getUser;
   // window.fetchUser = fetchUser;
   // window.fetchPost = fetchPost;

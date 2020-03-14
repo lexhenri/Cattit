@@ -6,6 +6,7 @@ import { openShow, closeShow } from '../../actions/post_show';
 import PostIndex from './post_index';
 import { currentUser } from '../../reducers/selectors';
 import { useLocation, useHistory, useParams } from "react-router-dom";
+import { giveUpdoot, removeUpdoot } from '../../actions/updoots';
 
 
 const mSTP = (state, ownProps) => {
@@ -27,7 +28,9 @@ const mDTP = dispatch => ({
   fetchPost: (postId) => dispatch(fetchPost(postId)),
   closeShow: () => dispatch(closeShow()),
   openShow: (post) => dispatch(openShow(post)),
-  removePost: postId => dispatch(removePost(postId))
+  removePost: postId => dispatch(removePost(postId)),
+  giveUpdoot: updoot => dispatch(giveUpdoot(updoot)),
+  removeUpdoot: updoot => dispatch(removeUpdoot(updoot))
 });
 
 export default connect(mSTP, mDTP)(PostIndex)

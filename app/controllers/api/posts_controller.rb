@@ -5,6 +5,7 @@ class Api::PostsController < ApplicationController
     render :all
   end
 
+
   def index 
     # debugger
     @posts = Subcattit.find_by(name: params[:subcattit_id]).posts.order(created_at: :desc)
@@ -34,6 +35,6 @@ class Api::PostsController < ApplicationController
 
   private 
   def post_params 
-    params.require(:post).permit(:author_id, :title, :body, :subcattit_name, :subcattit_id, :created_at, :photo, :linkUrl, :id)
+    params.require(:post).permit(:author_id, :title, :body, :subcattit_name, :subcattit_id, :created_at, :photo, :linkUrl, :id, :updoots)
   end
 end

@@ -26,16 +26,12 @@ class Post < ApplicationRecord
   foreign_key: :subcattit_id,
   class_name: :Subcattit
 
-  has_many :karmas,
-  foreign_key: :post_id,
-  class_name: :Karma
-
   has_many :comments,
   foreign_key: :post_id,
   class_name: :Comments
 
-  has_many :updoots, as: :updootable
-
+  has_many :updoots, dependent: :destroy
+  has_many :downdoots, dependent: :destroy
 
   has_one_attached :photo
 

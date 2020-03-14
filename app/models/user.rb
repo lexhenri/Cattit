@@ -27,12 +27,8 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Post
 
-  has_many :updooted_posts,
-    through: :updoots,
-    source: :updootable,
-    source_type: :Posts
-
-  has_many :updoots
+  has_many :updoots, dependent: :destroy
+  has_many :downdoots, dependent: :destroy
 
   def password=(password)
     @password = password

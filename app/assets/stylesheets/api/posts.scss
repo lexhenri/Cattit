@@ -44,6 +44,19 @@
 i.karma-bar {
   color: #878A8C;
   font-size: 16px;
+  cursor: pointer;
+}
+
+.updooted {
+  color: #ff6a32;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.downdooted {
+  color: #7193FF;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 span.karma-bar {
