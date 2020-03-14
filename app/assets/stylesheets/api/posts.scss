@@ -18,6 +18,14 @@
  box-sizing: border-box;
 }
 
+.feed-container {
+ display: flex;
+ width: 565px;
+//  margin: 0 auto;
+ flex-direction: column;
+ box-sizing: border-box;
+}
+
 .karma-bar {
   display: flex;
   flex-direction: column;

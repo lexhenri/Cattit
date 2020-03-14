@@ -1,11 +1,57 @@
 import React, { useState, useEffect } from 'react';
 import TimeAgo from 'timeago-react';
 
+export const RenderLink = props => {
+  return (
+    <div>
+      {
+        props.view === "show" ? (<div className="post-body-show"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
+          : (<div className="post-link"><a href={props.post.linkUrl}>{props.post.linkUrl}</a></div>)
+      }
+    </div>
+  )
+}
+
+export const RenderImage = props => {
+  return (
+    <div>
+      {
+        props.view === "show" ? (<div className="post-body-show"><img src={props.post.imageUrl} /></div>)
+          : (<div className="post-image"><img src={props.post.imageUrl} /></div>)
+      }
+    </div>
+  )
+}
+
+export const RenderText = props => {
+  return (
+    <div>
+      {
+        props.view === "show" ? (<div className="post-body-show" dangerouslySetInnerHTML={{ __html: props.post.body }} />)
+          : (<div className="bottom-fade" >
+            <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
+          </div>)
+      }
+    </div>
+  )
+}
+
+
 
 
 const AllPostIndexItem = props => {
-  // let num_comments = props.post.comment_ids.length
 
+
+  let type;
+  if (props.post.imageUrl) {
+    type = 0;
+  } else if (props.post.linkUrl) {
+    type = 1;
+  } else if (props.post.body) {
+    type = 2;
+  }
+
+  // debugger;
   return (
     <div className="post">
       <div className="karma-bar">
@@ -13,7 +59,9 @@ const AllPostIndexItem = props => {
         <span className="karma-bar">{props.post.upvotes}</span>
         <i className="fas fa-angle-double-down"></i>
       </div>
+
       <div className="content">
+
         <div className="post-head">
           <div className="top-info">
             <span>Posted by {props.post.username}</span>
@@ -23,27 +71,35 @@ const AllPostIndexItem = props => {
             <h3>{props.post.title}</h3>
           </div>
         </div>
-        {
-          (props.view !== "show") ?
-            (
-              <div className="bottom-fade">
-                <div className="post-body" dangerouslySetInnerHTML={{ __html: props.post.body }} />
-              </div>
-            ) : (
-              <div className="post-body-show" dangerouslySetInnerHTML={{ __html: props.post.body }} />
-            )
-        }
-        <div className="post-bottom">
-          <i className="fas fa-comment-alt comment-btn"></i>
-
-          {
-            (props.post.num_comments) ? (<span className="comments">{props.post.num_comments} Comments</span>) : (<span className="comments">0 Comments</span>)
+        {(() => {
+          switch (type) {
+            case 0:
+              return <RenderImage post={props.post} view={props.view} />;
+              break;
+            case 1:
+              return <RenderLink post={props.post} view={props.view} />;
+              break;
+            case 2:
+              return <RenderText post={props.post} view={props.view} />;
+              break;
+            default:
+              return null;
           }
-
+        })()}
+        <div className="post-bottom">
+          {
+            (props.post.num_comments) ? (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>{props.post.num_comments} Comments</div>) : (<div className="comments"> <i className="fas fa-comment-alt comment-btn"></i>0 Comments</div>)
+          }
+          {/* {props.currentUser !== undefined ? (props.currentUser.id === props.post.author_id) ?
+            (
+              <div className="remove-post" id={props.post.id} onClick={props.removeHandler}>
+                Delete
+              </div>) : (null) : null} */}
         </div>
       </div>
     </div>
   )
 }
+
 
 export default AllPostIndexItem;
