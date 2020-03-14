@@ -40,10 +40,10 @@ export const Updooted = props => {
   return (
     <div>
     {
-      props.updoot === false ? 
-      (<div className='karma-bar' onClick={() => props.giveUpdoot()}>
+      props.updoot === 0 ? 
+      (<div className='karma-bar' onClick={() => props.giveUpdoot(props.post)}>
         <i className="fas fa-angle-double-up" />
-      </div>) : (<div className='updooted' onClick={() => props.removeDoot()}>
+      </div>) : (<div className='updooted' onClick={() => props.removeDoot(props.post)}>
         <i className="fas fa-angle-double-up" />
       </div>)
     }
@@ -56,10 +56,10 @@ export const Downdooted = props => {
 
     <div>
       {
-        props.downdoot === false ?
-          (<div className='karma-bar' onClick={() => props.giveDowndoot()}>
+        props.downdoot === 0 ?
+          (<div className='karma-bar' onClick={() => props.giveDowndoot(props.post)}>
             <i className="fas fa-angle-double-down" />
-          </div>) : (<div className='downdooted' onClick={() => props.removeDoot()}>
+          </div>) : (<div className='downdooted' onClick={() => props.removeDoot(props.post)}>
             <i className="fas fa-angle-double-down" />
           </div>)
       }
@@ -89,9 +89,9 @@ const PostIndexItem = props => {
   return (
     <div className="post">
       <div className="karma-bar">
-       {/* <Updooted updoot={props.updoot} giveUpdoot={props.giveUpdoot} removeDoot={props.removeDoot} /> */}
+       <Updooted giveUpdoot={props.giveUpdoot} removeDoot={props.removeDoot} updoot={props.post.updoots.length} post={props.post}/>
         <span className="karma-bar">{props.post.updoots.length}</span>
-        {/* <Downdooted downdoot={props.downdoot} giveDowndoot={props.giveDowndoot} removeDoot={props.removeDoot} /> */}
+        <Downdooted giveDowndoot={props.giveDowndoot} removeDoot={props.removeDoot} downdoot={props.post.downdoots.length} post={props.post} />
       </div>
      
       <div className="content">

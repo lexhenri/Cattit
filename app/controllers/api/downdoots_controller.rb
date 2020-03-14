@@ -1,7 +1,7 @@
 class Api::DowndootsController < ApplicationController
 
   before_action :find_post
-  # before_action :find_downdoot
+  before_action :already_updoot?, only: [:destroy]
   helper_method :already_downdoot?
 
 

@@ -14,15 +14,12 @@ class PostIndex extends React.Component {
       subcattit_id: '',
       subcattit: '',
       modal: 'closed',
-      updoot: false,
-      downdoot: false
     }
     this.removeHandler = this.removeHandler.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.giveUpdoot = this.giveUpdoot.bind(this);
-    this.giveDowndoot = this.giveDowndoot.bind(this);
     this.removeDoot = this.removeDoot.bind(this);
+    
   }
 
   componentDidMount(){
@@ -73,37 +70,19 @@ class PostIndex extends React.Component {
    })
  }
 
- giveUpdoot(){
-   if (this.state.downdoot === false) {
-     this.setState({
-      updoot: true
-     })
-     this.props.giveUpdoot(this.props.posts.updoots);
-   }
- }
 
- giveDowndoot(){
-   if (this.state.updoot === false) {
-     this.setState({
-      downdoot: true
-     })
-     this.props.removeUpdoot(this.props.posts.updoots);
+ removeDoot(post){
+   let downDoot = post.downdoots.length;
+   let upDoot = post.updoots.length;
+   if (downDoot === 1){
+     this.props.removeDowndoot(post);
+   } else if (upDoot === 1){
+     this.props.removeUpdoot(post);
+   } else {
+     return -1;
    }
- }
+  }
 
- removeDoot(){
-   if (this.state.updoot === true){
-     this.setState({
-       updoot: false,
-     })
-     this.props.removeUpdoot(this.props.posts.updoots)
-   } else if (this.state.updoot === false){
-     this.setState({
-       downdoot: false
-     })
-     this.props.removeUpdoot(this.props.posts.updoots);
-   }
- }
 
   render(){
 
@@ -135,10 +114,8 @@ class PostIndex extends React.Component {
               subcattit={this.state.subcattit} 
               removeHandler={this.removeHandler.bind(this)} 
               currentUser={this.props.currentUser} 
-              updoot={this.state.updoot}
-              downdoot={this.state.downdoot}
-              giveUpdoot={this.giveUpdoot}
-              giveDowndoot={this.giveDowndoot}
+              giveUpdoot={this.props.giveUpdoot}
+              giveDowndoot={this.props.giveDowndoot}
               removeDoot={this.removeDoot}
               />
          </div>
