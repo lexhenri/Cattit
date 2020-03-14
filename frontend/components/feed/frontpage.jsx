@@ -2,6 +2,8 @@ import React from 'react';
 import AllPostContainer from './all_posts_container';
 import { Link, NavLink } from 'react-router-dom';
 import Suggested from './suggested';
+import AllIcon from '../../../app/assets/images/cattit_logos/cattit_logo.svg';
+import AllBanner from '../../../app/assets/images/cat_types.jpg';
 
 
 class Frontpage extends React.Component {
@@ -21,11 +23,11 @@ class Frontpage extends React.Component {
 
       <div>
         <div className="top-banner">
-          {/* <img src={this.props.subcattitInfo.bannerUrl} /> */}
+          <img src={AllBanner} />
         </div>
         <div className='desc-banner'>
           <div className="header-content">
-            {/* <img src={this.props.subcattitInfo.iconUrl} className="header-pic" /> */}
+            <img src={AllIcon} className="all-icon" />
             <div className="text-container">
               <h1 className="header-title">all</h1>
               <h2 className='subcat-title'>cattit/all</h2>
