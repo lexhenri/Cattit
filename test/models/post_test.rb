@@ -11,6 +11,8 @@
 #  subcattit_id :integer
 #  num_comments :integer
 #  upvotes      :integer          default(0)
+#  post_type    :string
+#  linkUrl      :string
 #
 
 require 'test_helper'

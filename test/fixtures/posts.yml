@@ -11,6 +11,8 @@
 #  subcattit_id :integer
 #  num_comments :integer
 #  upvotes      :integer          default(0)
+#  post_type    :string
+#  linkUrl      :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:destroy, :all, :create] do
         get 'all', on: :collection
+        resources :karmas, only: [:create, :destroy]
     end
     resources :subcattits, only: [:show, :create, :index] do
        resources :posts, only: [:show, :index]

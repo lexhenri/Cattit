@@ -11,6 +11,8 @@
 #  subcattit_id :integer
 #  num_comments :integer
 #  upvotes      :integer          default(0)
+#  post_type    :string
+#  linkUrl      :string
 #
 
 class Post < ApplicationRecord
@@ -24,13 +26,16 @@ class Post < ApplicationRecord
   foreign_key: :subcattit_id,
   class_name: :Subcattit
 
-  # belongs_to :front_page,
-  # foreign_key: :post_id,
-  # class_name: :FrontPage
+  has_many :karmas,
+  foreign_key: :post_id,
+  class_name: :Karma
 
   has_many :comments,
   foreign_key: :post_id,
   class_name: :Comments
+
+  has_many :updoots, as: :updootable
+
 
   has_one_attached :photo
 

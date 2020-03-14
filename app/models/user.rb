@@ -27,6 +27,13 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Post
 
+  has_many :updooted_posts,
+    through: :updoots,
+    source: :updootable,
+    source_type: :Posts
+
+  has_many :updoots
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
