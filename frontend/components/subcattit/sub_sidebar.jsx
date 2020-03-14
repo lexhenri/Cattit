@@ -55,7 +55,7 @@ const SubSidebar = props => {
         {
           (props.page === "subcattit") ?
      ( <div className="box">
-        <div className="box-banner"><h1>Suggested Subcattits</h1></div>
+        <div className="box-banner"><h1>Recommended Subcattits</h1></div>
         <div className="box-content">
           <NavLink className="subcattit-link" to="/mew/owls">Owls</NavLink>
           <NavLink className="subcattit-link" to="/mew/herbs">Herbs</NavLink>
