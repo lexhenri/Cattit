@@ -64,6 +64,7 @@ const PostIndexItem = props => {
       
         <div className="post-head">
         <div className="top-info">
+        <span className="subcat-name"><a href={`/mew/${props.post.name}`}>mew/{props.post.name}</a></span>
           <span>Posted by {props.post.username}</span>
           <span className="time-ago"><TimeAgo datetime={props.post.created_at} locale='en' /></span>
           </div>

@@ -106,6 +106,7 @@ span.karma-bar {
   display: block;
   // margin-bottom: 10px;
   padding: 5px 0px;
+  margin-top: 15px;
   height: 25px;
 }
 
@@ -291,4 +292,16 @@ i.comment-btn {
   align-items: baseline;
   justify-content: flex-end;
   cursor: pointer;
+}
+
+.subcat-name {
+  display: block;
+  text-decoration: none;
+  color: #878A8C;
+  cursor: pointer;
+}
+
+.subcat-name > a {
+   text-decoration: none;
+   color: inherit;
 }
