@@ -41,7 +41,7 @@
   color: rgb(135, 138, 140);
 }
 
-i.karma-bar {
+.karma-bar > span {
   color: #878A8C;
   font-size: 16px;
   cursor: pointer;
@@ -55,6 +55,12 @@ i.karma-bar {
 
 .downdooted {
   color: #7193FF;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.no-doots {
+  color: #878A8C;
   font-size: 16px;
   cursor: pointer;
 }

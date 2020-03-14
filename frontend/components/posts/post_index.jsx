@@ -19,6 +19,8 @@ class PostIndex extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.removeDoot = this.removeDoot.bind(this);
+    this.giveDowndoot = this.giveDowndoot.bind(this);
+    this.giveUpdoot = this.giveUpdoot.bind(this);
     
   }
 
@@ -40,7 +42,7 @@ class PostIndex extends React.Component {
   }
 }
 
-  removeHandler(e){
+removeHandler(e){
     e.preventDefault();
     e.stopPropagation();
     let postId = e.currentTarget.id
@@ -71,7 +73,9 @@ class PostIndex extends React.Component {
  }
 
 
- removeDoot(post){
+ removeDoot(e, post){
+   e.preventDefault();
+   e.stopPropagation();
    let downDoot = post.downdoots.length;
    let upDoot = post.updoots.length;
    if (downDoot === 1){
@@ -81,6 +85,18 @@ class PostIndex extends React.Component {
    } else {
      return -1;
    }
+  }
+
+  giveUpdoot(e, post){
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.giveUpdoot(post)
+  }
+
+  giveDowndoot(e, post){
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.giveDowndoot(post)
   }
 
 
@@ -114,8 +130,8 @@ class PostIndex extends React.Component {
               subcattit={this.state.subcattit} 
               removeHandler={this.removeHandler.bind(this)} 
               currentUser={this.props.currentUser} 
-              giveUpdoot={this.props.giveUpdoot}
-              giveDowndoot={this.props.giveDowndoot}
+              giveUpdoot={this.giveUpdoot}
+              giveDowndoot={this.giveDowndoot}
               removeDoot={this.removeDoot}
               />
          </div>
