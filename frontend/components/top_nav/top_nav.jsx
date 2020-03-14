@@ -17,7 +17,7 @@ class TopNav extends React.Component {
       <div className="header">
         <div className="logo">
           <Link to="/">
-              <img src={TopLogo} className="top-logo logo" />
+              <img src={TopLogo} className="top-logo" />
           {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="top-logo logo">
             <g><circle fill="#FF4500" cx="10" cy="10" r="10">
             </circle>
