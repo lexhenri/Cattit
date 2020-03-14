@@ -4,12 +4,17 @@ import { Link, NavLink } from 'react-router-dom';
 import Suggested from './suggested';
 import AllIcon from '../../../app/assets/images/cattit_logos/cattit_logo.svg';
 import AllBanner from '../../../app/assets/images/cat_types.jpg';
+import { HideUntilLoaded } from 'react-animation';
+import SpinLogo from '../../../app/assets/images/cattit_logos/cattit-head-logo.png';
+
 
 
 class Frontpage extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      speed: 5,
+    }
   }
 
   componentDidMount() {
@@ -49,7 +54,14 @@ class Frontpage extends React.Component {
                   </a>)
               }
             </div> */}
+            <HideUntilLoaded
+              animationIn="bounceIn"
+              Spinner={() =>
+                <img style={{ animation: `spin ${this.state.speed}s linear infinite` }} src={SpinLogo} alt="img" />}
+            >
             <AllPostContainer />
+            </HideUntilLoaded>
+
           </div>
           <div className="sidebar-container">
             <Suggested />

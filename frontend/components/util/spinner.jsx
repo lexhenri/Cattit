@@ -1,33 +1,32 @@
-import * as React from 'react';
+import React from 'react';
+import SpinLogo from '../../../app/assets/images/cattit_logos/cattit_logo.svg'
 
-export class Spinner extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+function Spinner({loading}) {
+  if (!loading) return null;
 
-    if (!this.props.name) {
-      throw new Error('Spinner components must have a name prop.');
-    }
+  let speed = 5;
 
-    if (!this.props.loadingImage && !this.props.children) {
-      throw new Error('Spinner components must have either a loadingImage prop or children to display.');
-    }
-
-    this.state = {
-      show: this.props.hasOwnProperty('show') ? this.props.show : false
-    };
-  }
-
-  render() {
-    let divStyle = { display: 'inline-block' };
-    if (this.state.show) {
-      const { loadingImage } = this.props;
-      return (
-        <div style={divStyle}>
-          {loadingImage && <img src={loadingImage} />}
-          {this.props.children}
+  return (
+    <div className='spinner-background'>
+    <div className='spinner-container'>
+      <img
+        src={SpinLogo}
+        style={{ animation: `spin ${speed}s linear infinite` }}
+        className='spinner'
+        alt="Loading..." />
         </div>
-      );
-    }
-    return (<div style={divStyle}></div>);
-  }
+    </div>
+  )
 }
+
+export default Spinner;
+
+
+
+// export const LoadingSpinner = () => (
+//   <div>
+//     <i className="fa fa-spinner fa-spin" /> Posting...
+//       </div>
+// );
+
+

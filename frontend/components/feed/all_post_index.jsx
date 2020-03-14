@@ -23,9 +23,9 @@ class AllPostIndex extends React.Component {
     return (
       <div className="feed-container">
         { posts.map((post, i)=>
-            <a onClick={() => this.props.openPreview(post)} key={i}>
+            <div onClick={() => this.props.openPreview(post)} key={i}>
               <AllPostIndexItem post={post} key={i} subcattit={post.name}/>
-            </a>)
+            </div>)
         }
       </div>
     )

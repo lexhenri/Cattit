@@ -4,6 +4,9 @@ import SubSidebar from '../subcattit/sub_sidebar';
 import TextPostForm from './text_post_form';
 import ImagePostForm from './image_post_form';
 import LinkPostForm from './link_post_form';
+import Spinner from '../util/spinner';
+import SpinLogo from '../../../app/assets/images/cattit_logos/cattit-head-logo.png'
+
 
 
 
@@ -19,6 +22,8 @@ class CreateForm extends React.Component {
       imageUrl: '',
       file: '',
       linkUrl: '',
+      loading: false
+      // isLoading: 'false'
       // subcattit: this.props.subcattit
     }
     
@@ -39,6 +44,9 @@ class CreateForm extends React.Component {
   componentDidMount(){
     this.props.clearErrors();
     this.props.fetchSubcattit(this.props.subcattit);
+    // this.setState({
+    //   loading: false
+    // })
   }
   
 
@@ -67,6 +75,16 @@ class CreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({
+      loading: true
+    });
+    () => {
+      setTimeout(() => {
+        this.setState({
+          loading: false
+        });
+      }, 4000);
+    }
     if (this.state.imageFile) {
       this.handleFile(e);
     } else {
@@ -75,7 +93,7 @@ class CreateForm extends React.Component {
       post.author_id = this.props.currentUser.id;
       post.subcattit_id = this.props.subcattitObj.id;
       this.props.createPost(post)
-        .then(() => this.props.history.push(`/mew/${this.props.subcattit}`));
+        .then(() => this.props.history.push(`/mew/${this.props.subcattit}`))
     }
   }
 
@@ -184,6 +202,7 @@ class CreateForm extends React.Component {
    
     return(
       <div className="create-page-container">
+        <Spinner loading={this.state.loading}/>
       <div className="post-create-container">
         <div className="form-title">
           <h2 className="create-title">Create a post</h2>   
@@ -191,7 +210,6 @@ class CreateForm extends React.Component {
        <div className="post-form-container">
 
         <div className="tab-container">
-         
               {this.renderTextButton()}
               {this.renderImageButton()}  
               {this.renderLinkButton()}

@@ -5,15 +5,22 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
 
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+   0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+  // from {transform:rotate(0deg);}
+  // to {transform:rotate(360deg);}
 }
 
-.temp-spin {
-  width: 50px;
-  height: 50px;
-  background-image: asset-url('temp_spin.jpg');
-}
+
 
 body {
   font-family: 'IBM Plex Sans', Arial, sans-serif;
@@ -43,6 +50,30 @@ body {
 
 .errors {
   color: red;
+}
+
+.spinner {
+  width: 120px;
+  // background-image: asset-url('temp_spin.jpg');
+}
+
+.spinner-container {
+  display: flex;
+  background-color: rgba(135,138,140,0.5);
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.spinner-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  // background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
 
 

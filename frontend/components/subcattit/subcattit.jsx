@@ -5,6 +5,9 @@ import Moment from 'moment';
 import { Redirect, Route } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 import SubSidebar from './sub_sidebar';
+import { HideUntilLoaded } from 'react-animation';
+import SpinLogo from '../../../app/assets/images/cattit_logos/cattit-head-logo.png';
+
 
 
 class Subcattit extends React.Component {
@@ -12,7 +15,8 @@ class Subcattit extends React.Component {
     super(props);
     this.state = {
       subcattit: this.props.subcattit,
-      posts: this.props.posts
+      posts: this.props.posts,
+      speed: 5,
     }
 }
   
@@ -70,10 +74,15 @@ class Subcattit extends React.Component {
                     </a>)
             }
           </div>
+           <HideUntilLoaded 
+            animationIn="bounceIn"
+            Spinner={() => 
+            <img style={{ animation: `spin ${this.state.speed}s linear infinite` }} src={SpinLogo} alt="img" />}
+            >
           <PostIndexContainer subcattit={this.state.subcattit} posts={this.state.posts}/> 
+           </HideUntilLoaded>
           </div>
         <SubSidebar subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo} page={"subcattit"} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
-      
           </div> 
           </div>
     )

@@ -13,6 +13,8 @@ import CreatePostFormContainer from './posts/create_post_form_container';
 import PostShowModal from './posts/post_show_modal';
 import PreviewModal from './feed/preview_modal';
 import ShowSwitch from './posts/show_switch';
+// import Spinner from './util/spinner';
+
 
 
 
@@ -20,13 +22,14 @@ const App = () => (
   <div>
     <Modal />
     <PreviewModal />
+    {/* <Spinner /> */}
     {/* <PostShowModal /> */}
     <header>
       {/* <TopNavContainer />  */}
       <Route path='/' component={TopNavContainer} />
     </header>
     <Switch>
-  
+    {/* <Route exact path='/spinner' component={Spinner} /> */}
     <Route exact path="/" component={FrontpageContainer} />
     <Route exact path="/mew/:subcattit" key={location.pathname} component={SubcattitContainer} />
     <AuthRoute exact path="/mew/:subcattit/submit" key={location.pathname} component={CreatePostFormContainer} />
