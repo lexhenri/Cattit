@@ -107,13 +107,16 @@ svg.modal-btn {
 
 .modal-logo {
   display: flex;
+  align-content: flex-start;
   margin: 0;
 }
 
 .login-logo {
-  display: flex;
-  width: 40px;
-  height: 40px;
+  // display: flex;
+  width: 120px;
+  height: 120px;
+  margin-left: -30px;
+  margin-bottom: -30px;
   // content: url(https://www.redditstatic.com/accountmanager/18e257d….svg);
 }
 
