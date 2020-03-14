@@ -1,13 +1,17 @@
 class Api::UpdootsController < ApplicationController
 
   before_action :find_post
-  before_action :find_updoot, only: [:destroy]
+  # before_action :find_updoot, only: [:destroy]
   helper_method :already_updoot?
 
 
   def create
     if already_updoot?
       render json: @post
+    elsif already_downdoot?
+      @downdoot = Downdoot.find_by(user_id: current_user.id, post_id: params[:post_id])
+      @downdoot.destroy
+      @post.updoots.create(user_id: current_user.id)
     else
       @post.updoots.create(user_id: current_user.id)
       render json: @post
@@ -16,6 +20,7 @@ class Api::UpdootsController < ApplicationController
 
   def destroy
     if already_updoot?
+      @updoot = Updoot.find_by(user_id: current_user.id, post_id: params[:post_id])
       @updoot.destroy
       render json: @post
     else
@@ -29,9 +34,9 @@ private
     params.require(:updoot).permit(:user_id, :post_id, :id)
   end
 
-  def find_updoot
-   @updoots = @post.updoots.find(params[:id])
-  end
+  # def find_updoot
+  #  @updoots = @post.updoots.find(params[:id])
+  # end
 
   def find_post
     @post = Post.find(params[:post_id])

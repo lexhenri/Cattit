@@ -9,7 +9,7 @@ export const createUpdoot = (post) => (
 
 export const destroyUpdoot = (post) => (
   $.ajax({
-    url: `/api/posts/${post.id}/updoots/${post.updoots.id}`,
+    url: `/api/posts/${post.id}/updoots/`,
     method: 'DELETE',
   })
 )
