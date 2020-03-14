@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { HideUntilLoaded } from 'react-animation'
-import TempSpin from '../../../app/assets/images/temp_spin.png';
+// import TempSpin from '../../../app/assets/images/temp_spin.png';
+import SpinLogo from '../../../app/assets/images/cattit_logos/cattit_logo.svg'
+
 
 
 export const ImagePostForm = props => {
@@ -20,7 +22,7 @@ export const ImagePostForm = props => {
             imageToLoad={props.file} 
             animationIn="bounceIn"
             Spinner={() => 
-            <img style={{ animation: `spin ${speed}s linear infinite` }} src={TempSpin} alt="img" />}
+            <img style={{ animation: `spin ${speed}s linear infinite` }} src={SpinLogo} alt="img" />}
             >
           {imgPreview}
           </HideUntilLoaded>
