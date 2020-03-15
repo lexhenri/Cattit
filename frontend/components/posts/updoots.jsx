@@ -8,20 +8,28 @@ import { openModal, closeModal } from '../../actions/modal';
 
 function Updoots (props) {
 
-  // useEffect(() => {
-  //   // Update the document title using the browser API
-  //   document.title = `You clicked ${count} times`;
-  // });
+  const [userUpdoot, setUpdoot] = useState(props.userUpdoots);
+  const [userDowndoot, setDowndoot] = useState(props.userDowndoots);
+  const [postDoot, setPostdoot] = useState(props.postDoots);
 
+  useEffect(() => {
+   setUpdoot(userUpdoot);
+   setDowndoot(userDowndoot);
+   setPostdoot(postDoot);
+  }, []);
 
   function removeDoot(e, post) {
     // debugger;
     e.preventDefault();
     e.stopPropagation();
-    if (props.userDowndoots === 1) {
+    if (userDowndoot) {
       props.removeDowndoot(post);
-    } else if (props.userUpdoots === 1) {
+      setDowndoot(!userDowndoot);
+      setPostdoot(postDoot + 1)
+    } else if (userUpdoot) {
       props.removeUpdoot(post);
+      setUpdoot(!userUpdoot);
+      setPostdoot(postDoot - 1)
     }
   }
 
@@ -30,9 +38,14 @@ function Updoots (props) {
     e.stopPropagation();
     if (props.currentUser !== undefined) {
       props.giveUpdoot(post);
-    }
+      setUpdoot(!userUpdoot);
+      setPostdoot(postDoot + 1);
+      if (userDowndoot) {
+        props.removeDowndoot(post);
+        setDowndoot(!userDowndoot)
+      }}
     else {
-      props.openModal("login")
+      props.openModal("login");
     }
   }
 
@@ -40,18 +53,23 @@ function Updoots (props) {
     e.preventDefault();
     e.stopPropagation();
     if (props.currentUser !== undefined) {
-      props.giveDowndoot(post)
+      props.giveDowndoot(post);
+      setDowndoot(!userDowndoot);
+      setPostdoot(postDoot - 1);
+      if (userUpdoot) {
+        props.removeUpdoot(post);
+        setUpdoot(!userUpdoot)
+      }
     } else {
-      props.openModal("login")
+      props.openModal("login");
     }
   }
-
+ 
  const renderUserUpdoots = (post) => {
-    // const updoots = post.postDoots
     return (
       <div>
         {
-          props.userUpdoots !== 1 ?
+          !userUpdoot ?
             (<div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, post)}>
               <i className="fas fa-angle-double-up" />
             </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post)}>
@@ -83,11 +101,10 @@ function Updoots (props) {
   }
 
   const renderUserDowndoots = (post) => {
-    // const downdoots = post.downdoots
     return (
       <div>
         {
-          props.userDowndoots !== 1 ?
+          !userDowndoot ?
             (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e, post)}>
               <i className="fas fa-angle-double-down" />
             </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post)}>
@@ -97,21 +114,17 @@ function Updoots (props) {
       </div>
     )
   }
-
+ 
   return (
-
-    // <div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, props.post)}>
-    //   <i className="fas fa-angle-double-up" />
-    // </div>
 
       <div className="karma-bar">
         {
-        props.userUpdoots ? ( <div>{renderUserUpdoots(props.post)}</div> ):
+        userUpdoot ? ( <div>{renderUserUpdoots(props.post)}</div> ):
           (<div>{renderUpdoots(props.post)}</div>)
         }
-        <span className="karma-bar">{props.postDoots}</span>
+        <span className="karma-bar">{postDoot}</span>
         {
-        props.userDowndoots ? (<div> {renderUserDowndoots(props.post)}</div>) :
+        userDowndoot ? (<div> {renderUserDowndoots(props.post)}</div>) :
           (<div> {renderDowndoots(props.post)}</div>)
         }
       </div>
