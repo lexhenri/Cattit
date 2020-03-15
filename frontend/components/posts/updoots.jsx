@@ -89,7 +89,6 @@ function Updoots (props) {
   }
 
 const mSTP = (state, ownProps) => {
-  // const post = ownProps.post;
   const upDoots = ownProps.post.updoots;
   const downDoots = ownProps.post.downdoots;
   const current_user = currentUser(state)

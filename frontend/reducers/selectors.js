@@ -18,12 +18,14 @@ export const findPosts = (state, match) => {
 
 export const findUserUpdoots = (updoots, currentUser) => {
   let userUpdoots = {};
+  if (currentUser === undefined) return null;
   Object.values(updoots).forEach(updoot => updoot.user_id === currentUser.id ? userUpdoots = updoot : null );
   return userUpdoots;
 }
 
 export const findUserDowndoots = (downdoots, currentUser) => {
   let userDowndoots = {};
+  if (currentUser === undefined) return null;
   Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ? userDowndoots = downdoot : null );
   return userDowndoots;
 }
