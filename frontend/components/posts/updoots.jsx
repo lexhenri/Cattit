@@ -42,12 +42,12 @@ function Updoots (props) {
     }
   }
 
- const renderUserUpdoots = (userUpdoots, post) => {
-    const updoots = post.postDoots
+ const renderUserUpdoots = (post) => {
+    // const updoots = post.postDoots
     return (
       <div>
         {
-          userUpdoots.length === 0 ?
+          props.userUpdoots > 0 ?
             (<div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, post)}>
               <i className="fas fa-angle-double-up" />
             </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post, props.userUpdoot, props.userDowndoot)}>
@@ -71,19 +71,19 @@ function Updoots (props) {
  const renderDowndoots = (post) => {
     return (
       <div>
-            <div className='no-doots no-doots-down' onClick={(e) => handleDowdoot(e, post)}>
+            <div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e, post)}>
               <i className="fas fa-angle-double-down" />
             </div>
       </div>
     )
   }
 
-  const renderUserDowndoots = (userDowndoots, post) => {
-    const downdoots = post.downdoots
+  const renderUserDowndoots = (post) => {
+    // const downdoots = post.downdoots
     return (
       <div>
         {
-          userDowndoots === 0 ?
+          props.userDowndoots !== 1 ?
             (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e, post)}>
               <i className="fas fa-angle-double-down" />
             </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post, props.userUpdoot, props.userDowndoot)}>
@@ -102,13 +102,13 @@ function Updoots (props) {
 
       <div className="karma-bar">
         {
-        props.userUpdoots ? ( <div>{renderUserUpdoots(props.userUpdoots, props.post)}</div> ):
+        props.userUpdoots ? ( <div>{renderUserUpdoots(props.post)}</div> ):
           (<div>{renderUpdoots(props.post)}</div>)
         }
-        <span className="karma-bar">{props.postDoots.length}</span>
+        <span className="karma-bar">{props.postDoots}</span>
         {
-        props.userDowndoots ? (<div> {renderUserDowndoots(props.userDowndoots, props.post)}</div>) :
-          (<div> {renderDowndoots(props.userDowndoots, props.post)}</div>)
+        props.userDowndoots ? (<div> {renderUserDowndoots(props.post)}</div>) :
+          (<div> {renderDowndoots(props.post)}</div>)
         }
       </div>
     )
@@ -117,13 +117,16 @@ function Updoots (props) {
 const mSTP = (state, ownProps) => {
   const upDoots = ownProps.post.updoots;
   const downDoots = ownProps.post.downdoots;
-  const current_user = currentUser(state)
-
+  const doots = (ownProps.post.updoots - ownProps.post.updoots);
+  const current_user = currentUser(state);
+  const user_updoots = findUserUpdoots(upDoots, current_user);
+  const user_downdoots = findUserDowndoots(downDoots, current_user);
+  debugger;
   return {
     currentUser: current_user,
-    userUpdoots: findUserUpdoots(upDoots, current_user),
-    userDowndoots: findUserDowndoots(downDoots, current_user),
-    postDoots: upDoots,
+    userUpdoots: user_updoots,
+    userDowndoots: user_downdoots,
+    postDoots: doots,
     post: ownProps.post,
     posts: state.entities.posts,
   }

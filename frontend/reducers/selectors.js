@@ -17,15 +17,15 @@ export const findPosts = (state, match) => {
 }
 
 export const findUserUpdoots = (updoots, currentUser) => {
-  let userUpdoots = {};
+  let userUpdoots = 0;
   if (currentUser === undefined) return null;
-  Object.values(updoots).forEach(updoot => updoot.user_id === currentUser.id ? userUpdoots = updoot : null );
+  Object.values(updoots).forEach(updoot => updoot.user_id === currentUser.id ? userUpdoots += 1 : null );
   return userUpdoots;
 }
 
 export const findUserDowndoots = (downdoots, currentUser) => {
-  let userDowndoots = {};
+  let userDowndoots = 0;
   if (currentUser === undefined) return null;
-  Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ? userDowndoots = downdoot : null );
+  Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ? userDowndoots += 1 : null );
   return userDowndoots;
 }
