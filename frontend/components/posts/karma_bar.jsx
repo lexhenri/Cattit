@@ -18,6 +18,7 @@ class KarmaBar extends React.Component {
   // }
 
   removeDoot(e, post) {
+    // debugger;
     e.preventDefault();
     e.stopPropagation();
     let downDoot = post.downdoots.length;

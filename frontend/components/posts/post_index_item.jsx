@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TimeAgo from 'timeago-react';
-import KarmaBar from './karma_bar';
+import Updoots from './updoots';
 
 export const RenderLink = props => {
   return (
@@ -93,8 +93,8 @@ const PostIndexItem = props => {
         {/* {this.renderUpdoots()} */}
         {/* <span className="karma-bar">{props.post.updoots.length}</span> */}
         {/* {this.renderDowndoots()} */}
+    <Updoots post={props.post} />
       </div>
-    {/* <KarmaBar post={props.post} /> */}
      
       <div className="content">
       
