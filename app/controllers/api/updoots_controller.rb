@@ -29,11 +29,16 @@ class Api::UpdootsController < ApplicationController
     end
   end
 
+  # def index 
+  #   @updoots = Updoot.find_by(post_id: params:[:post_id])
+  #   render json: @updoots
+  # end 
+
 
 private
-  def like_params
-    params.require(:updoot).permit(:user_id, :post_id, :id)
-  end
+  # def updoot_params
+  #   params.require(:updoot).permit(:user_id, :post_id, :id)
+  # end
 
   # def find_updoot
   #  @updoots = @post.updoots.find(params[:id])

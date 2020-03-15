@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
-import { currentUser } from '../../reducers/selectors';
+import { currentUser, findUserUpdoots, findUserDowndoots } from '../../reducers/selectors';
 import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot } from '../../actions/updoots';
 import { openModal, closeModal } from '../../actions/modal';
 
@@ -89,9 +89,18 @@ function Updoots (props) {
   }
 
 const mSTP = (state, ownProps) => {
+  // const post = ownProps.post;
+  const upDoots = ownProps.post.updoots;
+  const downDoots = ownProps.post.downdoots;
+  const current_user = currentUser(state)
+
   return {
+    currentUser: current_user,
+    userUpdoots: findUserUpdoots(upDoots, current_user),
+    userDowndoots: findUserDowndoots(downDoots, current_user),
+    postDoots: upDoots,
+    post: ownProps.post,
     posts: state.entities.posts,
-    currentUser: currentUser(state),
   }
 };
 
