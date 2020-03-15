@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
 import { currentUser, findUserUpdoots, findUserDowndoots } from '../../reducers/selectors';
@@ -8,15 +8,19 @@ import { openModal, closeModal } from '../../actions/modal';
 
 function Updoots (props) {
 
-  function removeDoot(e, post, userDowndoot, userUpdoot) {
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   document.title = `You clicked ${count} times`;
+  // });
+
+
+  function removeDoot(e, post) {
     // debugger;
     e.preventDefault();
     e.stopPropagation();
-    let downDoot = post.downdoots.length;
-    let upDoot = post.updoots.length;
-    if (downDoot > 0) {
+    if (props.userDowndoots === 1) {
       props.removeDowndoot(post);
-    } else if (upDoot > 0) {
+    } else if (props.userUpdoots === 1) {
       props.removeUpdoot(post);
     }
   }
@@ -47,10 +51,10 @@ function Updoots (props) {
     return (
       <div>
         {
-          props.userUpdoots > 0 ?
+          props.userUpdoots !== 1 ?
             (<div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, post)}>
               <i className="fas fa-angle-double-up" />
-            </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post, props.userUpdoot, props.userDowndoot)}>
+            </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post)}>
               <i className="fas fa-angle-double-up" />
             </div>)
         }
@@ -86,7 +90,7 @@ function Updoots (props) {
           props.userDowndoots !== 1 ?
             (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e, post)}>
               <i className="fas fa-angle-double-down" />
-            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post, props.userUpdoot, props.userDowndoot)}>
+            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post)}>
               <i className="fas fa-angle-double-down" />
             </div>)
         }
@@ -113,6 +117,8 @@ function Updoots (props) {
       </div>
     )
   }
+
+  // TODO: make user doots booleans, ya moron
 
 const mSTP = (state, ownProps) => {
   const upDoots = ownProps.post.updoots;
