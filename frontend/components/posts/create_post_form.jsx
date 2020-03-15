@@ -22,7 +22,7 @@ class CreateForm extends React.Component {
       imageUrl: '',
       file: '',
       linkUrl: '',
-      loading: false
+      loading: false,
       // isLoading: 'false'
       // subcattit: this.props.subcattit
     }
@@ -39,6 +39,7 @@ class CreateForm extends React.Component {
     this.previewImage = this.previewImage.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleUrl = this.handleUrl.bind(this);
+    // this.handleCreatePost = this.handleCreatePost.bind(this)
   }
   
   componentDidMount(){
@@ -96,6 +97,18 @@ class CreateForm extends React.Component {
         .then(() => this.props.history.push(`/mew/${this.props.subcattit}`))
     }
   }
+
+  // handleCreatePost(post){
+  //   let newPost = this.props.createPost(post);
+  //   debugger;
+  //   () => {
+  //     setTimeout(() => {
+  //       this.setState({
+  //         updoots: this.props.giveUpdoot(newPost)
+  //       });
+  //     }, 3000);
+  //   }
+  // }
 
 
   previewImage(e) {

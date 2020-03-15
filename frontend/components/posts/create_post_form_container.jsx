@@ -7,6 +7,8 @@ import CreateForm from './create_post_form';
 import { findSubcat } from '../../reducers/selectors';
 import { clearErrors } from '../../actions/session';
 import { showSpinner, hideSpinner } from '../../actions/spinner';
+import { giveUpdoot } from '../../actions/updoots';
+
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -26,7 +28,8 @@ const mapDispatchToProps = dispatch => ({
   clearErrors: () => dispatch(clearErrors()),
   createPostWithPhoto: (photo) => dispatch(createPostWithPhoto(photo)),
   showSpinner: (loading) => dispatch(showSpinner(loading)),
-  hideSpinner: () => dispatch(hideSpinner())
+  hideSpinner: () => dispatch(hideSpinner()),
+  giveUpdoot: (post) => dispatch(giveUpdoot(post))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateForm)

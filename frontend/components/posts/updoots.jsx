@@ -117,11 +117,13 @@ function Updoots (props) {
 const mSTP = (state, ownProps) => {
   const upDoots = ownProps.post.updoots;
   const downDoots = ownProps.post.downdoots;
-  const doots = (ownProps.post.updoots - ownProps.post.updoots);
+  const postUpdoots = Object.values(upDoots).length;
+  const postDowndoots = Object.values(downDoots).length;
+  let doots = (postUpdoots - postDowndoots);
   const current_user = currentUser(state);
   const user_updoots = findUserUpdoots(upDoots, current_user);
   const user_downdoots = findUserDowndoots(downDoots, current_user);
-  debugger;
+  // debugger;
   return {
     currentUser: current_user,
     userUpdoots: user_updoots,

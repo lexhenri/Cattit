@@ -19,6 +19,8 @@ class Api::PostsController < ApplicationController
 
   def create 
     @post = Post.new(post_params)
+    # @post.updoots = Updoot.create(user_id: current_user.id)
+    @post.updoots.new(user_id: current_user.id)
     if @post.save 
       render :create
     else
