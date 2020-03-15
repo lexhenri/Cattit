@@ -49,7 +49,7 @@ private
   end
 
   def already_downdoot?
-    @downdoot = Downdoot.where(user_id: current_user.id, post_id:
+    Downdoot.where(user_id: current_user.id, post_id:
     params[:post_id]).exists?
   end
 

@@ -8,7 +8,7 @@ import { openModal, closeModal } from '../../actions/modal';
 
 function Updoots (props) {
 
-  function removeDoot(e, post) {
+  function removeDoot(e, post, userDowndoot, userUpdoot) {
     // debugger;
     e.preventDefault();
     e.stopPropagation();
@@ -42,15 +42,15 @@ function Updoots (props) {
     }
   }
 
- const renderUpdoots = (post) => {
-    const updoots = post.updoots
+ const renderUserUpdoots = (userUpdoots, post) => {
+    const updoots = post.postDoots
     return (
       <div>
         {
-          updoots >= 0 ?
+          userUpdoots.length === 0 ?
             (<div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, post)}>
               <i className="fas fa-angle-double-up" />
-            </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post)}>
+            </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post, props.userUpdoot, props.userDowndoot)}>
               <i className="fas fa-angle-double-up" />
             </div>)
         }
@@ -58,15 +58,35 @@ function Updoots (props) {
     )
   }
 
-  const renderDowndoots = (post) => {
+ const renderUpdoots = (post) => {
+    return (
+      <div>
+            <div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, post)}>
+              <i className="fas fa-angle-double-up" />
+            </div>
+      </div>
+    )
+  }
+
+ const renderDowndoots = (post) => {
+    return (
+      <div>
+            <div className='no-doots no-doots-down' onClick={(e) => handleDowdoot(e, post)}>
+              <i className="fas fa-angle-double-down" />
+            </div>
+      </div>
+    )
+  }
+
+  const renderUserDowndoots = (userDowndoots, post) => {
     const downdoots = post.downdoots
     return (
       <div>
         {
-          downdoots >= 0 ?
+          userDowndoots === 0 ?
             (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e, post)}>
               <i className="fas fa-angle-double-down" />
-            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post)}>
+            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post, props.userUpdoot, props.userDowndoot)}>
               <i className="fas fa-angle-double-down" />
             </div>)
         }
@@ -81,9 +101,15 @@ function Updoots (props) {
     // </div>
 
       <div className="karma-bar">
-        {renderUpdoots(props.post)}
-        <span className="karma-bar">{props.post.updoots.length}</span>
-        {renderDowndoots(props.post)}
+        {
+        props.userUpdoots ? ( <div>{renderUserUpdoots(props.userUpdoots, props.post)}</div> ):
+          (<div>{renderUpdoots(props.post)}</div>)
+        }
+        <span className="karma-bar">{props.postDoots.length}</span>
+        {
+        props.userDowndoots ? (<div> {renderUserDowndoots(props.userDowndoots, props.post)}</div>) :
+          (<div> {renderDowndoots(props.userDowndoots, props.post)}</div>)
+        }
       </div>
     )
   }
