@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TimeAgo from 'timeago-react';
+import Updoots from '../posts/updoots';
 
 export const RenderLink = props => {
   return (
@@ -55,9 +56,7 @@ const AllPostIndexItem = props => {
   return (
     <div className="post">
       <div className="karma-bar">
-        {/* <i className="fas fa-angle-double-up"></i>
-        <span className="karma-bar">{props.post.upvotes}</span>
-        <i className="fas fa-angle-double-down"></i> */}
+       <Updoots post={props.post} />
       </div>
 
       <div className="content">
