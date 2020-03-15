@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TimeAgo from 'timeago-react';
+import KarmaBar from './karma_bar';
 
 export const RenderLink = props => {
   return (
@@ -36,39 +37,39 @@ export const RenderText = props => {
   )
 }
 
-export const Updooted = props => {
-  return (
-    <div>
-    {
-      props.updoot === 0 ? 
-      (<div className='no-doots no-doots-up' onClick={(e) => props.giveUpdoot(e, props.post)}>
-        <i className="fas fa-angle-double-up" />
-      </div>) : (<div className='updooted' onClick={(e) => props.removeDoot(e, props.post)}>
-        <i className="fas fa-angle-double-up" />
-      </div>)
-    }
-    </div>
-  )
-}
+// export const Updooted = props => {
+//   return (
+//     <div>
+//     {
+//       props.updoot === 0 ? 
+//       (<div className='no-doots no-doots-up' onClick={(e) => props.giveUpdoot(e, props.post)}>
+//         <i className="fas fa-angle-double-up" />
+//       </div>) : (<div className='updooted' onClick={(e) => props.removeDoot(e, props.post)}>
+//         <i className="fas fa-angle-double-up" />
+//       </div>)
+//     }
+//     </div>
+//   )
+// }
 
-export const Downdooted = props => {
-  return (
+// export const Downdooted = props => {
+//   return (
 
-    <div>
-      {
-        props.downdoot === 0 ?
-          (<div className='no-doots no-doots-down' onClick={(e) => props.giveDowndoot(e, props.post)}>
-            <i className="fas fa-angle-double-down" />
-          </div>) : (<div className='downdooted' onClick={(e) => props.removeDoot(e, props.post)}>
-            <i className="fas fa-angle-double-down" />
-          </div>)
-      }
-    </div>
-    // <div className='downdooted' onClick={() => props.giveDowndoot()}>
-    //   <i className="fas fa-angle-double-up" />
-    // </div>
-  )
-}
+//     <div>
+//       {
+//         props.downdoot === 0 ?
+//           (<div className='no-doots no-doots-down' onClick={(e) => props.giveDowndoot(e, props.post)}>
+//             <i className="fas fa-angle-double-down" />
+//           </div>) : (<div className='downdooted' onClick={(e) => props.removeDoot(e, props.post)}>
+//             <i className="fas fa-angle-double-down" />
+//           </div>)
+//       }
+//     </div>
+//     // <div className='downdooted' onClick={() => props.giveDowndoot()}>
+//     //   <i className="fas fa-angle-double-up" />
+//     // </div>
+//   )
+// }
 
 
         
@@ -89,10 +90,11 @@ const PostIndexItem = props => {
   return (
     <div className="post">
       <div className="karma-bar">
-       <Updooted giveUpdoot={props.giveUpdoot} removeDoot={props.removeDoot} updoot={props.post.updoots.length} post={props.post}/>
-        <span className="karma-bar">{props.post.updoots.length}</span>
-        <Downdooted giveDowndoot={props.giveDowndoot} removeDoot={props.removeDoot} downdoot={props.post.downdoots.length} post={props.post} />
+        {/* {this.renderUpdoots()} */}
+        {/* <span className="karma-bar">{props.post.updoots.length}</span> */}
+        {/* {this.renderDowndoots()} */}
       </div>
+    {/* <KarmaBar post={props.post} /> */}
      
       <div className="content">
       

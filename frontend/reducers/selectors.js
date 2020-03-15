@@ -15,3 +15,5 @@ export const findPosts = (state, match) => {
   // debugger;
   return posts;
 }
+
+// Object.values(Updoots).filter(updoot => updoot.user_id === currentUser.id)
