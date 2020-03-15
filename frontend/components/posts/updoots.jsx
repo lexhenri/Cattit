@@ -117,12 +117,12 @@ function Updoots (props) {
  
   return (
 
-      <div className="karma-bar">
+      <div className="karma-container">
         {
         userUpdoot ? ( <div>{renderUserUpdoots(props.post)}</div> ):
           (<div>{renderUpdoots(props.post)}</div>)
         }
-        <span className="karma-bar">{postDoot}</span>
+        <span className="karma-container">{postDoot}</span>
         {
         userDowndoot ? (<div> {renderUserDowndoots(props.post)}</div>) :
           (<div> {renderDowndoots(props.post)}</div>)
@@ -131,7 +131,6 @@ function Updoots (props) {
     )
   }
 
-  // TODO: make user doots booleans, ya moron
 
 const mSTP = (state, ownProps) => {
   const upDoots = ownProps.post.updoots;
