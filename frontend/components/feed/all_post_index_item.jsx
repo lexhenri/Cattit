@@ -55,9 +55,9 @@ const AllPostIndexItem = props => {
   return (
     <div className="post">
       <div className="karma-bar">
-        <i className="fas fa-angle-double-up"></i>
+        {/* <i className="fas fa-angle-double-up"></i>
         <span className="karma-bar">{props.post.upvotes}</span>
-        <i className="fas fa-angle-double-down"></i>
+        <i className="fas fa-angle-double-down"></i> */}
       </div>
 
       <div className="content">
