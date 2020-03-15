@@ -11,11 +11,7 @@ import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot } from '../../ac
 
 const mSTP = (state, ownProps) => {
 
-  // debugger;
-  // console.log(ownProps);
   return {
-  // subcattit: subcattitName,
-  // subcattit: ownProps.match.params.subcattit,
   posts: state.entities.posts,
   currentUser: currentUser(state),
   }
