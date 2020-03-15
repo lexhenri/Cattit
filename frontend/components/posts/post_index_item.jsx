@@ -41,7 +41,7 @@ export const Updooted = props => {
     <div>
     {
       props.updoot === 0 ? 
-      (<div className='no-doots' onClick={(e) => props.giveUpdoot(e, props.post)}>
+      (<div className='no-doots no-doots-up' onClick={(e) => props.giveUpdoot(e, props.post)}>
         <i className="fas fa-angle-double-up" />
       </div>) : (<div className='updooted' onClick={(e) => props.removeDoot(e, props.post)}>
         <i className="fas fa-angle-double-up" />
@@ -57,7 +57,7 @@ export const Downdooted = props => {
     <div>
       {
         props.downdoot === 0 ?
-          (<div className='no-doots' onClick={(e) => props.giveDowndoot(e, props.post)}>
+          (<div className='no-doots no-doots-down' onClick={(e) => props.giveDowndoot(e, props.post)}>
             <i className="fas fa-angle-double-down" />
           </div>) : (<div className='downdooted' onClick={(e) => props.removeDoot(e, props.post)}>
             <i className="fas fa-angle-double-down" />

@@ -6,13 +6,13 @@ const updootReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_UPDOOT:
-      return null;
+      return action.post;
     case DESTROY_UPDOOT:
       nextState = Object.assign({}, state);
       delete nextState[action.post.updoots];
       return nextState
     case RECEIVE_DOWNDOOT:
-      return null;
+      return action.post;
     case DESTROY_DOWNDOOT:
       nextState = Object.assign({}, state);
       delete nextState[action.post.downdoots];

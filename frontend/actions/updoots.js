@@ -1,9 +1,9 @@
 import * as UpdootUtil from '../util/updoots_util';
 
 export const RECEIVE_UPDOOT = 'RECEIVE_UPDOOT';
-export const DESTROY_UPDOOT ='DESTORY_UPDOOT';
+export const DESTROY_UPDOOT ='DESTROY_UPDOOT';
 export const RECEIVE_DOWNDOOT = 'RECEIVE_DOWNDOOT';
-export const DESTROY_DOWNDOOT ='DESTORY_DOWNDOOT';
+export const DESTROY_DOWNDOOT ='DESTROY_DOWNDOOT';
 
 const deleteUpdoot = (post) => ({
   type: DESTROY_UPDOOT,

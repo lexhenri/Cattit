@@ -12,6 +12,7 @@ class Api::UpdootsController < ApplicationController
       @downdoot = Downdoot.find_by(user_id: current_user.id, post_id: params[:post_id])
       @downdoot.destroy
       @post.updoots.create(user_id: current_user.id)
+      render json: @post
     else
       @post.updoots.create(user_id: current_user.id)
       render json: @post
