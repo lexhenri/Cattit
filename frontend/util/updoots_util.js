@@ -1,8 +1,8 @@
-export const createUpdoot = (post) => (
+export const createUpdoot = (updoot) => (
   $.ajax({
-    url: `/api/posts/${post.id}/updoots`,
+    url: `/api/posts/${updoot.post_id}/updoots/`,
     method: 'POST',
-    data: { post }
+    data: { updoot }
   })
 )
 
@@ -14,11 +14,11 @@ export const destroyUpdoot = (post) => (
   })
 )
 
-export const createDowndoot = (post) => (
+export const createDowndoot = (downdoot) => (
   $.ajax({
-    url: `/api/posts/${post.id}/downdoots`,
+    url: `/api/posts/${downdoot.post_id}/downdoots/`,
     method: 'POST',
-    data: { post }
+    data: { downdoot }
   })
 )
 
@@ -29,3 +29,17 @@ export const destroyDowndoot = (post) => (
     method: 'DELETE',
   })
 )
+
+// export const fetchUpdoots = (post) => (
+//   $.ajax({
+//     url: `/api/posts/${post.id}/updoots/all/`,
+//     method: 'GET'
+//   })
+// )
+
+// export const fetchDowndoots = (post) => (
+//   $.ajax({
+//     url: `/api/posts/${post.id}/downdoots/all/`,
+//     method: 'GET'
+//   })
+// )

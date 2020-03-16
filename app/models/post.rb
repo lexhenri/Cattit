@@ -33,6 +33,7 @@ class Post < ApplicationRecord
   has_many :updoots, dependent: :destroy
   has_many :downdoots, dependent: :destroy
 
+
   has_one_attached :photo
 
 

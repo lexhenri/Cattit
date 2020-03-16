@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useSelector } from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
-import { currentUser, findUserUpdoots, findUserDowndoots } from '../../reducers/selectors';
-import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot } from '../../actions/updoots';
+import { currentUser, findUserUpdoots, findUserDowndoots, findTotalDoots } from '../../reducers/selectors';
+import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot, getUpdoots, getDowndoots } from '../../actions/updoots';
 import { openModal, closeModal } from '../../actions/modal';
 
 
@@ -10,13 +10,29 @@ function Updoots (props) {
 
   const [userUpdoot, setUpdoot] = useState(props.userUpdoots);
   const [userDowndoot, setDowndoot] = useState(props.userDowndoots);
-  const [postDoot, setPostdoot] = useState(props.postDoots);
+  const [postDoot, setPostdoot] = useState(props.post.totalDoots);
+  const [postId, setPostId] = useState(props.post.id);
+
+  // const totalDoots = useSelector(postDoot => props.postDoots);
 
   useEffect(() => {
-   setUpdoot(userUpdoot);
-   setDowndoot(userDowndoot);
-   setPostdoot(postDoot);
-  }, []);
+   setUpdoot(props.userUpdoots);
+  }, [props.userUpdoots]);
+
+  useEffect(() => {
+    setDowndoot(props.userDowndoots);
+  }, [props.userDowndoots]);
+
+  useEffect(() => {
+    setPostdoot(postDoot);    // setPostdoot(postDoot);
+  }, [props.postDoots])
+  
+
+  // function countDoots(){
+  //   useEffect(() => {
+  //     setPostdoot(postDoot);
+  //   }, [props.postDoots]);
+  // }
 
   function removeDoot(e, post) {
     // debugger;
@@ -25,11 +41,11 @@ function Updoots (props) {
     if (userDowndoot) {
       props.removeDowndoot(post);
       setDowndoot(!userDowndoot);
-      setPostdoot(postDoot + 1)
+      // return props.postDoot;
     } else if (userUpdoot) {
       props.removeUpdoot(post);
       setUpdoot(!userUpdoot);
-      setPostdoot(postDoot - 1)
+      // return props.postDoot;
     }
   }
 
@@ -37,13 +53,20 @@ function Updoots (props) {
     e.preventDefault();
     e.stopPropagation();
     if (props.currentUser !== undefined) {
-      props.giveUpdoot(post);
+    const upDoot = {
+        post_id: props.post.id
+      }
+      props.giveUpdoot(upDoot);
       setUpdoot(!userUpdoot);
-      setPostdoot(postDoot + 1);
+      // setDowndoot(!userDowndoot);
       if (userDowndoot) {
-        props.removeDowndoot(post);
-        setDowndoot(!userDowndoot)
-      }}
+        // props.removeDowndoot(post);
+        setDowndoot(!userDowndoot);
+        // countDoots();
+        // setPostdoot(postDoot + 1)
+      }
+      // countDoots();
+    }
     else {
       props.openModal("login");
     }
@@ -53,12 +76,17 @@ function Updoots (props) {
     e.preventDefault();
     e.stopPropagation();
     if (props.currentUser !== undefined) {
-      props.giveDowndoot(post);
+    const downDoot = {
+        post_id: props.post.id
+      }
+      props.giveDowndoot(downDoot);
       setDowndoot(!userDowndoot);
-      setPostdoot(postDoot - 1);
+      // countDoots();
+
       if (userUpdoot) {
-        props.removeUpdoot(post);
-        setUpdoot(!userUpdoot)
+        setUpdoot(!userUpdoot);
+        // countDoots();
+
       }
     } else {
       props.openModal("login");
@@ -135,9 +163,7 @@ function Updoots (props) {
 const mSTP = (state, ownProps) => {
   const upDoots = ownProps.post.updoots;
   const downDoots = ownProps.post.downdoots;
-  const postUpdoots = Object.values(upDoots).length;
-  const postDowndoots = Object.values(downDoots).length;
-  let doots = (postUpdoots - postDowndoots);
+  // let totalDoots = findTotalDoots(upDoots, downDoots);
   const current_user = currentUser(state);
   const user_updoots = findUserUpdoots(upDoots, current_user);
   const user_downdoots = findUserDowndoots(downDoots, current_user);
@@ -146,7 +172,7 @@ const mSTP = (state, ownProps) => {
     currentUser: current_user,
     userUpdoots: user_updoots,
     userDowndoots: user_downdoots,
-    postDoots: doots,
+    // postDoots: totalDoots,
     post: ownProps.post,
     posts: state.entities.posts,
   }
@@ -154,12 +180,14 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
   fetchPost: (postId) => dispatch(fetchPost(postId)),
-  giveUpdoot: post => dispatch(giveUpdoot(post)),
+  giveUpdoot: downdoot => dispatch(giveUpdoot(downdoot)),
   removeUpdoot: post => dispatch(removeUpdoot(post)),
-  giveDowndoot: post => dispatch(giveDowndoot(post)),
+  giveDowndoot: downdoot => dispatch(giveDowndoot(downdoot)),
   removeDowndoot: post => dispatch(removeDowndoot(post)),
   closeModal: () => dispatch(closeModal()),
   openModal: modal => dispatch(openModal(modal)),
+  getDowndoots: post => dispatch(getDowndoots(post)),
+  getUpdoots: post => dispatch(getUpdoots(post)),
 });
 
 export default connect(mSTP, mDTP)(Updoots)

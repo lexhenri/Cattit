@@ -8,7 +8,8 @@ import { postSession } from './util/session_api';
 // import { fetchUser } from './actions/user';
 // import { getUser } from './util/user_util';
 // import { getPost } from './util/post_util';
-import { createUpdoot, destroyUpdoot, createDowndoot, destroyDowndoot } from './util/updoots_util';
+import { createUpdoot, destroyUpdoot, createDowndoot, destroyDowndoot, fetchUpdoots, fetchDowndoots } from './util/updoots_util';
+import { getUpdoots } from './actions/updoots';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,9 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.getState = store.getState; // for testing
   window.createUpdoot = createUpdoot;
-  window.destroyUpdoot = destroyUpdoot;
-  window.createDowndoot = createDowndoot;
-  window.destroyDowndoot = destroyDowndoot;
+  // window.destroyUpdoot = destroyUpdoot;
+  // window.createDowndoot = createDowndoot;
+  // window.destroyDowndoot = destroyDowndoot;
+  // window.getUpdoots = getUpdoots;
+  // window.fetchUpdoots = fetchUpdoots;
+  // window.fetchDowndoots = fetchDowndoots;
   // window.getUser = getUser;
   // window.fetchUser = fetchUser;
   // window.fetchPost = fetchPost;

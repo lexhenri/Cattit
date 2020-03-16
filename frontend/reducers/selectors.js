@@ -29,3 +29,10 @@ export const findUserDowndoots = (downdoots, currentUser) => {
   Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ? userDowndoots = true : null );
   return userDowndoots;
 }
+
+// export const findTotalDoots = (updoots, downdoots) => {
+//   let upDoots = Object.keys(updoots).length;
+//   let downDoots = Object.keys(downdoots).length;
+//   let totalDoots = upDoots - downDoots;
+//   return totalDoots;
+// }

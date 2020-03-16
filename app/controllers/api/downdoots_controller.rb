@@ -11,11 +11,11 @@ class Api::DowndootsController < ApplicationController
     elsif already_updoot?
       @updoot = Updoot.find_by(user_id: current_user.id, post_id: params[:post_id])
       @updoot.destroy
-      @post.downdoots.create(user_id: current_user.id)
-      render json: @post
+      @downdoot = @post.downdoots.create(user_id: current_user.id)
+      render json: @downdoot
     else
-      @post.downdoots.create(user_id: current_user.id)
-      render json: @post
+      @downdoot = @post.downdoots.create(user_id: current_user.id)
+      render json: @downdoot
     end
   end
 
@@ -27,6 +27,11 @@ class Api::DowndootsController < ApplicationController
     else
       render json: @post
     end
+  end
+
+   def all
+    @downdoots = @post.downdoots
+    render :all
   end
 
 

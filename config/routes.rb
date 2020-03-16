@@ -9,8 +9,14 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:destroy, :all, :create] do
         get 'all', on: :collection
-        resource :updoots 
-        resource :downdoots
+        resource :updoots, only: [:create, :destroy] 
+        resources :updoots, only: [:index, :all] do
+          get 'all', on: :collection
+        end
+        resource :downdoots, only: [:create, :destroy, :index]
+        resources :downdoots, only: [:index, :all] do 
+          get 'all', on: :collection
+        end
     end
     resources :subcattits, only: [:show, :create, :index] do
        resources :posts, only: [:show, :index]

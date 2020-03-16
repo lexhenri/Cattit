@@ -1,4 +1,5 @@
 import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST, RECEIVE_ALL_POSTS, POST_IMAGE } from '../actions/post';
+import { RECEIVE_UPDOOT, DESTROY_UPDOOT, RECEIVE_DOWNDOOT, DESTROY_DOWNDOOT } from '../actions/updoots';
 
 const PostReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -18,6 +19,12 @@ const PostReducer = (state = {}, action) => {
     case REMOVE_POST:
       nextState = Object.assign({}, state);
       delete nextState[action.postId];
+      return nextState;
+    case RECEIVE_UPDOOT:
+      nextState[action.updoot.post_id].updoots.push(action.updoot);
+      return nextState;
+    case RECEIVE_DOWNDOOT:
+      nextState[action.downdoot.post_id].downdoots.push(action.downdoot);
       return nextState;
     default:
       return state;
