@@ -1,5 +1,5 @@
 import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST, RECEIVE_ALL_POSTS, POST_IMAGE } from '../actions/post';
-import { RECEIVE_UPDOOT, DESTROY_UPDOOT, RECEIVE_DOWNDOOT, DESTROY_DOWNDOOT } from '../actions/updoots';
+import { RECEIVE_UPDOOT, RECEIVE_DOWNDOOT } from '../actions/updoots';
 
 const PostReducer = (state = {}, action) => {
   Object.freeze(state);

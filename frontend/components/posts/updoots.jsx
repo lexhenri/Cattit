@@ -11,7 +11,7 @@ function Updoots (props) {
   const [userUpdoot, setUpdoot] = useState(props.userUpdoots);
   const [userDowndoot, setDowndoot] = useState(props.userDowndoots);
   const [postDoot, setPostdoot] = useState(props.post.totalDoots);
-  const [postId, setPostId] = useState(props.post.id);
+  const newDoot = { post_id: props.post.id }
 
   // const totalDoots = useSelector(postDoot => props.postDoots);
 
@@ -53,10 +53,7 @@ function Updoots (props) {
     e.preventDefault();
     e.stopPropagation();
     if (props.currentUser !== undefined) {
-    const upDoot = {
-        post_id: props.post.id
-      }
-      props.giveUpdoot(upDoot);
+      props.giveUpdoot(newDoot);
       setUpdoot(!userUpdoot);
       // setDowndoot(!userDowndoot);
       if (userDowndoot) {
@@ -72,14 +69,11 @@ function Updoots (props) {
     }
   }
 
-  function handleDowndoot(e, post) {
+  function handleDowndoot(e) {
     e.preventDefault();
     e.stopPropagation();
     if (props.currentUser !== undefined) {
-    const downDoot = {
-        post_id: props.post.id
-      }
-      props.giveDowndoot(downDoot);
+      props.giveDowndoot(newDoot);
       setDowndoot(!userDowndoot);
       // countDoots();
 
@@ -98,7 +92,7 @@ function Updoots (props) {
       <div>
         {
           !userUpdoot ?
-            (<div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, post)}>
+            (<div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e)}>
               <i className="fas fa-angle-double-up" />
             </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post)}>
               <i className="fas fa-angle-double-up" />
@@ -111,7 +105,7 @@ function Updoots (props) {
  const renderUpdoots = (post) => {
     return (
       <div>
-            <div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e, post)}>
+            <div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e)}>
               <i className="fas fa-angle-double-up" />
             </div>
       </div>
@@ -121,7 +115,7 @@ function Updoots (props) {
  const renderDowndoots = (post) => {
     return (
       <div>
-            <div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e, post)}>
+            <div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e)}>
               <i className="fas fa-angle-double-down" />
             </div>
       </div>
@@ -133,7 +127,7 @@ function Updoots (props) {
       <div>
         {
           !userDowndoot ?
-            (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e, post)}>
+            (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e)}>
               <i className="fas fa-angle-double-down" />
             </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post)}>
               <i className="fas fa-angle-double-down" />
@@ -172,7 +166,7 @@ const mSTP = (state, ownProps) => {
     currentUser: current_user,
     userUpdoots: user_updoots,
     userDowndoots: user_downdoots,
-    // postDoots: totalDoots,
+    postDoots: ownProps.post.totalDoots,
     post: ownProps.post,
     posts: state.entities.posts,
   }
