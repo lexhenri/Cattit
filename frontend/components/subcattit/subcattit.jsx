@@ -30,6 +30,7 @@ class Subcattit extends React.Component {
   componentDidUpdate(preProps, preState) { 
     if (preProps.match.params.subcattit !== this.props.match.params.subcattit) {
       this.props.fetchSubcattit(this.props.subcattit)
+      this.props.fetchPosts(this.props.subcattit);
       this.setState({
         subcattit: this.props.subcattit,
         posts: this.props.posts
