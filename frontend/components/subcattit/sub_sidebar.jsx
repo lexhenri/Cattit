@@ -17,10 +17,29 @@ const SubSidebar = props => {
   return (
   <div className="sidebar-container">
       <div className="box">
-       
-      <div className="box-banner"><h1>About Community</h1></div>
+       {
+        (props.page === "subcattit") ?
+            (<div className="box-banner">
+              <h1 className='box-title'>About Community</h1>
+            </div>): 
+            (<div className = "box-banner"></div>)
+       }
+     
     
       <div className="box-content">
+        {
+            (props.page === "submit" || props.page === "modal" ) ? 
+            (<div className="sidebar-icon-container">
+              <Link to={{
+                pathname: `/mew/${props.subcattit.name}`
+              }} className="sidebar-icon-container" >
+                <img className="mini-header-pic" src={props.subcattit.iconUrl} />
+                <span className='mini-sidebar-title'>mew/{props.subcattit.name}</span>
+              </Link>
+              </div>) :
+                (null)
+          }
+  
         <div className="description">
           <span className="description">{props.subcattit.description}</span>
         </div>
@@ -58,7 +77,7 @@ const SubSidebar = props => {
         {
           (props.page === "subcattit") ?
      ( <div className="box">
-        <div className="box-banner"><h1>Recommended Subcattits</h1></div>
+        <div className="box-banner"><h1 className='box-title'>Recommended Subcattits</h1></div>
         <div className="box-content">
           <NavLink className="subcattit-link" to="/mew/owls">Owls</NavLink>
           <NavLink className="subcattit-link" to="/mew/herbs">Herbs</NavLink>

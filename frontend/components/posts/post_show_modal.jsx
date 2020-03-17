@@ -59,7 +59,7 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
           </div>
           <div className="show-post-sidebar">
 
-            <SubSidebar page={"subcattit"} subcattit={subcattitObj} currentUser={currentUser} />
+            <SubSidebar page={"modal"} subcattit={subcattitObj} currentUser={currentUser} />
 
           </div>
 
