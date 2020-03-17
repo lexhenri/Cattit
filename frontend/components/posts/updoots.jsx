@@ -69,6 +69,8 @@ function Updoots (props) {
       if (userDowndoot) {
         // props.removeDowndoot(post);
         setDowndoot(!userDowndoot);
+        const downdoot = findUserDowndoot(props.post.downdoots, props.currentUser)
+        props.removeDowndoot(downdoot);
 
         // countDoots();
         // setPostdoot(postDoot + 1)
@@ -90,6 +92,8 @@ function Updoots (props) {
 
       if (userUpdoot) {
         setUpdoot(!userUpdoot);
+        const updoot = findUserUpdoot(props.post.updoots, props.currentUser);
+        props.removeUpdoot(updoot);
         // countDoots();
 
       }

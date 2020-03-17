@@ -42,6 +42,6 @@ export const findUserDowndoots = (downdoots, currentUser) => {
 export const findTotalDoots = (updoots, downdoots) => {
   let upDoots = Object.keys(updoots).length;
   let downDoots = Object.keys(downdoots).length;
-  let totalDoots = upDoots - downDoots;
+  let totalDoots = (upDoots - downDoots);
   return totalDoots;
 }
