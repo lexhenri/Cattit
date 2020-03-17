@@ -57,7 +57,8 @@ const SubSidebar = props => {
         </div>
 
         <div className="create-box">
-          <span className="created-at">Created {Moment(props.subcattit.created_at).format('MMM DD, YYYY')} </span>
+            <span className="created-at"><i className="fas fa-birthday-cake"></i> 
+            Created {Moment(props.subcattit.created_at).format('MMM DD, YYYY')} </span>
           {
             (props.page === "subcattit") ? (
                 // <button className="create-btn">

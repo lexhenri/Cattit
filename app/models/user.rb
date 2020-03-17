@@ -30,6 +30,9 @@ class User < ApplicationRecord
   has_many :updoots, dependent: :destroy
   has_many :downdoots, dependent: :destroy
 
+  has_many :subscribes, dependent: :destroy
+ 
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

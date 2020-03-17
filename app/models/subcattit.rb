@@ -28,5 +28,7 @@ class Subcattit < ApplicationRecord
 
   has_one_attached :banner
 
+  has_many :subscribes, dependent: :destroy
+
   
 end
