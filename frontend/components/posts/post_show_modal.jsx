@@ -11,7 +11,7 @@ import { currentUser } from '../../reducers/selectors';
 
 
 
-function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitObj, subcattit, removeHandler, currentUser }) {
+function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitObj, removeHandler, currentUser }) {
 
   if (modalView === 'closed') {
     return null;
@@ -22,12 +22,12 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
     closeModal(e);
   }
 
-  const [subcat, setSubcat] = useState(subcattit);
+  // const [subcat, setSubcat] = useState(subcattit);
 
-  useEffect(() => {
-    fetchSubcattit(subcattit);
-    setSubcat(subcattit);
-  }, [subcattit]);
+  // useEffect(() => {
+  //   fetchSubcattit(subcattit.name);
+  //   setSubcat(subcattit);
+  // }, [subcattit]);
 
 
 
@@ -59,7 +59,7 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
           </div>
           <div className="show-post-sidebar">
 
-            <SubSidebar page={"create"} subcattit={subcattitObj} />
+            <SubSidebar page={"subcattit"} subcattit={subcattitObj} currentUser={currentUser} />
 
           </div>
 

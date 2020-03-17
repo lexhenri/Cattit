@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
+import { openModal, closeModal } from '../../actions/modal';
 import { Redirect, Route } from 'react-router-dom';
 import CreatePostFormContainer from '../posts/create_post_form_container';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { currentUser } from '../../reducers/selectors';
+
 
 //WORK IN PROGRESS
 
@@ -72,7 +75,7 @@ const SubSidebar = props => {
 const mapStateToProps = (state, ownProps) => {
   // const info = state.ui.postShow.name
   return {
-    // subcattit_obj: findSubcat(state, info),
+    currentUser: currentUser(state),
   };
 };
 
@@ -80,7 +83,8 @@ const mapDispatchToProps = dispatch => {
   return {
     closeShow: () => dispatch(closeShow()),
     fetchPost: postId => dispatch(fetchPost(postId)),
-    fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit))
+    fetchSubcattit: subcattit => dispatch(fetchSubcattit(subcattit)),
+    openModal: (modal) => dispatch(openModal(modal)),
   };
 };
 
