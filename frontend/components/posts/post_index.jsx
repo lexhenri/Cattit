@@ -18,9 +18,9 @@ class PostIndex extends React.Component {
     this.removeHandler = this.removeHandler.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.removeDoot = this.removeDoot.bind(this);
-    this.giveDowndoot = this.giveDowndoot.bind(this);
-    this.giveUpdoot = this.giveUpdoot.bind(this);
+    // this.removeDoot = this.removeDoot.bind(this);
+    // this.giveDowndoot = this.giveDowndoot.bind(this);
+    // this.giveUpdoot = this.giveUpdoot.bind(this);
     
   }
 
@@ -73,31 +73,31 @@ removeHandler(e){
  }
 
 
- removeDoot(e, post){
-   e.preventDefault();
-   e.stopPropagation();
-   let downDoot = post.downdoots.length;
-   let upDoot = post.updoots.length;
-   if (downDoot === 1){
-     this.props.removeDowndoot(post);
-   } else if (upDoot === 1){
-     this.props.removeUpdoot(post);
-   } else {
-     return -1;
-   }
-  }
+//  removeDoot(e, post){
+//    e.preventDefault();
+//    e.stopPropagation();
+//    let downDoot = post.downdoots.length;
+//    let upDoot = post.updoots.length;
+//    if (downDoot === 1){
+//      this.props.removeDowndoot(post);
+//    } else if (upDoot === 1){
+//      this.props.removeUpdoot(post);
+//    } else {
+//      return -1;
+//    }
+//   }
 
-  giveUpdoot(e, post){
-    e.preventDefault();
-    e.stopPropagation();
-    this.props.giveUpdoot(post)
-  }
+//   giveUpdoot(e, post){
+//     e.preventDefault();
+//     e.stopPropagation();
+//     this.props.giveUpdoot(post)
+//   }
 
-  giveDowndoot(e, post){
-    e.preventDefault();
-    e.stopPropagation();
-    this.props.giveDowndoot(post)
-  }
+//   giveDowndoot(e, post){
+//     e.preventDefault();
+//     e.stopPropagation();
+//     this.props.giveDowndoot(post)
+//   }
 
 
   render(){
@@ -130,9 +130,9 @@ removeHandler(e){
               subcattit={this.state.subcattit} 
               removeHandler={this.removeHandler.bind(this)} 
               currentUser={this.props.currentUser} 
-              giveUpdoot={this.giveUpdoot}
-              giveDowndoot={this.giveDowndoot}
-              removeDoot={this.removeDoot}
+              // giveUpdoot={this.giveUpdoot}
+              // giveDowndoot={this.giveDowndoot}
+              // removeDoot={this.removeDoot}
               />
          </div>
             // </Link>

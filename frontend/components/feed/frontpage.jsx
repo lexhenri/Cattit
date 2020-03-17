@@ -6,24 +6,34 @@ import AllIcon from '../../../app/assets/images/cattit_logos/cattit_logo.svg';
 import AllBanner from '../../../app/assets/images/cat_types.jpg';
 import { HideUntilLoaded } from 'react-animation';
 import SpinLogo from '../../../app/assets/images/cattit_logos/cattit-head-logo.png';
-
-
+import PostIndexContainer from '../posts/post_index_container';
 
 class Frontpage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: '',
+      body: '',
+      author_id: '',
+      subcattit_id: '',
+      subcattit: '',
+      modal: 'closed',
       speed: 5,
     }
   }
 
   componentDidMount() {
     this.props.clearError();
+    this.props.fetchAllPosts();
     // this.props.fetchFrontpage(this.props.frontpage)
 
   }
 
   render(){
+    // debugger;
+
+    // if (this.props.posts === undefined) return null;
+
     return (
 
       <div>
@@ -59,7 +69,7 @@ class Frontpage extends React.Component {
               Spinner={() =>
                 <img style={{ animation: `spin ${this.state.speed}s linear infinite` }} src={SpinLogo} alt="img" />}
             >
-            <AllPostContainer />
+            <PostIndexContainer posts={this.props.posts}/>
             </HideUntilLoaded>
 
           </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useSelector } from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
 import { currentUser, findUserUpdoots, findUserDowndoots, findTotalDoots } from '../../reducers/selectors';
-import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot, getUpdoots, getDowndoots } from '../../actions/updoots';
+import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot } from '../../actions/updoots';
 import { openModal, closeModal } from '../../actions/modal';
 
 // if i have to type doot one more time im gonna fucking scream
@@ -188,8 +188,6 @@ const mDTP = dispatch => ({
   removeDowndoot: post => dispatch(removeDowndoot(post)),
   closeModal: () => dispatch(closeModal()),
   openModal: modal => dispatch(openModal(modal)),
-  getDowndoots: post => dispatch(getDowndoots(post)),
-  getUpdoots: post => dispatch(getUpdoots(post)),
 });
 
 export default connect(mSTP, mDTP)(Updoots)

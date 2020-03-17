@@ -6,12 +6,13 @@ import { clearError } from '../../actions/subcattit';
 import { currentUser } from '../../reducers/selectors';
 import { openModal, closeModal } from '../../actions/modal';
 import { openPreview, closePreview } from '../../actions/preview'
+import { fetchAllPosts } from '../../actions/post';
 
 
 const mSTP = (state, ownProps) => {
   return {
     currentUser: currentUser(state),
-
+    posts: state.entities.posts,
   }
 }
 
@@ -24,6 +25,7 @@ const mDTP = (dispatch, ownProps) => {
     openModal: modal => dispatch(openModal(modal)),
     closePreview: () => dispatch(closePreview()),
     openPreview: preview => dispatch(openPreview(preview)),
+    fetchAllPosts: () => dispatch(fetchAllPosts()),
   }
 }
 
