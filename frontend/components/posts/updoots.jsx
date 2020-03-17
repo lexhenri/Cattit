@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useSelector } from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
-import { currentUser, findUserUpdoots, findUserDowndoots } from '../../reducers/selectors';
+import { currentUser, findUserUpdoots, findUserDowndoots, findTotalDoots } from '../../reducers/selectors';
 import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot, getUpdoots, getDowndoots } from '../../actions/updoots';
 import { openModal, closeModal } from '../../actions/modal';
 
@@ -10,7 +10,7 @@ function Updoots (props) {
 
   const [userUpdoot, setUpdoot] = useState(props.userUpdoots);
   const [userDowndoot, setDowndoot] = useState(props.userDowndoots);
-  const [postDoot, setPostdoot] = useState(props.post.totalDoots);
+  const [postDoot, setPostdoot] = useState(props.postDoots);
   const newDoot = { post_id: props.post.id }
 
   // const totalDoots = useSelector(postDoot => props.postDoots);
@@ -24,15 +24,10 @@ function Updoots (props) {
   }, [props.userDowndoots]);
 
   useEffect(() => {
-    setPostdoot(postDoot);    // setPostdoot(postDoot);
-  }, [props.post.totalDoots])
+    setPostdoot(props.postDoots);   
+  }, [props.postDoots])
   
 
-  // function countDoots(){
-  //   useEffect(() => {
-  //     setPostdoot(postDoot);
-  //   }, [props.postDoots]);
-  // }
 
   function findUserUpdoot(updoots, currentUser) {
     let upDoot = {};
@@ -44,23 +39,23 @@ function Updoots (props) {
   function findUserDowndoot(downdoots, currentUser) {
     let downDoot = {};
     if (currentUser === undefined) return null;
-    Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ?downDoot = downdoot : null);
+    Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ? downDoot = downdoot : null);
     return downDoot;
   }
 
   function removeDoot(e, post) {
-    // debugger;
     e.preventDefault();
     e.stopPropagation();
-    // debugger;
     if (userDowndoot) {
       const downdoot = findUserDowndoot(props.post.downdoots, props.currentUser)
       props.removeDowndoot(downdoot);
       setDowndoot(!userDowndoot);
+      setPostdoot(props.postDoots)
     } else if (userUpdoot) {
       const updoot = findUserUpdoot(props.post.updoots, props.currentUser);
       props.removeUpdoot(updoot);
       setUpdoot(!userUpdoot);
+      setPostdoot(props.postDoots)
     }
   }
 
@@ -74,10 +69,11 @@ function Updoots (props) {
       if (userDowndoot) {
         // props.removeDowndoot(post);
         setDowndoot(!userDowndoot);
+        
         // countDoots();
         // setPostdoot(postDoot + 1)
       }
-      // countDoots();
+      setPostdoot(props.postDoots)
     }
     else {
       props.openModal("login");
@@ -100,6 +96,7 @@ function Updoots (props) {
     } else {
       props.openModal("login");
     }
+    setPostdoot(props.postDoots)
   }
  
  const renderUserUpdoots = (post) => {
@@ -159,7 +156,7 @@ function Updoots (props) {
         userUpdoot ? ( <div>{renderUserUpdoots(props.post)}</div> ):
           (<div>{renderUpdoots(props.post)}</div>)
         }
-        <span className="karma-container">{postDoot}</span>
+        <span className="karma-container">{props.postDoots}</span>
         {
         userDowndoot ? (<div> {renderUserDowndoots(props.post)}</div>) :
           (<div> {renderDowndoots(props.post)}</div>)
@@ -172,7 +169,7 @@ function Updoots (props) {
 const mSTP = (state, ownProps) => {
   const upDoots = ownProps.post.updoots;
   const downDoots = ownProps.post.downdoots;
-  // let totalDoots = findTotalDoots(upDoots, downDoots);
+  let totalDoots = findTotalDoots(upDoots, downDoots);
   const current_user = currentUser(state);
   const user_updoots = findUserUpdoots(upDoots, current_user);
   const user_downdoots = findUserDowndoots(downDoots, current_user);
@@ -181,7 +178,7 @@ const mSTP = (state, ownProps) => {
     currentUser: current_user,
     userUpdoots: user_updoots,
     userDowndoots: user_downdoots,
-    postDoots: ownProps.post.totalDoots,
+    postDoots: totalDoots,
     post: ownProps.post,
     posts: state.entities.posts,
   }
