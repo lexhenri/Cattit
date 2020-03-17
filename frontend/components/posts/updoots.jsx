@@ -10,22 +10,22 @@ function Updoots (props) {
 
   const [userUpdoot, setUpdoot] = useState(props.userUpdoots);
   const [userDowndoot, setDowndoot] = useState(props.userDowndoots);
-  const [postDoot, setPostdoot] = useState(props.postDoots);
+  const [postDoot, setPostdoot] = useState(props.totalDoots);
   const newDoot = { post_id: props.post.id }
 
   // const totalDoots = useSelector(postDoot => props.postDoots);
 
   useEffect(() => {
-   setUpdoot(props.userUpdoots);
+   setUpdoot(userUpdoot);
   }, [props.userUpdoots]);
 
   useEffect(() => {
-    setDowndoot(props.userDowndoots);
+    setDowndoot(userDowndoot);
   }, [props.userDowndoots]);
 
   useEffect(() => {
-    setPostdoot(props.postDoots);   
-  }, [props.postDoots])
+    setPostdoot(postDoot);   
+  }, [props.totalDoots])
   
 
 
@@ -43,23 +43,23 @@ function Updoots (props) {
     return downDoot;
   }
 
-  function removeDoot(e, post) {
+  function removeDoot(e) {
     e.preventDefault();
     e.stopPropagation();
     if (userDowndoot) {
       const downdoot = findUserDowndoot(props.post.downdoots, props.currentUser)
       props.removeDowndoot(downdoot);
       setDowndoot(!userDowndoot);
-      setPostdoot(props.postDoots)
+      setPostdoot(postDoot)
     } else if (userUpdoot) {
       const updoot = findUserUpdoot(props.post.updoots, props.currentUser);
       props.removeUpdoot(updoot);
       setUpdoot(!userUpdoot);
-      setPostdoot(props.postDoots)
+      setPostdoot(postDoot)
     }
   }
 
-  function handleUpdoot(e, post) {
+  function handleUpdoot(e) {
     e.preventDefault();
     e.stopPropagation();
     if (props.currentUser !== undefined) {
@@ -73,7 +73,7 @@ function Updoots (props) {
         // countDoots();
         // setPostdoot(postDoot + 1)
       }
-      setPostdoot(props.postDoots)
+      // setPostdoot(props.postDoots)
     }
     else {
       props.openModal("login");
@@ -96,7 +96,7 @@ function Updoots (props) {
     } else {
       props.openModal("login");
     }
-    setPostdoot(props.postDoots)
+    // setPostdoot(props.postDoots)
   }
  
  const renderUserUpdoots = (post) => {
@@ -141,7 +141,7 @@ function Updoots (props) {
           !userDowndoot ?
             (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e)}>
               <i className="fas fa-angle-double-down" />
-            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post)}>
+            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e)}>
               <i className="fas fa-angle-double-down" />
             </div>)
         }
@@ -156,7 +156,7 @@ function Updoots (props) {
         userUpdoot ? ( <div>{renderUserUpdoots(props.post)}</div> ):
           (<div>{renderUpdoots(props.post)}</div>)
         }
-        <span className="karma-container">{props.postDoots}</span>
+        <span className="karma-container">{postDoot}</span>
         {
         userDowndoot ? (<div> {renderUserDowndoots(props.post)}</div>) :
           (<div> {renderDowndoots(props.post)}</div>)
@@ -169,7 +169,7 @@ function Updoots (props) {
 const mSTP = (state, ownProps) => {
   const upDoots = ownProps.post.updoots;
   const downDoots = ownProps.post.downdoots;
-  let totalDoots = findTotalDoots(upDoots, downDoots);
+  // let totalDoots = findTotalDoots(upDoots, downDoots);
   const current_user = currentUser(state);
   const user_updoots = findUserUpdoots(upDoots, current_user);
   const user_downdoots = findUserDowndoots(downDoots, current_user);
@@ -178,7 +178,7 @@ const mSTP = (state, ownProps) => {
     currentUser: current_user,
     userUpdoots: user_updoots,
     userDowndoots: user_downdoots,
-    postDoots: totalDoots,
+    // postDoots: totalDoots,
     post: ownProps.post,
     posts: state.entities.posts,
   }
