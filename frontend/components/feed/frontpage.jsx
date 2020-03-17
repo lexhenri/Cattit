@@ -1,5 +1,4 @@
 import React from 'react';
-import AllPostContainer from './all_posts_container';
 import { Link, NavLink } from 'react-router-dom';
 import Suggested from './suggested';
 import AllIcon from '../../../app/assets/images/cattit_logos/cattit_logo.svg';

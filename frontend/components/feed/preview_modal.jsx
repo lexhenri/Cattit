@@ -2,7 +2,7 @@ import React from 'react';
 import { closePreview } from '../../actions/preview';
 import { connect } from 'react-redux';
 import PreviewSidebar from './preview_sidebar';
-import AllPostIndexItem from './all_post_index_item';
+import PostIndexItem from '../posts/post_index_item'
 import { fetchPost } from '../../actions/post';
 import { findSubcat } from '../../reducers/selectors';
 import { fetchSubcattit } from '../../actions/subcattit';
@@ -35,7 +35,7 @@ function PreviewModal({ post, closePreview, fetchSubcattit, subcattitInfo }) {
 
           <div className="show-post-column">
 
-            <AllPostIndexItem post={post} view={"show"} />
+            <PostIndexItem post={post} view={"show"} />
           </div>
           <div className="show-post-sidebar">
 
