@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
 
+// TODO: Use a better f*cking text editor 
+
 const TextPostForm = props => {
 
 
