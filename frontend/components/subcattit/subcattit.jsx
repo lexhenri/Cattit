@@ -82,7 +82,7 @@ class Subcattit extends React.Component {
           <PostIndexContainer subcattit={this.state.subcattit} posts={this.state.posts}/> 
            </HideUntilLoaded>
           </div>
-        <SubSidebar subcattit={this.props.subcattit} subcattitInfo={this.props.subcattitInfo} page={"subcattit"} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
+        <SubSidebar subcattit={this.props.subcattitInfo} page={"subcattit"} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
           </div> 
           </div>
     )

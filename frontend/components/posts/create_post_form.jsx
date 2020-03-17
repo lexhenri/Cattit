@@ -259,7 +259,7 @@ class CreateForm extends React.Component {
        </div>
        </div>
        <div className="create-sidebar-container">
-          <SubSidebar subcattitInfo={this.props.subcattitObj} subcattit={this.props.subcattit} page={"submit"}/>
+          <SubSidebar subcattit={this.props.subcattitObj} page={"submit"}/>
        </div>
        </div>
 

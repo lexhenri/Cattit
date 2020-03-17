@@ -72,34 +72,6 @@ removeHandler(e){
    })
  }
 
-
-//  removeDoot(e, post){
-//    e.preventDefault();
-//    e.stopPropagation();
-//    let downDoot = post.downdoots.length;
-//    let upDoot = post.updoots.length;
-//    if (downDoot === 1){
-//      this.props.removeDowndoot(post);
-//    } else if (upDoot === 1){
-//      this.props.removeUpdoot(post);
-//    } else {
-//      return -1;
-//    }
-//   }
-
-//   giveUpdoot(e, post){
-//     e.preventDefault();
-//     e.stopPropagation();
-//     this.props.giveUpdoot(post)
-//   }
-
-//   giveDowndoot(e, post){
-//     e.preventDefault();
-//     e.stopPropagation();
-//     this.props.giveDowndoot(post)
-//   }
-
-
   render(){
 
     // debugger;
@@ -115,6 +87,7 @@ removeHandler(e){
           closeModal={this.closeModal}
           currentUser={this.props.currentUser}
           removeHandler={this.removeHandler.bind(this)}
+          subcattit={this.state.subcattit}
           />
         { Object.values(posts).map((post, i) => (
           // <Link to={{

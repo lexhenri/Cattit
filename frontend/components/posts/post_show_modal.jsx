@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { closeShow } from '../../actions/post_show';
 import { connect } from 'react-redux';
 import SubSidebar from '../subcattit/sub_sidebar';
@@ -11,7 +11,7 @@ import { currentUser } from '../../reducers/selectors';
 
 
 
-function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitInfo, removePost, removeHandler, currentUser }) {
+function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitObj, subcattit, removeHandler, currentUser }) {
 
   if (modalView === 'closed') {
     return null;
@@ -21,6 +21,17 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
     removeHandler(e);
     closeModal(e);
   }
+
+  const [subcat, setSubcat] = useState(subcattit);
+
+  useEffect(() => {
+    fetchSubcattit(subcattit);
+    setSubcat(subcattit);
+  }, [subcattit]);
+
+
+
+  // debugger;
   // console.log(post)
   // const subcattitInfo = fetchSubcattit(post.name);
   // console.log(subcattitInfo);
@@ -48,7 +59,7 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
           </div>
           <div className="show-post-sidebar">
 
-            {/* <SubSidebar page={"create"} subcattitInfo={subcattitInfo} subcattit={post.name} /> */}
+            <SubSidebar page={"create"} subcattit={subcattitObj} />
 
           </div>
 
@@ -66,10 +77,12 @@ const mapStateToProps = (state, ownProps) => {
   if (state.ui.postShow) {
     info = state.ui.postShow.name
   }
-  // debugger
+  const subcatObj = findSubcat(state, ownProps.subcattit);
+  // debugger;
   return {
     // post: state.ui.postShow,
-    subcattitInfo: state.entities.subcattits[info],
+    // subcattitInfo: state.entities.subcattits[info],
+    subcattitObj: subcatObj,
     currentUser: currentUser(state),
   };
 };

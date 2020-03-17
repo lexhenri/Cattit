@@ -19,30 +19,30 @@ const SubSidebar = props => {
     
       <div className="box-content">
         <div className="description">
-          <span className="description">{props.subcattitInfo.description}</span>
+          <span className="description">{props.subcattit.description}</span>
         </div>
 
         <div className="stats-container">
           <div className="subscriber-info">
-              <span className="stats"> {props.subcattitInfo.num_members} </span>
-              <span className="subtitle">{props.subcattitInfo.member_desc}</span>
+              <span className="stats"> {props.subcattit.num_members} </span>
+              <span className="subtitle">{props.subcattit.member_desc}</span>
           </div>
           <div className="subscriber-info">
-              <span className="stats">{props.subcattitInfo.num_online}</span>
-              <span className="subtitle">{props.subcattitInfo.online_desc}</span>
+              <span className="stats">{props.subcattit.num_online}</span>
+              <span className="subtitle">{props.subcattit.online_desc}</span>
           </div>
           <div className="spacer"></div>
         </div>
 
         <div className="create-box">
-          <span className="created-at">Created {Moment(props.subcattitInfo.created_at).format('MMM DD, YYYY')} </span>
+          <span className="created-at">Created {Moment(props.subcattit.created_at).format('MMM DD, YYYY')} </span>
           {
             (props.page === "subcattit") ? (
                 // <button className="create-btn">
                 <div>
                   {
                     (props.currentUser !== undefined) ?
-                      (<Link to={{ pathname: `/mew/${props.subcattit}/submit`, state: { subcattit_info: props.subcattitInfo } }}><button className="create-btn">Create Post</button></Link>)
+                      (<Link to={{ pathname: `/mew/${props.subcattit.name}/submit`, state: { subcattit_info: props.subcattit } }}><button className="create-btn">Create Post</button></Link>)
                       : (<a onClick={() => props.openModal('login')}><button className="create-btn">Create Post</button></a>)
                   }
                 </div>
