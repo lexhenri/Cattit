@@ -5,6 +5,7 @@ import { currentUser, findUserUpdoots, findUserDowndoots, findTotalDoots } from 
 import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot, getUpdoots, getDowndoots } from '../../actions/updoots';
 import { openModal, closeModal } from '../../actions/modal';
 
+// if i have to type doot one more time im gonna fucking scream
 
 function Updoots (props) {
 
@@ -141,6 +142,8 @@ function Updoots (props) {
       </div>
     )
   }
+
+  //TODO: why are these four functions???
 
   return (
 
