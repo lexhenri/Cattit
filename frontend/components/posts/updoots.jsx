@@ -44,7 +44,7 @@ function Updoots (props) {
   function findUserDowndoot(downdoots, currentUser) {
     let downDoot = {};
     if (currentUser === undefined) return null;
-    Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ?downpDoot = downdoot : null);
+    Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ?downDoot = downdoot : null);
     return downDoot;
   }
 
@@ -55,7 +55,7 @@ function Updoots (props) {
     // debugger;
     if (userDowndoot) {
       const downdoot = findUserDowndoot(props.post.downdoots, props.currentUser)
-      props.removeDowndoot(doot);
+      props.removeDowndoot(downdoot);
       setDowndoot(!userDowndoot);
     } else if (userUpdoot) {
       const updoot = findUserUpdoot(props.post.updoots, props.currentUser);
