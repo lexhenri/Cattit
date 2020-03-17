@@ -13,8 +13,6 @@ function Updoots (props) {
   const [postDoot, setPostdoot] = useState(props.postDoots);
   const newDoot = { post_id: props.post.id }
 
-  // const totalDoots = useSelector(postDoot => props.postDoots);
-
   useEffect(() => {
     setUpdoot(props.userUpdoots);
   }, [props.userUpdoots]);
@@ -65,15 +63,10 @@ function Updoots (props) {
     if (props.currentUser !== undefined) {
       props.giveUpdoot(newDoot);
       setUpdoot(!userUpdoot);
-      // setDowndoot(!userDowndoot);
       if (userDowndoot) {
-        // props.removeDowndoot(post);
         setDowndoot(!userDowndoot);
         const downdoot = findUserDowndoot(props.post.downdoots, props.currentUser)
         props.removeDowndoot(downdoot);
-
-        // countDoots();
-        // setPostdoot(postDoot + 1)
       }
       setPostdoot(props.postDoots)
     }
@@ -88,19 +81,15 @@ function Updoots (props) {
     if (props.currentUser !== undefined) {
       props.giveDowndoot(newDoot);
       setDowndoot(!userDowndoot);
-      // countDoots();
-
       if (userUpdoot) {
         setUpdoot(!userUpdoot);
         const updoot = findUserUpdoot(props.post.updoots, props.currentUser);
         props.removeUpdoot(updoot);
-        // countDoots();
-
       }
+      setPostdoot(props.postDoots) //idk why this must go here to work but it must
     } else {
       props.openModal("login");
     }
-    setPostdoot(props.postDoots)
   }
 
   const renderUserUpdoots = (post) => {
