@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         resources :updoots, only: [:index, :all] do
           get 'all', on: :collection
         end
-        resource :downdoots, only: [:create, :destroy, :index]
+        resource :downdoots, only: [:create, :destroy]
         resources :downdoots, only: [:index, :all] do 
           get 'all', on: :collection
         end

@@ -23,9 +23,9 @@ class Api::UpdootsController < ApplicationController
     if already_updoot?
       @updoot = Updoot.find_by(user_id: current_user.id, post_id: params[:post_id])
       @updoot.destroy
-      render json: @post
+      render json: @updoot
     else
-      render json: @post
+      render json: @updoot
     end
   end
 

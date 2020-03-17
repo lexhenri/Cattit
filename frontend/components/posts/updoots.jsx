@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useSelector } from 'react';
 import { connect } from 'react-redux';
 import { clearErrors } from '../../actions/session';
-import { currentUser, findUserUpdoots, findUserDowndoots, findTotalDoots } from '../../reducers/selectors';
+import { currentUser, findUserUpdoots, findUserDowndoots } from '../../reducers/selectors';
 import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot, getUpdoots, getDowndoots } from '../../actions/updoots';
 import { openModal, closeModal } from '../../actions/modal';
 
@@ -25,7 +25,7 @@ function Updoots (props) {
 
   useEffect(() => {
     setPostdoot(postDoot);    // setPostdoot(postDoot);
-  }, [props.postDoots])
+  }, [props.post.totalDoots])
   
 
   // function countDoots(){
@@ -34,18 +34,33 @@ function Updoots (props) {
   //   }, [props.postDoots]);
   // }
 
+  function findUserUpdoot(updoots, currentUser) {
+    let upDoot = {};
+    if (currentUser === undefined) return null;
+    Object.values(updoots).forEach(updoot => updoot.user_id === currentUser.id ? upDoot = updoot : null);
+    return upDoot;
+  }
+
+  function findUserDowndoot(downdoots, currentUser) {
+    let downDoot = {};
+    if (currentUser === undefined) return null;
+    Object.values(downdoots).forEach(downdoot => downdoot.user_id === currentUser.id ?downpDoot = downdoot : null);
+    return downDoot;
+  }
+
   function removeDoot(e, post) {
     // debugger;
     e.preventDefault();
     e.stopPropagation();
+    // debugger;
     if (userDowndoot) {
-      props.removeDowndoot(post);
+      const downdoot = findUserDowndoot(props.post.downdoots, props.currentUser)
+      props.removeDowndoot(doot);
       setDowndoot(!userDowndoot);
-      // return props.postDoot;
     } else if (userUpdoot) {
-      props.removeUpdoot(post);
+      const updoot = findUserUpdoot(props.post.updoots, props.currentUser);
+      props.removeUpdoot(updoot);
       setUpdoot(!userUpdoot);
-      // return props.postDoot;
     }
   }
 

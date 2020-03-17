@@ -8,9 +8,9 @@ export const RECEIVE_UPDOOTS = 'RECEIVE_UPDOOTS';
 export const RECEIVE_DOWNDOOTS = 'RECEIVE_DOWNDOOTS';
 
 
-const deleteUpdoot = (post) => ({
+const deleteUpdoot = (updoot) => ({
   type: DESTROY_UPDOOT,
-  post,
+  updoot
 })
 
 const receiveUpdoot = (updoot) => ({
@@ -18,9 +18,9 @@ const receiveUpdoot = (updoot) => ({
   updoot
 })
 
-const deleteDowndoot = (post) => ({
+const deleteDowndoot = (downdoot) => ({
   type: DESTROY_DOWNDOOT,
-  post,
+  downdoot,
 })
 
 const receiveDowndoot = (downdoot) => ({
@@ -28,24 +28,24 @@ const receiveDowndoot = (downdoot) => ({
   downdoot
 })
 
-const receiveUpdoots = (post) => ({
-  type: RECEIVE_UPDOOTS,
-  post
-})
+// const receiveUpdoots = (post) => ({
+//   type: RECEIVE_UPDOOTS,
+//   post
+// })
 
-const receiveDowndoots = (post) => ({
-  type: RECEIVE_DOWNDOOTS,
-  post
-})
+// const receiveDowndoots = (post) => ({
+//   type: RECEIVE_DOWNDOOTS,
+//   post
+// })
 
 export const giveUpdoot = (updoot) => dispatch => {
   return UpdootUtil.createUpdoot(updoot)
     .then((updoot) => dispatch(receiveUpdoot(updoot)));
 }
 
-export const removeUpdoot = (post) => dispatch => {
-  return UpdootUtil.destroyUpdoot(post)
-    .then(() => dispatch(deleteUpdoot(post)));
+export const removeUpdoot = (updoot) => dispatch => {
+  return UpdootUtil.destroyUpdoot(updoot)
+    .then(() => dispatch(deleteUpdoot(updoot)));
 }
 
 export const giveDowndoot = (downdoot) => dispatch => {
@@ -53,9 +53,9 @@ export const giveDowndoot = (downdoot) => dispatch => {
     .then((downdoot) => dispatch(receiveDowndoot(downdoot)));
 }
 
-export const removeDowndoot = (post) => dispatch => {
-  return UpdootUtil.destroyDowndoot(post)
-    .then((post) => dispatch(deleteDowndoot(post)));
+export const removeDowndoot = (downdoot) => dispatch => {
+  return UpdootUtil.destroyDowndoot(downdoot)
+    .then(() => dispatch(deleteDowndoot(downdoot)));
 }
 
 // export const getUpdoots = (post) => dispatch => {

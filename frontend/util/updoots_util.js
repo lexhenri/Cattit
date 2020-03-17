@@ -7,9 +7,9 @@ export const createUpdoot = (updoot) => (
 )
 
 
-export const destroyUpdoot = (post) => (
+export const destroyUpdoot = (updoot) => (
   $.ajax({
-    url: `/api/posts/${post.id}/updoots/`,
+    url: `/api/posts/${updoot.post_id}/updoots/`,
     method: 'DELETE',
   })
 )
@@ -23,9 +23,9 @@ export const createDowndoot = (downdoot) => (
 )
 
 
-export const destroyDowndoot = (post) => (
+export const destroyDowndoot = (downdoot) => (
   $.ajax({
-    url: `/api/posts/${post.id}/downdoots/`,
+    url: `/api/posts/${downdoot.post_id}/downdoots/`,
     method: 'DELETE',
   })
 )

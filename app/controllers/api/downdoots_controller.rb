@@ -23,7 +23,6 @@ class Api::DowndootsController < ApplicationController
     if already_downdoot?
       @downdoot = Downdoot.find_by(user_id: current_user.id, post_id: params[:post_id])
       @downdoot.destroy
-      render json: @post
     else
       render json: @post
     end
