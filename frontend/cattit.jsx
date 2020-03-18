@@ -3,14 +3,8 @@ import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
 import { postSession } from './util/session_api';
-// import { createSubcattit } from './actions/subcattit';
-// import { fetchPost } from './actions/post';
-// import { fetchUser } from './actions/user';
-// import { getUser } from './util/user_util';
-// import { getPost } from './util/post_util';
-import { createUpdoot, destroyUpdoot, createDowndoot, destroyDowndoot, fetchUpdoots, fetchDowndoots } from './util/updoots_util';
-import { getUpdoots } from './actions/updoots';
 import { createSubscribe, destroySubscribe} from './util/subscribe_util';
+import { getSubscribe, removeSubscribe } from './actions/subscribe';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,9 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   store = configureStore(preloadedState);
   window.dispatch = store.dispatch;
   window.getState = store.getState; // for testing
-  window.createUpdoot = createUpdoot;
   window.createSubscribe = createSubscribe;
   window.destroySubscribe = destroySubscribe;
+  window.getSubscribe = getSubscribe;
+  window.removeSubscribe = removeSubscribe;
  
   window.postSession = postSession;
   ReactDOM.render(<Root store={store}/>, root)

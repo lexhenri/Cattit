@@ -19,10 +19,10 @@ const subcattitReducer = (state = {}, action) => {
       action.error = {};
       return action.error;
     case RECEIVE_SUBSCRIBE:
-      nextState[action.subscribe.subcattit_id].subscribes.push(action.subscribe);
+      nextState[action.subscribe.subcattit_name].subscribes.push(action.subscribe);
       return nextState;
     case DESTROY_SUBSCRIBE:
-      nextState[action.subscribe.subcattit_id].subscribes = nextState[action.subscribe.subcattit_id].subscribes.filter((subscribe) =>
+      nextState[action.subscribe.subcattit_name].subscribes = nextState[action.subscribe.subcattit_name].subscribes.filter((subscribe) =>
         subscribe.id !== action.subscribe.id)
       return nextState
     default:

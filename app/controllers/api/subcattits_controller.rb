@@ -27,7 +27,7 @@ class Api::SubcattitsController < ApplicationController
   
   private
   def subcattit_params
-    params.require(:subcattit).permit(:name, :description, :icon, :banner, :id)
+    params.require(:subcattit).permit(:name, :description, :icon, :banner, :id, :subscribes)
   end
 
 end

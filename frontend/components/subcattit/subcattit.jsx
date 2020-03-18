@@ -7,7 +7,7 @@ import { Link, NavLink } from 'react-router-dom';
 import SubSidebar from './sub_sidebar';
 import { HideUntilLoaded } from 'react-animation';
 import SpinLogo from '../../../app/assets/images/cattit_logos/cattit-head-logo.png';
-
+import SubscribeButton from './subscribe_button';
 
 
 class Subcattit extends React.Component {
@@ -58,7 +58,9 @@ class Subcattit extends React.Component {
           <h1 className="header-title">{this.props.subcattitInfo.name}</h1>
           <h2 className='subcat-title'>mew/{this.props.subcattitInfo.name}</h2>
             </div>
-          {/* <button className="follow-btn"><span>Join</span></button> */}
+            <SubscribeButton subcattitName={this.props.subcattitInfo.name} currentUser={this.props.currentUser} />
+            {/* {PUT SUBSCRIBE BUTTON COMPONENT HERE} */}
+        
           </div>
           </div>
 

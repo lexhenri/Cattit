@@ -9,7 +9,7 @@
 # # end
 
 #  json.set! @subcattit.id do
-    json.extract! @subcattit, :name, :id, :description, :created_at, :num_members, :num_online, :member_desc, :online_desc, :icon, :banner, :subscribes
+    json.extract! @subcattit, :name, :id, :description, :created_at, :num_members, :num_online, :member_desc, :online_desc, :subscribes
     if @subcattit.icon.attached?
        json.iconUrl url_for(@subcattit.icon)
        json.bannerUrl url_for(@subcattit.banner)
