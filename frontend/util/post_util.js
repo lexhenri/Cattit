@@ -1,10 +1,3 @@
-// export const createPost = (post) => (
-//   $.ajax({
-//     url: `/api/subcattits/${post.subcattit_name}/posts`,
-//     method: 'POST',
-//     data: { post }
-//   })
-// )
 
 export const createPost = (post) => (
   $.ajax({
@@ -42,15 +35,6 @@ export const getPost = (postId) => (
   })
 )
 
-// export const createPostWithPhoto = (formData, subcattit) => (
-//   $.ajax({
-//     url: `/api/subcattits/${subcattit}/posts`,
-//     method: 'POST',
-//     data: formData,
-//     contentType: false,
-//     processData: false
-//   })
-// )
 
 export const createPostWithPhoto = (formData) => (
   $.ajax({

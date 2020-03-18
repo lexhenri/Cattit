@@ -11,7 +11,7 @@ import { currentUser } from '../../reducers/selectors';
 
 
 
-function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitObj, removeHandler, currentUser }) {
+function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit, subcattitObj, subcattit, removeHandler, currentUser }) {
 
   if (modalView === 'closed') {
     return null;
@@ -22,14 +22,14 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
     closeModal(e);
   }
 
-  // const [subcat, setSubcat] = useState(subcattit);
+  const [subcat, setSubcat] = useState({});
 
-  // useEffect(() => {
-  //   fetchSubcattit(subcattit.name);
-  //   setSubcat(subcattit);
-  // }, [subcattit]);
+  useEffect(() => {
+      post.subcattit ? (setSubcat(post.subcattit)) : setSubcat(subcattitObj)
+    }
+  );
 
-
+  // console.log(subcat)
 
   // debugger;
   // console.log(post)
@@ -59,7 +59,7 @@ function PostShowModal({ modalView, post, closeShow, closeModal, fetchSubcattit,
           </div>
           <div className="show-post-sidebar">
 
-            <SubSidebar page={"modal"} subcattit={subcattitObj} currentUser={currentUser} />
+            <SubSidebar page={"modal"} subcattit={subcat} />
 
           </div>
 
@@ -77,7 +77,7 @@ const mapStateToProps = (state, ownProps) => {
   if (state.ui.postShow) {
     info = state.ui.postShow.name
   }
-  const subcatObj = findSubcat(state, ownProps.subcattit);
+  let subcatObj = findSubcat(state, ownProps.subcattit);
   // debugger;
   return {
     // post: state.ui.postShow,

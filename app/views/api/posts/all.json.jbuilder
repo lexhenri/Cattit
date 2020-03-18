@@ -6,10 +6,13 @@
     json.totalDoots post.updoots.length - post.downdoots.length
     json.name post.subcattit.name
     json.username post.user.username
-    if post.photo.attached?
-        json.imageUrl url_for(post.photo)
-    else 
-        json.imageUrl ""
+    json.subcattit post.subcattit, :name, :description, :num_subscribers, :num_online, :created_at, :num_members, :num_online, :member_desc, :online_desc, :icon
+    json.subcattit do
+      if post.subcattit.icon.attached?
+        json.iconUrl url_for(post.subcattit.icon)
+      else 
+          json.iconUrl ""
+        end
       end
     end
   end

@@ -7,13 +7,14 @@ import PostIndex from './post_index';
 import { currentUser } from '../../reducers/selectors';
 import { useLocation, useHistory, useParams } from "react-router-dom";
 import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot } from '../../actions/updoots';
-
+import { findSubcat } from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => {
-
+  const subCat = findSubcat(state, ownProps.subcattit);
   return {
   posts: state.entities.posts,
   currentUser: currentUser(state),
+  subCatObj: subCat,
   }
 };
 
