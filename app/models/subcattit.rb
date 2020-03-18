@@ -19,6 +19,8 @@
 class Subcattit < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   # self.primary_key = "name"
+  # set_primary_key "name"
+
 
   has_many :posts,
   foreign_key: :subcattit_id,

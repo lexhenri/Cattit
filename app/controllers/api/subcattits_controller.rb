@@ -1,5 +1,7 @@
 class Api::SubcattitsController < ApplicationController
 
+  # ID is the NAME of the subcattit!
+
   def index 
     @subcattits = Subcattit.all
     render json: @subcattits
@@ -9,7 +11,6 @@ class Api::SubcattitsController < ApplicationController
     @subcattit = Subcattit.find_by(name: params[:id])
     if !@subcattit
       render json: ["Subcattit must exist"], status: 404
-      # redirect('/404')
     else
       render :show
     end
