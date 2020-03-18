@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Suggested = props => {
   return (
     <div className="box">
-      <div className="box-banner"><h1>Visit Recommended Subcattits</h1></div>
+      <div className="box-banner"><h1 className='box-title'>Visit Recommended Subcattits</h1></div>
       <div className="box-content">
         <NavLink className="subcattit-link" to="/mew/owls">Owls</NavLink>
         <NavLink className="subcattit-link" to="/mew/herbs">Herbs</NavLink>
