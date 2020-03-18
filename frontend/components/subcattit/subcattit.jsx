@@ -58,7 +58,7 @@ class Subcattit extends React.Component {
           <h1 className="header-title">{this.props.subcattitInfo.name}</h1>
           <h2 className='subcat-title'>mew/{this.props.subcattitInfo.name}</h2>
             </div>
-            <SubscribeButton subcattitName={this.props.subcattitInfo.name} currentUser={this.props.currentUser} />
+            <SubscribeButton subcattitName={this.props.subcattitInfo.name} currentUser={this.props.currentUser} subcattit={this.props.subcattitInfo}/>
             {/* {PUT SUBSCRIBE BUTTON COMPONENT HERE} */}
         
           </div>

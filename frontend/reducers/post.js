@@ -40,23 +40,3 @@ const PostReducer = (state = {}, action) => {
 };
 
 export default PostReducer;
-
-//  case RECEIVE_UPDOOT:
-// nextState = Object.assign({}, state);
-// nextState[action.updoot.post_id].updoots.push(action.updoot);
-// return nextState;
-//     case RECEIVE_DOWNDOOT:
-// nextState = Object.assign({}, state);
-// nextState[action.downdoot.post_id].downdoots.push(action.downdoot);
-// return nextState;
-//     case DESTROY_UPDOOT:
-// nextState = Object.assign({}, state);
-// delete nextState[action.updoot.post_id].updoots.find(updoot => updoot.id === action.updoot.id)
-// // nextState[action.updoot.post_id].updoots.filter((updoot) => 
-// //   updoot.id !== action.updoot.id);
-// return nextState;
-//     case DESTROY_DOWNDOOT:
-// nextState = Object.assign({}, state);
-// nextState[action.downdoot.post_id].downdoots.filter((downdoot) =>
-//   downdoot.id !== action.downdoot.id)
-// return nextState

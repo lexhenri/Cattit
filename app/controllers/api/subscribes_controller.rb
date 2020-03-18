@@ -5,18 +5,18 @@ class Api::SubscribesController < ApplicationController
 
 
   def create
-    # if already_subscribed?
-    #   render json: ["Already subscribed"], status: 418
-    # else
-      # @subcattit = Subcattit.find_by(name: params[:subcattit_id])
+    if already_subscribed?
+      render json: ["Already subscribed"], status: 418
+    else
+      @subcattit = Subcattit.find_by(name: params[:subcattit_id])
       @subscribe = @subcattit.subscribes.create(user_id: current_user.id, subcattit_id: @subcattit.id, subcattit_name: params[:subcattit_id])
       render json: @subscribe
-    # end
+    end
   end
 
   def destroy
     if already_subscribed?
-      # @subcattit = Subcattit.find_by(name: params[:subcattit_id])
+      @subcattit = Subcattit.find_by(name: params[:subcattit_id])
       @subscribe = Subscribe.find_by(user_id: current_user.id, subcattit_id: @subcattit.id)
       @subscribe.destroy
       render json: @subscribe

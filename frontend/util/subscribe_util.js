@@ -9,7 +9,7 @@ export const createSubscribe = (subscribe) => (
 
 export const destroySubscribe = (subscribe) => (
   $.ajax({
-    url: `/api/subcattits/${subscribe.subcattit_id}/subscribes/`,
+    url: `/api/subcattits/${subscribe.subcattit_name}/subscribes/`,
     method: 'DELETE',
   })
 )

@@ -4,12 +4,12 @@ import { openModal } from '../../actions/modal';
 import { connect } from 'react-redux';
 
 
-const SubscribeButton = ({subcattitName, currentUser, getSubscribe, openModal, removeSubscribe}) => {
+const SubscribeButton = ({subcattitName, subcattit, currentUser, getSubscribe, openModal, removeSubscribe}) => {
 
   const [user_id, setCurrentUser] = useState("")
   const [subscribed, setSubscribe] = useState(false);
-  // const [user_id, setUserId] = useState(currentUser.id);
   const [subcattit_id, setSubcattitId] = useState(subcattitName);
+  const [subcattit_name, setSubcattitName] = useState(subcattitName);
 
 
 
@@ -19,11 +19,30 @@ const SubscribeButton = ({subcattitName, currentUser, getSubscribe, openModal, r
     }
   }, [currentUser])
 
+  function findUserSubscripton() {
+    let subScribe = {};
+    Object.values(subcattit.subscribes).forEach(subscribe => subscribe.user_id === user_id ? subScribe = subscribe : null);
+    return subScribe;
+  }
+
+
   function handleSubscribe(e) {
     if (currentUser) {
       e.preventDefault();
       e.stopPropagation();
       getSubscribe({subcattit_id, user_id});
+      setSubscribe(!subscribed)
+    } else {
+      openModal("login");
+    }
+  }
+
+  function handleUnSubscribe(e) {
+    if (currentUser) {
+      e.preventDefault();
+      e.stopPropagation();
+      const unSub = findUserSubscripton()
+      removeSubscribe(unSub);
       setSubscribe(!subscribed)
     } else {
       openModal("login");
@@ -37,27 +56,21 @@ const SubscribeButton = ({subcattitName, currentUser, getSubscribe, openModal, r
           (!subscribed) ? (<span>Join</span>)  : (<span>Joined</span>)
         }
         </button>
+      <button className="follow-btn" onClick={(e) => handleUnSubscribe(e)}>
+        {
+          (!subscribed) ? (<span>Join</span>)  : (<span>Joined</span>)
+        }
+        </button>
     </div>
   )
 
 
 }
 
-// const mSTP = (state, ownProps) => {
-
-//  return {
-//     currentUser: current_user,
-//     userUpdoots: user_updoots,
-//     userDowndoots: user_downdoots,
-//     postDoots: totalDoots,
-//     post: ownProps.post,
-//     posts: state.entities.posts,
-//   }
-// };
 
 const mDTP = dispatch => ({
   getSubscribe: subscribe => dispatch(getSubscribe(subscribe)),
-  removeSubscribe: () => dispatch(removeSubscribe(subscribe)),
+  removeSubscribe: (subscribe) => dispatch(removeSubscribe(subscribe)),
   openModal: (modal) => dispatch(openModal(modal)),
 });
 
