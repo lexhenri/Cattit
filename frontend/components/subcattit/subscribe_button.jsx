@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { getSubscribe, removeSubscribe } from '../../actions/subscribe';
+import { createSubscribe, removeSubscribe } from '../../actions/subscribe';
 import { openModal } from '../../actions/modal';
 import { connect } from 'react-redux';
 
 
-const SubscribeButton = ({subcattitName, subcattit, currentUser, getSubscribe, openModal, removeSubscribe}) => {
+const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe, openModal, removeSubscribe}) => {
 
   const [user_id, setCurrentUser] = useState("")
   const [subscribed, setSubscribe] = useState(false);
   const [subcattit_id, setSubcattitId] = useState(subcattitName);
   const [subcattit_name, setSubcattitName] = useState(subcattitName);
-
-
+  const [subscribeText, setSubscribeText] = useState("Joined");
 
   useEffect (() => {
     if (currentUser){
@@ -25,12 +24,22 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, getSubscribe, o
     return subScribe;
   }
 
+  function onMouseover(e) {
+    e.preventDefault();
+    setSubscribeText("Leave")
+  }
+
+  function onMouseout(e) {
+    e.preventDefault();
+    setSubscribeText("Joined")
+  }
+
 
   function handleSubscribe(e) {
     if (currentUser) {
       e.preventDefault();
       e.stopPropagation();
-      getSubscribe({subcattit_id, user_id});
+      createSubscribe({subcattit_id, user_id});
       setSubscribe(!subscribed)
     } else {
       openModal("login");
@@ -49,18 +58,38 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, getSubscribe, o
     }
   }
 
+  function renderLeaveButton(){
+    return (
+      <button className="follow-btn" 
+              onClick={(e) => handleUnSubscribe(e)} 
+              onMouseEnter={(e) => onMouseover(e)}
+              onMouseLeave={(e) => onMouseout(e)}>
+        
+          <span>{subscribeText}</span>
+        
+      </button>
+    )
+  }
+
+  function renderJoinButton(){
+    return (
+      <button className="follow-btn"
+        onClick={(e) => handleSubscribe(e)}>
+
+        <span>Join</span>
+
+      </button>
+    )
+  }
+
   return (
     <div>
-      <button className="follow-btn" onClick={(e) => handleSubscribe(e)}>
+
         {
-          (!subscribed) ? (<span>Join</span>)  : (<span>Joined</span>)
+          (!subscribed) ? (<div>{renderJoinButton()}</div>)  : (<div>{renderLeaveButton()}</div>)
         }
-        </button>
-      <button className="follow-btn" onClick={(e) => handleUnSubscribe(e)}>
-        {
-          (!subscribed) ? (<span>Join</span>)  : (<span>Joined</span>)
-        }
-        </button>
+
+    
     </div>
   )
 
@@ -69,7 +98,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, getSubscribe, o
 
 
 const mDTP = dispatch => ({
-  getSubscribe: subscribe => dispatch(getSubscribe(subscribe)),
+  createSubscribe: subscribe => dispatch(createSubscribe(subscribe)),
   removeSubscribe: (subscribe) => dispatch(removeSubscribe(subscribe)),
   openModal: (modal) => dispatch(openModal(modal)),
 });

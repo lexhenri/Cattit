@@ -21,7 +21,7 @@ class Api::SubscribesController < ApplicationController
       @subscribe.destroy
       render json: @subscribe
     else
-      render json: @subscribe
+      render json: ["Not subscribed"], status: 418
     end
   end
 

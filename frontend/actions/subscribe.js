@@ -13,7 +13,7 @@ const receiveSubscribe = (subscribe) => ({
   subscribe
 })
 
-export const getSubscribe = (subscribe) => dispatch => {
+export const createSubscribe = (subscribe) => dispatch => {
   return SubscribeApiUtil.createSubscribe(subscribe)
     .then((subscribe) => dispatch(receiveSubscribe(subscribe)));
 }
