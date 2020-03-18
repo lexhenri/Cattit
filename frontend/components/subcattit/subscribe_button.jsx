@@ -65,7 +65,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
               onMouseEnter={(e) => onMouseover(e)}
               onMouseLeave={(e) => onMouseout(e)}>
         
-          <span>{subscribeText}</span>
+          <span className="follow-btn-text">{subscribeText}</span>
         
       </button>
     )
@@ -76,7 +76,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
       <button className="follow-btn"
         onClick={(e) => handleSubscribe(e)}>
 
-        <span>Join</span>
+        <span className="follow-btn-text">Join</span>
 
       </button>
     )
@@ -84,12 +84,9 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
 
   return (
     <div>
-
         {
           (!subscribed) ? (<div>{renderJoinButton()}</div>)  : (<div>{renderLeaveButton()}</div>)
-        }
-
-    
+        }    
     </div>
   )
 
