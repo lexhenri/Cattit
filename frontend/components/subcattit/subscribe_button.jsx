@@ -85,7 +85,8 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
   return (
     <div>
         {
-          (!subscribed) ? (<div>{renderJoinButton()}</div>)  : (<div>{renderLeaveButton()}</div>)
+        (!subscribed) ? (<div className="follow-btn-container">{renderJoinButton()}</div>) 
+        : (<div className="follow-btn-container">{renderLeaveButton()}</div>)
         }    
     </div>
   )

@@ -168,12 +168,17 @@ span.description {
   // width: 100%;
 }
 
+.follow-btn-container {
+  display: flex;
+  padding: 1px 9px;
+  width: 96px;
+  height: 32px;
+}
 
 .follow-btn {
   fill: #0079d3;
   color: #0079d3;
   width: 96px;
-  height: 32px;
   background-color: #FFF;
   display: inline-block;
   box-sizing: border-box;
@@ -182,7 +187,7 @@ span.description {
   outline: 0;
   transition: color .01s ease-in,text-indent .25s ease-in,opacity .25s ease-in;
   cursor: pointer;
-  padding: 2px 8px;
+  // padding: 1px 9px;
   // margin: 22px 12px 10px;
 }
 
@@ -196,8 +201,8 @@ span.description {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: .5px;
-  line-height: 24px;
-  font-size: 12px;
+  // line-height: 24px;
+  font-size: 14px;
   font-weight: 700;
   margin: 0 auto;
   // padding: 15px 4px 9px 2px;
