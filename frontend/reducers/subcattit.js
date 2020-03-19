@@ -22,8 +22,6 @@ const subcattitReducer = (state = {}, action) => {
       nextState[action.subscribe.subcattit_name].subscribes.push(action.subscribe);
       return nextState;
     case DESTROY_SUBSCRIBE:
-      // console.log(nextState)
-      // console.log(nextState[action.subscribe.subcattit_name])
       nextState[action.subscribe.subcattit_name].subscribes = nextState[action.subscribe.subcattit_name].subscribes.filter((subscribe) =>
         subscribe.id !== action.subscribe.id)
       return nextState

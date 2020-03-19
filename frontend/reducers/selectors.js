@@ -32,12 +32,6 @@ export const findUserDowndoots = (downdoots, currentUser) => {
   return userDowndoots;
 }
 
-// export const findUserUpdoot = (updoots, currentUser) => {
-//   let upDoot = {};
-//   if (currentUser === undefined) return null;
-//   Object.values(updoots).forEach(updoot => updoot.user_id === currentUser.id ? updoot = upDoot : null );
-//   return upDoot;
-// }
 
 export const findTotalDoots = (updoots, downdoots) => {
   let upDoots = Object.keys(updoots).length;

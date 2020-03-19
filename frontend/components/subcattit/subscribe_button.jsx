@@ -9,7 +9,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
   const [user_id, setCurrentUser] = useState("")
   const [subscribed, setSubscribe] = useState(false);
   const [subcattit_id, setSubcattitId] = useState(subcattitName);
-  const [subcattit_name, setSubcattitName] = useState(subcattitName);
+  // const [subcattit_name, setSubcattitName] = useState(subcattitName);
   const [subscribeText, setSubscribeText] = useState("Joined");
 
   useEffect (() => {
