@@ -83,7 +83,8 @@
 
 
 .sidebar-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 312px;
   box-sizing: border-box;
   margin-left: 20px;

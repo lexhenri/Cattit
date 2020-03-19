@@ -15,7 +15,6 @@ const SubSidebar = props => {
 
 
   return (
-  <div className="sidebar-container">
       <div className="box">
        {
         (props.page === "subcattit") ?
@@ -74,21 +73,7 @@ const SubSidebar = props => {
         </div>
       </div>
     </div>
-
-        {
-          (props.page === "subcattit") ?
-     ( <div className="box">
-        <div className="box-banner"><h1 className='box-title'>Recommended Subcattits</h1></div>
-        <div className="box-content">
-          <NavLink className="subcattit-link" to="/mew/owls">Owls</NavLink>
-          <NavLink className="subcattit-link" to="/mew/herbs">Herbs</NavLink>
-          <NavLink className="subcattit-link" to="/mew/catnip">Catnip</NavLink>
-          <NavLink className="subcattit-link" to="/mew/lit-cats">Lit-Cats</NavLink>
-          <NavLink className="subcattit-link" to="/mew/mice">Mice</NavLink>
-        </div>
-      </div>) : (null)
-      }
-  </div>)
+    )
 }
 
 

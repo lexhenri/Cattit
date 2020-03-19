@@ -8,6 +8,7 @@ import SubSidebar from './sub_sidebar';
 import { HideUntilLoaded } from 'react-animation';
 import SpinLogo from '../../../app/assets/images/cattit_logos/cattit-head-logo.png';
 import SubscribeButton from './subscribe_button';
+import SubscriptionSidebar from './subscription_sidebar';
 
 
 class Subcattit extends React.Component {
@@ -85,9 +86,12 @@ class Subcattit extends React.Component {
           <PostIndexContainer subcattit={this.state.subcattit} posts={this.state.posts}/> 
            </HideUntilLoaded>
           </div>
+          <div className='sidebar-container'>
         <SubSidebar subcattit={this.props.subcattitInfo} page={"subcattit"} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
+        <SubscriptionSidebar />
           </div> 
           </div>
+      </div>
     )
   }
 }
