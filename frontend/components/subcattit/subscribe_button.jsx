@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createSubscribe, removeSubscribe } from '../../actions/subscribe';
 import { openModal } from '../../actions/modal';
-import { isSubscribed, currentUser } from '../../reducers/selectors';
+import { isSubscribed } from '../../reducers/selectors';
 import { connect } from 'react-redux';
 
 
@@ -10,8 +10,8 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
   const [user_id, setCurrentUser] = useState("")
   const [subscribed, setSubscribe] = useState(hasSub);
   const [subcattit_id, setSubcattitId] = useState(subcattitName);
-  // const [subcattit_name, setSubcattitName] = useState(subcattitName);
   const [subscribeText, setSubscribeText] = useState("Joined");
+  const [currentSubcat, setCurrentSubcat] = useState(subcattit);
 
   useEffect (() => {
     if (currentUser){
@@ -20,8 +20,15 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
   }, [currentUser])
 
   useEffect(() => {
-    setSubscribe(hasSub)
+    setSubscribe(hasSub);
+    // console.log(hasSub);
   }, [hasSub])
+
+  useEffect(() => {
+    setCurrentSubcat(subcattit)
+    setSubscribe(hasSub);
+  }, [subcattit]);
+
 
   function findUserSubscripton() {
     let subScribe = {};
@@ -45,7 +52,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
       e.preventDefault();
       e.stopPropagation();
       createSubscribe({subcattit_id, user_id});
-      // setSubscribe(!subscribed)
+      setSubscribe(true);
     } else {
       openModal("login");
     }
@@ -57,7 +64,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
       e.stopPropagation();
       const unSub = findUserSubscripton()
       removeSubscribe(unSub);
-      // setSubscribe(!subscribed)
+      setSubscribe(false);
     } else {
       openModal("login");
     }
@@ -90,7 +97,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
   return (
     <div>
         {
-        (!hasSub) ? (<div className="follow-btn-container">{renderJoinButton()}</div>) 
+        (!subscribed) ? (<div className="follow-btn-container">{renderJoinButton()}</div>) 
         : (<div className="follow-btn-container">{renderLeaveButton()}</div>)
         }    
     </div>
@@ -101,7 +108,10 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
 
 const mSTP = (state, ownProps) => {
   let subscribeList = ownProps.subcattit.subscribes;
-  let userSubbed = isSubscribed(ownProps.currentUser, subscribeList);
+  let userSubbed = false;
+  if (ownProps.currentUser) {
+    userSubbed = isSubscribed(subscribeList, ownProps.currentUser);
+  }
   return {
     hasSub: userSubbed,
   }

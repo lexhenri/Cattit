@@ -10,7 +10,7 @@ class Api::SubscribesController < ApplicationController
     else
       @subcattit = Subcattit.find_by(name: params[:subcattit_id])
       @subscribe = @subcattit.subscribes.create(user_id: current_user.id, subcattit_id: @subcattit.id, subcattit_name: params[:subcattit_id])
-      render json: @subscribe
+      render :index
     end
   end
 
@@ -19,7 +19,7 @@ class Api::SubscribesController < ApplicationController
       @subcattit = Subcattit.find_by(name: params[:subcattit_id])
       @subscribe = Subscribe.find_by(user_id: current_user.id, subcattit_id: @subcattit.id)
       @subscribe.destroy
-      render json: @subscribe
+      render :index
     else
       render json: ["Not subscribed"], status: 418
     end

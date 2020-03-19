@@ -41,8 +41,9 @@ export const findTotalDoots = (updoots, downdoots) => {
 }
 
 export const isSubscribed = (subscribers, currentUser) => {
+  if (currentUser === undefined) return false;
   let subscribed = false;
-  if (currentUser === undefined) return null;
+  // console.log(subscribers);
   Object.values(subscribers).forEach(subscriber => subscriber.user_id === currentUser.id ? subscribed = true : subscribed = false );
   return subscribed;
 }
