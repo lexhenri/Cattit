@@ -4,3 +4,10 @@ export const getUser = (userId) => (
     method: 'GET'
   })
 )
+
+export const getSubscribes = (userId) => (
+  $.ajax({
+    url: `api/users/${userId}/subscribes`,
+    method: 'GET'
+  })
+)

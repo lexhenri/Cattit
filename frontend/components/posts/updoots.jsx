@@ -58,7 +58,7 @@ function Updoots (props) {
     }
   }
 
-  function handleUpdoot(e, post) {
+  function handleUpdoot(e) {
     e.preventDefault();
     e.stopPropagation();
     if (props.currentUser !== undefined) {

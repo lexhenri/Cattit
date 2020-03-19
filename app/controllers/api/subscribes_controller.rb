@@ -25,6 +25,11 @@ class Api::SubscribesController < ApplicationController
     end
   end
 
+  def show
+    @subscribes = User.subscribes.find_by(user_id: params[:user_id])
+    render :index
+  end
+
 
 
 private
