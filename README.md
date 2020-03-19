@@ -2,7 +2,7 @@
 
 ### Cattit is Reddit, but for cats. They post human memes. We've come full circle.
 
-Link to live Heroku app: https://cattit.herokuapp.com/#/mew/mice
+Link to live Heroku app: https://cattit.herokuapp.com/mew/mice
 
 Cattit's frontend components were developed and are rendered in React, while backend routes and storage is handled through a Rails API. Cattit runs on Ruby v5.2.1.
 
