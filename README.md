@@ -8,7 +8,7 @@ Link to demo video: https://vimeo.com/399243286
 
 Quick gif of demo video!
 
-![demo](https://i.imgur.com/zfo1fk2t.gif)
+<iframe class="imgur-embed" width="100%" height="406" frameborder="0" src="https://i.imgur.com/zfo1fk2.gifv#embed"></iframe>
 
 Cattit's frontend components were developed and are rendered in React, while backend routes and storage is handled through Rails API and PostgreSQL. Cattit runs on Ruby v5.2.4
 
