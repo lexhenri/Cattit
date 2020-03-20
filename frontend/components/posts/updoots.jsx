@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useSelector } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { clearErrors } from '../../actions/session';
 import { currentUser, findUserUpdoots, findUserDowndoots, findTotalDoots } from '../../reducers/selectors';
 import { giveUpdoot, removeUpdoot, giveDowndoot, removeDowndoot } from '../../actions/updoots';
 import { openModal, closeModal } from '../../actions/modal';
@@ -87,20 +86,20 @@ function Updoots (props) {
         const updoot = findUserUpdoot(props.post.updoots, props.currentUser);
         props.removeUpdoot(updoot);
       }
-      setPostdoot(props.postDoots) //idk why this must go here to work but it must
+      setPostdoot(props.postDoots)
     } else {
       props.openModal("login");
     }
   }
 
-  const renderUserUpdoots = (post) => {
+  const renderUserUpdoots = () => {
     return (
       <div>
         {
           !userUpdoot ?
             (<div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e)}>
               <i className="fas fa-angle-double-up" />
-            </div>) : (<div className='updooted' onClick={(e) => removeDoot(e, post)}>
+            </div>) : (<div className='updooted' onClick={(e) => removeDoot(e)}>
               <i className="fas fa-angle-double-up" />
             </div>)
         }
@@ -108,57 +107,17 @@ function Updoots (props) {
     )
   }
 
-  const renderUpdoots = (post) => {
-    return (
-      <div>
-        <div className='no-doots no-doots-up' onClick={(e) => handleUpdoot(e)}>
-          <i className="fas fa-angle-double-up" />
-        </div>
-      </div>
-    )
-  }
-
-  const renderDowndoots = (post) => {
-    return (
-      <div>
-        <div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e)}>
-          <i className="fas fa-angle-double-down" />
-        </div>
-      </div>
-    )
-  }
-
-  const renderUserDowndoots = (post) => {
-    return (
-      <div>
-        {
-          !userDowndoot ?
-            (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e)}>
-              <i className="fas fa-angle-double-down" />
-            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e, post)}>
-              <i className="fas fa-angle-double-down" />
-            </div>)
-        }
-      </div>
-    )
-  }
-
-  //TODO: why are these four functions???
-
   return (
 
     <div className="karma-container">
-      {
-        userUpdoot ? (<div>{renderUserUpdoots(props.post)}</div>) :
-          (<div>{renderUpdoots(props.post)}</div>)
-      }
+
+     <div>{renderUserUpdoots(props.post)}</div>   
       <span className="karma-container">{props.postDoots}</span>
-      {
-        userDowndoot ? (<div> {renderUserDowndoots(props.post)}</div>) :
-          (<div> {renderDowndoots(props.post)}</div>)
-      }
+      <div> {renderUserDowndoots(props.post)}</div>
+      
+      
     </div>
-  )
+    )
   }
 
 
