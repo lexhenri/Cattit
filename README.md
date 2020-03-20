@@ -8,7 +8,7 @@ Link to demo video: https://vimeo.com/399243286
 
 Quick gif of demo video!
 
-![demo](https://i.imgur.com/j7WC1ND.gif)
+![demo](https://i.imgur.com/zfo1fk2.gif)
 
 <blockquote class="imgur-embed-pub" lang="en" data-id="j7WC1ND"><a href="//imgur.com/j7WC1ND">cattit!</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
