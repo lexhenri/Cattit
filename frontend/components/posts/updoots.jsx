@@ -41,7 +41,7 @@ function Updoots (props) {
     return downDoot;
   }
 
-  function removeDoot(e, post) {
+  function removeDoot(e) {
     e.preventDefault();
     e.stopPropagation();
     if (userDowndoot) {
@@ -107,6 +107,21 @@ function Updoots (props) {
     )
   }
 
+  const renderUserDowndoots = () => {
+    return (
+      <div>
+        {
+          !userDowndoot ?
+            (<div className='no-doots no-doots-down' onClick={(e) => handleDowndoot(e)}>
+              <i className="fas fa-angle-double-down" />
+            </div>) : (<div className='downdooted' onClick={(e) => removeDoot(e)}>
+              <i className="fas fa-angle-double-down" />
+            </div>)
+        }
+      </div>
+    )
+  }
+
   return (
 
     <div className="karma-container">
@@ -114,7 +129,6 @@ function Updoots (props) {
      <div>{renderUserUpdoots(props.post)}</div>   
       <span className="karma-container">{props.postDoots}</span>
       <div> {renderUserDowndoots(props.post)}</div>
-      
       
     </div>
     )

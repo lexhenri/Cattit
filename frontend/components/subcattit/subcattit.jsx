@@ -36,17 +36,14 @@ class Subcattit extends React.Component {
         subcattit: this.props.subcattit,
         posts: this.props.posts
       })
-      console.log("update!")
       this.props.clearError();
 
       }
   }
   
   render(){
-    // debugger;
     Moment.locale('en');
     if (this.props.subcattitInfo === undefined) return null;
-    // debugger;
     return (
       <div>
       <div className="top-banner">
@@ -59,9 +56,7 @@ class Subcattit extends React.Component {
           <h1 className="header-title">{this.props.subcattitInfo.name}</h1>
           <h2 className='subcat-title'>mew/{this.props.subcattitInfo.name}</h2>
             </div>
-            <SubscribeButton subcattitName={this.props.subcattitInfo.name} currentUser={this.props.currentUser} subcattit={this.props.subcattitInfo}/>
-            {/* {PUT SUBSCRIBE BUTTON COMPONENT HERE} */}
-        
+            <SubscribeButton subcattitName={this.props.subcattitInfo.name} currentUser={this.props.currentUser} subcattit={this.props.subcattitInfo}/>        
           </div>
           </div>
 

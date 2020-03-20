@@ -21,20 +21,14 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount(){
-    // debugger;
     this.setState({
       subcattit: this.props.subcattit
     })
-    // this.props.fetchPosts(this.props.subcattit);
-    // console.log("mounted!")
   }
 
   componentDidUpdate(preProps){
     if (preProps.subcattit !==  this.props.subcattit) {
       this.props.fetchPosts(this.props.subcattit);
-    // } else if (preProps.posts.length !== Object.values(this.props.posts).length) {
-    //   this.props.fetchPosts(this.props.subcattit)
-    // }
   }
 }
 

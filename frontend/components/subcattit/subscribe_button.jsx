@@ -21,7 +21,6 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
 
   useEffect(() => {
     setSubscribe(hasSub);
-    // console.log(hasSub);
   }, [hasSub])
 
   useEffect(() => {
@@ -32,7 +31,9 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
 
   function findUserSubscripton() {
     let subScribe = {};
-    Object.values(subcattit.subscribes).forEach(subscribe => subscribe.user_id === user_id ? subScribe = subscribe : null);
+    Object.values(subcattit.subscribes)
+      .forEach(subscribe => subscribe.user_id === user_id ? 
+        subScribe = subscribe : null);
     return subScribe;
   }
 
@@ -76,9 +77,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
               onClick={(e) => handleUnSubscribe(e)} 
               onMouseEnter={(e) => onMouseover(e)}
               onMouseLeave={(e) => onMouseout(e)}>
-        
-          <span className="follow-btn-text">{subscribeText}</span>
-        
+          <span className="follow-btn-text">{subscribeText}</span>   
       </button>
     )
   }
@@ -87,9 +86,7 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
     return (
       <button className="follow-btn"
         onClick={(e) => handleSubscribe(e)}>
-
         <span className="follow-btn-text">Join</span>
-
       </button>
     )
   }
@@ -97,8 +94,8 @@ const SubscribeButton = ({subcattitName, subcattit, currentUser, createSubscribe
   return (
     <div>
         {
-        (!subscribed) ? (<div className="follow-btn-container">{renderJoinButton()}</div>) 
-        : (<div className="follow-btn-container">{renderLeaveButton()}</div>)
+        (subscribed) ? (<div className="follow-btn-container">{renderLeaveButton()}</div>) 
+        : (<div className="follow-btn-container">{renderJoinButton()}</div>)
         }    
     </div>
   )

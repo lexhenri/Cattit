@@ -98,18 +98,6 @@ class CreateForm extends React.Component {
     }
   }
 
-  // handleCreatePost(post){
-  //   let newPost = this.props.createPost(post);
-  //   debugger;
-  //   () => {
-  //     setTimeout(() => {
-  //       this.setState({
-  //         updoots: this.props.giveUpdoot(newPost)
-  //       });
-  //     }, 3000);
-  //   }
-  // }
-
 
   previewImage(e) {
     const reader = new FileReader();
@@ -126,12 +114,6 @@ class CreateForm extends React.Component {
       this.setState({ imageUrl: "", imageFile: null });
     }
   }
-
-  // uploadSingleFile(e) {
-  //   this.setState({
-  //     file: URL.createObjectURL(e.target.files[0])
-  //   })
-  // }
 
   handleFile(e) {
     e.preventDefault();
