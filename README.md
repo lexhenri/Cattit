@@ -1,4 +1,4 @@
-#Production README
+# Production README
 
 ### Cattit is Reddit, but for cats. They post human memes. We've come full circle.
 
@@ -8,7 +8,7 @@ Link to demo video: https://vimeo.com/399243286
 
 Quick gif of demo video!
 
-[Imgur](https://i.imgur.com/j7WC1ND.gifv)
+![demo](https://i.imgur.com/j7WC1ND.gifv)
 
 Cattit's frontend components were developed and are rendered in React, while backend routes and storage is handled through Rails API and PostgreSQL. Cattit runs on Ruby v5.2.4
 
@@ -44,7 +44,9 @@ function Updoots (props) {
   function findUserUpdoot(updoots, currentUser) {
     let upDoot = {};
     if (currentUser === undefined) return null;
-    Object.values(updoots).forEach(updoot => updoot.user_id === currentUser.id ? upDoot = updoot : null);
+    Object.values(updoots)
+      .forEach(updoot => updoot.user_id === currentUser.id ? 
+        upDoot = updoot : null);
     return upDoot;
   }
 
@@ -284,8 +286,13 @@ Handlers:
  ```
  renderTextButton(){
     return (
-      <div className={this.state.clicked === 'first' ? 'tab-highlight' : 'tab-button'} id="first" onClick={e => this.toggleTab(e)}>
-          <div className={this.state.post_type === 'text' ? 'content-highlight' : 'tab-content'} onClick={() => this.updateType('text')}>
+      <div 
+        className={this.state.clicked === 'first' ? 'tab-highlight' : 'tab-button'} 
+        id="first" 
+        onClick={e => this.toggleTab(e)}>
+          <div 
+            className={this.state.post_type === 'text' ? 'content-highlight' : 'tab-content'} 
+            onClick={() => this.updateType('text')}>
        //SVG element here
         <span>Post</span>
       </div>
@@ -295,8 +302,13 @@ Handlers:
 
   renderImageButton(){
     return (
-      <div className={this.state.clicked === 'second' ? 'tab-highlight' : 'tab-mid'} id="second" onClick={e => this.toggleTab(e)}>
-        <div className={this.state.post_type === 'image' ? 'content-highlight' : 'tab-content'} onClick={() => this.updateType('image')}>
+      <div 
+        className={this.state.clicked === 'second' ? 'tab-highlight' : 'tab-mid'} 
+        id="second" 
+        onClick={e => this.toggleTab(e)}>
+        <div 
+          className={this.state.post_type === 'image' ? 'content-highlight' : 'tab-content'} 
+          onClick={() => this.updateType('image')}>
         //SVG element here
           <span>Image</span>
         </div>
@@ -306,8 +318,13 @@ Handlers:
 
   renderLinkButton(){
     return (
-      <div className={this.state.clicked === 'third' ? 'tab-highlight' : 'tab-button'} id="third" onClick={e => this.toggleTab(e)}>
-        <div className={this.state.post_type === 'link' ? 'content-highlight' : 'tab-content'} onClick={() => this.updateType('link')}>
+      <div 
+        className={this.state.clicked === 'third' ? 'tab-highlight' : 'tab-button'} 
+        id="third" 
+        onClick={e => this.toggleTab(e)}>
+        <div 
+          className={this.state.post_type === 'link' ? 'content-highlight' : 'tab-content'} 
+           onClick={() => this.updateType('link')}>
          //SVG element here
         <span>Link</span>
       </div> 
