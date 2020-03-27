@@ -62,34 +62,6 @@ removeHandler(e){
    })
  }
 
-
-//  removeDoot(e, post){
-//    e.preventDefault();
-//    e.stopPropagation();
-//    let downDoot = post.downdoots.length;
-//    let upDoot = post.updoots.length;
-//    if (downDoot === 1){
-//      this.props.removeDowndoot(post);
-//    } else if (upDoot === 1){
-//      this.props.removeUpdoot(post);
-//    } else {
-//      return -1;
-//    }
-//   }
-
-//   giveUpdoot(e, post){
-//     e.preventDefault();
-//     e.stopPropagation();
-//     this.props.giveUpdoot(post)
-//   }
-
-//   giveDowndoot(e, post){
-//     e.preventDefault();
-//     e.stopPropagation();
-//     this.props.giveDowndoot(post)
-//   }
-
-
   render(){
 
     // debugger;
@@ -128,22 +100,6 @@ removeHandler(e){
       </div>
     )
     
-  // render(){
-  //   const { posts } = this.props;
-  //   return(
-  //     <div className="post-container">
-  //       { Object.values(posts).map((post, i) => 
-  //         <div onClick={(e) => this.openModal(e, post)} key={i}>
-  //           <PostIndexItem 
-  //             post={post} 
-  //             key={i} 
-  //             subcattit={this.props.subcattit} 
-  //             removeHandler={this.removeHandler.bind(this)} 
-  //             currentUser={this.props.currentUser} />
-  //             </div>)
-  //       }
-  //     </div>
-  //   )
   }
 }
 
