@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  welcome_to_cattit: "Welcome to Cattit"
+  login: "Log In"
+  create_acct: "New User"
+  title: "cattit: the front page of the kittynet"

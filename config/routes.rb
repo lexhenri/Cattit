@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "static_pages#root"
 
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show] do 
       resource :subscribes, only: [:index, :show]
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
     end
     resources :frontpage, only: [:index]
     end
-
+  end
     get '*path', to: 'static_pages#root', constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
   } 
