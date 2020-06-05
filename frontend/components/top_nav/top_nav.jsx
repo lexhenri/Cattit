@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Dropdown from './dropdown';
 // import TopLogo from '../../../app/assets/images/cattit_logos/cattit_logo.svg'
 import TopLogo from '../../../app/assets/images/cattit_logos/cattit-01.svg'
-import { Translate, Localize } from 'react-i18nify';
+import { Translate, Localize } from 'react-redux-i18n';
 
 class TopNav extends React.Component {
 
