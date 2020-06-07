@@ -6,6 +6,8 @@ import CreatePostFormContainer from '../posts/create_post_form_container';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { currentUser } from '../../reducers/selectors';
+import { Translate } from 'react-redux-i18n';
+
 
 
 //WORK IN PROGRESS
@@ -19,7 +21,7 @@ const SubSidebar = props => {
        {
         (props.page === "subcattit") ?
             (<div className="box-banner">
-              <h1 className='box-title'>About Community</h1>
+              <h1 className='box-title'><Translate value="application.about_community"/></h1>
             </div>): 
             (<div className = "box-banner"></div>)
        }

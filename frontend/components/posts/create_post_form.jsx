@@ -76,14 +76,16 @@ class CreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.props.errors){
     this.setState({
       loading: true
     });
+  };
     () => {
       setTimeout(() => {
-        this.setState({
-          loading: false
-        });
+          this.setState({
+            loading: false
+          });
       }, 4000);
     }
     if (this.state.imageFile) {

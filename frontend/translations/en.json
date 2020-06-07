@@ -1,0 +1,9 @@
+{
+    "en":{
+       "application":{
+          "login":"Log In",
+          "signup":"Sign Up",
+          "about_community": "About Community"
+       }
+    }
+ }

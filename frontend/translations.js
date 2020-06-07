@@ -1,22 +1,12 @@
 import { addLocales, setLocale } from 'react-i18nify';
+import { en } from './translations/en.json';
+import { ja } from './translations/ja.json';
 // import ja from 'date-fns/locale/ja';
 // import en from 'date-fns/locale/en-US';
 
 const translationsObj = {
-    en: {
-        application: {
-          login: 'Log In',
-          signup: 'Sign Up'
-        },
-    },
-      ja: {
-        application: {
-          login: 'ログイン',
-          signup: '新規登録'
-        },
-      }
-};
-
+  en: en,
+  ja: ja
 // setTranslations({
  
 // });
@@ -27,5 +17,6 @@ const translationsObj = {
 //     ja: ja,
 //     en: en,
 //   });
+}
 
 export default translationsObj;
