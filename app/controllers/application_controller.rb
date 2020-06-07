@@ -36,7 +36,7 @@ def set_locale
 end
 
 def extract_locale
-  parsed_locale = params[:locale]
+  parsed_locale = params[:locale] || request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/)[0]
   I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
 end
 
