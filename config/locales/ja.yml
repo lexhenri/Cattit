@@ -3,4 +3,21 @@ ja:
   welcome_to_cattit: "いらしゃい"
   login: "ログイン"
   create_acct: "新規登録"
-  title: "カッヂット：ネットの一番猫のところ"
+  web_title: "カッヂット：ネットの一番猫のところ"
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: "[日本äcannot be blank한국어]"
+    models:
+      post: '[日本äpost한국어]'
+    attributes:
+      post:
+        title: '[日本äTitle한국어]'
+
+          
+
+
+  

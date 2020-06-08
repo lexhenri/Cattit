@@ -34,4 +34,18 @@ en:
   welcome_to_cattit: "Welcome to Cattit"
   login: "Log In"
   create_acct: "New User"
-  title: "cattit: the front page of the kittynet"
+  web_title: 'cattit: the front page of the kittynet'
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: "cannot be blank"
+    models:
+      post: "Post"
+    attributes:
+      post:
+        title: "Title"
+
+
